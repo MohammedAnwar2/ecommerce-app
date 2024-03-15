@@ -7,6 +7,46 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.6
+  get: ^4.6.6
+# DateTime
+  jiffy: ^6.2.2
+  intl: ^0.19.0
+  http: ^1.2.0
+# Images
+  cached_network_image: ^3.3.1
+  image_picker: ^1.0.7
+# Animation
+  show_up_animation: ^2.0.0
+  auto_animated: ^3.2.0
+# Google Map
+  flutter_polyline_points: ^2.0.0
+  google_maps_flutter: ^2.5.3
+  geolocator: ^11.0.0
+  geocoding: ^2.2.0
+# Firebase And Notification 
+  firebase_messaging: ^14.7.19
+  firebase_core: ^2.27.0
+  flutter_local_notifications: ^16.3.3
+  cloud_firestore: ^4.15.8
+# Local Data Cache
+  sqflite: ^2.3.2
+  shared_preferences: ^2.2.2
+  path: ^1.8.3
+# Qrcode 
+  qr_flutter: ^4.1.0
+  # scan: ^1.6.0
+  grouped_list: ^5.1.2
+  url_launcher: ^6.2.5
+  dropdown_search: ^5.0.6
+  badges: ^3.1.2
+# Icon 
+  flutter_svg: ^2.0.10+1
+  font_awesome_flutter: ^10.7.0
+  fluttericon: ^2.0.0
+  dartz: ^0.10.1
+# Google Auth 
+  google_sign_in: ^6.2.1
+  responsive_builder: ^0.7.0
   
 
 dev_dependencies:

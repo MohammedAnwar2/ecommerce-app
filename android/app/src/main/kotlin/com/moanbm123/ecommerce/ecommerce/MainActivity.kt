@@ -1,4 +1,4 @@
-package com.moanbm123.ecommerce.ecommerce
+package com.moanbm123.ecommerce
 
 import io.flutter.embedding.android.FlutterActivity
 

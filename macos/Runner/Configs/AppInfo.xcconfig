@@ -8,7 +8,7 @@
 PRODUCT_NAME = ecommerce
 
 // The application's bundle identifier
-PRODUCT_BUNDLE_IDENTIFIER = com.moanbm123.ecommerce.ecommerce
+PRODUCT_BUNDLE_IDENTIFIER = com.moanbm123.ecommerce
 
 // The copyright displayed in application information
 PRODUCT_COPYRIGHT = Copyright © 2024 com.moanbm123.ecommerce. All rights reserved.
