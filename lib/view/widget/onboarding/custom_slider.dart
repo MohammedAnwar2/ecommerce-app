@@ -28,7 +28,7 @@ class PageViewBuilder extends GetView<ImpOnboardingController> {
             verticalSizedBox(80),
             Text(
               onBoardingList[i].title,
-              style: Theme.of(context).textTheme.bodyLarge,
+              style: Theme.of(context).textTheme.displayLarge,
             ),
             verticalSizedBox(20),
             Container(
@@ -36,7 +36,7 @@ class PageViewBuilder extends GetView<ImpOnboardingController> {
               alignment: Alignment.center,
               child: Text(
                 onBoardingList[i].body,
-                style: Theme.of(context).textTheme.displayLarge,
+                style: Theme.of(context).textTheme.bodyLarge,
                 textAlign: TextAlign.center,
               ),
             ),
