@@ -22,18 +22,15 @@ class PageViewBuilder extends GetView<ImpOnboardingController> {
       itemBuilder: (context, i) {
         return Column(
           children: [
+            Image.asset(
+              onBoardingList[i].image,
+            ),
+            verticalSizedBox(80),
             Text(
               onBoardingList[i].title,
               style: Theme.of(context).textTheme.bodyLarge,
             ),
-            verticalSizedBox(80),
-            Image.asset(
-              onBoardingList[i].image,
-              width: 200,
-              fit: BoxFit.fill,
-              height: 250,
-            ),
-            verticalSizedBox(80),
+            verticalSizedBox(20),
             Container(
               width: double.infinity,
               alignment: Alignment.center,

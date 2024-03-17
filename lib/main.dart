@@ -26,10 +26,10 @@ class MyApp extends StatelessWidget {
               fontFamily: "PlayfairDisplay",
               textTheme: TextTheme(
                   displayLarge: TextStyle(
-                      color: AppColor.grey, fontSize: fontSize(16), height: 2),
+                      color: AppColor.grey, fontSize: fontSize(14), height: 2),
                   bodyLarge: TextStyle(
                       color: AppColor.black,
-                      fontSize: fontSize(16),
+                      fontSize: fontSize(20),
                       fontWeight: FontWeight.bold))),
           home: Onbording(),
         );

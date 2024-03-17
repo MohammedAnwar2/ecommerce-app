@@ -15,14 +15,15 @@ class CustomButtomOnboarding extends GetView<ImpOnboardingController> {
         margin: EdgeInsetsDirectional.only(bottom: size(30)),
         padding: EdgeInsetsDirectional.symmetric(horizontal: size(60)),
         decoration: BoxDecoration(
-            color: AppColor.blue, borderRadius: BorderRadius.circular(8)),
+            color: AppColor.primaryColor,
+            borderRadius: BorderRadius.circular(8)),
         child: TextButton(
           onPressed: () {
             controller.nextPage();
           },
-          child: Text(
+          child: const Text(
             "Continue",
-            style: TextStyle(color: Colors.white),
+            style: TextStyle(color: AppColor.white),
           ),
         ));
   }

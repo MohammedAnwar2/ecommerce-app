@@ -1,3 +1,4 @@
+import 'package:ecommerce/data/datasource/static/static.dart';
 import 'package:ecommerce/route/route_app.dart';
 import 'package:ecommerce/view/screen/home_page.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +21,7 @@ class ImpOnboardingController extends OnboardingController {
   @override
   nextPage() {
     ++dotValue;
-    if (dotValue > 3) {
+    if (dotValue > onBoardingList.length - 1) {
       Get.offAllNamed(AppRoute.Login);
     } else {
       print(dotValue);
