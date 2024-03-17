@@ -1,3 +1,4 @@
+import 'package:ecommerce/route/routes.dart';
 import 'package:ecommerce/view/screen/Onbording.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -18,14 +19,10 @@ class MyApp extends StatelessWidget {
         return GetMaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'First Method',
-          theme: ThemeData(
-            primarySwatch: Colors.blue,
-            textTheme: Typography.englishLike2018.apply(fontSizeFactor: 1.sp),
-          ),
-          home: child,
+          getPages: getPages,
+          home: Onbording(),
         );
       },
-      child: Onbording(),
     );
   }
 }

@@ -19,7 +19,7 @@ class Onbording extends StatelessWidget {
             flex: 3,
             child: PageViewBuilder(),
           ),
-          Expanded(
+          const Expanded(
               flex: 1,
               child: Column(
                 children: [
