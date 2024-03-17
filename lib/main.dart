@@ -5,6 +5,7 @@ import 'package:ecommerce/core/services/service.dart';
 import 'package:ecommerce/core/shared/horizontal_and_vertical_size.dart';
 import 'package:ecommerce/route/routes.dart';
 import 'package:ecommerce/view/screen/Onbording.dart';
+import 'package:ecommerce/view/screen/language.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -40,7 +41,7 @@ class MyApp extends StatelessWidget {
                       color: AppColor.black,
                       fontSize: fontSize(20),
                       fontWeight: FontWeight.bold))),
-          home: Onbording(),
+          home: Language(),
         );
       },
     );

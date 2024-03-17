@@ -1,6 +1,6 @@
 import 'package:ecommerce/data/datasource/static/static.dart';
 import 'package:ecommerce/route/route_app.dart';
-import 'package:ecommerce/view/screen/auth/home_page.dart';
+import 'package:ecommerce/view/screen/auth/login.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -22,7 +22,7 @@ class ImpOnboardingController extends OnboardingController {
   nextPage() {
     ++dotValue;
     if (dotValue > onBoardingList.length - 1) {
-      Get.offAllNamed(AppRoute.Language);
+      Get.offAllNamed(AppRoute.Login);
     } else {
       print(dotValue);
       pageController?.animateToPage(dotValue,

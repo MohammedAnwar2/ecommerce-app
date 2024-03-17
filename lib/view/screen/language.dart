@@ -1,5 +1,6 @@
 import 'package:ecommerce/core/localization/change_language.dart';
 import 'package:ecommerce/core/shared/horizontal_and_vertical_size.dart';
+import 'package:ecommerce/route/route_app.dart';
 import 'package:ecommerce/view/widget/language/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -25,6 +26,7 @@ class Language extends GetView<MyLanguageController> {
           CustomLanguageButton(
             buttonName: "2".tr,
             onTap: () {
+              Get.offAllNamed(AppRoute.Onbording);
               controller.changeLangauge("ar");
             },
           ),
@@ -32,6 +34,7 @@ class Language extends GetView<MyLanguageController> {
           CustomLanguageButton(
             buttonName: "3".tr,
             onTap: () {
+              Get.offAllNamed(AppRoute.Onbording);
               controller.changeLangauge("en");
             },
           )
