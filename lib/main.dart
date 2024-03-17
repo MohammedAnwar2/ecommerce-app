@@ -1,3 +1,5 @@
+import 'package:ecommerce/core/constant/color.dart';
+import 'package:ecommerce/core/shared/horizontal_and_vertical_size.dart';
 import 'package:ecommerce/route/routes.dart';
 import 'package:ecommerce/view/screen/Onbording.dart';
 import 'package:flutter/material.dart';
@@ -20,6 +22,15 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           title: 'First Method',
           getPages: getPages,
+          theme: ThemeData(
+              fontFamily: "PlayfairDisplay",
+              textTheme: TextTheme(
+                  displayLarge: TextStyle(
+                      color: AppColor.grey, fontSize: fontSize(16), height: 2),
+                  bodyLarge: TextStyle(
+                      color: AppColor.black,
+                      fontSize: fontSize(16),
+                      fontWeight: FontWeight.bold))),
           home: Onbording(),
         );
       },

@@ -24,10 +24,7 @@ class PageViewBuilder extends GetView<ImpOnboardingController> {
           children: [
             Text(
               onBoardingList[i].title,
-              style: const TextStyle(
-                  color: Colors.black,
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold),
+              style: Theme.of(context).textTheme.bodyLarge,
             ),
             verticalSizedBox(80),
             Image.asset(
@@ -42,8 +39,7 @@ class PageViewBuilder extends GetView<ImpOnboardingController> {
               alignment: Alignment.center,
               child: Text(
                 onBoardingList[i].body,
-                style: TextStyle(
-                    color: AppColor.grey, fontSize: fontSize(16), height: 2),
+                style: Theme.of(context).textTheme.displayLarge,
                 textAlign: TextAlign.center,
               ),
             ),
