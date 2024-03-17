@@ -20,7 +20,7 @@ class CustomButtomOnboarding extends GetView<ImpOnboardingController> {
       child: Container(
         margin: EdgeInsetsDirectional.only(bottom: verticalSized(30)),
         padding: EdgeInsetsDirectional.symmetric(
-            horizontal: horizontalSize(80), vertical: verticalSized(12)),
+            horizontal: horizontalSize(90), vertical: verticalSized(12)),
         decoration: BoxDecoration(
             color: AppColor.primaryColor,
             borderRadius: BorderRadius.circular(8)),
