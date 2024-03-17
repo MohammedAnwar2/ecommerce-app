@@ -1,10 +1,13 @@
+import 'package:ecommerce/controller/onboardingController.dart';
 import 'package:ecommerce/core/constant/color.dart';
 import 'package:ecommerce/core/shared/horizontal_and_vertical_size.dart';
 import 'package:ecommerce/data/datasource/static/static.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_state_manager/get_state_manager.dart';
 
-class PageViewBuilder extends StatelessWidget {
-  const PageViewBuilder({
+class PageViewBuilder extends GetView<ImpOnboardingController> {
+  PageViewBuilder({
     super.key,
   });
 
@@ -12,12 +15,16 @@ class PageViewBuilder extends StatelessWidget {
   Widget build(BuildContext context) {
     return PageView.builder(
       itemCount: onBoardingList.length,
+      controller: controller.pageController,
+      onPageChanged: (value) {
+        controller.onPageChange(value);
+      },
       itemBuilder: (context, i) {
         return Column(
           children: [
             Text(
               onBoardingList[i].title,
-              style: TextStyle(
+              style: const TextStyle(
                   color: Colors.black,
                   fontSize: 20,
                   fontWeight: FontWeight.bold),
