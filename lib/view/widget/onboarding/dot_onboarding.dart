@@ -18,7 +18,7 @@ class CustomDotControllerOnboarding extends StatelessWidget {
             4,
             (index) => AnimatedContainer(
                   height: 6,
-                  width: controller.dotValue == index ? 15 : 6,
+                  width: controller.dotValue == index ? 20 : 6,
                   margin: const EdgeInsetsDirectional.only(start: 5),
                   duration: const Duration(milliseconds: 700),
                   decoration: BoxDecoration(

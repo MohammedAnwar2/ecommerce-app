@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 
 List<GetPage<dynamic>>? getPages = [
   GetPage(
-    name: AppRoute.Login,
-    page: () => Login(),
-  )
+      name: AppRoute.Login,
+      page: () => const Login(),
+      transition: Transition.fade)
 ];
