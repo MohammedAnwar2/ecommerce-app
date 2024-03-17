@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 Widget horizontalSizedBox(int size) {
-  return SizedBox(width: size.h);
+  return SizedBox(width: size.w);
 }
 
 Widget verticalSizedBox(int size) {
@@ -10,7 +10,7 @@ Widget verticalSizedBox(int size) {
 }
 
 double horizontalSize(int size) {
-  return size.h;
+  return size.w;
 }
 
 double verticalSized(int size) {
