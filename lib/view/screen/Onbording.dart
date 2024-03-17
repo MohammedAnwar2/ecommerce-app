@@ -1,7 +1,9 @@
+import 'package:ecommerce/core/constant/color.dart';
 import 'package:ecommerce/core/shared/horizontal_and_vertical_size.dart';
+import 'package:ecommerce/view/widget/onboarding/customButtom.dart';
+import 'package:ecommerce/view/widget/onboarding/dot_onboarding.dart';
 import 'package:ecommerce/view/widget/onboarding/pageview.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Onbording extends StatelessWidget {
   const Onbording({super.key});
@@ -20,34 +22,11 @@ class Onbording extends StatelessWidget {
               flex: 1,
               child: Column(
                 children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: List.generate(
-                        4,
-                        (index) => AnimatedContainer(
-                              height: 6,
-                              width: 6,
-                              margin: EdgeInsetsDirectional.only(start: 5),
-                              duration: Duration(milliseconds: 700),
-                              decoration: BoxDecoration(
-                                  color: Colors.amber,
-                                  borderRadius: BorderRadius.circular(10)),
-                            )),
-                  ),
+                  CustomDotControllerOnboarding(),
                   Spacer(
                     flex: 2,
                   ),
-                  Container(
-                      margin: EdgeInsetsDirectional.only(bottom: size(30)),
-                      padding:
-                          EdgeInsetsDirectional.symmetric(horizontal: size(60)),
-                      decoration: BoxDecoration(
-                          color: Colors.blue,
-                          borderRadius: BorderRadius.circular(8)),
-                      child: TextButton(
-                        onPressed: () {},
-                        child: Text("Continue"),
-                      )),
+                  CustomButtomOnboarding(),
                 ],
               ))
         ],
@@ -55,6 +34,9 @@ class Onbording extends StatelessWidget {
     ));
   }
 }
+
+
+
 
 
 /*
