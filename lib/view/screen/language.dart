@@ -1,4 +1,4 @@
-import 'package:ecommerce/controller/localizationController.dart';
+import 'package:ecommerce/core/localization/change_language.dart';
 import 'package:ecommerce/core/shared/horizontal_and_vertical_size.dart';
 import 'package:ecommerce/view/widget/language/custom_button.dart';
 import 'package:flutter/material.dart';

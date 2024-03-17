@@ -1,4 +1,4 @@
-import 'package:ecommerce/controller/localizationController.dart';
+import 'package:ecommerce/core/localization/change_language.dart';
 import 'package:ecommerce/core/constant/color.dart';
 import 'package:ecommerce/core/localization/translation.dart';
 import 'package:ecommerce/core/services/service.dart';
