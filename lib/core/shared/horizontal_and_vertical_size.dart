@@ -9,9 +9,16 @@ Widget verticalSizedBox(int size) {
   return SizedBox(height: size.h);
 }
 
-double size(int size) {
+double horizontalSize(int size) {
   return size.h;
 }
+
+double verticalSized(int size) {
+  return size.h;
+}
+// double size(int size) {
+//   return size.h;
+// }
 
 double fontSize(int size) {
   return size.sp;
