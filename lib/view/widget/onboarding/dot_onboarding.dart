@@ -1,4 +1,4 @@
-import 'package:ecommerce/controller/onboardingController.dart';
+import 'package:ecommerce/controller/onboarding_controller.dart';
 import 'package:ecommerce/core/constant/color.dart';
 import 'package:ecommerce/data/datasource/static/static.dart';
 import 'package:flutter/material.dart';
@@ -11,8 +11,8 @@ class CustomDotControllerOnboarding extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<ImpOnboardingController>(
-      init: ImpOnboardingController(),
+    return GetBuilder<OnboardingControllerImp>(
+      init: OnboardingControllerImp(),
       builder: (controller) => Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: List.generate(

@@ -1,10 +1,10 @@
-import 'package:ecommerce/controller/onboardingController.dart';
+import 'package:ecommerce/controller/onboarding_controller.dart';
 import 'package:ecommerce/core/constant/color.dart';
 import 'package:ecommerce/core/shared/horizontal_and_vertical_size.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 
-class CustomButtomOnboarding extends GetView<ImpOnboardingController> {
+class CustomButtomOnboarding extends GetView<OnboardingControllerImp> {
   const CustomButtomOnboarding({
     super.key,
   });
