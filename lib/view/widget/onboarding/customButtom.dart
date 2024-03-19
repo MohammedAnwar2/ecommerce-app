@@ -11,23 +11,20 @@ class CustomButtomOnboarding extends GetView<ImpOnboardingController> {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () {
-        controller.nextPage();
-      },
-      splashColor: Colors.transparent,
-      highlightColor: Colors.transparent,
-      child: Container(
-        margin: EdgeInsetsDirectional.only(bottom: verticalSized(30)),
-        padding: EdgeInsetsDirectional.symmetric(
-            horizontal: horizontalSize(90), vertical: verticalSized(12)),
-        decoration: BoxDecoration(
-            color: AppColor.primaryColor,
-            borderRadius: BorderRadius.circular(8)),
-        child: const Text(
-          "Continue",
-          style: TextStyle(color: AppColor.white),
+    return Padding(
+      padding: EdgeInsets.only(bottom: verticalSized(30)),
+      child: MaterialButton(
+        onPressed: () {
+          controller.nextPage();
+        },
+        color: AppColor.primaryColor,
+        textColor: AppColor.white,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(16),
         ),
+        padding: EdgeInsetsDirectional.symmetric(
+            vertical: 12, horizontal: horizontalSize(80)),
+        child: const Text("Continue"),
       ),
     );
   }
