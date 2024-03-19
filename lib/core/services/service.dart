@@ -1,3 +1,4 @@
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -6,6 +7,7 @@ class MyServices extends GetxService {
 
   Future<MyServices> init() async {
     sharePref = await SharedPreferences.getInstance();
+    await ScreenUtil.ensureScreenSize();
     return this;
   }
 }
