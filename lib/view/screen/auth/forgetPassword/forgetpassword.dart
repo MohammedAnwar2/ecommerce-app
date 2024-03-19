@@ -1,4 +1,4 @@
-import 'package:ecommerce/controller/auth/forgetpassword.dart';
+import 'package:ecommerce/controller/auth/forgetpassword_controller.dart';
 import 'package:ecommerce/core/constant/color.dart';
 import 'package:ecommerce/core/shared/horizontal_and_vertical_size.dart';
 import 'package:ecommerce/view/widget/auth/custom_text_appbar_title_auth.dart';
@@ -9,8 +9,8 @@ import 'package:ecommerce/view/widget/auth/custom_auth_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class ResetPassword extends StatelessWidget {
-  const ResetPassword({super.key});
+class ForgetPassword extends StatelessWidget {
+  const ForgetPassword({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,30 +22,32 @@ class ResetPassword extends StatelessWidget {
           backgroundColor: AppColor.background,
           elevation: 0.0,
           centerTitle: true,
-          title: const CustomTextAppBarTitleAuth(text: "Reset Password"),
+          title: const CustomTextAppBarTitleAuth(text: "Forger Password"),
         ),
         body: Container(
           padding:
               EdgeInsetsDirectional.symmetric(horizontal: horizontalSize(30)),
           child: ListView(
-            padding: EdgeInsetsDirectional.only(top: verticalSized(15)),
+            padding: EdgeInsetsDirectional.only(top: verticalSized(30)),
             children: [
               const CustomTextTitleAuth(text: "Check Email"),
               verticalSizedBox(20),
               const CustomTextBodyAuth(
                   text:
-                      "Sign up With Your Email And Password OR Continue With Social Media"),
+                      "Please Enter Your Email Address To Recive A Verification Code"),
               verticalSizedBox(20),
               CustomTextFormFieldAuth(
                 controller: controller.email,
-                hint: "Enter Your UserName",
-                lable: "UserName",
-                icon: Icons.person_2_outlined,
+                hint: "Enter Your Email",
+                lable: "Email",
+                icon: Icons.email_outlined,
               ),
-              verticalSizedBox(10),
+              verticalSizedBox(25),
               CustomAuthButton(
-                text: "Sign in",
-                onPressed: () {},
+                text: "Check",
+                onPressed: () {
+                  controller.goToVerifyCode();
+                },
               ),
             ],
           ),

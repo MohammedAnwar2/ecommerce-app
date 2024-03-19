@@ -4,15 +4,15 @@ import 'package:get/get.dart';
 
 abstract class ForgetPasswordController extends GetxController {
   checkEmail();
-  goToVerfyCode();
+  goToVerifyCode();
 }
 
 class ForgetPasswordControllerImp extends ForgetPasswordController {
   late TextEditingController email;
 
   @override
-  goToVerfyCode() {
-    Get.toNamed(AppRoute.verfyCode);
+  goToVerifyCode() {
+    Get.toNamed(AppRoute.verifyCode);
   }
 
   @override

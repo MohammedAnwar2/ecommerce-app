@@ -334,6 +334,14 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "7.0.0+1"
+  flutter_otp_text_field:
+    dependency: "direct main"
+    description:
+      name: flutter_otp_text_field
+      sha256: "218f8c7e1f90bf1a427b8f4267c78b269c35593c707eb3178cfbbea991fbb80b"
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "1.1.2+1"
   flutter_plugin_android_lifecycle:
     dependency: transitive
     description:

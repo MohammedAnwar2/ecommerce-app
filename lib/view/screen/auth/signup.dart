@@ -66,7 +66,9 @@ class SignUp extends StatelessWidget {
               verticalSizedBox(30),
               CustomAuthButton(
                 text: "Sign in",
-                onPressed: () {},
+                onPressed: () {
+                  controller.goToCheckEmail();
+                },
               ),
               verticalSizedBox(20),
               CustomTextSignInOrSignUp(

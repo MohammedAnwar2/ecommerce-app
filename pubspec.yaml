@@ -48,6 +48,7 @@ dependencies:
   google_sign_in: ^6.2.1
   responsive_builder: ^0.7.0
   flutter_screenutil: ^5.9.0
+  flutter_otp_text_field: ^1.1.2+1
   
 
 dev_dependencies:
