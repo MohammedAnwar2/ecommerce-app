@@ -11,10 +11,7 @@ class CustomTextBodyAuth extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       text,
-      style: Theme.of(context)
-          .textTheme
-          .bodyLarge!
-          .copyWith(color: AppColor.grey, height: 0),
+      style: Theme.of(context).textTheme.bodyMedium!.copyWith(height: 2),
       textAlign: TextAlign.center,
     );
   }
