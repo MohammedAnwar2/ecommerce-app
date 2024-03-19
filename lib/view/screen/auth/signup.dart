@@ -10,12 +10,12 @@ import 'package:ecommerce/view/widget/auth/custom_auth_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class SignUp extends GetView<SignUpControllerImp> {
+class SignUp extends StatelessWidget {
   const SignUp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    Get.put(SignUpControllerImp());
+    SignUpControllerImp controller = Get.put(SignUpControllerImp());
     return Scaffold(
         backgroundColor: AppColor.background,
         appBar: AppBar(

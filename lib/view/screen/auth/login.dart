@@ -11,12 +11,12 @@ import 'package:ecommerce/view/widget/auth/logo.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class Login extends GetView<LoginControllerImp> {
+class Login extends StatelessWidget {
   const Login({super.key});
 
   @override
   Widget build(BuildContext context) {
-    Get.put(LoginControllerImp());
+    LoginControllerImp controller = Get.put(LoginControllerImp());
     return Scaffold(
         backgroundColor: AppColor.background,
         appBar: AppBar(
