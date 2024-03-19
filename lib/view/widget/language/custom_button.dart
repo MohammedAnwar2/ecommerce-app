@@ -3,29 +3,25 @@ import 'package:ecommerce/core/shared/horizontal_and_vertical_size.dart';
 import 'package:flutter/material.dart';
 
 class CustomLanguageButton extends StatelessWidget {
-  const CustomLanguageButton({
-    super.key,
-    this.onTap,
-    required this.buttonName,
-  });
-  final void Function()? onTap;
-  final String buttonName;
+  final String text;
+  final void Function() onPressed;
+
+  const CustomLanguageButton(
+      {super.key, required this.text, required this.onPressed});
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: onTap,
-      splashColor: Colors.transparent,
-      highlightColor: Colors.transparent,
-      child: Container(
-        padding: EdgeInsetsDirectional.symmetric(
-            horizontal: horizontalSize(60), vertical: verticalSized(10)),
-        decoration: BoxDecoration(
-            color: AppColor.primaryColor,
-            borderRadius: BorderRadius.circular(8)),
-        child: Text(
-          buttonName,
-          style: const TextStyle(color: AppColor.white),
+    return Padding(
+      padding: EdgeInsets.only(bottom: verticalSized(5)),
+      child: MaterialButton(
+        onPressed: onPressed,
+        color: AppColor.primaryColor,
+        textColor: AppColor.white,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(16),
         ),
+        padding: EdgeInsetsDirectional.symmetric(
+            vertical: 15, horizontal: horizontalSize(60)),
+        child: Text(text),
       ),
     );
   }

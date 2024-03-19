@@ -6,11 +6,10 @@ import 'package:ecommerce/view/widget/auth/custom_text_form_field_auth.dart';
 import 'package:ecommerce/view/widget/auth/custom_text_signIn_or_signup.dart';
 import 'package:ecommerce/view/widget/auth/custom_text_title_auth.dart';
 import 'package:ecommerce/view/widget/auth/custom_auth_button.dart';
-import 'package:ecommerce/view/widget/auth/logo.dart';
 import 'package:flutter/material.dart';
 
-class Login extends StatelessWidget {
-  const Login({super.key});
+class SignUp extends StatelessWidget {
+  const SignUp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +19,7 @@ class Login extends StatelessWidget {
           backgroundColor: AppColor.background,
           elevation: 0.0,
           centerTitle: true,
-          title: const CustomTextAppBarTitleAuth(text: "Sign In"),
+          title: const CustomTextAppBarTitleAuth(text: "Sign Up"),
         ),
         body: Container(
           padding:
@@ -28,12 +27,11 @@ class Login extends StatelessWidget {
           child: ListView(
             padding: EdgeInsetsDirectional.only(top: verticalSized(15)),
             children: [
-              const LogoAuth(),
               const CustomTextTitleAuth(text: "Welcome Back"),
               verticalSizedBox(20),
               const CustomTextBodyAuth(
                   text:
-                      "Sign in with your email and password or continue with social media"),
+                      "Sign up with your email and password or continue with social media"),
               verticalSizedBox(20),
               const CustomTextFormFieldAuth(
                 hint: "Enter Your Email",

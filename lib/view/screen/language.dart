@@ -24,16 +24,16 @@ class Language extends GetView<MyLanguageController> {
           ),
           verticalSizedBox(25),
           CustomLanguageButton(
-            buttonName: "2".tr,
-            onTap: () {
+            text: "2".tr,
+            onPressed: () {
               Get.offAllNamed(AppRoute.Onbording);
               controller.changeLangauge("ar");
             },
           ),
           verticalSizedBox(10),
           CustomLanguageButton(
-            buttonName: "3".tr,
-            onTap: () {
+            text: "3".tr,
+            onPressed: () {
               Get.offAllNamed(AppRoute.Onbording);
               controller.changeLangauge("en");
             },
