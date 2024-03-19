@@ -1,5 +1,5 @@
 import 'package:ecommerce/route/route_app.dart';
-import 'package:ecommerce/view/screen/Onbording.dart';
+import 'package:ecommerce/view/screen/onbording.dart';
 import 'package:ecommerce/view/screen/auth/login.dart';
 import 'package:ecommerce/view/screen/language.dart';
 import 'package:get/get.dart';

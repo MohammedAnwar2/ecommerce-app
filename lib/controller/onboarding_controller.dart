@@ -9,7 +9,7 @@ abstract class OnboardingController extends GetxController {
   onPageChange(int value);
 }
 
-class ImpOnboardingController extends OnboardingController {
+class OnboardingControllerImp extends OnboardingController {
   int dotValue = 0;
   PageController? pageController;
   @override
