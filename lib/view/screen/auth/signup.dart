@@ -63,13 +63,7 @@ class SignUp extends StatelessWidget {
                 lable: "Password",
                 icon: Icons.lock_outlined,
               ),
-              verticalSizedBox(20),
-              Text(
-                "Forget Password",
-                textAlign: TextAlign.end,
-                style: Theme.of(context).textTheme.bodyMedium,
-              ),
-              verticalSizedBox(10),
+              verticalSizedBox(30),
               CustomAuthButton(
                 text: "Sign in",
                 onPressed: () {},
