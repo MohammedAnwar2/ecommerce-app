@@ -1,6 +1,9 @@
 class AppRoute {
-  static const String Login = "/login";
-  static const String Language = "/language";
-  static const String Onbording = "/onbording";
-  static const String SignUp = "/signUp";
+  static const String login = "/login";
+  static const String language = "/language";
+  static const String onbording = "/onbording";
+  static const String signUp = "/signUp";
+  static const String forgetPassword = "/forgetPassword";
+  static const String resetPassword = "/resetPassword";
+  static const String verfyCode = "/VerfyCode";
 }

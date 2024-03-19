@@ -21,7 +21,7 @@ class OnboardingControllerImp extends OnboardingController {
   nextPage() {
     ++dotValue;
     if (dotValue > onBoardingList.length - 1) {
-      Get.offAllNamed(AppRoute.Login);
+      Get.offAllNamed(AppRoute.login);
     } else {
       print(dotValue);
       pageController?.animateToPage(dotValue,

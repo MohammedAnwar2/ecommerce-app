@@ -52,10 +52,17 @@ class Login extends StatelessWidget {
                 icon: Icons.lock_outlined,
               ),
               verticalSizedBox(20),
-              Text(
-                "Forget Password",
-                textAlign: TextAlign.end,
-                style: Theme.of(context).textTheme.bodyMedium,
+              Align(
+                alignment: Alignment.centerRight,
+                child: TextButton(
+                  onPressed: () {
+                    controller.goToForgetPassword();
+                  },
+                  child: Text(
+                    "Forget Password",
+                    style: Theme.of(context).textTheme.bodyMedium,
+                  ),
+                ),
               ),
               verticalSizedBox(10),
               CustomAuthButton(
