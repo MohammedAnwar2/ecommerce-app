@@ -36,15 +36,17 @@ class Login extends GetView<LoginControllerImp> {
               verticalSizedBox(20),
               const CustomTextBodyAuth(
                   text:
-                      "Sign in with your email and password or continue with social media"),
+                      "Sign In With Your Email And Password OR Continue With Social Media"),
               verticalSizedBox(20),
-              const CustomTextFormFieldAuth(
+              CustomTextFormFieldAuth(
+                controller: controller.email,
                 hint: "Enter Your Email",
                 lable: "Email",
                 icon: Icons.email_outlined,
               ),
               verticalSizedBox(20),
-              const CustomTextFormFieldAuth(
+              CustomTextFormFieldAuth(
+                controller: controller.password,
                 hint: "Enter Your Password",
                 lable: "Password",
                 icon: Icons.lock_outlined,

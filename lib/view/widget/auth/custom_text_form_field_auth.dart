@@ -7,12 +7,12 @@ class CustomTextFormFieldAuth extends StatelessWidget {
     required this.lable,
     required this.hint,
     required this.icon,
-    this.controller,
+    required this.controller,
   });
   final String lable;
   final String hint;
   final IconData icon;
-  final TextEditingController? controller;
+  final TextEditingController controller;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
