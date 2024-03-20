@@ -23,8 +23,10 @@ class PageViewBuilder extends GetView<OnboardingControllerImp> {
           children: [
             Image.asset(
               onBoardingList[i].image,
+              fit: BoxFit.fill,
+              height: Get.width / 1.2,
             ),
-            verticalSizedBox(80),
+            verticalSizedBox(60),
             Text(
               onBoardingList[i].title,
               style: Theme.of(context).textTheme.displayLarge,

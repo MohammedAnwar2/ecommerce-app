@@ -21,6 +21,9 @@ class CustomTextSignInOrSignUp extends StatelessWidget {
           style: Theme.of(context).textTheme.bodySmall,
         ),
         TextButton(
+            style: TextButton.styleFrom(
+              padding: EdgeInsets.zero,
+            ),
             onPressed: onPressed,
             child: Text(
               textTwo,
