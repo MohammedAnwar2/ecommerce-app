@@ -37,28 +37,38 @@ class ResetPassword extends StatelessWidget {
                 verticalSizedBox(15),
                 CustomTextBodyAuth(text: "34".tr),
                 verticalSizedBox(10),
-                CustomTextFormFieldAuth(
-                  keyboardType: TextInputType.visiblePassword,
-                  validator: (val) {
-                    return validationInput(
-                        val: val!, min: 5, max: 30, type: "password");
-                  },
-                  controller: controller.password,
-                  hint: "13".tr,
-                  lable: "19".tr,
-                  icon: Icons.lock_outlined,
+                GetBuilder<ResetPasswordControllerImp>(
+                  init: ResetPasswordControllerImp(),
+                  builder: (controller) => CustomTextFormFieldAuth(
+                    obscureText: controller.showPasswordValue1,
+                    onPressed: () => controller.showPassword(1),
+                    keyboardType: TextInputType.visiblePassword,
+                    validator: (val) {
+                      return validationInput(
+                          val: val!, min: 5, max: 30, type: "password");
+                    },
+                    controller: controller.password,
+                    hint: "13".tr,
+                    lable: "19".tr,
+                    icon: controller.icon1,
+                  ),
                 ),
                 verticalSizedBox(20),
-                CustomTextFormFieldAuth(
-                  keyboardType: TextInputType.visiblePassword,
-                  validator: (val) {
-                    return validationInput(
-                        val: val!, min: 5, max: 30, type: "password");
-                  },
-                  controller: controller.repassword,
-                  hint: "41".tr,
-                  lable: "42".tr,
-                  icon: Icons.lock_outlined,
+                GetBuilder<ResetPasswordControllerImp>(
+                  init: ResetPasswordControllerImp(),
+                  builder: (controller) => CustomTextFormFieldAuth(
+                    onPressed: () => controller.showPassword(2),
+                    obscureText: controller.showPasswordValue2,
+                    keyboardType: TextInputType.visiblePassword,
+                    validator: (val) {
+                      return validationInput(
+                          val: val!, min: 5, max: 30, type: "password");
+                    },
+                    controller: controller.repassword,
+                    hint: "41".tr,
+                    lable: "42".tr,
+                    icon: controller.icon2,
+                  ),
                 ),
                 verticalSizedBox(25),
                 CustomAuthButton(

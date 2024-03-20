@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
           translations: LocalizationModel(),
           locale: controller.language,
           debugShowCheckedModeBanner: false,
-          title: 'First Method',
+          title: 'Ecommerce',
           getPages: getPages,
           theme: controller.appTheme,
           home: const Language(),

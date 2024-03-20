@@ -10,6 +10,8 @@ class CustomTextFormFieldAuth extends StatelessWidget {
     required this.controller,
     required this.validator,
     required this.keyboardType,
+    this.obscureText = false,
+    this.onPressed,
   });
   final String lable;
   final String hint;
@@ -17,9 +19,12 @@ class CustomTextFormFieldAuth extends StatelessWidget {
   final TextEditingController controller;
   final String? Function(String?) validator;
   final TextInputType keyboardType;
+  final bool? obscureText;
+  final void Function()? onPressed;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      obscureText: obscureText!,
       keyboardType: keyboardType,
       validator: validator,
       controller: controller,
@@ -30,7 +35,7 @@ class CustomTextFormFieldAuth extends StatelessWidget {
           floatingLabelBehavior: FloatingLabelBehavior.always,
           contentPadding: EdgeInsetsDirectional.symmetric(
               vertical: verticalSized(5), horizontal: horizontalSize(30)),
-          suffixIcon: Icon(icon),
+          suffixIcon: IconButton(icon: Icon(icon), onPressed: onPressed),
           hintText: hint,
           hintStyle: const TextStyle(fontSize: 14),
           border: OutlineInputBorder(borderRadius: BorderRadius.circular(30))),

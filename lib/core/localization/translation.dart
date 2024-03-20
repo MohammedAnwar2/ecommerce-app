@@ -55,6 +55,10 @@ Map<String, String> ar = {
   "42": "كرر كلمة المرور",
   "43": "التحقق من كود",
   "44": " الرجاء إدخال الرمز الرقمي الذي يتم إرساله إلى",
+  "45": "هل أنت متأكد أنك تريد الخروج ؟",
+  "46": "تنبيه",
+  "47": "لا",
+  "48": "نعم",
 };
 
 Map<String, String> en = {
@@ -103,4 +107,8 @@ Map<String, String> en = {
   "42": "RePassword",
   "43": "vertify code",
   "44": "Please Enter The Digital Code Send To ",
+  "45": "Are you sure you want to exit ?",
+  "46": "Warning",
+  "47": "No",
+  "48": "Yes",
 };

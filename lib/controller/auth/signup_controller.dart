@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 abstract class SignUpController extends GetxController {
   signUp();
   goToLogin();
+  showPassword();
 }
 
 class SignUpControllerImp extends SignUpController {
@@ -13,6 +14,21 @@ class SignUpControllerImp extends SignUpController {
   late TextEditingController phone;
   late TextEditingController userName;
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
+
+  bool showPasswordValue = true;
+  IconData icon = Icons.lock_outline;
+
+  @override
+  showPassword() {
+    if (showPasswordValue == false) {
+      showPasswordValue = true;
+      icon = Icons.lock_outline;
+    } else {
+      showPasswordValue = false;
+      icon = Icons.lock_open;
+    }
+    update();
+  }
 
   @override
   goToLogin() {

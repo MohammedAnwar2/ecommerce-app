@@ -73,16 +73,21 @@ class SignUp extends StatelessWidget {
                   icon: Icons.phone_android_outlined,
                 ),
                 verticalSizedBox(20),
-                CustomTextFormFieldAuth(
-                  keyboardType: TextInputType.visiblePassword,
-                  validator: (val) {
-                    return validationInput(
-                        val: val!, min: 5, max: 30, type: "password");
-                  },
-                  controller: controller.password,
-                  hint: "13".tr,
-                  lable: "19".tr,
-                  icon: Icons.lock_outlined,
+                GetBuilder<SignUpControllerImp>(
+                  init: SignUpControllerImp(),
+                  builder: (controller) => CustomTextFormFieldAuth(
+                    obscureText: controller.showPasswordValue,
+                    onPressed: () => controller.showPassword(),
+                    keyboardType: TextInputType.visiblePassword,
+                    validator: (val) {
+                      return validationInput(
+                          val: val!, min: 5, max: 30, type: "password");
+                    },
+                    controller: controller.password,
+                    hint: "13".tr,
+                    lable: "19".tr,
+                    icon: controller.icon,
+                  ),
                 ),
                 verticalSizedBox(30),
                 CustomAuthButton(
