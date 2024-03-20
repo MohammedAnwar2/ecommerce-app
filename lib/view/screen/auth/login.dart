@@ -40,6 +40,7 @@ class Login extends StatelessWidget {
                 CustomTextBodyAuth(text: "11".tr),
                 verticalSizedBox(20),
                 CustomTextFormFieldAuth(
+                  keyboardType: TextInputType.emailAddress,
                   validator: (val) {
                     return validationInput(
                         val: val!, min: 5, max: 50, type: "email");
@@ -51,6 +52,7 @@ class Login extends StatelessWidget {
                 ),
                 verticalSizedBox(20),
                 CustomTextFormFieldAuth(
+                  keyboardType: TextInputType.visiblePassword,
                   validator: (val) {
                     return validationInput(
                         val: val!, min: 5, max: 30, type: "password");

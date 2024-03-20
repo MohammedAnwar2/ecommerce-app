@@ -21,7 +21,11 @@ class CustomLanguageButton extends StatelessWidget {
         ),
         padding: EdgeInsetsDirectional.symmetric(
             vertical: 15, horizontal: horizontalSize(60)),
-        child: Text(text),
+        child: Text(text,
+            style: Theme.of(context)
+                .textTheme
+                .displaySmall!
+                .copyWith(fontSize: fontSize(15))),
       ),
     );
   }

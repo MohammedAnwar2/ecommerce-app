@@ -25,7 +25,7 @@ class CustomButtomOnboarding extends GetView<OnboardingControllerImp> {
         ),
         padding: EdgeInsetsDirectional.symmetric(
             vertical: 12, horizontal: horizontalSize(80)),
-        child: Text("8".tr),
+        child: Text("8".tr, style: Theme.of(context).textTheme.displaySmall),
       ),
     );
   }

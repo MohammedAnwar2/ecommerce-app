@@ -38,6 +38,7 @@ class ResetPassword extends StatelessWidget {
                 CustomTextBodyAuth(text: "34".tr),
                 verticalSizedBox(10),
                 CustomTextFormFieldAuth(
+                  keyboardType: TextInputType.visiblePassword,
                   validator: (val) {
                     return validationInput(
                         val: val!, min: 5, max: 30, type: "password");
@@ -49,6 +50,7 @@ class ResetPassword extends StatelessWidget {
                 ),
                 verticalSizedBox(20),
                 CustomTextFormFieldAuth(
+                  keyboardType: TextInputType.visiblePassword,
                   validator: (val) {
                     return validationInput(
                         val: val!, min: 5, max: 30, type: "password");
