@@ -28,42 +28,46 @@ class ResetPassword extends StatelessWidget {
         body: Container(
           padding:
               EdgeInsetsDirectional.symmetric(horizontal: horizontalSize(30)),
-          child: ListView(
-            padding: EdgeInsetsDirectional.only(top: verticalSized(15)),
-            children: [
-              CustomTextTitleAuth(text: "35".tr),
-              verticalSizedBox(15),
-              CustomTextBodyAuth(text: "34".tr),
-              verticalSizedBox(10),
-              CustomTextFormFieldAuth(
-                validator: (val) {
-                  return validationInput(
-                      val: val!, min: 5, max: 30, type: "password");
-                },
-                controller: controller.password,
-                hint: "13".tr,
-                lable: "19".tr,
-                icon: Icons.lock_outlined,
-              ),
-              verticalSizedBox(20),
-              CustomTextFormFieldAuth(
-                validator: (val) {
-                  return validationInput(
-                      val: val!, min: 5, max: 30, type: "password");
-                },
-                controller: controller.repassword,
-                hint: "41".tr,
-                lable: "42".tr,
-                icon: Icons.lock_outlined,
-              ),
-              verticalSizedBox(25),
-              CustomAuthButton(
-                text: "33".tr,
-                onPressed: () {
-                  controller.goToSuccessResetPasswor();
-                },
-              ),
-            ],
+          child: Form(
+            key: controller.formKey,
+            child: ListView(
+              padding: EdgeInsetsDirectional.only(top: verticalSized(15)),
+              children: [
+                CustomTextTitleAuth(text: "35".tr),
+                verticalSizedBox(15),
+                CustomTextBodyAuth(text: "34".tr),
+                verticalSizedBox(10),
+                CustomTextFormFieldAuth(
+                  validator: (val) {
+                    return validationInput(
+                        val: val!, min: 5, max: 30, type: "password");
+                  },
+                  controller: controller.password,
+                  hint: "13".tr,
+                  lable: "19".tr,
+                  icon: Icons.lock_outlined,
+                ),
+                verticalSizedBox(20),
+                CustomTextFormFieldAuth(
+                  validator: (val) {
+                    return validationInput(
+                        val: val!, min: 5, max: 30, type: "password");
+                  },
+                  controller: controller.repassword,
+                  hint: "41".tr,
+                  lable: "42".tr,
+                  icon: Icons.lock_outlined,
+                ),
+                verticalSizedBox(25),
+                CustomAuthButton(
+                  text: "33".tr,
+                  onPressed: () {
+                    //controller.goToSuccessResetPasswor();
+                    controller.resetPassword();
+                  },
+                ),
+              ],
+            ),
           ),
         ));
   }

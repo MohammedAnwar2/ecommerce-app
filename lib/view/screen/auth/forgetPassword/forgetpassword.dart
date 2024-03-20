@@ -28,31 +28,35 @@ class ForgetPassword extends StatelessWidget {
         body: Container(
           padding:
               EdgeInsetsDirectional.symmetric(horizontal: horizontalSize(30)),
-          child: ListView(
-            padding: EdgeInsetsDirectional.only(top: verticalSized(30)),
-            children: [
-              CustomTextTitleAuth(text: "27".tr),
-              verticalSizedBox(20),
-              CustomTextBodyAuth(text: "29".tr),
-              verticalSizedBox(20),
-              CustomTextFormFieldAuth(
-                validator: (val) {
-                  return validationInput(
-                      val: val!, min: 5, max: 50, type: "email");
-                },
-                controller: controller.email,
-                hint: "12".tr,
-                lable: "18".tr,
-                icon: Icons.email_outlined,
-              ),
-              verticalSizedBox(25),
-              CustomAuthButton(
-                text: "30".tr,
-                onPressed: () {
-                  controller.goToVerifyCode();
-                },
-              ),
-            ],
+          child: Form(
+            key: controller.formKey,
+            child: ListView(
+              padding: EdgeInsetsDirectional.only(top: verticalSized(30)),
+              children: [
+                CustomTextTitleAuth(text: "27".tr),
+                verticalSizedBox(20),
+                CustomTextBodyAuth(text: "29".tr),
+                verticalSizedBox(20),
+                CustomTextFormFieldAuth(
+                  validator: (val) {
+                    return validationInput(
+                        val: val!, min: 5, max: 50, type: "email");
+                  },
+                  controller: controller.email,
+                  hint: "12".tr,
+                  lable: "18".tr,
+                  icon: Icons.email_outlined,
+                ),
+                verticalSizedBox(25),
+                CustomAuthButton(
+                  text: "30".tr,
+                  onPressed: () {
+                    controller.checkEmail();
+                    //controller.goToVerifyCode();
+                  },
+                ),
+              ],
+            ),
           ),
         ));
   }

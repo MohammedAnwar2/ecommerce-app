@@ -28,72 +28,75 @@ class SignUp extends StatelessWidget {
         body: Container(
           padding:
               EdgeInsetsDirectional.symmetric(horizontal: horizontalSize(30)),
-          child: ListView(
-            padding: EdgeInsetsDirectional.only(top: verticalSized(15)),
-            children: [
-              CustomTextTitleAuth(text: "10".tr),
-              verticalSizedBox(20),
-              CustomTextBodyAuth(text: "24".tr),
-              verticalSizedBox(20),
-              CustomTextFormFieldAuth(
-                validator: (val) {
-                  return validationInput(
-                      val: val!, min: 2, max: 50, type: "username");
-                },
-                controller: controller.userName,
-                hint: "23".tr,
-                lable: "20".tr,
-                icon: Icons.person_2_outlined,
-              ),
-              verticalSizedBox(20),
-              CustomTextFormFieldAuth(
-                validator: (val) {
-                  return validationInput(
-                      val: val!, min: 5, max: 50, type: "email");
-                },
-                controller: controller.email,
-                hint: "12".tr,
-                lable: "18".tr,
-                icon: Icons.email_outlined,
-              ),
-              verticalSizedBox(20),
-              CustomTextFormFieldAuth(
-                validator: (val) {
-                  return validationInput(
-                      val: val!, min: 5, max: 20, type: "phone");
-                },
-                controller: controller.phone,
-                hint: "22".tr,
-                lable: "21".tr,
-                icon: Icons.phone_android_outlined,
-              ),
-              verticalSizedBox(20),
-              CustomTextFormFieldAuth(
-                validator: (val) {
-                  return validationInput(
-                      val: val!, min: 5, max: 30, type: "password");
-                },
-                controller: controller.password,
-                hint: "13".tr,
-                lable: "19".tr,
-                icon: Icons.lock_outlined,
-              ),
-              verticalSizedBox(30),
-              CustomAuthButton(
-                text: "17".tr,
-                onPressed: () {
-                  controller.signUp();
-                },
-              ),
-              verticalSizedBox(20),
-              CustomTextSignInOrSignUp(
-                textOne: "25".tr,
-                textTwo: "9".tr,
-                onPressed: () {
-                  controller.goToLogin();
-                },
-              )
-            ],
+          child: Form(
+            key: controller.formKey,
+            child: ListView(
+              padding: EdgeInsetsDirectional.only(top: verticalSized(15)),
+              children: [
+                CustomTextTitleAuth(text: "10".tr),
+                verticalSizedBox(20),
+                CustomTextBodyAuth(text: "24".tr),
+                verticalSizedBox(20),
+                CustomTextFormFieldAuth(
+                  validator: (val) {
+                    return validationInput(
+                        val: val!, min: 2, max: 50, type: "username");
+                  },
+                  controller: controller.userName,
+                  hint: "23".tr,
+                  lable: "20".tr,
+                  icon: Icons.person_2_outlined,
+                ),
+                verticalSizedBox(20),
+                CustomTextFormFieldAuth(
+                  validator: (val) {
+                    return validationInput(
+                        val: val!, min: 5, max: 50, type: "email");
+                  },
+                  controller: controller.email,
+                  hint: "12".tr,
+                  lable: "18".tr,
+                  icon: Icons.email_outlined,
+                ),
+                verticalSizedBox(20),
+                CustomTextFormFieldAuth(
+                  validator: (val) {
+                    return validationInput(
+                        val: val!, min: 5, max: 20, type: "phone");
+                  },
+                  controller: controller.phone,
+                  hint: "22".tr,
+                  lable: "21".tr,
+                  icon: Icons.phone_android_outlined,
+                ),
+                verticalSizedBox(20),
+                CustomTextFormFieldAuth(
+                  validator: (val) {
+                    return validationInput(
+                        val: val!, min: 5, max: 30, type: "password");
+                  },
+                  controller: controller.password,
+                  hint: "13".tr,
+                  lable: "19".tr,
+                  icon: Icons.lock_outlined,
+                ),
+                verticalSizedBox(30),
+                CustomAuthButton(
+                  text: "17".tr,
+                  onPressed: () {
+                    controller.signUp();
+                  },
+                ),
+                verticalSizedBox(20),
+                CustomTextSignInOrSignUp(
+                  textOne: "25".tr,
+                  textTwo: "9".tr,
+                  onPressed: () {
+                    controller.goToLogin();
+                  },
+                )
+              ],
+            ),
           ),
         ));
   }
