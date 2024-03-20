@@ -5,7 +5,6 @@ import 'package:get/get.dart';
 abstract class SignUpController extends GetxController {
   signUp();
   goToLogin();
-  goToCheckEmail();
 }
 
 class SignUpControllerImp extends SignUpController {
@@ -20,7 +19,9 @@ class SignUpControllerImp extends SignUpController {
   }
 
   @override
-  signUp() {}
+  signUp() {
+    Get.offNamed(AppRoute.checkEmail);
+  }
 
   @override
   void onInit() {
@@ -38,10 +39,5 @@ class SignUpControllerImp extends SignUpController {
     phone.dispose();
     userName.dispose();
     super.onClose();
-  }
-
-  @override
-  goToCheckEmail() {
-    Get.toNamed(AppRoute.checkEmail);
   }
 }

@@ -24,7 +24,7 @@ class Language extends GetView<MyLanguageController> {
           ),
           verticalSizedBox(25),
           CustomLanguageButton(
-            text: "2".tr,
+            text: "39".tr,
             onPressed: () {
               Get.offAllNamed(AppRoute.onbording);
               controller.changeLangauge("ar");
@@ -32,7 +32,7 @@ class Language extends GetView<MyLanguageController> {
           ),
           verticalSizedBox(10),
           CustomLanguageButton(
-            text: "3".tr,
+            text: "40".tr,
             onPressed: () {
               Get.offAllNamed(AppRoute.onbording);
               controller.changeLangauge("en");

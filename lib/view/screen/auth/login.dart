@@ -23,7 +23,7 @@ class Login extends StatelessWidget {
           backgroundColor: AppColor.background,
           elevation: 0.0,
           centerTitle: true,
-          title: const CustomTextAppBarTitleAuth(text: "Sign In"),
+          title: CustomTextAppBarTitleAuth(text: "9".tr),
         ),
         body: Container(
           padding:
@@ -32,23 +32,21 @@ class Login extends StatelessWidget {
             padding: EdgeInsetsDirectional.only(top: verticalSized(15)),
             children: [
               const LogoAuth(),
-              const CustomTextTitleAuth(text: "Welcome Back"),
+              CustomTextTitleAuth(text: "10".tr),
               verticalSizedBox(20),
-              const CustomTextBodyAuth(
-                  text:
-                      "Sign In With Your Email And Password OR Continue With Social Media"),
+              CustomTextBodyAuth(text: "11".tr),
               verticalSizedBox(20),
               CustomTextFormFieldAuth(
                 controller: controller.email,
-                hint: "Enter Your Email",
-                lable: "Email",
+                hint: "12".tr,
+                lable: "18".tr,
                 icon: Icons.email_outlined,
               ),
               verticalSizedBox(20),
               CustomTextFormFieldAuth(
                 controller: controller.password,
-                hint: "Enter Your Password",
-                lable: "Password",
+                hint: "13".tr,
+                lable: "19".tr,
                 icon: Icons.lock_outlined,
               ),
               verticalSizedBox(20),
@@ -59,20 +57,20 @@ class Login extends StatelessWidget {
                     controller.goToForgetPassword();
                   },
                   child: Text(
-                    "Forget Password",
+                    "14".tr,
                     style: Theme.of(context).textTheme.bodyMedium,
                   ),
                 ),
               ),
               verticalSizedBox(10),
               CustomAuthButton(
-                text: "Sign in",
+                text: "9".tr,
                 onPressed: () {},
               ),
               verticalSizedBox(20),
               CustomTextSignInOrSignUp(
-                  textOne: "Don't have an account ? ",
-                  textTwo: "Sign in",
+                  textOne: "16".tr,
+                  textTwo: "17".tr,
                   onPressed: () {
                     controller.goToSignUp();
                   })

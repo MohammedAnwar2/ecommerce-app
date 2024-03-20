@@ -22,7 +22,7 @@ class ResetPassword extends StatelessWidget {
           backgroundColor: AppColor.background,
           elevation: 0.0,
           centerTitle: true,
-          title: const CustomTextAppBarTitleAuth(text: "ResetPassword"),
+          title: CustomTextAppBarTitleAuth(text: "35".tr),
         ),
         body: Container(
           padding:
@@ -30,26 +30,26 @@ class ResetPassword extends StatelessWidget {
           child: ListView(
             padding: EdgeInsetsDirectional.only(top: verticalSized(15)),
             children: [
-              const CustomTextTitleAuth(text: "New Password"),
+              CustomTextTitleAuth(text: "35".tr),
               verticalSizedBox(15),
-              const CustomTextBodyAuth(text: "Please Enter New Password"),
+              CustomTextBodyAuth(text: "34".tr),
               verticalSizedBox(10),
               CustomTextFormFieldAuth(
                 controller: controller.password,
-                hint: "Enter Your Password",
-                lable: "Password",
+                hint: "13".tr,
+                lable: "19".tr,
                 icon: Icons.lock_outlined,
               ),
               verticalSizedBox(20),
               CustomTextFormFieldAuth(
                 controller: controller.repassword,
-                hint: "Re Enter Your Password",
-                lable: "RePassword",
+                hint: "41".tr,
+                lable: "42".tr,
                 icon: Icons.lock_outlined,
               ),
               verticalSizedBox(25),
               CustomAuthButton(
-                text: "Save",
+                text: "33".tr,
                 onPressed: () {
                   controller.goToSuccessResetPasswor();
                 },

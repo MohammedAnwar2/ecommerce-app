@@ -12,7 +12,7 @@ class SuccessSignup extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const CustomTextAppBarTitleAuth(text: "Success"),
+        title: CustomTextAppBarTitleAuth(text: "32".tr),
         centerTitle: true,
       ),
       body: Center(
@@ -22,17 +22,17 @@ class SuccessSignup extends StatelessWidget {
             color: AppColor.primaryColor,
             size: 200,
           ),
-          const Text("Title"),
-          const Text("body"),
+          Text("37".tr),
+          Text("38".tr),
           const Spacer(),
           Container(
             margin: const EdgeInsetsDirectional.symmetric(
                 horizontal: 16, vertical: 35),
             width: double.infinity,
             child: CustomAuthButton(
-              text: "Go To Login",
+              text: "31".tr,
               onPressed: () {
-                Get.offAllNamed(AppRoute.login);
+                Get.offNamed(AppRoute.login);
               },
             ),
           ),

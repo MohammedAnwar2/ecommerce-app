@@ -22,7 +22,7 @@ class SignUp extends StatelessWidget {
           backgroundColor: AppColor.background,
           elevation: 0.0,
           centerTitle: true,
-          title: const CustomTextAppBarTitleAuth(text: "Sign Up"),
+          title: CustomTextAppBarTitleAuth(text: "17".tr),
         ),
         body: Container(
           padding:
@@ -30,50 +30,48 @@ class SignUp extends StatelessWidget {
           child: ListView(
             padding: EdgeInsetsDirectional.only(top: verticalSized(15)),
             children: [
-              const CustomTextTitleAuth(text: "Welcome Back"),
+              CustomTextTitleAuth(text: "10".tr),
               verticalSizedBox(20),
-              const CustomTextBodyAuth(
-                  text:
-                      "Sign up With Your Email And Password OR Continue With Social Media"),
+              CustomTextBodyAuth(text: "24".tr),
               verticalSizedBox(20),
               CustomTextFormFieldAuth(
                 controller: controller.userName,
-                hint: "Enter Your UserName",
-                lable: "UserName",
+                hint: "23".tr,
+                lable: "20".tr,
                 icon: Icons.person_2_outlined,
               ),
               verticalSizedBox(20),
               CustomTextFormFieldAuth(
                 controller: controller.email,
-                hint: "Enter Your Email",
-                lable: "Email",
+                hint: "12".tr,
+                lable: "18".tr,
                 icon: Icons.email_outlined,
               ),
               verticalSizedBox(20),
               CustomTextFormFieldAuth(
                 controller: controller.phone,
-                hint: "Enter Your Phone",
-                lable: "Phone",
+                hint: "22".tr,
+                lable: "21".tr,
                 icon: Icons.phone_android_outlined,
               ),
               verticalSizedBox(20),
               CustomTextFormFieldAuth(
                 controller: controller.password,
-                hint: "Enter Your Password",
-                lable: "Password",
+                hint: "13".tr,
+                lable: "19".tr,
                 icon: Icons.lock_outlined,
               ),
               verticalSizedBox(30),
               CustomAuthButton(
-                text: "Sign in",
+                text: "17".tr,
                 onPressed: () {
-                  controller.goToCheckEmail();
+                  controller.signUp();
                 },
               ),
               verticalSizedBox(20),
               CustomTextSignInOrSignUp(
-                textOne: "Don't have an account ? ",
-                textTwo: "Sign in",
+                textOne: "25".tr,
+                textTwo: "9".tr,
                 onPressed: () {
                   controller.goToLogin();
                 },

@@ -4,15 +4,15 @@ import 'package:get/get.dart';
 
 abstract class CheckEmailController extends GetxController {
   checkEmail();
-  goToSuccessResetPassword();
+  goToSuccessSignUp();
 }
 
 class CheckEmailControllerImp extends CheckEmailController {
   late TextEditingController email;
 
   @override
-  goToSuccessResetPassword() {
-    Get.toNamed(AppRoute.successResetpassword);
+  goToSuccessSignUp() {
+    Get.offAllNamed(AppRoute.successSignup);
   }
 
   @override

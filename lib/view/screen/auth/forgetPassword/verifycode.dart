@@ -20,7 +20,7 @@ class VerifyCode extends StatelessWidget {
           backgroundColor: AppColor.background,
           elevation: 0.0,
           centerTitle: true,
-          title: const CustomTextAppBarTitleAuth(text: "Verify Code"),
+          title: CustomTextAppBarTitleAuth(text: "43".tr),
         ),
         body: Container(
           padding:
@@ -28,11 +28,9 @@ class VerifyCode extends StatelessWidget {
           child: ListView(
             padding: EdgeInsetsDirectional.only(top: verticalSized(15)),
             children: [
-              const CustomTextTitleAuth(text: "Check Email"),
+              CustomTextTitleAuth(text: "27".tr),
               verticalSizedBox(20),
-              const CustomTextBodyAuth(
-                  text:
-                      "Please Enter The Digital Code Send To moanbm123@gmai.com"),
+              CustomTextBodyAuth(text: "${"44".tr}moanbm123@gmail.com"),
               verticalSizedBox(20),
               CustomOtpTextField(),
             ],
