@@ -6,6 +6,7 @@ import 'package:ecommerce/view/screen/auth/forgetPassword/success_resetpassword.
 import 'package:ecommerce/view/screen/auth/forgetPassword/verifycode.dart';
 import 'package:ecommerce/view/screen/auth/signup.dart';
 import 'package:ecommerce/view/screen/auth/success_signup.dart';
+import 'package:ecommerce/view/screen/auth/verifycode_signup.dart';
 import 'package:ecommerce/view/screen/onbording.dart';
 import 'package:ecommerce/view/screen/auth/login.dart';
 import 'package:ecommerce/view/screen/language.dart';
@@ -44,6 +45,10 @@ List<GetPage<dynamic>>? getPages = [
   GetPage(
       name: AppRoute.checkEmail,
       page: () => const CheckEmail(),
+      transition: Transition.fade),
+  GetPage(
+      name: AppRoute.verifyCodeSignUp,
+      page: () => const VerifyCodeSignUp(),
       transition: Transition.fade),
   // onboarding
   GetPage(

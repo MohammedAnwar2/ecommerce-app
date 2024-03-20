@@ -1,5 +1,6 @@
 import 'package:ecommerce/controller/auth/signup_controller.dart';
 import 'package:ecommerce/core/constant/color.dart';
+import 'package:ecommerce/core/functions/validation.dart';
 import 'package:ecommerce/core/shared/horizontal_and_vertical_size.dart';
 import 'package:ecommerce/view/widget/auth/custom_text_appbar_title_auth.dart';
 import 'package:ecommerce/view/widget/auth/custom_text_body_auth.dart';
@@ -35,6 +36,10 @@ class SignUp extends StatelessWidget {
               CustomTextBodyAuth(text: "24".tr),
               verticalSizedBox(20),
               CustomTextFormFieldAuth(
+                validator: (val) {
+                  return validationInput(
+                      val: val!, min: 2, max: 50, type: "username");
+                },
                 controller: controller.userName,
                 hint: "23".tr,
                 lable: "20".tr,
@@ -42,6 +47,10 @@ class SignUp extends StatelessWidget {
               ),
               verticalSizedBox(20),
               CustomTextFormFieldAuth(
+                validator: (val) {
+                  return validationInput(
+                      val: val!, min: 5, max: 50, type: "email");
+                },
                 controller: controller.email,
                 hint: "12".tr,
                 lable: "18".tr,
@@ -49,6 +58,10 @@ class SignUp extends StatelessWidget {
               ),
               verticalSizedBox(20),
               CustomTextFormFieldAuth(
+                validator: (val) {
+                  return validationInput(
+                      val: val!, min: 5, max: 20, type: "phone");
+                },
                 controller: controller.phone,
                 hint: "22".tr,
                 lable: "21".tr,
@@ -56,6 +69,10 @@ class SignUp extends StatelessWidget {
               ),
               verticalSizedBox(20),
               CustomTextFormFieldAuth(
+                validator: (val) {
+                  return validationInput(
+                      val: val!, min: 5, max: 30, type: "password");
+                },
                 controller: controller.password,
                 hint: "13".tr,
                 lable: "19".tr,

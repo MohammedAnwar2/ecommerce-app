@@ -1,5 +1,6 @@
 import 'package:ecommerce/controller/auth/login_controller.dart';
 import 'package:ecommerce/core/constant/color.dart';
+import 'package:ecommerce/core/functions/validation.dart';
 import 'package:ecommerce/core/shared/horizontal_and_vertical_size.dart';
 import 'package:ecommerce/view/widget/auth/custom_text_appbar_title_auth.dart';
 import 'package:ecommerce/view/widget/auth/custom_text_body_auth.dart';
@@ -28,53 +29,66 @@ class Login extends StatelessWidget {
         body: Container(
           padding:
               EdgeInsetsDirectional.symmetric(horizontal: horizontalSize(30)),
-          child: ListView(
-            padding: EdgeInsetsDirectional.only(top: verticalSized(15)),
-            children: [
-              const LogoAuth(),
-              CustomTextTitleAuth(text: "10".tr),
-              verticalSizedBox(20),
-              CustomTextBodyAuth(text: "11".tr),
-              verticalSizedBox(20),
-              CustomTextFormFieldAuth(
-                controller: controller.email,
-                hint: "12".tr,
-                lable: "18".tr,
-                icon: Icons.email_outlined,
-              ),
-              verticalSizedBox(20),
-              CustomTextFormFieldAuth(
-                controller: controller.password,
-                hint: "13".tr,
-                lable: "19".tr,
-                icon: Icons.lock_outlined,
-              ),
-              verticalSizedBox(20),
-              Align(
-                alignment: Alignment.centerRight,
-                child: TextButton(
-                  onPressed: () {
-                    controller.goToForgetPassword();
+          child: Form(
+            key: controller.formKey,
+            child: ListView(
+              padding: EdgeInsetsDirectional.only(top: verticalSized(15)),
+              children: [
+                const LogoAuth(),
+                CustomTextTitleAuth(text: "10".tr),
+                verticalSizedBox(20),
+                CustomTextBodyAuth(text: "11".tr),
+                verticalSizedBox(20),
+                CustomTextFormFieldAuth(
+                  validator: (val) {
+                    return validationInput(
+                        val: val!, min: 5, max: 50, type: "email");
                   },
-                  child: Text(
-                    "14".tr,
-                    style: Theme.of(context).textTheme.bodyMedium,
+                  controller: controller.email,
+                  hint: "12".tr,
+                  lable: "18".tr,
+                  icon: Icons.email_outlined,
+                ),
+                verticalSizedBox(20),
+                CustomTextFormFieldAuth(
+                  validator: (val) {
+                    return validationInput(
+                        val: val!, min: 5, max: 30, type: "password");
+                  },
+                  controller: controller.password,
+                  hint: "13".tr,
+                  lable: "19".tr,
+                  icon: Icons.lock_outlined,
+                ),
+                verticalSizedBox(20),
+                Align(
+                  alignment: Alignment.centerRight,
+                  child: TextButton(
+                    onPressed: () {
+                      controller.goToForgetPassword();
+                    },
+                    child: Text(
+                      "14".tr,
+                      style: Theme.of(context).textTheme.bodyMedium,
+                    ),
                   ),
                 ),
-              ),
-              verticalSizedBox(10),
-              CustomAuthButton(
-                text: "9".tr,
-                onPressed: () {},
-              ),
-              verticalSizedBox(20),
-              CustomTextSignInOrSignUp(
-                  textOne: "16".tr,
-                  textTwo: "17".tr,
+                verticalSizedBox(10),
+                CustomAuthButton(
+                  text: "9".tr,
                   onPressed: () {
-                    controller.goToSignUp();
-                  })
-            ],
+                    controller.login();
+                  },
+                ),
+                verticalSizedBox(20),
+                CustomTextSignInOrSignUp(
+                    textOne: "16".tr,
+                    textTwo: "17".tr,
+                    onPressed: () {
+                      controller.goToSignUp();
+                    })
+              ],
+            ),
           ),
         ));
   }

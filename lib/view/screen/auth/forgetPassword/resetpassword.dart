@@ -1,5 +1,6 @@
 import 'package:ecommerce/controller/auth/resetpassword_controller.dart';
 import 'package:ecommerce/core/constant/color.dart';
+import 'package:ecommerce/core/functions/validation.dart';
 import 'package:ecommerce/core/shared/horizontal_and_vertical_size.dart';
 import 'package:ecommerce/view/widget/auth/custom_text_appbar_title_auth.dart';
 import 'package:ecommerce/view/widget/auth/custom_text_body_auth.dart';
@@ -35,6 +36,10 @@ class ResetPassword extends StatelessWidget {
               CustomTextBodyAuth(text: "34".tr),
               verticalSizedBox(10),
               CustomTextFormFieldAuth(
+                validator: (val) {
+                  return validationInput(
+                      val: val!, min: 5, max: 30, type: "password");
+                },
                 controller: controller.password,
                 hint: "13".tr,
                 lable: "19".tr,
@@ -42,6 +47,10 @@ class ResetPassword extends StatelessWidget {
               ),
               verticalSizedBox(20),
               CustomTextFormFieldAuth(
+                validator: (val) {
+                  return validationInput(
+                      val: val!, min: 5, max: 30, type: "password");
+                },
                 controller: controller.repassword,
                 hint: "41".tr,
                 lable: "42".tr,

@@ -17,10 +17,10 @@ class CustomAuthButton extends StatelessWidget {
       color: AppColor.primaryColor,
       textColor: AppColor.white,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(20),
       ),
-      padding: const EdgeInsetsDirectional.symmetric(vertical: 16),
-      child: Text(text),
+      padding: const EdgeInsetsDirectional.symmetric(vertical: 13),
+      child: Text(text, style: Theme.of(context).textTheme.displaySmall),
     );
   }
 }
