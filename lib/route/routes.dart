@@ -1,3 +1,4 @@
+import 'package:ecommerce/core/middleware/auth_middleware.dart';
 import 'package:ecommerce/route/route_app.dart';
 import 'package:ecommerce/view/screen/auth/forgetPassword/forgetpassword.dart';
 import 'package:ecommerce/view/screen/auth/forgetPassword/resetpassword.dart';
@@ -52,7 +53,9 @@ List<GetPage<dynamic>>? getPages = [
       transition: Transition.fade),
   //first page
   GetPage(
-      name: AppRoute.language,
-      page: () => const Language(),
-      transition: Transition.fade),
+    name: AppRoute.language,
+    page: () => const Language(),
+    transition: Transition.fade,
+    middlewares: [AuthMiddleWare()],
+  ),
 ];

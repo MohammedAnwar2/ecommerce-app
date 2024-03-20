@@ -32,7 +32,6 @@ class MyApp extends StatelessWidget {
           title: 'Ecommerce',
           getPages: getPages,
           theme: controller.appTheme,
-          home: const Language(),
         );
       },
     );
