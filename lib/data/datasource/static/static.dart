@@ -1,4 +1,4 @@
-import 'package:ecommerce/core/constant/imageassets.dart';
+import 'package:ecommerce/core/constant/app_imageassets.dart';
 import 'package:ecommerce/data/model/onboarding_model.dart';
 import 'package:get/get.dart';
 
