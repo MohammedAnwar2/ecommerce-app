@@ -1,12 +1,8 @@
 import 'package:ecommerce/core/localization/change_language.dart';
-import 'package:ecommerce/core/constant/color.dart';
 import 'package:ecommerce/core/localization/translation.dart';
 import 'package:ecommerce/core/services/service.dart';
-import 'package:ecommerce/core/shared/horizontal_and_vertical_size.dart';
 import 'package:ecommerce/route/routes.dart';
 import 'package:ecommerce/view/screen/language.dart';
-import 'package:ecommerce/view/screen/onbording.dart';
-import 'package:ecommerce/view/screen/auth/login.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -33,26 +29,7 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           title: 'First Method',
           getPages: getPages,
-          theme: ThemeData(
-              fontFamily: "PlayfairDisplay",
-              textTheme: TextTheme(
-                  bodyLarge: TextStyle(
-                      color: AppColor.grey,
-                      fontSize: fontSize(14),
-                      height: 2,
-                      fontWeight: FontWeight.bold),
-                  bodyMedium: TextStyle(
-                      color: AppColor.grey, fontSize: fontSize(14), height: 2),
-                  bodySmall: TextStyle(
-                      color: AppColor.grey, fontSize: fontSize(12), height: 2),
-                  displayLarge: TextStyle(
-                      color: AppColor.black,
-                      fontSize: fontSize(20),
-                      fontWeight: FontWeight.bold),
-                  displayMedium: TextStyle(
-                      color: AppColor.black,
-                      fontSize: fontSize(26),
-                      fontWeight: FontWeight.bold))),
+          theme: controller.appTheme,
           home: Language(),
         );
       },
