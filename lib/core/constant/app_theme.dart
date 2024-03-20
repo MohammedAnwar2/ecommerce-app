@@ -8,6 +8,7 @@ ThemeData themeEnglish = ThemeData(
     bodyLarge: TextStyle(
         color: AppColor.grey,
         fontSize: fontSize(14),
+        // fontSize: fontSize(14),
         height: 2,
         fontWeight: FontWeight.bold),
     bodyMedium:
@@ -27,7 +28,7 @@ ThemeData themeEnglish = ThemeData(
 );
 
 ThemeData themeArabic = ThemeData(
-  fontFamily: "PlayfairDisplay",
+  fontFamily: "Cairo",
   textTheme: TextTheme(
     bodyLarge: TextStyle(
         color: AppColor.grey,

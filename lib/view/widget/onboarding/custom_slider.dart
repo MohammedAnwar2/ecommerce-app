@@ -1,9 +1,9 @@
 import 'package:ecommerce/controller/onboarding_controller.dart';
+import 'package:ecommerce/core/constant/color.dart';
 import 'package:ecommerce/core/shared/horizontal_and_vertical_size.dart';
 import 'package:ecommerce/data/datasource/static/static.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_state_manager/get_state_manager.dart';
 
 class PageViewBuilder extends GetView<OnboardingControllerImp> {
   PageViewBuilder({
@@ -29,7 +29,11 @@ class PageViewBuilder extends GetView<OnboardingControllerImp> {
             verticalSizedBox(60),
             Text(
               onBoardingList[i].title,
-              style: Theme.of(context).textTheme.displayLarge,
+              style: TextStyle(
+                  color: AppColor.black,
+                  fontSize: fontSize(20),
+                  fontWeight: FontWeight.bold),
+              // style: Theme.of(context).textTheme.displayLarge,
             ),
             verticalSizedBox(20),
             Container(
@@ -37,7 +41,12 @@ class PageViewBuilder extends GetView<OnboardingControllerImp> {
               alignment: Alignment.center,
               child: Text(
                 onBoardingList[i].body,
-                style: Theme.of(context).textTheme.bodyLarge,
+                style: TextStyle(
+                    color: AppColor.grey,
+                    fontSize: fontSize(14),
+                    height: 2,
+                    fontWeight: FontWeight.bold),
+                // style: Theme.of(context).textTheme.bodyLarge,
                 textAlign: TextAlign.center,
               ),
             ),

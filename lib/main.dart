@@ -15,9 +15,11 @@ void main() async {
 
 class MyApp extends StatelessWidget {
   MyApp({Key? key}) : super(key: key);
-  MyLanguageController controller = Get.put(MyLanguageController());
   @override
   Widget build(BuildContext context) {
+    ScreenUtil.init(context); //first
+    MyLanguageController controller = Get.put(MyLanguageController()); //second
+    //otherwise will go wrong
     return ScreenUtilInit(
       designSize: const Size(360, 690),
       minTextAdapt: true,
@@ -30,7 +32,7 @@ class MyApp extends StatelessWidget {
           title: 'First Method',
           getPages: getPages,
           theme: controller.appTheme,
-          home: Language(),
+          home: const Language(),
         );
       },
     );
