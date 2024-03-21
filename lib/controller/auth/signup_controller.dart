@@ -1,3 +1,6 @@
+import 'package:ecommerce/core/class/sratus_request.dart';
+import 'package:ecommerce/core/functions/hadlingdata.dart';
+import 'package:ecommerce/data/datasource/remote/auth/signup.dart';
 import 'package:ecommerce/route/route_app.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -18,6 +21,10 @@ class SignUpControllerImp extends SignUpController {
   bool showPasswordValue = true;
   IconData icon = Icons.lock_outline;
 
+  //TestData testData = TestData(Crud());
+  SignupData testData = SignupData(Get.find());
+  late StatusRequest statusRequest;
+
   @override
   showPassword() {
     if (showPasswordValue == false) {
@@ -36,11 +43,24 @@ class SignUpControllerImp extends SignUpController {
   }
 
   @override
-  signUp() {
+  signUp() async {
     if (formKey.currentState!.validate()) {
-      Get.offNamed(AppRoute.verifyCodeSignUp);
+      statusRequest = StatusRequest.loading;
+      var response = await testData.postData(
+          userName.text, email.text, phone.text, password.text);
+      statusRequest = handlingData(response);
+      if (statusRequest == StatusRequest.success) {
+        if (response['status'] == 'success') {
+          //  data.addAll(response['data']);
+          Get.offNamed(AppRoute.verifyCodeSignUp);
+        } else {
+          Get.defaultDialog(
+              title: "Warning", middleText: "Email or Phone Already Exists");
+        }
+      }
+      update();
     } else {
-      print("vaild");
+      print("not vaild");
     }
   }
 

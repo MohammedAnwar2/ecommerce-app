@@ -15,8 +15,8 @@ class Test extends StatelessWidget {
       backgroundColor: AppColor.background,
       appBar: AppBar(
         backgroundColor: AppColor.primaryColor,
-        systemOverlayStyle:
-            SystemUiOverlayStyle(statusBarColor: Colors.white.withOpacity(0.5)),
+        // systemOverlayStyle:
+        //     SystemUiOverlayStyle(statusBarColor: Colors.white.withOpacity(0.5)),
         title: const Text('Test Data'),
       ),
       body: GetBuilder<TestDataController>(

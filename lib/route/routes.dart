@@ -55,8 +55,8 @@ List<GetPage<dynamic>>? getPages = [
   //first page
   GetPage(
     name: AppRoute.language,
-    page: () => const Test(),
-    // page: () => const Language(),
+    // page: () => const Test(),
+    page: () => const Language(),
     transition: Transition.fade,
     middlewares: [AuthMiddleWare()],
   ),

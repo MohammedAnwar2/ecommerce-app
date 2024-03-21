@@ -1,4 +1,6 @@
 class AppLink {
   static const String server = "https://mohammedanwar.in/ecommerce";
-  static const String test = "$server/test.php";
+
+  //-------------------------- Auth ------------------------------
+  static const String signup = "$server/auth/signup.php";
 }
