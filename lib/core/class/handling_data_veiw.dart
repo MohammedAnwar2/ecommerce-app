@@ -1,5 +1,7 @@
 import 'package:ecommerce/core/class/sratus_request.dart';
+import 'package:ecommerce/core/constant/app_imageassets.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 
 class HandlingDataView extends StatelessWidget {
   final StatusRequest statusRequest;
@@ -12,13 +14,17 @@ class HandlingDataView extends StatelessWidget {
   Widget build(BuildContext context) {
     switch (statusRequest) {
       case StatusRequest.loading:
-        return const Center(child: Text("Loading"));
+        return Center(
+            child: Lottie.asset(AppImages.loading, width: 300, height: 300));
       case StatusRequest.offlinefailure:
-        return const Center(child: Text("Offline Failure"));
+        return Center(
+            child: Lottie.asset(AppImages.offline, width: 300, height: 300));
       case StatusRequest.serverfailure:
-        return const Center(child: Text("Server Failure"));
+        return Center(
+            child: Lottie.asset(AppImages.server, width: 300, height: 300));
       case StatusRequest.nodata:
-        return const Center(child: Text("No Data"));
+        return Center(
+            child: Lottie.asset(AppImages.noData, width: 300, height: 300));
       default:
         return widget;
     }
