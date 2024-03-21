@@ -1,3 +1,4 @@
+import 'package:ecommerce/binding/initilization_binding.dart';
 import 'package:ecommerce/core/localization/change_language.dart';
 import 'package:ecommerce/core/localization/translation.dart';
 import 'package:ecommerce/core/services/service.dart';
@@ -31,6 +32,7 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           title: 'Ecommerce',
           getPages: getPages,
+          initialBinding: MyPageBinding(),
           theme: controller.appTheme,
         );
       },

@@ -1,4 +1,4 @@
-import 'package:ecommerce/core/constant/color.dart';
+import 'package:ecommerce/core/constant/app_color.dart';
 import 'package:flutter/material.dart';
 
 class CustomTextAppBarTitleAuth extends StatelessWidget {

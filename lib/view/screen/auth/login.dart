@@ -1,5 +1,5 @@
 import 'package:ecommerce/controller/auth/login_controller.dart';
-import 'package:ecommerce/core/constant/color.dart';
+import 'package:ecommerce/core/constant/app_color.dart';
 import 'package:ecommerce/core/functions/alertExitApp.dart';
 import 'package:ecommerce/core/functions/validation.dart';
 import 'package:ecommerce/core/shared/horizontal_and_vertical_size.dart';

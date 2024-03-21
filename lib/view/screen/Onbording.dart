@@ -1,5 +1,5 @@
 import 'package:ecommerce/controller/onboarding_controller.dart';
-import 'package:ecommerce/core/constant/color.dart';
+import 'package:ecommerce/core/constant/app_color.dart';
 import 'package:ecommerce/view/widget/onboarding/custom_buttom.dart';
 import 'package:ecommerce/view/widget/onboarding/dot_onboarding.dart';
 import 'package:ecommerce/view/widget/onboarding/custom_slider.dart';
