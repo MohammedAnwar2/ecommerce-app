@@ -23,7 +23,7 @@ class SignUpControllerImp extends SignUpController {
 
   //TestData testData = TestData(Crud());
   SignupData testData = SignupData(Get.find());
-  late StatusRequest statusRequest;
+  StatusRequest statusRequest = StatusRequest.success;
 
   @override
   showPassword() {
@@ -46,6 +46,7 @@ class SignUpControllerImp extends SignUpController {
   signUp() async {
     if (formKey.currentState!.validate()) {
       statusRequest = StatusRequest.loading;
+      update();
       var response = await testData.postData(
           userName.text, email.text, phone.text, password.text);
       statusRequest = handlingData(response);
