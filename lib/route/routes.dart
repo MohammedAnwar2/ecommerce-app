@@ -4,7 +4,7 @@ import 'package:ecommerce/test.dart';
 import 'package:ecommerce/view/screen/auth/forgetPassword/forgetpassword.dart';
 import 'package:ecommerce/view/screen/auth/forgetPassword/resetpassword.dart';
 import 'package:ecommerce/view/screen/auth/forgetPassword/success_resetpassword.dart';
-import 'package:ecommerce/view/screen/auth/forgetPassword/verifycode.dart';
+import 'package:ecommerce/view/screen/auth/forgetPassword/verifycode_forgetpassword.dart';
 import 'package:ecommerce/view/screen/auth/signup.dart';
 import 'package:ecommerce/view/screen/auth/success_signup.dart';
 import 'package:ecommerce/view/screen/auth/verifycode_signup.dart';
@@ -30,7 +30,7 @@ List<GetPage<dynamic>>? getPages = [
       transition: Transition.fade),
   GetPage(
       name: AppRoute.verifyCodeForgetPassword,
-      page: () => const VerifyCode(),
+      page: () => const VerifyCodeForgetPassword(),
       transition: Transition.fade),
   GetPage(
       name: AppRoute.resetPassword,
