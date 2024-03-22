@@ -21,12 +21,10 @@ class VerifyCodeForgetPasswordControllerImp
     statusRequest = StatusRequest.loading;
     update();
     var response = await verifyCode.postData(email, verificationCode);
-    print("---------------------------");
-    print(response);
     statusRequest = handlingData(response);
     if (statusRequest == StatusRequest.success) {
       if (response['status'] == 'success') {
-        Get.offNamed(AppRoute.successSignup, arguments: {"email": email});
+        Get.offNamed(AppRoute.resetPassword, arguments: {"email": email});
       } else {
         Get.defaultDialog(title: "Warning", middleText: response['message']);
       }

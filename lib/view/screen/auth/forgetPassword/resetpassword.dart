@@ -1,4 +1,5 @@
 import 'package:ecommerce/controller/auth/resetpassword_controller.dart';
+import 'package:ecommerce/core/class/handling_data_veiw.dart';
 import 'package:ecommerce/core/constant/app_color.dart';
 import 'package:ecommerce/core/functions/validation.dart';
 import 'package:ecommerce/core/shared/horizontal_and_vertical_size.dart';
@@ -15,8 +16,7 @@ class ResetPassword extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ResetPasswordControllerImp controller =
-        Get.put(ResetPasswordControllerImp());
+    Get.put(ResetPasswordControllerImp());
     return Scaffold(
         backgroundColor: AppColor.background,
         appBar: AppBar(
@@ -25,62 +25,66 @@ class ResetPassword extends StatelessWidget {
           centerTitle: true,
           title: CustomTextAppBarTitleAuth(text: "35".tr),
         ),
-        body: Container(
-          padding:
-              EdgeInsetsDirectional.symmetric(horizontal: horizontalSize(30)),
-          child: Form(
-            key: controller.formKey,
-            child: ListView(
-              padding: EdgeInsetsDirectional.only(top: verticalSized(15)),
-              children: [
-                CustomTextTitleAuth(text: "35".tr),
-                verticalSizedBox(15),
-                CustomTextBodyAuth(text: "34".tr),
-                verticalSizedBox(10),
-                GetBuilder<ResetPasswordControllerImp>(
-                  init: ResetPasswordControllerImp(),
-                  builder: (controller) => CustomTextFormFieldAuth(
-                    obscureText: controller.showPasswordValue1,
-                    onPressed: () => controller.showPassword(1),
-                    keyboardType: TextInputType.visiblePassword,
-                    validator: (val) {
-                      return validationInput(
-                          val: val!, min: 5, max: 30, type: "password");
-                    },
-                    controller: controller.password,
-                    hint: "13".tr,
-                    lable: "19".tr,
-                    icon: controller.icon1,
+        body: GetBuilder<ResetPasswordControllerImp>(builder: (controller) {
+          return HandlingDataView(
+              statusRequest: controller.statusRequest,
+              widget: Container(
+                padding: EdgeInsetsDirectional.symmetric(
+                    horizontal: horizontalSize(30)),
+                child: Form(
+                  key: controller.formKey,
+                  child: ListView(
+                    padding: EdgeInsetsDirectional.only(top: verticalSized(15)),
+                    children: [
+                      CustomTextTitleAuth(text: "35".tr),
+                      verticalSizedBox(15),
+                      CustomTextBodyAuth(text: "34".tr),
+                      verticalSizedBox(10),
+                      GetBuilder<ResetPasswordControllerImp>(
+                        init: ResetPasswordControllerImp(),
+                        builder: (controller) => CustomTextFormFieldAuth(
+                          obscureText: controller.showPasswordValue1,
+                          onPressed: () => controller.showPassword(1),
+                          keyboardType: TextInputType.visiblePassword,
+                          validator: (val) {
+                            return validationInput(
+                                val: val!, min: 5, max: 30, type: "password");
+                          },
+                          controller: controller.password,
+                          hint: "13".tr,
+                          lable: "19".tr,
+                          icon: controller.icon1,
+                        ),
+                      ),
+                      verticalSizedBox(20),
+                      GetBuilder<ResetPasswordControllerImp>(
+                        init: ResetPasswordControllerImp(),
+                        builder: (controller) => CustomTextFormFieldAuth(
+                          onPressed: () => controller.showPassword(2),
+                          obscureText: controller.showPasswordValue2,
+                          keyboardType: TextInputType.visiblePassword,
+                          validator: (val) {
+                            return validationInput(
+                                val: val!, min: 5, max: 30, type: "password");
+                          },
+                          controller: controller.repassword,
+                          hint: "41".tr,
+                          lable: "42".tr,
+                          icon: controller.icon2,
+                        ),
+                      ),
+                      verticalSizedBox(25),
+                      CustomAuthButton(
+                        text: "33".tr,
+                        onPressed: () {
+                          //controller.goToSuccessResetPasswor();
+                          controller.goToSuccessResetPasswor();
+                        },
+                      ),
+                    ],
                   ),
                 ),
-                verticalSizedBox(20),
-                GetBuilder<ResetPasswordControllerImp>(
-                  init: ResetPasswordControllerImp(),
-                  builder: (controller) => CustomTextFormFieldAuth(
-                    onPressed: () => controller.showPassword(2),
-                    obscureText: controller.showPasswordValue2,
-                    keyboardType: TextInputType.visiblePassword,
-                    validator: (val) {
-                      return validationInput(
-                          val: val!, min: 5, max: 30, type: "password");
-                    },
-                    controller: controller.repassword,
-                    hint: "41".tr,
-                    lable: "42".tr,
-                    icon: controller.icon2,
-                  ),
-                ),
-                verticalSizedBox(25),
-                CustomAuthButton(
-                  text: "33".tr,
-                  onPressed: () {
-                    //controller.goToSuccessResetPasswor();
-                    controller.resetPassword();
-                  },
-                ),
-              ],
-            ),
-          ),
-        ));
+              ));
+        }));
   }
 }

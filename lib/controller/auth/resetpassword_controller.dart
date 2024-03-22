@@ -1,3 +1,6 @@
+import 'package:ecommerce/core/class/sratus_request.dart';
+import 'package:ecommerce/core/functions/hadlingdata.dart';
+import 'package:ecommerce/data/datasource/remote/auth/reset_password.dart';
 import 'package:ecommerce/route/route_app.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -17,7 +20,9 @@ class ResetPasswordControllerImp extends ResetPasswordController {
   bool showPasswordValue2 = true;
   IconData icon1 = Icons.lock_outline;
   IconData icon2 = Icons.lock_outline;
-
+  RessetPasswordData resetpassword = RessetPasswordData(Get.find());
+  StatusRequest statusRequest = StatusRequest.success;
+  late String email;
   @override
   showPassword(int type) {
     if (type == 1) {
@@ -41,22 +46,38 @@ class ResetPasswordControllerImp extends ResetPasswordController {
   }
 
   @override
-  goToSuccessResetPasswor() {
-    Get.offAllNamed(AppRoute.successResetpassword);
-  }
-
-  @override
-  resetPassword() {
+  goToSuccessResetPasswor() async {
     if (formKey.currentState!.validate()) {
-      goToSuccessResetPasswor();
-      print("success");
-    } else {
-      print("not valid");
+      if (password.text == repassword.text) {
+        statusRequest = StatusRequest.loading;
+        update();
+        var response = await resetpassword.postData(password.text, email);
+        statusRequest = handlingData(response);
+        if (statusRequest == StatusRequest.success) {
+          if (response['status'] == 'success') {
+            Get.offAllNamed(AppRoute.successResetpassword);
+          } else {
+            Get.defaultDialog(
+                title: "Warning", middleText: response['message']);
+          }
+        }
+        update();
+        print("success");
+      } else {
+        Get.defaultDialog(
+            title: "Warning",
+            middleText:
+                "password = ${password.text}   repassword = ${repassword.text}");
+      }
     }
   }
 
   @override
+  resetPassword() {}
+
+  @override
   void onInit() {
+    email = Get.arguments["email"];
     password = TextEditingController();
     repassword = TextEditingController();
     super.onInit();
