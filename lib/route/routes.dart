@@ -8,6 +8,7 @@ import 'package:ecommerce/view/screen/auth/forgetPassword/verifycode.dart';
 import 'package:ecommerce/view/screen/auth/signup.dart';
 import 'package:ecommerce/view/screen/auth/success_signup.dart';
 import 'package:ecommerce/view/screen/auth/verifycode_signup.dart';
+import 'package:ecommerce/view/screen/home.dart';
 import 'package:ecommerce/view/screen/onbording.dart';
 import 'package:ecommerce/view/screen/auth/login.dart';
 import 'package:ecommerce/view/screen/language.dart';
@@ -28,7 +29,7 @@ List<GetPage<dynamic>>? getPages = [
       page: () => const ForgetPassword(),
       transition: Transition.fade),
   GetPage(
-      name: AppRoute.verifyCode,
+      name: AppRoute.verifyCodeForgetPassword,
       page: () => const VerifyCode(),
       transition: Transition.fade),
   GetPage(
@@ -59,5 +60,12 @@ List<GetPage<dynamic>>? getPages = [
     page: () => const Language(),
     transition: Transition.fade,
     middlewares: [AuthMiddleWare()],
+  ),
+  //home page
+  GetPage(
+    name: AppRoute.home,
+    // page: () => const Test(),
+    page: () => const Home(),
+    transition: Transition.fade,
   ),
 ];

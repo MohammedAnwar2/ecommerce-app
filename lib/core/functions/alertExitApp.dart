@@ -13,7 +13,7 @@ alearExitApp() {
       ),
       TextButton(
         onPressed: () => exit(0),
-        child: Text('47'.tr),
+        child: Text('48'.tr),
       ),
     ],
   );
