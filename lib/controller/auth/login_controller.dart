@@ -1,5 +1,7 @@
 import 'package:ecommerce/core/class/sratus_request.dart';
+import 'package:ecommerce/core/constant/app_keys.dart';
 import 'package:ecommerce/core/functions/hadlingdata.dart';
+import 'package:ecommerce/core/services/service.dart';
 import 'package:ecommerce/data/datasource/remote/auth/login.dart';
 import 'package:ecommerce/route/route_app.dart';
 import 'package:flutter/material.dart';
@@ -20,6 +22,7 @@ class LoginControllerImp extends LoginController {
   IconData icon = Icons.lock_outline;
   LoginData testData = LoginData(Get.find());
   StatusRequest statusRequest = StatusRequest.success;
+  MyServices controller = Get.find<MyServices>();
 
   @override
   showPassword() {
@@ -48,6 +51,7 @@ class LoginControllerImp extends LoginController {
       if (statusRequest == StatusRequest.success) {
         if (response['status'] == 'success') {
           Get.offAllNamed(AppRoute.home);
+          controller.sharePref.setBool(AppKey.loginMiddleware, true);
         } else {
           Get.defaultDialog(title: "Warning", middleText: response['message']);
         }

@@ -1,4 +1,5 @@
-import 'package:ecommerce/core/middleware/auth_middleware.dart';
+import 'package:ecommerce/core/middleware/login_middleware.dart';
+import 'package:ecommerce/core/middleware/onboarding_middleware.dart';
 import 'package:ecommerce/route/route_app.dart';
 import 'package:ecommerce/test.dart';
 import 'package:ecommerce/view/screen/auth/forgetPassword/forgetpassword.dart';
@@ -17,9 +18,11 @@ import 'package:get/get.dart';
 List<GetPage<dynamic>>? getPages = [
   //auth
   GetPage(
-      name: AppRoute.login,
-      page: () => const Login(),
-      transition: Transition.fade),
+    name: AppRoute.login,
+    page: () => const Login(),
+    transition: Transition.fade,
+    //middlewares: [LoginMiddleware()],
+  ),
   GetPage(
       name: AppRoute.signUp,
       page: () => const SignUp(),

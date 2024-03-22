@@ -26,7 +26,7 @@ class OnboardingControllerImp extends OnboardingController {
     ++dotValue;
     if (dotValue > onBoardingList.length - 1) {
       Get.offAllNamed(AppRoute.login);
-      controller.sharePref.setBool(AppKey.authMiddleware, true);
+      controller.sharePref.setBool(AppKey.onboardingMiddleware, true);
     } else {
       print(dotValue);
       pageController?.animateToPage(dotValue,
