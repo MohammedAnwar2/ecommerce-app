@@ -1,4 +1,5 @@
 import 'package:ecommerce/controller/auth/forgetpassword_controller.dart';
+import 'package:ecommerce/core/class/handling_data_veiw.dart';
 import 'package:ecommerce/core/constant/app_color.dart';
 import 'package:ecommerce/core/functions/validation.dart';
 import 'package:ecommerce/core/shared/horizontal_and_vertical_size.dart';
@@ -15,8 +16,7 @@ class ForgetPassword extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ForgetPasswordControllerImp controller =
-        Get.put(ForgetPasswordControllerImp());
+    Get.put(ForgetPasswordControllerImp());
     return Scaffold(
         backgroundColor: AppColor.background,
         appBar: AppBar(
@@ -25,40 +25,47 @@ class ForgetPassword extends StatelessWidget {
           centerTitle: true,
           title: CustomTextAppBarTitleAuth(text: "14".tr),
         ),
-        body: Container(
-          padding:
-              EdgeInsetsDirectional.symmetric(horizontal: horizontalSize(30)),
-          child: Form(
-            key: controller.formKey,
-            child: ListView(
-              padding: EdgeInsetsDirectional.only(top: verticalSized(30)),
-              children: [
-                CustomTextTitleAuth(text: "27".tr),
-                verticalSizedBox(20),
-                CustomTextBodyAuth(text: "29".tr),
-                verticalSizedBox(20),
-                CustomTextFormFieldAuth(
-                  keyboardType: TextInputType.emailAddress,
-                  validator: (val) {
-                    return validationInput(
-                        val: val!, min: 5, max: 50, type: "email");
-                  },
-                  controller: controller.email,
-                  hint: "12".tr,
-                  lable: "18".tr,
-                  icon: Icons.email_outlined,
-                ),
-                verticalSizedBox(25),
-                CustomAuthButton(
-                  text: "30".tr,
-                  onPressed: () {
-                    controller.checkEmail();
-                    //controller.goToVerifyCode();
-                  },
-                ),
-              ],
-            ),
-          ),
+        body: GetBuilder<ForgetPasswordControllerImp>(
+          builder: (controller) {
+            return HandlingDataView(
+                statusRequest: controller.statusRequest,
+                widget: Container(
+                  padding: EdgeInsetsDirectional.symmetric(
+                      horizontal: horizontalSize(30)),
+                  child: Form(
+                    key: controller.formKey,
+                    child: ListView(
+                      padding:
+                          EdgeInsetsDirectional.only(top: verticalSized(30)),
+                      children: [
+                        CustomTextTitleAuth(text: "27".tr),
+                        verticalSizedBox(20),
+                        CustomTextBodyAuth(text: "29".tr),
+                        verticalSizedBox(20),
+                        CustomTextFormFieldAuth(
+                          keyboardType: TextInputType.emailAddress,
+                          validator: (val) {
+                            return validationInput(
+                                val: val!, min: 5, max: 50, type: "email");
+                          },
+                          controller: controller.email,
+                          hint: "12".tr,
+                          lable: "18".tr,
+                          icon: Icons.email_outlined,
+                        ),
+                        verticalSizedBox(25),
+                        CustomAuthButton(
+                          text: "30".tr,
+                          onPressed: () {
+                            controller.goToVerifyCode();
+                            //controller.goToVerifyCode();
+                          },
+                        ),
+                      ],
+                    ),
+                  ),
+                ));
+          },
         ));
   }
 }
