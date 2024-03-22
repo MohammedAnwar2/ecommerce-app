@@ -42,6 +42,7 @@ class VerifyCode extends StatelessWidget {
                 showFieldAsBox: true,
                 //runs when a code is typed in
                 onCodeChanged: (String code) {
+                  // controller.onCodeChanged(code);
                   //handle validation or checks here
                 },
                 //runs when every textfield is filled
