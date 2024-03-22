@@ -24,6 +24,7 @@ class VerifyCodeSignUpControllerImp extends VerifyCodeSignUpController {
       if (response['status'] == 'success') {
         Get.offNamed(AppRoute.successSignup);
       } else {
+        // statusRequest = StatusRequest.nodata;
         Get.defaultDialog(title: "Warning", middleText: response['message']);
       }
     }

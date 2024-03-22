@@ -56,6 +56,7 @@ class SignUpControllerImp extends SignUpController {
           Get.offNamed(AppRoute.verifyCodeSignUp,
               arguments: {"email": email.text});
         } else {
+          // statusRequest = StatusRequest.nodata;
           Get.defaultDialog(
               title: "Warning", middleText: "Email or Phone Already Exists");
         }

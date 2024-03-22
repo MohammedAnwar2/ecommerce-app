@@ -14,7 +14,7 @@ class Crud {
           Map responsebody = jsonDecode(response.body);
           return Either.right(responsebody);
         } else {
-          return Either.left(StatusRequest.serverfailure);
+          return Either.left(StatusRequest.nodata);
         }
       } else {
         return Either.left(StatusRequest.offlinefailure);

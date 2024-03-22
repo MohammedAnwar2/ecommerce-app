@@ -57,6 +57,7 @@ class ResetPasswordControllerImp extends ResetPasswordController {
           if (response['status'] == 'success') {
             Get.offAllNamed(AppRoute.successResetpassword);
           } else {
+            // statusRequest = StatusRequest.nodata;
             Get.defaultDialog(
                 title: "Warning", middleText: response['message']);
           }

@@ -21,7 +21,7 @@ class LoginControllerImp extends LoginController {
   bool showPasswordValue = true;
   IconData icon = Icons.lock_outline;
   LoginData testData = LoginData(Get.find());
-  StatusRequest statusRequest = StatusRequest.success;
+  StatusRequest statusRequest = StatusRequest.none;
   MyServices controller = Get.find<MyServices>();
 
   @override
@@ -53,6 +53,7 @@ class LoginControllerImp extends LoginController {
           Get.offAllNamed(AppRoute.home);
           controller.sharePref.setBool(AppKey.loginMiddleware, true);
         } else {
+          // statusRequest = StatusRequest.nodata;
           Get.defaultDialog(title: "Warning", middleText: response['message']);
         }
       }

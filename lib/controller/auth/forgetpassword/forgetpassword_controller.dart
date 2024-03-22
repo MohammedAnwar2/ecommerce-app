@@ -30,6 +30,7 @@ class ForgetPasswordControllerImp extends ForgetPasswordController {
           Get.toNamed(AppRoute.verifyCodeForgetPassword,
               arguments: {"email": email.text});
         } else {
+          // statusRequest = StatusRequest.nodata;
           Get.defaultDialog(title: "Warning", middleText: response['message']);
         }
       }
