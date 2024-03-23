@@ -1,8 +1,11 @@
+import 'dart:developer';
+
 import 'package:ecommerce/core/class/sratus_request.dart';
 import 'package:ecommerce/core/constant/app_keys.dart';
 import 'package:ecommerce/core/functions/hadlingdata.dart';
 import 'package:ecommerce/core/services/service.dart';
 import 'package:ecommerce/data/datasource/remote/auth/login.dart';
+import 'package:ecommerce/data/datasource/remote/auth/verifycode_signup.dart';
 import 'package:ecommerce/route/route_app.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -21,6 +24,7 @@ class LoginControllerImp extends LoginController {
   bool showPasswordValue = true;
   IconData icon = Icons.lock_outline;
   LoginData testData = LoginData(Get.find());
+  VerifyCodeSignUpData verifycodeData = VerifyCodeSignUpData(Get.find());
   StatusRequest statusRequest = StatusRequest.none;
   MyServices controller = Get.find<MyServices>();
 
@@ -50,10 +54,26 @@ class LoginControllerImp extends LoginController {
       statusRequest = handlingData(response);
       if (statusRequest == StatusRequest.success) {
         if (response['status'] == 'success') {
-          Get.offAllNamed(AppRoute.home);
-          controller.sharePref.setBool(AppKey.loginMiddleware, true);
+          if (response['data']['users_approve'] == 1) {
+            controller.sharePref
+                .setInt(AppKey.usersId, response['data']['users_id']);
+            controller.sharePref
+                .setString(AppKey.usersName, response['data']['users_name']);
+            controller.sharePref
+                .setString(AppKey.usersEmail, response['data']['users_email']);
+            controller.sharePref
+                .setString(AppKey.usersPhone, response['data']['users_phone']);
+            controller.sharePref.setBool(AppKey.loginMiddleware, true);
+            Get.offAllNamed(AppRoute.home);
+          } else {
+            print("email === ${email.text}");
+            verifycodeData.resendVerifycode(email.text);
+            Get.toNamed(AppRoute.verifyCodeSignUp,
+                arguments: {"email": email.text});
+          }
         } else {
           // statusRequest = StatusRequest.nodata;
+
           Get.defaultDialog(title: "Warning", middleText: response['message']);
         }
       }

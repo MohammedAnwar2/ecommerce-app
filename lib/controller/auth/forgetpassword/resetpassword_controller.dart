@@ -65,10 +65,7 @@ class ResetPasswordControllerImp extends ResetPasswordController {
         update();
         print("success");
       } else {
-        Get.defaultDialog(
-            title: "Warning",
-            middleText:
-                "password = ${password.text}   repassword = ${repassword.text}");
+        Get.defaultDialog(title: "Warning", middleText: "Password Not Match");
       }
     }
   }

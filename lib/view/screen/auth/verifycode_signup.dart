@@ -1,4 +1,4 @@
-import 'package:ecommerce/controller/auth/verifycode_signup_controller.dart';
+import 'package:ecommerce/controller/auth/signup/verifycode_signup_controller.dart';
 import 'package:ecommerce/core/class/handling_data_veiw.dart';
 import 'package:ecommerce/core/constant/app_color.dart';
 import 'package:ecommerce/core/shared/horizontal_and_vertical_size.dart';
@@ -55,6 +55,22 @@ class VerifyCodeSignUp extends StatelessWidget {
                           onSubmit: (String verificationCode) {
                             controller.goToSuccessSignUp(verificationCode);
                           }, // end onSubmit
+                        ),
+                        verticalSizedBox(50),
+                        InkWell(
+                          onTap: () {
+                            controller.resendVerifycode();
+                          },
+                          child: Center(
+                            child: Text("Resend verify code again",
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .displaySmall!
+                                    .copyWith(
+                                      color: AppColor.primaryColor,
+                                    )),
+                          ),
+                          //color: AppColor.primaryColor
                         )
                       ],
                     ),

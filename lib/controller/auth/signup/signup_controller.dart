@@ -53,12 +53,14 @@ class SignUpControllerImp extends SignUpController {
       if (statusRequest == StatusRequest.success) {
         if (response['status'] == 'success') {
           //  data.addAll(response['data']);
-          Get.offNamed(AppRoute.verifyCodeSignUp,
+          Get.toNamed(AppRoute.verifyCodeSignUp,
               arguments: {"email": email.text});
         } else {
           // statusRequest = StatusRequest.nodata;
           Get.defaultDialog(
-              title: "Warning", middleText: "Email or Phone Already Exists");
+              title: "Warning",
+              middleText:
+                  "Email or phone number already exists. Please log in");
         }
       }
       update();

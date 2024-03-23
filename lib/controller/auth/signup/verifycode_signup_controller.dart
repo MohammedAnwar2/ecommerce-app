@@ -7,10 +7,11 @@ import 'package:ecommerce/data/datasource/remote/auth/verifycode_signup.dart';
 abstract class VerifyCodeSignUpController extends GetxController {
   checkcode();
   goToSuccessSignUp(String verificationCode);
+  resendVerifycode();
 }
 
 class VerifyCodeSignUpControllerImp extends VerifyCodeSignUpController {
-  VerifyCodeSignUpData testData = VerifyCodeSignUpData(Get.find());
+  VerifyCodeSignUpData verifycodeData = VerifyCodeSignUpData(Get.find());
   StatusRequest statusRequest = StatusRequest.success;
   late String email;
 
@@ -18,11 +19,11 @@ class VerifyCodeSignUpControllerImp extends VerifyCodeSignUpController {
   goToSuccessSignUp(String verificationCode) async {
     statusRequest = StatusRequest.loading;
     update();
-    var response = await testData.postData(email, verificationCode);
+    var response = await verifycodeData.postData(email, verificationCode);
     statusRequest = handlingData(response);
     if (statusRequest == StatusRequest.success) {
       if (response['status'] == 'success') {
-        Get.offNamed(AppRoute.successSignup);
+        Get.offAllNamed(AppRoute.successSignup);
       } else {
         // statusRequest = StatusRequest.nodata;
         Get.defaultDialog(title: "Warning", middleText: response['message']);
@@ -37,6 +38,13 @@ class VerifyCodeSignUpControllerImp extends VerifyCodeSignUpController {
   @override
   void onInit() {
     email = Get.arguments['email'];
+    // verifycodeData.resendVerifycode(email);
     super.onInit();
+  }
+
+  @override
+  resendVerifycode() async {
+    print(email);
+    await verifycodeData.resendVerifycode(email);
   }
 }

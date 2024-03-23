@@ -12,4 +12,10 @@ class VerifyCodeSignUpData {
     });
     return response.fold((l) => l, (r) => r);
   }
+
+  resendVerifycode(String email) async {
+    await crud.postData(AppLink.resentVerifycode, {
+      "email": email,
+    });
+  }
 }

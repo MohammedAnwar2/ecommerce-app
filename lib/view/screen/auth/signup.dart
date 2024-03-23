@@ -1,4 +1,4 @@
-import 'package:ecommerce/controller/auth/signup_controller.dart';
+import 'package:ecommerce/controller/auth/signup/signup_controller.dart';
 import 'package:ecommerce/core/class/handling_data_veiw.dart';
 import 'package:ecommerce/core/class/sratus_request.dart';
 import 'package:ecommerce/core/constant/app_color.dart';
@@ -14,14 +14,13 @@ import 'package:ecommerce/view/widget/auth/custom_text_title_auth.dart';
 import 'package:ecommerce/view/widget/auth/custom_auth_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:lottie/lottie.dart';
 
 class SignUp extends StatelessWidget {
   const SignUp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    SignUpControllerImp controller = Get.put(SignUpControllerImp());
+    Get.put(SignUpControllerImp());
     return Scaffold(
         backgroundColor: AppColor.background,
         appBar: AppBar(
