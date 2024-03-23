@@ -2,12 +2,12 @@ import 'package:ecommerce/controller/auth/forgetpassword/verfycode_forgetpasswor
 import 'package:ecommerce/core/class/handling_data_veiw.dart';
 import 'package:ecommerce/core/constant/app_color.dart';
 import 'package:ecommerce/core/shared/horizontal_and_vertical_size.dart';
+import 'package:ecommerce/view/widget/auth/custom_otp_text_field.dart';
 import 'package:ecommerce/view/widget/auth/custom_text_appbar_title_auth.dart';
 import 'package:ecommerce/view/widget/auth/custom_text_body_auth.dart';
 import 'package:ecommerce/view/widget/auth/custom_text_title_auth.dart';
 import 'package:ecommerce/view/widget/auth/resend_verifycode_button.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:get/get.dart';
 
 class VerifyCodeForgetPassword extends StatelessWidget {
@@ -38,22 +38,10 @@ class VerifyCodeForgetPassword extends StatelessWidget {
                     verticalSizedBox(20),
                     CustomTextBodyAuth(text: "${"44".tr}${controller.email}"),
                     verticalSizedBox(20),
-                    OtpTextField(
-                      fieldWidth: 50,
-                      borderRadius: BorderRadius.circular(12),
-                      numberOfFields: 5,
-                      borderColor: Color(0xFF512DA8),
-                      //set to true to show as box or false to show as dash
-                      showFieldAsBox: true,
-                      //runs when a code is typed in
-                      onCodeChanged: (String code) {
-                        // controller.onCodeChanged(code);
-                        //handle validation or checks here
-                      },
-                      //runs when every textfield is filled
+                    CustomOtpTextField(
                       onSubmit: (String verificationCode) {
                         controller.goToResetPassword(verificationCode);
-                      }, // end onSubmit
+                      },
                     ),
                     verticalSizedBox(50),
                     ResendVerifyCodeButton(
