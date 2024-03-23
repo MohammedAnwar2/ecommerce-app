@@ -43,8 +43,8 @@ class VerifyCodeSignUpControllerImp extends VerifyCodeSignUpController {
   }
 
   @override
-  resendVerifycode() async {
+  resendVerifycode() {
     print(email);
-    await verifycodeData.resendVerifycode(email);
+    verifycodeData.resendVerifycode(email);
   }
 }

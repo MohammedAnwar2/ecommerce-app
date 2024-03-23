@@ -5,6 +5,7 @@ import 'package:ecommerce/core/shared/horizontal_and_vertical_size.dart';
 import 'package:ecommerce/view/widget/auth/custom_text_appbar_title_auth.dart';
 import 'package:ecommerce/view/widget/auth/custom_text_body_auth.dart';
 import 'package:ecommerce/view/widget/auth/custom_text_title_auth.dart';
+import 'package:ecommerce/view/widget/auth/resend_verifycode_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:get/get.dart';
@@ -53,6 +54,12 @@ class VerifyCodeForgetPassword extends StatelessWidget {
                       onSubmit: (String verificationCode) {
                         controller.goToResetPassword(verificationCode);
                       }, // end onSubmit
+                    ),
+                    verticalSizedBox(50),
+                    ResendVerifyCodeButton(
+                      onTap: () {
+                        controller.resendVerifycode();
+                      },
                     )
                   ],
                 ),

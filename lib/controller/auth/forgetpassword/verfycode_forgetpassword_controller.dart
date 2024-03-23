@@ -7,6 +7,7 @@ import 'package:get/get.dart';
 abstract class VerifyCodeForgetPasswordController extends GetxController {
   checkcode();
   goToResetPassword(String verificationCode);
+  resendVerifycode();
 }
 
 class VerifyCodeForgetPasswordControllerImp
@@ -40,5 +41,11 @@ class VerifyCodeForgetPasswordControllerImp
   void onInit() {
     email = Get.arguments['email'];
     super.onInit();
+  }
+
+  @override
+  resendVerifycode() {
+    print(email);
+    verifyCode.resendVerifycode(email);
   }
 }
