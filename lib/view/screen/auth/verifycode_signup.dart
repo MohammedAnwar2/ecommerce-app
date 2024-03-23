@@ -8,7 +8,6 @@ import 'package:ecommerce/view/widget/auth/custom_text_body_auth.dart';
 import 'package:ecommerce/view/widget/auth/custom_text_title_auth.dart';
 import 'package:ecommerce/view/widget/auth/resend_verifycode_button.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:get/get.dart';
 
 class VerifyCodeSignUp extends StatelessWidget {
@@ -40,7 +39,7 @@ class VerifyCodeSignUp extends StatelessWidget {
                         CustomTextTitleAuth(text: "27".tr),
                         verticalSizedBox(20),
                         CustomTextBodyAuth(
-                            text: "${"44".tr}${controller.email}"),
+                            text: "${"44".tr} ${controller.email}"),
                         verticalSizedBox(20),
                         CustomOtpTextField(
                           onSubmit: (String verificationCode) {

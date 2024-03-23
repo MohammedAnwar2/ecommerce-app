@@ -36,7 +36,7 @@ class VerifyCodeForgetPassword extends StatelessWidget {
                   children: [
                     CustomTextTitleAuth(text: "27".tr),
                     verticalSizedBox(20),
-                    CustomTextBodyAuth(text: "${"44".tr}${controller.email}"),
+                    CustomTextBodyAuth(text: "${"44".tr} ${controller.email}"),
                     verticalSizedBox(20),
                     CustomOtpTextField(
                       onSubmit: (String verificationCode) {
