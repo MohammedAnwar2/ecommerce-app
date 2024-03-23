@@ -19,9 +19,12 @@ List<GetPage<dynamic>>? getPages = [
   //auth
   GetPage(
     name: AppRoute.login,
+    // page: () => Test(),
     page: () => const Login(),
     transition: Transition.fade,
-    middlewares: [LoginMiddleware()],
+    middlewares: [
+      LoginMiddleware(),
+    ],
   ),
   GetPage(
       name: AppRoute.signUp,
@@ -68,7 +71,7 @@ List<GetPage<dynamic>>? getPages = [
   GetPage(
     name: AppRoute.home,
     // page: () => const Test(),
-    page: () => const Home(),
+    page: () => Home(),
     transition: Transition.fade,
   ),
 ];

@@ -9,10 +9,19 @@ validationInput(
     return "can't be empyt";
   }
   if (type == "username") {
-    if (!GetUtils.isUsername(val)) {
-      return "not valid username";
+    if (val.length > 16) {
+      return "can't be more than 16";
     }
+    // RegExp usernameRegExp = RegExp(r'^[^\s\W][^\s\W\d]{0,14}[^\s\W]$');
+    // if (!usernameRegExp.hasMatch(val)) {
+    //   return "not valid username , can't be more than 16";
+    // }
   }
+  // if (type == "username") {
+  //   if (!GetUtils.isUsername(val)) {
+  //     return "not valid username";
+  //   }
+  // }
   if (type == "email") {
     if (!GetUtils.isEmail(val)) {
       return "not valid email";
