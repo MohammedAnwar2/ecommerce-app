@@ -31,7 +31,7 @@ class ForgetPasswordControllerImp extends ForgetPasswordController {
               arguments: {"email": email.text});
         } else {
           // statusRequest = StatusRequest.nodata;
-          Get.defaultDialog(title: "Warning", middleText: response['message']);
+          Get.defaultDialog(title: "46".tr, middleText: "49".tr);
         }
       }
       update();

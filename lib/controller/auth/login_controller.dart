@@ -73,8 +73,11 @@ class LoginControllerImp extends LoginController {
           }
         } else {
           // statusRequest = StatusRequest.nodata;
-
-          Get.defaultDialog(title: "Warning", middleText: response['message']);
+          if (response['message'] == "password") {
+            Get.defaultDialog(title: "46".tr, middleText: "54".tr);
+          } else {
+            Get.defaultDialog(title: "46".tr, middleText: "55".tr);
+          }
         }
       }
       update();

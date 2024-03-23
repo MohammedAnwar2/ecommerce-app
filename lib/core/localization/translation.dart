@@ -59,6 +59,18 @@ Map<String, String> ar = {
   "46": "تنبيه",
   "47": "لا",
   "48": "نعم",
+  "49":
+      "البريد الإلكتروني لم يتم تسجيله بعد، يرجى التحقق من بريدك الإلكتروني مرة أخرى",
+  "50": "لا يمكن تعيين نفس كلمة المرور مرة أخرى",
+  "51": "كلمة السر ليست متطابقه",
+  "52": "رمز التحقق غير صحيح",
+  "53": "البريد الإلكتروني أو رقم الهاتف موجود بالفعل. الرجاء تسجيل الدخول",
+  "54": "كلمة المرور التي أدخلتها غير صحيحة. حاول مرة اخرى",
+  "55": "! البريد الإلكتروني غير موجود. تحقق من الإملاء أو قم بالتسجيل",
+  "56": "إعادة إرسال رمز التحقق مرة أخرى",
+  "57": "التجارة الإلكترونية",
+  "58": "نعم",
+  "59": "نعم",
 };
 
 Map<String, String> en = {
@@ -110,5 +122,15 @@ Map<String, String> en = {
   "45": "Are you sure you want to exit ?",
   "46": "Warning",
   "47": "No",
-  "48": "Yes",
+  "49": "The Email Is Not Register Yet , Please Check Your Email Again",
+  "50": "Unable to set the same password again",
+  "51": "Password Not Match",
+  "52": "Verify Code Not Correct",
+  "53": "Email or phone number already exists. Please sign in",
+  "54": "The password you entered is incorrect. Please try again",
+  "55": "Email not found. Check spelling or sign up!",
+  "56": "Resend verify code again",
+  "57": "ecommerce",
+  "58": "Yes",
+  "59": "Yes",
 };

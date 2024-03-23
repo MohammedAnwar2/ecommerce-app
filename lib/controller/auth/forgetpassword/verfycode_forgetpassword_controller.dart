@@ -28,7 +28,7 @@ class VerifyCodeForgetPasswordControllerImp
         Get.offNamed(AppRoute.resetPassword, arguments: {"email": email});
       } else {
         // statusRequest = StatusRequest.nodata;
-        Get.defaultDialog(title: "Warning", middleText: response['message']);
+        Get.defaultDialog(title: "46".tr, middleText: "52".tr);
       }
     }
     update();

@@ -1,5 +1,6 @@
 import 'package:ecommerce/core/constant/app_color.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class ResendVerifyCodeButton extends StatelessWidget {
   const ResendVerifyCodeButton({
@@ -14,7 +15,7 @@ class ResendVerifyCodeButton extends StatelessWidget {
       highlightColor: Colors.transparent,
       onTap: onTap,
       child: Center(
-        child: Text("Resend verify code again",
+        child: Text("56".tr,
             style: Theme.of(context).textTheme.displaySmall!.copyWith(
                   color: AppColor.primaryColor,
                 )),

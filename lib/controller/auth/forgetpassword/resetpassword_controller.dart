@@ -58,14 +58,13 @@ class ResetPasswordControllerImp extends ResetPasswordController {
             Get.offAllNamed(AppRoute.successResetpassword);
           } else {
             // statusRequest = StatusRequest.nodata;
-            Get.defaultDialog(
-                title: "Warning", middleText: response['message']);
+            Get.defaultDialog(title: "46".tr, middleText: "50".tr);
           }
         }
         update();
         print("success");
       } else {
-        Get.defaultDialog(title: "Warning", middleText: "Password Not Match");
+        Get.defaultDialog(title: "46".tr, middleText: "51".tr);
       }
     }
   }

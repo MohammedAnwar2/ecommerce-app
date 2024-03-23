@@ -57,10 +57,7 @@ class SignUpControllerImp extends SignUpController {
               arguments: {"email": email.text});
         } else {
           // statusRequest = StatusRequest.nodata;
-          Get.defaultDialog(
-              title: "Warning",
-              middleText:
-                  "Email or phone number already exists. Please log in");
+          Get.defaultDialog(title: "46".tr, middleText: "53".tr);
         }
       }
       update();
