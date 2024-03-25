@@ -5,8 +5,7 @@ import 'package:ecommerce/route/route_app.dart';
 import 'package:get/get.dart';
 
 abstract class VerifyCodeForgetPasswordController extends GetxController {
-  checkcode();
-  goToResetPassword(String verificationCode);
+  checkVerifyCode(String verificationCode);
   resendVerifycode();
 }
 
@@ -18,7 +17,7 @@ class VerifyCodeForgetPasswordControllerImp
   StatusRequest statusRequest = StatusRequest.success;
 
   @override
-  goToResetPassword(String verificationCode) async {
+  checkVerifyCode(String verificationCode) async {
     statusRequest = StatusRequest.loading;
     update();
     var response = await verifyCode.postData(email, verificationCode);
@@ -35,9 +34,6 @@ class VerifyCodeForgetPasswordControllerImp
   }
 
   @override
-  checkcode() {}
-
-  @override
   void onInit() {
     email = Get.arguments['email'];
     super.onInit();
@@ -45,7 +41,6 @@ class VerifyCodeForgetPasswordControllerImp
 
   @override
   resendVerifycode() {
-    print(email);
     verifyCode.resendVerifycode(email);
   }
 }

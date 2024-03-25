@@ -44,7 +44,7 @@ class ResetPassword extends StatelessWidget {
                         init: ResetPasswordControllerImp(),
                         builder: (controller) => CustomTextFormFieldAuth(
                           obscureText: controller.showPasswordValue1,
-                          onPressed: () => controller.showPassword(1),
+                          onPressed: () => controller.hidePassword(1),
                           keyboardType: TextInputType.visiblePassword,
                           validator: (val) {
                             return validationInput(
@@ -60,7 +60,7 @@ class ResetPassword extends StatelessWidget {
                       GetBuilder<ResetPasswordControllerImp>(
                         init: ResetPasswordControllerImp(),
                         builder: (controller) => CustomTextFormFieldAuth(
-                          onPressed: () => controller.showPassword(2),
+                          onPressed: () => controller.hidePassword(2),
                           obscureText: controller.showPasswordValue2,
                           keyboardType: TextInputType.visiblePassword,
                           validator: (val) {
@@ -78,7 +78,7 @@ class ResetPassword extends StatelessWidget {
                         text: "33".tr,
                         onPressed: () {
                           //controller.goToSuccessResetPasswor();
-                          controller.goToSuccessResetPasswor();
+                          controller.resetPassword();
                         },
                       ),
                     ],

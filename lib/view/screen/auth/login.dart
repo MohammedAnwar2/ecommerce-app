@@ -68,7 +68,7 @@ class Login extends StatelessWidget {
                               builder: (controller) => CustomTextFormFieldAuth(
                                 obscureText: controller.showPasswordValue,
                                 onPressed: () {
-                                  controller.showPassword();
+                                  controller.hidePassword();
                                 },
                                 keyboardType: TextInputType.visiblePassword,
                                 validator: (val) {

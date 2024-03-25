@@ -8,7 +8,7 @@ import 'package:get/get.dart';
 abstract class SignUpController extends GetxController {
   signUp();
   goToLogin();
-  showPassword();
+  hidePassword();
 }
 
 class SignUpControllerImp extends SignUpController {
@@ -26,7 +26,7 @@ class SignUpControllerImp extends SignUpController {
   StatusRequest statusRequest = StatusRequest.success;
 
   @override
-  showPassword() {
+  hidePassword() {
     if (showPasswordValue == false) {
       showPasswordValue = true;
       icon = Icons.lock_outline;

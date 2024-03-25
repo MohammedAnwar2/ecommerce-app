@@ -14,7 +14,7 @@ abstract class LoginController extends GetxController {
   login();
   goToSignUp();
   goToForgetPassword();
-  showPassword();
+  hidePassword();
 }
 
 class LoginControllerImp extends LoginController {
@@ -29,7 +29,7 @@ class LoginControllerImp extends LoginController {
   MyServices controller = Get.find<MyServices>();
 
   @override
-  showPassword() {
+  hidePassword() {
     if (showPasswordValue == false) {
       showPasswordValue = true;
       icon = Icons.lock_outline;

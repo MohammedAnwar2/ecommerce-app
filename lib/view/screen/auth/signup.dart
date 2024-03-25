@@ -92,7 +92,7 @@ class SignUp extends StatelessWidget {
                             init: SignUpControllerImp(),
                             builder: (controller) => CustomTextFormFieldAuth(
                               obscureText: controller.showPasswordValue,
-                              onPressed: () => controller.showPassword(),
+                              onPressed: () => controller.hidePassword(),
                               keyboardType: TextInputType.visiblePassword,
                               validator: (val) {
                                 return validationInput(

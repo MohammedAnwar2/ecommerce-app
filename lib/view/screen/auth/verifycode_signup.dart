@@ -43,7 +43,7 @@ class VerifyCodeSignUp extends StatelessWidget {
                         verticalSizedBox(20),
                         CustomOtpTextField(
                           onSubmit: (String verificationCode) {
-                            controller.goToSuccessSignUp(verificationCode);
+                            controller.checkVerifyCode(verificationCode);
                           },
                         ),
                         verticalSizedBox(50),

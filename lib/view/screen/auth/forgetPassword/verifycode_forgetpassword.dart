@@ -40,7 +40,7 @@ class VerifyCodeForgetPassword extends StatelessWidget {
                     verticalSizedBox(20),
                     CustomOtpTextField(
                       onSubmit: (String verificationCode) {
-                        controller.goToResetPassword(verificationCode);
+                        controller.checkVerifyCode(verificationCode);
                       },
                     ),
                     verticalSizedBox(50),

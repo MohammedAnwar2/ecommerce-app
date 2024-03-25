@@ -5,8 +5,7 @@ import 'package:ecommerce/core/functions/hadlingdata.dart';
 import 'package:ecommerce/data/datasource/remote/auth/verifycode_signup.dart';
 
 abstract class VerifyCodeSignUpController extends GetxController {
-  checkcode();
-  goToSuccessSignUp(String verificationCode);
+  checkVerifyCode(String verificationCode);
   resendVerifycode();
 }
 
@@ -16,7 +15,7 @@ class VerifyCodeSignUpControllerImp extends VerifyCodeSignUpController {
   late String email;
 
   @override
-  goToSuccessSignUp(String verificationCode) async {
+  checkVerifyCode(String verificationCode) async {
     statusRequest = StatusRequest.loading;
     update();
     var response = await verifycodeData.postData(email, verificationCode);
@@ -33,18 +32,13 @@ class VerifyCodeSignUpControllerImp extends VerifyCodeSignUpController {
   }
 
   @override
-  checkcode() {}
-
-  @override
   void onInit() {
     email = Get.arguments['email'];
-    // verifycodeData.resendVerifycode(email);
     super.onInit();
   }
 
   @override
   resendVerifycode() {
-    print(email);
     verifycodeData.resendVerifycode(email);
   }
 }

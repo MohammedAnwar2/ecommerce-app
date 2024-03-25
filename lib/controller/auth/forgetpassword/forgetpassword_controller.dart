@@ -7,7 +7,6 @@ import 'package:get/get.dart';
 
 abstract class ForgetPasswordController extends GetxController {
   checkEmail();
-  goToVerifyCode();
 }
 
 class ForgetPasswordControllerImp extends ForgetPasswordController {
@@ -17,7 +16,7 @@ class ForgetPasswordControllerImp extends ForgetPasswordController {
   StatusRequest statusRequest = StatusRequest.success;
 
   @override
-  goToVerifyCode() async {
+  checkEmail() async {
     if (formKey.currentState!.validate()) {
       statusRequest = StatusRequest.loading;
       update();
@@ -39,9 +38,6 @@ class ForgetPasswordControllerImp extends ForgetPasswordController {
       print("not valid");
     }
   }
-
-  @override
-  checkEmail() {}
 
   @override
   void onInit() {

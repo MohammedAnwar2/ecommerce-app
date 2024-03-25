@@ -7,8 +7,7 @@ import 'package:get/get.dart';
 
 abstract class ResetPasswordController extends GetxController {
   resetPassword();
-  goToSuccessResetPasswor();
-  showPassword(int type);
+  hidePassword(int type);
 }
 
 class ResetPasswordControllerImp extends ResetPasswordController {
@@ -24,7 +23,7 @@ class ResetPasswordControllerImp extends ResetPasswordController {
   StatusRequest statusRequest = StatusRequest.success;
   late String email;
   @override
-  showPassword(int type) {
+  hidePassword(int type) {
     if (type == 1) {
       if (showPasswordValue1 != false) {
         showPasswordValue1 = false;
@@ -46,7 +45,7 @@ class ResetPasswordControllerImp extends ResetPasswordController {
   }
 
   @override
-  goToSuccessResetPasswor() async {
+  resetPassword() async {
     if (formKey.currentState!.validate()) {
       if (password.text == repassword.text) {
         statusRequest = StatusRequest.loading;
@@ -68,9 +67,6 @@ class ResetPasswordControllerImp extends ResetPasswordController {
       }
     }
   }
-
-  @override
-  resetPassword() {}
 
   @override
   void onInit() {
