@@ -7,6 +7,7 @@ import 'package:ecommerce/core/services/service.dart';
 import 'package:ecommerce/data/datasource/remote/auth/login.dart';
 import 'package:ecommerce/data/datasource/remote/auth/verifycode_signup.dart';
 import 'package:ecommerce/route/route_app.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -88,6 +89,7 @@ class LoginControllerImp extends LoginController {
 
   @override
   void onInit() {
+    setupToken();
     email = TextEditingController();
     password = TextEditingController();
     super.onInit();
@@ -99,6 +101,12 @@ class LoginControllerImp extends LoginController {
   //   password.dispose();
   //   super.onClose();
   // }
+
+  Future<void> setupToken() async {
+    // Get the token each time the application loads
+    String? token = await FirebaseMessaging.instance.getToken();
+    log(token.toString());
+  }
 
   @override
   goToForgetPassword() {
