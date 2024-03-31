@@ -1,7 +1,6 @@
 import 'package:ecommerce/core/middleware/login_middleware.dart';
 import 'package:ecommerce/core/middleware/onboarding_middleware.dart';
 import 'package:ecommerce/route/route_app.dart';
-import 'package:ecommerce/test.dart';
 import 'package:ecommerce/view/screen/auth/forgetPassword/forgetpassword.dart';
 import 'package:ecommerce/view/screen/auth/forgetPassword/resetpassword.dart';
 import 'package:ecommerce/view/screen/auth/forgetPassword/success_resetpassword.dart';
