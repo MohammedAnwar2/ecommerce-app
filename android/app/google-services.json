@@ -7,9 +7,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:422358596647:android:30b4bdf863a4eb1250a202",
+        "mobilesdk_app_id": "1:422358596647:android:d7aa4daa50f9999150a202",
         "android_client_info": {
-          "package_name": "com.moanbm123.ecommerce"
+          "package_name": "com.moanbm123.ecommerce_app"
         }
       },
       "oauth_client": [],

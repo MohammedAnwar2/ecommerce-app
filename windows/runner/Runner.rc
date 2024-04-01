@@ -89,11 +89,11 @@ BEGIN
     BEGIN
         BLOCK "040904e4"
         BEGIN
-            VALUE "CompanyName", "com.moanbm123.ecommerce" "\0"
+            VALUE "CompanyName", "com.moanbm123.ecommerce_app" "\0"
             VALUE "FileDescription", "ecommerce" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
             VALUE "InternalName", "ecommerce" "\0"
-            VALUE "LegalCopyright", "Copyright (C) 2024 com.moanbm123.ecommerce. All rights reserved." "\0"
+            VALUE "LegalCopyright", "Copyright (C) 2024 com.moanbm123.ecommerce_app. All rights reserved." "\0"
             VALUE "OriginalFilename", "ecommerce.exe" "\0"
             VALUE "ProductName", "ecommerce" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
