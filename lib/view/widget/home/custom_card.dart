@@ -13,7 +13,6 @@ class CustomCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsetsDirectional.only(top: verticalSized(16)),
-      padding: EdgeInsetsDirectional.symmetric(horizontal: horizontalSize(16)),
       child: Stack(
         children: [
           Container(
