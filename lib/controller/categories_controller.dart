@@ -34,11 +34,7 @@ class CategoriesControllerImp extends CategoriesController {
         //     title: response['status'].tr, middleText: response['status']);
       }
     }
-    print("----------------items------------------------");
 
-    print(itemModelList[0].itemsName);
-    print(itemModelList[1].itemsName);
-    print(itemModelList[2].itemsName);
     update();
   }
 
