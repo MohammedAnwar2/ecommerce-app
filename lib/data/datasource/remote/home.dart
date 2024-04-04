@@ -1,12 +1,12 @@
 import 'package:ecommerce/core/class/crud.dart';
 import 'package:ecommerce/core/constant/app_link.dart';
 
-class ViewCategories {
+class HomeData {
   Crud crud;
-  ViewCategories(this.crud);
+  HomeData(this.crud);
 
   postData() async {
-    var response = await crud.postData(AppLink.viewCategories, {});
+    var response = await crud.postData(AppLink.home, {});
     return response.fold((l) => l, (r) => r);
   }
 }

@@ -1,5 +1,10 @@
 class AppLink {
   static const String server = "https://mohammedanwar.in/ecommerce";
+  static const String image = "https://mohammedanwar.in/ecommerce/uploade";
+
+  //-------------------------- Image ------------------------------
+  static const String imageCategories = "$image/categories";
+  static const String imageItem = "$image/item";
 
   //-------------------------- Auth ------------------------------
   static const String signup = "$server/auth/signup.php";
@@ -13,5 +18,7 @@ class AppLink {
   static const String resetPassword =
       "$server/forgetpassword/reset_password.php";
   //-------------------- Categories --------------------------
-  static const String viewCategories = "$server/categories/view.php";
+  //static const String viewCategories = "$server/categories/view.php";
+  //-------------------- Home --------------------------
+  static const String home = "$server/home.php";
 }

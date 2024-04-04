@@ -1,26 +1,26 @@
 import 'package:ecommerce/core/class/sratus_request.dart';
 import 'package:ecommerce/core/functions/hadlingdata.dart';
-import 'package:ecommerce/data/datasource/remote/categories.dart/view_all_categories.dart';
+import 'package:ecommerce/data/datasource/remote/home.dart';
 import 'package:ecommerce/data/model/categories_model.dart';
 import 'package:get/get.dart';
 
 abstract class CategoriesController extends GetxController {
-  storeData();
+  getData();
 }
 
 class CategoriesControllerImp extends CategoriesController {
   List<CategoriesModel> categoriesModelList = [];
-  ViewCategories viewCategories = ViewCategories(Get.find());
+  HomeData homeData = HomeData(Get.find());
   StatusRequest statusRequest = StatusRequest.success;
   @override
-  storeData() async {
+  getData() async {
     statusRequest = StatusRequest.loading;
     update();
-    var response = await viewCategories.postData();
+    var response = await homeData.postData();
     statusRequest = handlingData(response);
     if (statusRequest == StatusRequest.success) {
       if (response['status'] == 'success') {
-        for (var element in response['data']) {
+        for (var element in response['categories']) {
           categoriesModelList.add(CategoriesModel.fromJson(element));
         }
       } else {
@@ -34,7 +34,7 @@ class CategoriesControllerImp extends CategoriesController {
 
   @override
   void onInit() {
-    storeData();
+    getData();
     super.onInit();
   }
 }

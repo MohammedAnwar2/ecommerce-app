@@ -1,14 +1,15 @@
 import 'package:ecommerce/core/constant/app_color.dart';
 import 'package:ecommerce/core/shared/horizontal_and_vertical_size.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
 
 class CustomCard extends StatelessWidget {
   const CustomCard({
     super.key,
+    required this.title,
+    required this.subTitle,
   });
-
+  final String title;
+  final String subTitle;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -26,7 +27,7 @@ class CustomCard extends StatelessWidget {
               title: Padding(
                 padding: EdgeInsetsDirectional.only(bottom: verticalSized(20)),
                 child: Text(
-                  "A summer surprice",
+                  title,
                   style: Theme.of(context)
                       .textTheme
                       .titleLarge!
@@ -34,7 +35,7 @@ class CustomCard extends StatelessWidget {
                 ),
               ),
               subtitle: Text(
-                "Cashback 20%",
+                subTitle,
                 style: Theme.of(context)
                     .textTheme
                     .titleLarge!
