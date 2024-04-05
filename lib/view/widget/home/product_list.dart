@@ -12,7 +12,7 @@ class ListProductItem extends GetView<CategoriesControllerImp> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: verticalSized(200),
+      height: verticalSized(130),
       child: ListView.separated(
         itemBuilder: (context, i) => ItemInfoHome(
             image: controller.itemModelList[i].itemsImage!,

@@ -8,7 +8,7 @@ import 'package:ecommerce/view/screen/auth/forgetPassword/verifycode_forgetpassw
 import 'package:ecommerce/view/screen/auth/signup.dart';
 import 'package:ecommerce/view/screen/auth/success_signup.dart';
 import 'package:ecommerce/view/screen/auth/verifycode_signup.dart';
-import 'package:ecommerce/view/screen/home.dart';
+import 'package:ecommerce/view/screen/home_page.dart';
 import 'package:ecommerce/view/screen/home_screen.dart';
 import 'package:ecommerce/view/screen/onbording.dart';
 import 'package:ecommerce/view/screen/auth/login.dart';
