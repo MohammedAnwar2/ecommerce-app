@@ -11,48 +11,44 @@ import 'package:ecommerce/view/widget/home/product_list.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class Home extends StatelessWidget {
-  const Home({super.key});
+class HomePage extends StatelessWidget {
+  const HomePage({super.key});
   @override
   Widget build(BuildContext context) {
     Get.put(CategoriesControllerImp());
 
-    return Scaffold(body: GetBuilder<CategoriesControllerImp>(
-      builder: (controller) {
-        return GetBuilder<CategoriesControllerImp>(
-          builder: (controller) => HandlingDataView(
-            statusRequest: controller.statusRequest,
-            widget: SafeArea(
-              child: Container(
-                padding: EdgeInsetsDirectional.symmetric(
-                    horizontal: horizontalSize(16)),
-                child: ListView(
-                  padding: EdgeInsetsDirectional.only(top: verticalSized(10)),
-                  children: [
-                    CustomAppBar(
-                      hintText: "Find Product",
-                      onPressedSearch: () {
-                        print("onPressedSearch");
-                      },
-                      onPressedNotification: () {
-                        print("onPressedNotification");
-                      },
-                    ),
-                    const CustomCardCashBackHome(
-                        title: "A summer surprice", subTitle: "Cashback 20%"),
-                    const ListCategoriesHome(),
-                    const CustomText(
-                      text: "Product for you",
-                    ),
-                    verticalSizedBox(10),
-                    const ListProductItem()
-                  ],
+    return GetBuilder<CategoriesControllerImp>(
+      builder: (controller) => HandlingDataView(
+        statusRequest: controller.statusRequest,
+        widget: SafeArea(
+          child: Container(
+            padding:
+                EdgeInsetsDirectional.symmetric(horizontal: horizontalSize(16)),
+            child: ListView(
+              padding: EdgeInsetsDirectional.only(top: verticalSized(10)),
+              children: [
+                CustomAppBar(
+                  hintText: "Find Product",
+                  onPressedSearch: () {
+                    print("onPressedSearch");
+                  },
+                  onPressedNotification: () {
+                    print("onPressedNotification");
+                  },
                 ),
-              ),
+                const CustomCardCashBackHome(
+                    title: "A summer surprice", subTitle: "Cashback 20%"),
+                const ListCategoriesHome(),
+                const CustomText(
+                  text: "Product for you",
+                ),
+                verticalSizedBox(10),
+                const ListProductItem()
+              ],
             ),
           ),
-        );
-      },
-    ));
+        ),
+      ),
+    );
   }
 }
