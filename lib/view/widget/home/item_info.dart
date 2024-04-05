@@ -4,8 +4,8 @@ import 'package:ecommerce/core/shared/horizontal_and_vertical_size.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-class ItemInfo extends StatelessWidget {
-  const ItemInfo({
+class ItemInfoHome extends StatelessWidget {
+  const ItemInfoHome({
     super.key,
     required this.image,
     required this.name,
@@ -22,7 +22,7 @@ class ItemInfo extends StatelessWidget {
           padding: const EdgeInsets.all(10),
           margin: EdgeInsets.symmetric(horizontal: horizontalSize(10)),
           child: SvgPicture.network(
-            "${AppLink.imageCategories}/$image",
+            "${AppLink.imageItem}/$image",
             height: verticalSized(100),
             width: horizontalSize(150),
             fit: BoxFit.fill,

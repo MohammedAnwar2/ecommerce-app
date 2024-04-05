@@ -2,10 +2,10 @@ import 'package:ecommerce/controller/categories_controller.dart';
 import 'package:ecommerce/core/shared/horizontal_and_vertical_size.dart';
 import 'package:ecommerce/view/widget/home/item_info.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get_state_manager/src/simple/get_state.dart';
+import 'package:get/get.dart';
 
-class ProductItemList extends StatelessWidget {
-  const ProductItemList({
+class ListProductItem extends GetView<CategoriesControllerImp> {
+  const ListProductItem({
     super.key,
   });
 
@@ -13,15 +13,13 @@ class ProductItemList extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       height: verticalSized(200),
-      child: GetBuilder<CategoriesControllerImp>(
-        builder: (controller) => ListView.separated(
-          itemBuilder: (context, i) => ItemInfo(
-              image: controller.categoriesModelList[i].categoriesImage!,
-              name: controller.itemModelList[i].itemsName!),
-          separatorBuilder: (context, index) => horizontalSizedBox(10),
-          itemCount: controller.categoriesModelList.length,
-          scrollDirection: Axis.horizontal,
-        ),
+      child: ListView.separated(
+        itemBuilder: (context, i) => ItemInfoHome(
+            image: controller.itemModelList[i].itemsImage!,
+            name: controller.itemModelList[i].itemsName!),
+        separatorBuilder: (context, index) => horizontalSizedBox(10),
+        itemCount: controller.itemModelList.length,
+        scrollDirection: Axis.horizontal,
       ),
     );
   }

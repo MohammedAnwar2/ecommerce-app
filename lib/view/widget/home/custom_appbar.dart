@@ -6,19 +6,18 @@ class CustomAppBar extends StatelessWidget {
   const CustomAppBar({
     super.key,
     required this.hintText,
-    this.controller,
     this.onPressedNotification,
+    this.onPressedSearch,
   });
   final String hintText;
-  final TextEditingController? controller;
   final void Function()? onPressedNotification;
+  final void Function()? onPressedSearch;
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
         Expanded(
           child: TextFormField(
-            controller: controller,
             decoration: InputDecoration(
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10),
@@ -31,8 +30,11 @@ class CustomAppBar extends StatelessWidget {
                   .copyWith(fontSize: fontSize(18)),
               filled: true,
               fillColor: AppColor.grey200,
-              prefixIcon: const Icon(
-                Icons.search,
+              prefixIcon: IconButton(
+                onPressed: onPressedSearch,
+                icon: const Icon(
+                  Icons.search,
+                ),
               ),
             ),
           ),
