@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:ecommerce/controller/categories_controller.dart';
 import 'package:ecommerce/core/class/handling_data_veiw.dart';
 import 'package:ecommerce/core/shared/horizontal_and_vertical_size.dart';

@@ -19,7 +19,7 @@ class CustomButtomNavigationBar extends GetView<HomeScreenControllerImp> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           ...List.generate(
-            controller.laitPages.length + 1,
+            controller.listPages.length + 1,
             (i) => i == 2
                 ? const Spacer()
                 : CustomBottomAppBar(
