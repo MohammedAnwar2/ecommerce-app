@@ -20,13 +20,16 @@ class CustomButtomNavigationBar extends GetView<HomeScreenControllerImp> {
         children: [
           ...List.generate(
             controller.listPages.length + 1,
-            (i) => i == 2
-                ? const Spacer()
-                : CustomBottomAppBar(
-                    index: i > 2 ? i - 1 : i,
-                    text: controller.navigationBarNames[i > 2 ? i - 1 : i][0],
-                    icon: controller.navigationBarNames[i > 2 ? i - 1 : i][1],
-                  ),
+            (index) {
+              int i = index > 2 ? index - 1 : index;
+              return index == 2
+                  ? const Spacer()
+                  : CustomBottomAppBar(
+                      index: i,
+                      text: controller.navigationBarNames[i][0],
+                      icon: controller.navigationBarNames[i][1],
+                    );
+            },
           )
         ],
       ),

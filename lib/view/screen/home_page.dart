@@ -1,4 +1,4 @@
-import 'package:ecommerce/controller/categories_controller.dart';
+import 'package:ecommerce/controller/home_page_controller.dart';
 import 'package:ecommerce/core/class/handling_data_veiw.dart';
 import 'package:ecommerce/core/shared/horizontal_and_vertical_size.dart';
 import 'package:ecommerce/view/widget/home/categories_list.dart';
@@ -13,9 +13,9 @@ class HomePage extends StatelessWidget {
   const HomePage({super.key});
   @override
   Widget build(BuildContext context) {
-    Get.put(CategoriesControllerImp());
+    Get.put(HomePageControllerImp());
 
-    return GetBuilder<CategoriesControllerImp>(
+    return GetBuilder<HomePageControllerImp>(
       builder: (controller) => HandlingDataView(
         statusRequest: controller.statusRequest,
         widget: SafeArea(

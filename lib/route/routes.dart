@@ -10,6 +10,7 @@ import 'package:ecommerce/view/screen/auth/success_signup.dart';
 import 'package:ecommerce/view/screen/auth/verifycode_signup.dart';
 import 'package:ecommerce/view/screen/home_page.dart';
 import 'package:ecommerce/view/screen/home_screen.dart';
+import 'package:ecommerce/view/screen/items.dart';
 import 'package:ecommerce/view/screen/onbording.dart';
 import 'package:ecommerce/view/screen/auth/login.dart';
 import 'package:ecommerce/view/screen/language.dart';
@@ -71,13 +72,19 @@ List<GetPage<dynamic>>? getPages = [
   GetPage(
     name: AppRoute.home,
     // page: () => const Test(),
-    page: () => HomePage(),
+    page: () => const HomePage(),
     transition: Transition.fade,
   ),
   GetPage(
     name: AppRoute.homeScreen,
     // page: () => const Test(),
-    page: () => HomeScreen(),
+    page: () => const HomeScreen(),
+    transition: Transition.fade,
+  ),
+  GetPage(
+    name: AppRoute.items,
+    // page: () => const Test(),
+    page: () => const Items(),
     transition: Transition.fade,
   ),
 ];

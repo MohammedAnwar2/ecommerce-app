@@ -3,13 +3,17 @@ import 'package:ecommerce/core/functions/hadlingdata.dart';
 import 'package:ecommerce/data/datasource/remote/home.dart';
 import 'package:ecommerce/data/model/categories_model.dart';
 import 'package:ecommerce/data/model/items_model.dart';
+import 'package:ecommerce/route/route_app.dart';
 import 'package:get/get.dart';
 
-abstract class CategoriesController extends GetxController {
+abstract class HomePageController extends GetxController {
   getData();
+  goToItems(
+      {required List<CategoriesModel> categoriesList,
+      required int selectedCat});
 }
 
-class CategoriesControllerImp extends CategoriesController {
+class HomePageControllerImp extends HomePageController {
   List<CategoriesModel> categoriesModelList = [];
   List<ItemModel> itemModelList = [];
   HomeData homeData = HomeData(Get.find());
@@ -42,5 +46,16 @@ class CategoriesControllerImp extends CategoriesController {
   void onInit() {
     getData();
     super.onInit();
+  }
+
+  @override
+  goToItems({required categoriesList, required selectedCat}) {
+    Get.toNamed(
+      AppRoute.items,
+      arguments: {
+        "categoriesList": categoriesList,
+        "selectedCat": selectedCat,
+      },
+    );
   }
 }

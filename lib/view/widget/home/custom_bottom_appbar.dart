@@ -25,11 +25,20 @@ class CustomBottomAppBar extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Icon(icon,
+            Icon(
+              icon,
+              color: controller.currentPage == index
+                  ? AppColor.primaryColor
+                  : AppColor.grey600,
+            ),
+            Text(
+              text,
+              style: TextStyle(
                 color: controller.currentPage == index
                     ? AppColor.primaryColor
-                    : AppColor.black),
-            Text(text),
+                    : AppColor.grey600,
+              ),
+            ),
           ],
         ),
       ),
