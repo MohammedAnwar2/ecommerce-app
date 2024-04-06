@@ -1,5 +1,5 @@
+import 'package:ecommerce/controller/items_controller.dart';
 import 'package:ecommerce/core/shared/horizontal_and_vertical_size.dart';
-import 'package:ecommerce/data/model/categories_model.dart';
 import 'package:ecommerce/view/components/custom_appbar.dart';
 import 'package:ecommerce/view/widget/items/items_list.dart';
 import 'package:flutter/material.dart';
@@ -10,8 +10,7 @@ class Items extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    int i = Get.arguments['selectedCat'];
-    List<CategoriesModel> category = Get.arguments['categoriesList'];
+    Get.put(ItemsControllerImp());
     return Scaffold(
       body: SafeArea(
         child: ListView(
@@ -26,7 +25,8 @@ class Items extends StatelessWidget {
                 print("onPressedNotification");
               },
             ),
-            const ListItemsHome(),
+            verticalSizedBox(20),
+            const ListCategoriesItems(),
           ],
         ),
       ),
