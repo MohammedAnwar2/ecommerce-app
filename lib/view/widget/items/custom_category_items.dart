@@ -5,8 +5,8 @@ import 'package:ecommerce/data/model/categories_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class CardItems extends GetView<ItemsControllerImp> {
-  const CardItems({
+class CategoryItems extends GetView<ItemsControllerImp> {
+  const CategoryItems({
     super.key,
     required this.index,
     required this.categoryModel,

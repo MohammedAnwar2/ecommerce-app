@@ -23,7 +23,6 @@ class ListItems extends GetView<ItemsControllerImp> {
             childAspectRatio: 0.75,
           ),
           itemBuilder: (context, i) {
-            print(controller.itemModelList);
             return ItemInfo(
               itemModel: controller.itemModelList[i],
             );
