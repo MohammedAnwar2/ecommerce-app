@@ -18,9 +18,11 @@ class ImageVeiw extends GetView<ProductDetailsControllerImp> {
       children: [
         Container(
           height: verticalSized(200),
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             color: AppColor.primaryColor,
-            borderRadius: BorderRadius.circular(24),
+            borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(24),
+                bottomRight: Radius.circular(24)),
           ),
         ),
         Positioned(
