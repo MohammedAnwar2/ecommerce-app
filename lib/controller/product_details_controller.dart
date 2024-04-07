@@ -7,6 +7,11 @@ abstract class ProductDetailsController extends GetxController {
 
 class ProductDetailsControllerImp extends ProductDetailsController {
   late ItemModel itemModel;
+  List<Map<String, dynamic>> colors = [
+    {"name": "Red", "id": 1, "active": "0"},
+    {"name": "Blue", "id": 2, "active": "1"},
+    {"name": "Black", "id": 3, "active": "0"},
+  ];
   @override
   initData() {
     itemModel = Get.arguments['itemModel'];
