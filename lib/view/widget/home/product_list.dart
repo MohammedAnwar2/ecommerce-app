@@ -15,8 +15,8 @@ class ListProductItem extends GetView<HomePageControllerImp> {
       height: verticalSized(130),
       child: ListView.separated(
         itemBuilder: (context, i) => ItemInfoHome(
-            image: controller.itemModelList[i].itemsImage!,
-            name: controller.itemModelList[i].itemsName!),
+          itemModel: controller.itemModelList[i],
+        ),
         separatorBuilder: (context, index) => horizontalSizedBox(10),
         itemCount: controller.itemModelList.length,
         scrollDirection: Axis.horizontal,

@@ -1,18 +1,16 @@
 import 'package:ecommerce/core/constant/app_color.dart';
 import 'package:ecommerce/core/constant/app_link.dart';
 import 'package:ecommerce/core/shared/horizontal_and_vertical_size.dart';
+import 'package:ecommerce/data/model/items_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 class ItemInfoHome extends StatelessWidget {
   const ItemInfoHome({
     super.key,
-    required this.image,
-    required this.name,
+    required this.itemModel,
   });
-
-  final String image;
-  final String name;
+  final ItemModel itemModel;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +20,7 @@ class ItemInfoHome extends StatelessWidget {
           padding: const EdgeInsets.all(10),
           margin: EdgeInsets.symmetric(horizontal: horizontalSize(10)),
           child: SvgPicture.network(
-            "${AppLink.imageItem}/$image",
+            "${AppLink.imageItem}/${itemModel.itemsImage}",
             height: verticalSized(100),
             width: horizontalSize(150),
             fit: BoxFit.fill,
@@ -38,7 +36,7 @@ class ItemInfoHome extends StatelessWidget {
         Positioned(
           left: horizontalSize(10),
           child: Text(
-            name,
+            itemModel.itemsName!,
             style: TextStyle(
                 fontSize: fontSize(14),
                 color: AppColor.white,

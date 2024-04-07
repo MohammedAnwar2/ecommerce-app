@@ -16,10 +16,7 @@ class ListCategoriesItems extends GetView<ItemsControllerImp> {
       width: verticalSized(70),
       child: ListView.separated(
         itemBuilder: (context, i) => CardItems(
-          index: i,
-          image: controller.categoriesModelList[i].categoriesImage!,
-          title: controller.categoriesModelList[i].categoriesName!,
-        ),
+            index: i, categoryModel: controller.categoriesModelList[i]!),
         separatorBuilder: (context, index) => horizontalSizedBox(10),
         itemCount: controller.categoriesModelList.length,
         scrollDirection: Axis.horizontal,

@@ -17,8 +17,7 @@ class ListCategoriesHome extends GetView<HomePageControllerImp> {
       child: ListView.separated(
         itemBuilder: (context, i) => CardCategories(
           index: i,
-          image: controller.categoriesModelList[i].categoriesImage!,
-          title: controller.categoriesModelList[i].categoriesName!,
+          categoriesModel: controller.categoriesModelList[i],
         ),
         separatorBuilder: (context, index) => horizontalSizedBox(10),
         itemCount: controller.categoriesModelList.length,

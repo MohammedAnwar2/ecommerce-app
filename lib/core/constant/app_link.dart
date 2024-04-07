@@ -20,4 +20,6 @@ class AppLink {
   //static const String viewCategories = "$server/categories/view.php";
   //-------------------- Home --------------------------
   static const String home = "$server/home.php";
+  //-------------------- Items --------------------------
+  static const String items = "$server/items.php";
 }

@@ -1,18 +1,19 @@
 import 'package:ecommerce/controller/items_controller.dart';
 import 'package:ecommerce/core/constant/app_color.dart';
 import 'package:ecommerce/core/shared/horizontal_and_vertical_size.dart';
+import 'package:ecommerce/data/model/categories_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class CardItems extends GetView<ItemsControllerImp> {
-  const CardItems(
-      {super.key,
-      required this.image,
-      required this.title,
-      required this.index});
-  final String image;
-  final String title;
+  const CardItems({
+    super.key,
+    required this.index,
+    required this.categoryModel,
+  });
+
   final int index;
+  final CategoriesModel categoryModel;
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -42,7 +43,7 @@ class CardItems extends GetView<ItemsControllerImp> {
                     )
                   : null,
               child: Text(
-                title,
+                categoryModel.categoriesName!,
                 style: TextStyle(
                   color: AppColor.grey800,
                   fontSize: fontSize(20),

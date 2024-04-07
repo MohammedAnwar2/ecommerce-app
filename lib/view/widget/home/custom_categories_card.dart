@@ -2,18 +2,19 @@ import 'package:ecommerce/controller/home_page_controller.dart';
 import 'package:ecommerce/core/constant/app_color.dart';
 import 'package:ecommerce/core/constant/app_link.dart';
 import 'package:ecommerce/core/shared/horizontal_and_vertical_size.dart';
+import 'package:ecommerce/data/model/categories_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
 class CardCategories extends GetView<HomePageControllerImp> {
-  const CardCategories(
-      {super.key,
-      required this.image,
-      required this.title,
-      required this.index});
-  final String image;
-  final String title;
+  const CardCategories({
+    super.key,
+    required this.categoriesModel,
+    required this.index,
+  });
+
+  final CategoriesModel categoriesModel;
   final int index;
   @override
   Widget build(BuildContext context) {
@@ -36,12 +37,12 @@ class CardCategories extends GetView<HomePageControllerImp> {
                 color: AppColor.thirdColor,
                 borderRadius: BorderRadius.circular(16)),
             child: SvgPicture.network(
-              "${AppLink.imageCategories}/$image",
+              "${AppLink.imageCategories}/${categoriesModel.categoriesImage}",
               colorFilter: const ColorFilter.mode(
                   AppColor.secondaryColor, BlendMode.srcIn),
             ),
           ),
-          Text(title,
+          Text(categoriesModel.categoriesName!,
               style: TextStyle(color: AppColor.black, fontSize: fontSize(13)))
         ],
       ),
