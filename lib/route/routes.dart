@@ -14,6 +14,7 @@ import 'package:ecommerce/view/screen/items.dart';
 import 'package:ecommerce/view/screen/onbording.dart';
 import 'package:ecommerce/view/screen/auth/login.dart';
 import 'package:ecommerce/view/screen/language.dart';
+import 'package:ecommerce/view/screen/product_details.dart';
 import 'package:get/get.dart';
 
 List<GetPage<dynamic>>? getPages = [
@@ -85,6 +86,12 @@ List<GetPage<dynamic>>? getPages = [
     name: AppRoute.items,
     // page: () => const Test(),
     page: () => const Items(),
+    transition: Transition.fade,
+  ),
+  GetPage(
+    name: AppRoute.productDetails,
+    // page: () => const Test(),
+    page: () => const ProductDetails(),
     transition: Transition.fade,
   ),
 ];
