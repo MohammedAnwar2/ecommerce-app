@@ -92,6 +92,6 @@ List<GetPage<dynamic>>? getPages = [
     name: AppRoute.productDetails,
     // page: () => const Test(),
     page: () => const ProductDetails(),
-    transition: Transition.fade,
+    transition: Transition.rightToLeftWithFade,
   ),
 ];

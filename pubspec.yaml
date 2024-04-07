@@ -51,6 +51,7 @@ dependencies:
   flutter_screenutil: ^5.9.0
   flutter_otp_text_field: ^1.1.2+1
   lottie: ^3.1.0
+  shimmer: ^3.0.0
   
   
 

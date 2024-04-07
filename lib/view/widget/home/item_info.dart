@@ -26,7 +26,7 @@ class ItemInfoHome extends GetView<HomePageControllerImp> {
             imageUrl: "${AppLink.imageItem}/${itemModel.itemsImage}",
             height: verticalSized(100),
             width: horizontalSize(150),
-            fit: BoxFit.fill,
+            //fit: BoxFit.fill,
           ),
         ),
         Container(
