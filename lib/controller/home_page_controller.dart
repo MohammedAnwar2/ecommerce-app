@@ -1,5 +1,7 @@
 import 'package:ecommerce/core/class/sratus_request.dart';
+import 'package:ecommerce/core/constant/app_keys.dart';
 import 'package:ecommerce/core/functions/hadlingdata.dart';
+import 'package:ecommerce/core/services/service.dart';
 import 'package:ecommerce/data/datasource/remote/home.dart';
 import 'package:ecommerce/data/model/categories_model.dart';
 import 'package:ecommerce/data/model/items_model.dart';
@@ -11,13 +13,17 @@ abstract class HomePageController extends GetxController {
   goToItems(
       {required List<CategoriesModel> categoriesList,
       required int selectedCat});
+  initData();
 }
 
 class HomePageControllerImp extends HomePageController {
+  MyServices services = Get.find<MyServices>();
   List<CategoriesModel> categoriesModelList = [];
   List<ItemModel> itemModelList = [];
   HomeData homeData = HomeData(Get.find());
   StatusRequest statusRequest = StatusRequest.success;
+  late String lang;
+
   @override
   getData() async {
     statusRequest = StatusRequest.loading;
@@ -45,6 +51,7 @@ class HomePageControllerImp extends HomePageController {
   @override
   void onInit() {
     getData();
+    initData();
     super.onInit();
   }
 
@@ -57,5 +64,10 @@ class HomePageControllerImp extends HomePageController {
         "selectedCat": selectedCat,
       },
     );
+  }
+
+  @override
+  initData() {
+    lang = services.sharePref.getString(AppKey.language)!;
   }
 }

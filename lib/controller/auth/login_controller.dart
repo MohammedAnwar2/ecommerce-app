@@ -65,7 +65,7 @@ class LoginControllerImp extends LoginController {
             controller.sharePref
                 .setString(AppKey.usersPhone, response['data']['users_phone']);
             controller.sharePref.setBool(AppKey.loginMiddleware, true);
-            Get.offAllNamed(AppRoute.home);
+            Get.offAllNamed(AppRoute.homeScreen);
           } else {
             print("email === ${email.text}");
             verifycodeData.resendVerifycode(email.text);

@@ -70,7 +70,7 @@ List<GetPage<dynamic>>? getPages = [
   ),
   //home page
   GetPage(
-    name: AppRoute.home,
+    name: AppRoute.homePage,
     // page: () => const Test(),
     page: () => const HomePage(),
     transition: Transition.fade,

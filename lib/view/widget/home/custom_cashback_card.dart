@@ -1,8 +1,10 @@
+import 'package:ecommerce/controller/home_page_controller.dart';
 import 'package:ecommerce/core/constant/app_color.dart';
 import 'package:ecommerce/core/shared/horizontal_and_vertical_size.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-class CustomCardCashBackHome extends StatelessWidget {
+class CustomCardCashBackHome extends GetView<HomePageControllerImp> {
   const CustomCardCashBackHome({
     super.key,
     required this.title,
@@ -44,7 +46,8 @@ class CustomCardCashBackHome extends StatelessWidget {
             ),
           ),
           Positioned(
-            right: -20,
+            right: controller.lang == 'en' ? -20 : null,
+            left: controller.lang == 'ar' ? -20 : null,
             top: -20,
             child: Container(
               height: 160,

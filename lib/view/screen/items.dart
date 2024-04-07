@@ -20,7 +20,7 @@ class Items extends StatelessWidget {
           padding: EdgeInsetsDirectional.all(horizontalSize(15)),
           children: [
             CustomAppBar(
-              hintText: "Find Product",
+              hintText: "62".tr,
               onPressedSearch: () {
                 print("onPressedSearch");
               },
@@ -31,7 +31,7 @@ class Items extends StatelessWidget {
             verticalSizedBox(20),
             const ListCategoriesItems(),
             verticalSizedBox(20),
-            const ListCategoryItems()
+            const ListItems()
           ],
         ),
       ),

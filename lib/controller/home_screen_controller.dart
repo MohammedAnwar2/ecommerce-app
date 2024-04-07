@@ -31,10 +31,10 @@ class HomeScreenControllerImp extends HomeScreenController {
   ];
 
   List<List> navigationBarNames = [
-    ["Home", Icons.home],
-    ["Settings", Icons.settings],
-    ["Profile", Icons.person],
-    ["Favorite", Icons.favorite]
+    ["58".tr, Icons.home],
+    ["59".tr, Icons.settings],
+    ["60".tr, Icons.person],
+    ["61".tr, Icons.favorite]
   ];
   @override
   changePage(int index) {

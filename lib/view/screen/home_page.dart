@@ -26,7 +26,7 @@ class HomePage extends StatelessWidget {
               padding: EdgeInsetsDirectional.only(top: verticalSized(10)),
               children: [
                 CustomAppBar(
-                  hintText: "Find Product",
+                  hintText: "62".tr,
                   onPressedSearch: () {
                     print("onPressedSearch");
                   },
@@ -36,17 +36,17 @@ class HomePage extends StatelessWidget {
                 ),
                 const CustomCardCashBackHome(
                     title: "A summer surprice", subTitle: "Cashback 20%"),
-                const CustomText(
-                  text: "Categories",
+                CustomText(
+                  text: "63".tr,
                 ),
                 const ListCategoriesHome(),
-                const CustomText(
-                  text: "Product for you",
+                CustomText(
+                  text: "64".tr,
                 ),
                 verticalSizedBox(10),
                 const ListProductItem(),
-                const CustomText(
-                  text: "Offers",
+                CustomText(
+                  text: "65".tr,
                 ),
                 verticalSizedBox(10),
                 const ListProductItem()

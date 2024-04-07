@@ -10,23 +10,23 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Get.put(HomeScreenControllerImp());
-    return GetBuilder<HomeScreenControllerImp>(
-      builder: (controller) => Scaffold(
-        floatingActionButton: FloatingActionButton(
-          tooltip: 'Increment',
-          elevation: 5.0,
-          shape:
-              BeveledRectangleBorder(borderRadius: BorderRadius.circular(16)),
-          onPressed: () {},
-          backgroundColor: AppColor.primaryColor,
-          child: const Icon(
-            Icons.shopping_basket_outlined,
-            color: AppColor.white,
-          ),
+    return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        tooltip: 'Increment',
+        elevation: 5.0,
+        shape: BeveledRectangleBorder(borderRadius: BorderRadius.circular(16)),
+        onPressed: () {},
+        backgroundColor: AppColor.primaryColor,
+        child: const Icon(
+          Icons.shopping_basket_outlined,
+          color: AppColor.white,
         ),
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-        bottomNavigationBar: const CustomButtomNavigationBar(),
-        body: controller.listPages.elementAt(controller.currentPage),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      bottomNavigationBar: const CustomButtomNavigationBar(),
+      body: GetBuilder<HomeScreenControllerImp>(
+        builder: (controller) =>
+            controller.listPages.elementAt(controller.currentPage),
       ),
     );
   }
