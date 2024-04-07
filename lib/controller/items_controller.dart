@@ -8,7 +8,7 @@ import 'package:get/get.dart';
 abstract class ItemsController extends GetxController {
   initData();
   changeCategoryItem(int index);
-  getData();
+  getData(String categoriesId);
 }
 
 class ItemsControllerImp extends ItemsController {
@@ -23,7 +23,7 @@ class ItemsControllerImp extends ItemsController {
   initData() {
     selectedCat = Get.arguments['selectedCat'];
     categoriesModelList = Get.arguments['categoriesList'];
-    getData();
+    getData(categoriesModelList[selectedCat].categoriesId.toString());
   }
 
   @override
@@ -35,25 +35,21 @@ class ItemsControllerImp extends ItemsController {
   @override
   changeCategoryItem(int index) {
     selectedCat = index;
-
-    getData();
+    getData(categoriesModelList[selectedCat].categoriesId.toString());
     update();
   }
 
   @override
-  getData() async {
+  getData(String categoriesId) async {
+    itemModelList.clear();
     statusRequest = StatusRequest.loading;
     update();
-    var response = await itemsData
-        .postData(categoriesModelList[selectedCat].categoriesName!);
+    var response = await itemsData.postData(categoriesId);
     statusRequest = handlingData(response);
     if (statusRequest == StatusRequest.success) {
       if (response['status'] == 'success') {
-        itemModelList = [];
-        for (var element in response['items']) {
-          itemModelList.add(
-            ItemModel.fromJson(element),
-          );
+        for (var element in response['data']) {
+          itemModelList.add(ItemModel.fromJson(element));
         }
       } else {
         statusRequest = StatusRequest.nodata;

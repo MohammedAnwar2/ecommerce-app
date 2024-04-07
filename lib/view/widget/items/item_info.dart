@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ecommerce/controller/items_controller.dart';
 import 'package:ecommerce/core/constant/app_color.dart';
 import 'package:ecommerce/core/constant/app_link.dart';
@@ -27,16 +28,16 @@ class ItemInfo extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                SvgPicture.network(
-                  "${AppLink.imageItem}/${itemModel.itemsImage!}",
+                // SvgPicture.network(
+                //   "${AppLink.imageItem}/${itemModel.itemsImage!}",
+                //   height: 100,
+                //   fit: BoxFit.fill,
+                // ),
+                CachedNetworkImage(
+                  imageUrl: "${AppLink.imageItem}/${itemModel.itemsImage!}",
                   height: 100,
                   fit: BoxFit.fill,
                 ),
-                // CachedNetworkImage(
-                //   imageUrl: "${AppLink.imageItem}/${itemModel.itemsImage!}",
-                //   height: 50,
-                //   fit: BoxFit.fill,
-                // ),
                 Text(
                   itemModel.itemsName!,
                   style: TextStyle(

@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ecommerce/core/constant/app_color.dart';
 import 'package:ecommerce/core/constant/app_link.dart';
 import 'package:ecommerce/core/shared/horizontal_and_vertical_size.dart';
@@ -19,8 +20,8 @@ class ItemInfoHome extends StatelessWidget {
         Container(
           padding: const EdgeInsets.all(10),
           margin: EdgeInsets.symmetric(horizontal: horizontalSize(10)),
-          child: SvgPicture.network(
-            "${AppLink.imageItem}/${itemModel.itemsImage}",
+          child: CachedNetworkImage(
+            imageUrl: "${AppLink.imageItem}/${itemModel.itemsImage}",
             height: verticalSized(100),
             width: horizontalSize(150),
             fit: BoxFit.fill,
