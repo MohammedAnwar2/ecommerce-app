@@ -27,6 +27,7 @@ class ProductDetails extends StatelessWidget {
           Padding(
             padding: EdgeInsets.symmetric(horizontal: horizontalSize(16)),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 DetailsTextTitle(title: controller.itemModel.itemsName!),
                 ProductCount(
