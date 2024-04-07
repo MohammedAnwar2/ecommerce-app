@@ -1,8 +1,11 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ecommerce/controller/product_details_controller.dart';
 import 'package:ecommerce/core/constant/app_color.dart';
-import 'package:ecommerce/core/constant/app_link.dart';
 import 'package:ecommerce/core/shared/horizontal_and_vertical_size.dart';
+import 'package:ecommerce/view/widget/product_details/change_color.dart';
+import 'package:ecommerce/view/widget/product_details/details_text_title.dart';
+import 'package:ecommerce/view/widget/product_details/image_veiw.dart';
+import 'package:ecommerce/view/widget/product_details/product_count.dart';
+import 'package:ecommerce/view/widget/product_details/xxx.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -14,30 +17,36 @@ class ProductDetails extends StatelessWidget {
     ProductDetailsControllerImp controller =
         Get.put(ProductDetailsControllerImp());
     return Scaffold(
-      body: Stack(
-        clipBehavior: Clip.none,
+      bottomNavigationBar: CustomAddToCartBurromNavigation(
+        onPressed: () {},
+      ),
+      body: Column(
         children: [
-          Container(
-            height: verticalSized(200),
-            decoration: BoxDecoration(
-              color: AppColor.primaryColor,
-              borderRadius: BorderRadius.circular(24),
+          const ImageVeiw(),
+          verticalSizedBox(85),
+          Expanded(
+            child: ListView(
+              padding: EdgeInsets.symmetric(horizontal: horizontalSize(16)),
+              children: [
+                DetailsTextTitle(title: controller.itemModel.itemsName!),
+                ProductCount(
+                  count: '2',
+                  price: '20',
+                  onAdd: () {},
+                  onRemove: () {},
+                ),
+                Text(
+                  controller.itemModel.itemsDesc!,
+                  style: Theme.of(context).textTheme.displaySmall!.copyWith(
+                      color: AppColor.forthColor,
+                      height: 1.8,
+                      fontWeight: FontWeight.normal),
+                ),
+                const DetailsTextTitle(title: "Color"),
+                const ChanegColor()
+              ],
             ),
           ),
-          Positioned(
-            top: verticalSized(50),
-            right: horizontalSize(30),
-            left: horizontalSize(30),
-            child: Hero(
-              tag: "${controller.itemModel.itemsId}",
-              child: CachedNetworkImage(
-                imageUrl:
-                    AppLink.imageItem + "/" + controller.itemModel.itemsImage!,
-                height: verticalSized(230),
-                //fit: BoxFit.fill,
-              ),
-            ),
-          )
         ],
       ),
     );
