@@ -18,6 +18,8 @@ class CardCategories extends GetView<HomePageControllerImp> {
   @override
   Widget build(BuildContext context) {
     return InkWell(
+      splashColor: Colors.transparent,
+      highlightColor: Colors.transparent,
       onTap: () {
         controller.goToItems(
             categoriesList: controller.categoriesModelList, selectedCat: index);

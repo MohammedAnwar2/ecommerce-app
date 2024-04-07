@@ -16,6 +16,8 @@ class CardItems extends GetView<ItemsControllerImp> {
   @override
   Widget build(BuildContext context) {
     return InkWell(
+      splashColor: Colors.transparent,
+      highlightColor: Colors.transparent,
       onTap: () {
         controller.changeCategoryItem(index);
       },
