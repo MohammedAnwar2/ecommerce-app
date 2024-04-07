@@ -1,6 +1,7 @@
 import 'package:ecommerce/controller/home_page_controller.dart';
 import 'package:ecommerce/core/constant/app_color.dart';
 import 'package:ecommerce/core/constant/app_link.dart';
+import 'package:ecommerce/core/functions/translate_database.dart';
 import 'package:ecommerce/core/shared/horizontal_and_vertical_size.dart';
 import 'package:ecommerce/data/model/categories_model.dart';
 import 'package:flutter/material.dart';
@@ -42,8 +43,15 @@ class CardCategories extends GetView<HomePageControllerImp> {
                   AppColor.secondaryColor, BlendMode.srcIn),
             ),
           ),
-          Text(categoriesModel.categoriesName!,
-              style: TextStyle(color: AppColor.black, fontSize: fontSize(13)))
+          Text(
+            translateDatabase(
+                columnAr: categoriesModel.categoriesNameAr!,
+                columnEn: categoriesModel.categoriesName!),
+            style: TextStyle(
+              color: AppColor.black,
+              fontSize: fontSize(13),
+            ),
+          )
         ],
       ),
     );

@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ecommerce/controller/items_controller.dart';
 import 'package:ecommerce/core/constant/app_color.dart';
 import 'package:ecommerce/core/constant/app_link.dart';
+import 'package:ecommerce/core/functions/translate_database.dart';
 import 'package:ecommerce/core/shared/horizontal_and_vertical_size.dart';
 import 'package:ecommerce/data/model/items_model.dart';
 import 'package:flutter/material.dart';
@@ -39,7 +40,9 @@ class ItemInfo extends StatelessWidget {
                   fit: BoxFit.fill,
                 ),
                 Text(
-                  itemModel.itemsName!,
+                  translateDatabase(
+                      columnAr: itemModel.itemsNameAr!,
+                      columnEn: itemModel.itemsName!),
                   style: TextStyle(
                     fontSize: fontSize(14),
                     fontWeight: FontWeight.bold,

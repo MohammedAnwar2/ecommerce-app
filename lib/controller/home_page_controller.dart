@@ -50,7 +50,6 @@ class HomePageControllerImp extends HomePageController {
 
   @override
   void onInit() {
-    getData();
     initData();
     super.onInit();
   }
@@ -69,5 +68,6 @@ class HomePageControllerImp extends HomePageController {
   @override
   initData() {
     lang = services.sharePref.getString(AppKey.language)!;
+    getData();
   }
 }

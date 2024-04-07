@@ -1,12 +1,14 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:ecommerce/controller/home_page_controller.dart';
 import 'package:ecommerce/core/constant/app_color.dart';
 import 'package:ecommerce/core/constant/app_link.dart';
+import 'package:ecommerce/core/functions/translate_database.dart';
 import 'package:ecommerce/core/shared/horizontal_and_vertical_size.dart';
 import 'package:ecommerce/data/model/items_model.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 
-class ItemInfoHome extends StatelessWidget {
+class ItemInfoHome extends GetView<HomePageControllerImp> {
   const ItemInfoHome({
     super.key,
     required this.itemModel,
@@ -36,8 +38,11 @@ class ItemInfoHome extends StatelessWidget {
         ),
         Positioned(
           left: horizontalSize(10),
+          right: horizontalSize(10),
           child: Text(
-            itemModel.itemsName!,
+            translateDatabase(
+                columnAr: itemModel.itemsNameAr!,
+                columnEn: itemModel.itemsName!),
             style: TextStyle(
                 fontSize: fontSize(14),
                 color: AppColor.white,
