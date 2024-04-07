@@ -20,13 +20,13 @@ class ProductDetails extends StatelessWidget {
       bottomNavigationBar: CustomAddToCartBurromNavigation(
         onPressed: () {},
       ),
-      body: Column(
+      body: ListView(
         children: [
           const ImageVeiw(),
           verticalSizedBox(85),
-          Expanded(
-            child: ListView(
-              padding: EdgeInsets.symmetric(horizontal: horizontalSize(16)),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: horizontalSize(16)),
+            child: Column(
               children: [
                 DetailsTextTitle(title: controller.itemModel.itemsName!),
                 ProductCount(
