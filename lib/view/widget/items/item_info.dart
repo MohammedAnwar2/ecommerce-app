@@ -13,8 +13,10 @@ class ItemInfo extends StatelessWidget {
   const ItemInfo({
     super.key,
     required this.itemModel,
+    required this.active,
   });
   final ItemModel itemModel;
+  final bool active;
   @override
   Widget build(BuildContext context) {
     return GetBuilder<ItemsControllerImp>(
@@ -86,8 +88,10 @@ class ItemInfo extends StatelessWidget {
                       ),
                       IconButton(
                         onPressed: () {},
-                        icon: const Icon(
-                          Icons.favorite,
+                        icon: Icon(
+                          active
+                              ? Icons.favorite
+                              : Icons.favorite_border_outlined,
                           color: AppColor.primaryColor,
                         ),
                       )
