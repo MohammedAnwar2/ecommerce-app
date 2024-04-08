@@ -24,7 +24,6 @@ class ListItems extends GetView<ItemsControllerImp> {
           ),
           itemBuilder: (context, i) {
             return ItemInfo(
-              active: false,
               itemModel: controller.itemModelList[i],
             );
           },

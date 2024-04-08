@@ -19,7 +19,7 @@ class ItemsControllerImp extends ItemsController {
   late List<CategoriesModel> categoriesModelList;
   MyServices services = Get.find<MyServices>();
   late int selectedCat;
-
+  late int id;
   List<ItemModel> itemModelList = [];
   ItemsData itemsData = ItemsData(Get.find());
   StatusRequest statusRequest = StatusRequest.success;
@@ -28,6 +28,7 @@ class ItemsControllerImp extends ItemsController {
   initData() {
     selectedCat = Get.arguments['selectedCat'];
     categoriesModelList = Get.arguments['categoriesList'];
+    id = services.sharePref.getInt(AppKey.usersId)!;
     getData(categoriesModelList[selectedCat].categoriesId.toString());
   }
 
@@ -49,7 +50,7 @@ class ItemsControllerImp extends ItemsController {
     itemModelList.clear();
     statusRequest = StatusRequest.loading;
     update();
-    var response = await itemsData.postData(categoriesId);
+    var response = await itemsData.postData(categoriesId, id.toString());
     statusRequest = handlingData(response);
     if (statusRequest == StatusRequest.success) {
       if (response['status'] == 'success') {

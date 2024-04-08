@@ -6,17 +6,14 @@ import 'package:ecommerce/core/functions/translate_database.dart';
 import 'package:ecommerce/core/shared/horizontal_and_vertical_size.dart';
 import 'package:ecommerce/data/model/items_model.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
 class ItemInfo extends StatelessWidget {
   const ItemInfo({
     super.key,
     required this.itemModel,
-    required this.active,
   });
   final ItemModel itemModel;
-  final bool active;
   @override
   Widget build(BuildContext context) {
     return GetBuilder<ItemsControllerImp>(
@@ -89,7 +86,7 @@ class ItemInfo extends StatelessWidget {
                       IconButton(
                         onPressed: () {},
                         icon: Icon(
-                          active
+                          itemModel.favorite == 1
                               ? Icons.favorite
                               : Icons.favorite_border_outlined,
                           color: AppColor.primaryColor,
