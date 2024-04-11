@@ -1,4 +1,5 @@
 import 'package:ecommerce/controller/home_page_controller.dart';
+import 'package:ecommerce/core/class/animation.dart';
 import 'package:ecommerce/core/class/handling_data_veiw.dart';
 import 'package:ecommerce/core/shared/horizontal_and_vertical_size.dart';
 import 'package:ecommerce/view/widget/home/categories_list.dart';
@@ -25,28 +26,38 @@ class HomePage extends StatelessWidget {
             child: ListView(
               padding: EdgeInsetsDirectional.only(top: verticalSized(10)),
               children: [
-                CustomAppBar(
-                  hintText: "62".tr,
-                  onPressedSearch: () {
-                    print("onPressedSearch");
-                  },
-                  onPressedNotification: () {
-                    print("onPressedNotification");
-                  },
+                CustomAnimation(
+                  child: CustomAppBar(
+                    hintText: "62".tr,
+                    onPressedSearch: () {
+                      print("onPressedSearch");
+                    },
+                    onPressedNotification: () {
+                      print("onPressedNotification");
+                    },
+                  ),
                 ),
-                const CustomCardCashBackHome(
-                    title: "A summer surprice", subTitle: "Cashback 20%"),
-                CustomText(
-                  text: "63".tr,
+                const CustomAnimation(
+                  child: CustomCardCashBackHome(
+                      title: "A summer surprice", subTitle: "Cashback 20%"),
+                ),
+                CustomAnimation(
+                  child: CustomText(
+                    text: "63".tr,
+                  ),
                 ),
                 const ListCategoriesHome(),
-                CustomText(
-                  text: "64".tr,
+                CustomAnimation(
+                  child: CustomText(
+                    text: "64".tr,
+                  ),
                 ),
-                verticalSizedBox(10),
+                CustomAnimation(child: verticalSizedBox(10)),
                 const ListProductItem(),
-                CustomText(
-                  text: "65".tr,
+                CustomAnimation(
+                  child: CustomText(
+                    text: "65".tr,
+                  ),
                 ),
                 verticalSizedBox(10),
                 const ListProductItem()

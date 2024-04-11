@@ -1,4 +1,5 @@
 import 'package:ecommerce/controller/items_controller.dart';
+import 'package:ecommerce/core/class/animation.dart';
 import 'package:ecommerce/core/shared/horizontal_and_vertical_size.dart';
 import 'package:ecommerce/view/widget/items/custom_category_items.dart';
 import 'package:flutter/material.dart';

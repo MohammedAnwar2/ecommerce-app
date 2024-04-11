@@ -1,5 +1,6 @@
 import 'package:ecommerce/controller/favorite_controller.dart';
 import 'package:ecommerce/controller/items_controller.dart';
+import 'package:ecommerce/core/class/animation.dart';
 import 'package:ecommerce/core/constant/app_color.dart';
 import 'package:ecommerce/core/shared/horizontal_and_vertical_size.dart';
 import 'package:ecommerce/view/components/custom_appbar.dart';

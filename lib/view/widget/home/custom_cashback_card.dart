@@ -19,7 +19,7 @@ class CustomCardCashBackHome extends GetView<HomePageControllerImp> {
       child: Stack(
         children: [
           Container(
-            height: 150,
+            height: verticalSized(140),
             alignment: Alignment.center,
             decoration: BoxDecoration(
               color: AppColor.primaryColor,

@@ -1,5 +1,6 @@
 import 'package:ecommerce/controller/favorite_controller.dart';
 import 'package:ecommerce/controller/items_controller.dart';
+import 'package:ecommerce/core/class/animation.dart';
 import 'package:ecommerce/core/class/handling_data_veiw.dart';
 import 'package:ecommerce/view/widget/items/item_info.dart';
 import 'package:flutter/material.dart';
@@ -28,8 +29,10 @@ class ListItems extends GetView<ItemsControllerImp> {
             favController.updateFavoriteState(
                 itemId: controller.itemModelList[i].itemsId!,
                 favoriteVal: controller.itemModelList[i].favorite!);
-            return ItemInfo(
-              itemModel: controller.itemModelList[i],
+            return CustomAnimation(
+              child: ItemInfo(
+                itemModel: controller.itemModelList[i],
+              ),
             );
           },
         ),
