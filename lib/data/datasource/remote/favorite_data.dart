@@ -5,14 +5,42 @@ class FavoriteData {
   Crud crud;
   FavoriteData(this.crud);
 
-  postData(String userId, String itemId) async {
+  addFavorite(String userId, String itemId) async {
     var response = await crud.postData(
-      AppLink.favorite,
+      AppLink.addFavorite,
       {
-        "userId": userId,
-        "itemId": itemId,
+        "usersId": userId,
+        "itemsId": itemId,
+      },
+    );
+    return response.fold((l) => l, (r) => r);
+  }
+
+  removeFavorite(String userId, String itemId) async {
+    var response = await crud.postData(
+      AppLink.removeFavorite,
+      {
+        "usersId": userId,
+        "itemsId": itemId,
       },
     );
     return response.fold((l) => l, (r) => r);
   }
 }
+
+
+// class FavoriteData {
+//   Crud crud;
+//   FavoriteData(this.crud);
+
+//   postData(String userId, String itemId) async {
+//     var response = await crud.postData(
+//       AppLink.favorite,
+//       {
+//         "userId": userId,
+//         "itemId": itemId,
+//       },
+//     );
+//     return response.fold((l) => l, (r) => r);
+//   }
+// }

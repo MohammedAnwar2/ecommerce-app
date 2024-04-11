@@ -90,12 +90,12 @@ class ItemInfo extends StatelessWidget {
                             if (controller.isFavorite[itemModel.itemsId] == 1) {
                               controller.updateFavoriteState(
                                   itemId: itemModel.itemsId!, favoriteVal: 0);
-                              controller.upateFavoriteInBackend(
+                              controller.removeFavoriteInBackend(
                                   itemId: itemModel.itemsId!);
                             } else {
                               controller.updateFavoriteState(
                                   itemId: itemModel.itemsId!, favoriteVal: 1);
-                              controller.upateFavoriteInBackend(
+                              controller.addFavoriteInBackend(
                                   itemId: itemModel.itemsId!);
                             }
                           },
