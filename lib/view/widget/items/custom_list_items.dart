@@ -1,3 +1,4 @@
+import 'package:ecommerce/controller/favorite_controller.dart';
 import 'package:ecommerce/controller/items_controller.dart';
 import 'package:ecommerce/core/class/handling_data_veiw.dart';
 import 'package:ecommerce/view/widget/items/item_info.dart';
@@ -11,6 +12,7 @@ class ListItems extends GetView<ItemsControllerImp> {
 
   @override
   Widget build(BuildContext context) {
+    FavoriteControllerImp favController = Get.find<FavoriteControllerImp>();
     return GetBuilder<ItemsControllerImp>(
       builder: (controller) => HandlingDataView(
         statusRequest: controller.statusRequest,
@@ -23,6 +25,9 @@ class ListItems extends GetView<ItemsControllerImp> {
             childAspectRatio: 0.75,
           ),
           itemBuilder: (context, i) {
+            favController.updateFavoriteState(
+                itemId: controller.itemModelList[i].itemsId!,
+                favoriteVal: controller.itemModelList[i].favorite!);
             return ItemInfo(
               itemModel: controller.itemModelList[i],
             );

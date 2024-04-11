@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:ecommerce/controller/favorite_controller.dart';
 import 'package:ecommerce/controller/items_controller.dart';
 import 'package:ecommerce/core/constant/app_color.dart';
 import 'package:ecommerce/core/constant/app_link.dart';
@@ -83,13 +84,27 @@ class ItemInfo extends StatelessWidget {
                             color: AppColor.primaryColor,
                             fontFamily: ""),
                       ),
-                      IconButton(
-                        onPressed: () {},
-                        icon: Icon(
-                          itemModel.favorite == 1
-                              ? Icons.favorite
-                              : Icons.favorite_border_outlined,
-                          color: AppColor.primaryColor,
+                      GetBuilder<FavoriteControllerImp>(
+                        builder: (controller) => IconButton(
+                          onPressed: () {
+                            if (controller.isFavorite[itemModel.itemsId] == 1) {
+                              controller.updateFavoriteState(
+                                  itemId: itemModel.itemsId!, favoriteVal: 0);
+                              controller.upateFavoriteInBackend(
+                                  itemId: itemModel.itemsId!);
+                            } else {
+                              controller.updateFavoriteState(
+                                  itemId: itemModel.itemsId!, favoriteVal: 1);
+                              controller.upateFavoriteInBackend(
+                                  itemId: itemModel.itemsId!);
+                            }
+                          },
+                          icon: Icon(
+                            controller.isFavorite[itemModel.itemsId] == 1
+                                ? Icons.favorite
+                                : Icons.favorite_border_outlined,
+                            color: AppColor.primaryColor,
+                          ),
                         ),
                       )
                     ],
