@@ -26,7 +26,7 @@ class HomePage extends StatelessWidget {
             child: ListView(
               padding: EdgeInsetsDirectional.only(top: verticalSized(10)),
               children: [
-                CustomAnimation(
+                CustomAnimationLeftToRight(
                   child: CustomAppBar(
                     hintText: "62".tr,
                     onPressedSearch: () {
@@ -37,10 +37,10 @@ class HomePage extends StatelessWidget {
                     },
                   ),
                 ),
-                const CustomAnimation(
-                  child: CustomCardCashBackHome(
-                      title: "A summer surprice", subTitle: "Cashback 20%"),
-                ),
+                verticalSizedBox(16),
+                CustomCardCashBackHome(
+                    title: "A summer surprice", subTitle: "Cashback 20%"),
+                CustomAnimation(child: verticalSizedBox(5)),
                 CustomAnimation(
                   child: CustomText(
                     text: "63".tr,

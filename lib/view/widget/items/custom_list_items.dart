@@ -30,6 +30,7 @@ class ListItems extends GetView<ItemsControllerImp> {
                 itemId: controller.itemModelList[i].itemsId!,
                 favoriteVal: controller.itemModelList[i].favorite!);
             return CustomAnimation(
+              time: 500,
               child: ItemInfo(
                 itemModel: controller.itemModelList[i],
               ),

@@ -17,6 +17,11 @@ class ProductDetails extends StatelessWidget {
     ProductDetailsControllerImp controller =
         Get.put(ProductDetailsControllerImp());
     return Scaffold(
+      appBar: PreferredSize(
+          preferredSize: Size(0, 0),
+          child: AppBar(
+            backgroundColor: AppColor.primaryColor,
+          )),
       bottomNavigationBar: CustomAddToCartBurromNavigation(
         onPressed: () {},
       ),
