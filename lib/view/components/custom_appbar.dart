@@ -6,11 +6,11 @@ class CustomAppBar extends StatelessWidget {
   const CustomAppBar({
     super.key,
     required this.hintText,
-    this.onPressedNotification,
+    this.onPressedFavorite,
     this.onPressedSearch,
   });
   final String hintText;
-  final void Function()? onPressedNotification;
+  final void Function()? onPressedFavorite;
   final void Function()? onPressedSearch;
   @override
   Widget build(BuildContext context) {
@@ -46,11 +46,11 @@ class CustomAppBar extends StatelessWidget {
           decoration: BoxDecoration(
               color: AppColor.grey200, borderRadius: BorderRadius.circular(10)),
           child: IconButton(
-            onPressed: onPressedNotification,
+            onPressed: onPressedFavorite,
             splashColor: Colors.transparent,
             highlightColor: Colors.transparent,
             icon: Icon(
-              Icons.notifications_active_outlined,
+              Icons.favorite_border_outlined,
               color: AppColor.grey600,
               size: 30,
             ),

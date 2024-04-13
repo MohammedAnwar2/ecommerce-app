@@ -18,6 +18,7 @@ class Items extends StatelessWidget {
     Get.put(FavoriteControllerImp());
     return Scaffold(
       backgroundColor: AppColor.white,
+      appBar: PreferredSize(preferredSize: const Size(0, 0), child: AppBar()),
       body: SafeArea(
         child: ListView(
           padding: EdgeInsetsDirectional.all(horizontalSize(15)),
@@ -27,7 +28,7 @@ class Items extends StatelessWidget {
               onPressedSearch: () {
                 print("onPressedSearch");
               },
-              onPressedNotification: () {
+              onPressedFavorite: () {
                 print("onPressedNotification");
               },
             ),

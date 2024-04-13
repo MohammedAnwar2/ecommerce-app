@@ -32,8 +32,9 @@ class HomePage extends StatelessWidget {
                     onPressedSearch: () {
                       print("onPressedSearch");
                     },
-                    onPressedNotification: () {
-                      print("onPressedNotification");
+                    onPressedFavorite: () {
+                      controller.goToMyFavorite();
+                      print("onPressedFavorite");
                     },
                   ),
                 ),

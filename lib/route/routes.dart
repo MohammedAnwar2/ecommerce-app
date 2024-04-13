@@ -11,6 +11,7 @@ import 'package:ecommerce/view/screen/auth/verifycode_signup.dart';
 import 'package:ecommerce/view/screen/home_page.dart';
 import 'package:ecommerce/view/screen/home_screen.dart';
 import 'package:ecommerce/view/screen/items.dart';
+import 'package:ecommerce/view/screen/my_favorite.dart';
 import 'package:ecommerce/view/screen/onbording.dart';
 import 'package:ecommerce/view/screen/auth/login.dart';
 import 'package:ecommerce/view/screen/language.dart';
@@ -64,7 +65,6 @@ List<GetPage<dynamic>>? getPages = [
   //first page
   GetPage(
     name: AppRoute.language,
-    // page: () => const Test(),
     page: () => const Language(),
     transition: Transition.fade,
     middlewares: [AuthMiddleWare()],
@@ -72,26 +72,27 @@ List<GetPage<dynamic>>? getPages = [
   //home page
   GetPage(
     name: AppRoute.homePage,
-    // page: () => const Test(),
     page: () => const HomePage(),
     transition: Transition.fade,
   ),
   GetPage(
     name: AppRoute.homeScreen,
-    // page: () => const Test(),
     page: () => HomeScreen(),
     transition: Transition.fade,
   ),
   GetPage(
     name: AppRoute.items,
-    // page: () => const Test(),
     page: () => const Items(),
     transition: Transition.fade,
   ),
   GetPage(
     name: AppRoute.productDetails,
-    // page: () => const Test(),
     page: () => const ProductDetails(),
+    transition: Transition.rightToLeftWithFade,
+  ),
+  GetPage(
+    name: AppRoute.myFavorite,
+    page: () => const MyFavorite(),
     transition: Transition.rightToLeftWithFade,
   ),
 ];

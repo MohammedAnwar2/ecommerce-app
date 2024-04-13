@@ -12,6 +12,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     Get.put(HomeScreenControllerImp());
     return Scaffold(
+      appBar: PreferredSize(preferredSize: const Size(0, 0), child: AppBar()),
       floatingActionButton: FloatingActionButton(
         tooltip: 'Increment',
         elevation: 5.0,

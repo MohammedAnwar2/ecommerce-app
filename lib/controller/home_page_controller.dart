@@ -14,6 +14,7 @@ abstract class HomePageController extends GetxController {
       {required List<CategoriesModel> categoriesList,
       required int selectedCat});
   initData();
+  goToMyFavorite();
 }
 
 class HomePageControllerImp extends HomePageController {
@@ -69,5 +70,10 @@ class HomePageControllerImp extends HomePageController {
   initData() {
     lang = services.sharePref.getString(AppKey.language)!;
     getData();
+  }
+
+  @override
+  goToMyFavorite() {
+    Get.toNamed(AppRoute.myFavorite);
   }
 }

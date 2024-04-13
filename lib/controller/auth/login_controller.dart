@@ -22,29 +22,13 @@ class LoginControllerImp extends LoginController {
   late TextEditingController email;
   late TextEditingController password;
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
+
   bool showPasswordValue = true;
   IconData icon = Icons.lock_outline;
   LoginData testData = LoginData(Get.find());
   VerifyCodeSignUpData verifycodeData = VerifyCodeSignUpData(Get.find());
   StatusRequest statusRequest = StatusRequest.none;
   MyServices controller = Get.find<MyServices>();
-
-  @override
-  hidePassword() {
-    if (showPasswordValue == false) {
-      showPasswordValue = true;
-      icon = Icons.lock_outline;
-    } else {
-      showPasswordValue = false;
-      icon = Icons.lock_open;
-    }
-    update();
-  }
-
-  @override
-  goToSignUp() {
-    Get.offNamed(AppRoute.signUp);
-  }
 
   @override
   login() async {
@@ -85,6 +69,23 @@ class LoginControllerImp extends LoginController {
     } else {
       print("falid");
     }
+  }
+
+  @override
+  hidePassword() {
+    if (showPasswordValue == false) {
+      showPasswordValue = true;
+      icon = Icons.lock_outline;
+    } else {
+      showPasswordValue = false;
+      icon = Icons.lock_open;
+    }
+    update();
+  }
+
+  @override
+  goToSignUp() {
+    Get.offNamed(AppRoute.signUp);
   }
 
   @override
