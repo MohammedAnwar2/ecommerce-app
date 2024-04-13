@@ -1,5 +1,7 @@
+import 'package:ecommerce/controller/myfavorite_controller.dart';
 import 'package:ecommerce/core/shared/horizontal_and_vertical_size.dart';
 import 'package:ecommerce/view/components/custom_appbar.dart';
+import 'package:ecommerce/view/widget/myfavorite/myfavorite_items_info.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -8,6 +10,7 @@ class MyFavorite extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Get.put(MyFavoriteControllerImp());
     return Scaffold(
       appBar: PreferredSize(preferredSize: const Size(0, 0), child: AppBar()),
       body: ListView(
@@ -22,7 +25,9 @@ class MyFavorite extends StatelessWidget {
             onPressedFavorite: () {
               print("onPressedFavorite");
             },
-          )
+          ),
+          verticalSizedBox(20),
+          ListMyFavorite()
         ],
       ),
     );

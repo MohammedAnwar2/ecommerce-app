@@ -26,4 +26,6 @@ class AppLink {
   // static const String favorite = "$server/favorite.php";
   static const String addFavorite = "$server/favorite/addFavorite.php";
   static const String removeFavorite = "$server/favorite/removeFavorite.php";
+  static const String viewFavorite = "$server/favorite/viewFavorite.php";
+  static const String deleteFavorite = "$server/favorite/deleteFavorite.php";
 }
