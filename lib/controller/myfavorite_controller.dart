@@ -43,7 +43,8 @@ class MyFavoriteControllerImp extends MyFavoriteController {
         List responseData = response['data'];
         data.addAll(responseData.map((e) => MyFavoriteModel.fromJson(e)));
         count.value = data.length;
-        print("-----------------");
+        print("-------count.value----------");
+        print(count.value);
         //  print(data);
       } else {
         statusRequest = StatusRequest.nodata;
@@ -58,6 +59,8 @@ class MyFavoriteControllerImp extends MyFavoriteController {
     statusRequest = handlingData(response);
     data.removeWhere((element) => element.favoriteId.toString() == favoriteId);
     count.value = data.length - 1;
+    print("--------------------------------count.value");
+    print(count.value);
     //statusRequest = StatusRequest.nodata;
 
     update();

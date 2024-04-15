@@ -1,4 +1,5 @@
 import 'package:ecommerce/view/screen/home_page.dart';
+import 'package:ecommerce/view/screen/settings.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -13,12 +14,6 @@ class HomeScreenControllerImp extends HomeScreenController {
     const Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: [Text("Settings")],
-      ),
-    ),
-    const Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
         children: [Text("profile")],
       ),
     ),
@@ -28,13 +23,14 @@ class HomeScreenControllerImp extends HomeScreenController {
         children: [Text("notification")],
       ),
     ),
+    Settings()
   ];
 
   List<List> navigationBarNames = [
     ["58".tr, Icons.home],
-    ["59".tr, Icons.settings],
     ["60".tr, Icons.person],
-    ["61".tr, Icons.favorite]
+    ["61".tr, Icons.favorite],
+    ["59".tr, Icons.settings]
   ];
   @override
   changePage(int index) {

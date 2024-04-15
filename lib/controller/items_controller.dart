@@ -13,6 +13,7 @@ abstract class ItemsController extends GetxController {
   changeCategoryItem(int index);
   getData(String categoriesId);
   goToProductDetails(ItemModel itemModel);
+  goToMyFavorite();
 }
 
 class ItemsControllerImp extends ItemsController {
@@ -75,5 +76,10 @@ class ItemsControllerImp extends ItemsController {
         "itemModel": itemModel,
       },
     );
+  }
+
+  @override
+  goToMyFavorite() {
+    Get.toNamed(AppRoute.myFavorite);
   }
 }

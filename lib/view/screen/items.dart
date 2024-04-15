@@ -14,7 +14,7 @@ class Items extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Get.put(ItemsControllerImp());
+    ItemsControllerImp controller = Get.put(ItemsControllerImp());
     Get.put(FavoriteControllerImp());
     return Scaffold(
       backgroundColor: AppColor.white,
@@ -29,6 +29,7 @@ class Items extends StatelessWidget {
                 print("onPressedSearch");
               },
               onPressedFavorite: () {
+                //  controller.goToMyFavorite();
                 print("onPressedNotification");
               },
             ),

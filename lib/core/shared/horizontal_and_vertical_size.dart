@@ -23,3 +23,7 @@ double verticalSized(int size) {
 double fontSize(int size) {
   return size.sp;
 }
+
+double raduis(int size) {
+  return size.r;
+}

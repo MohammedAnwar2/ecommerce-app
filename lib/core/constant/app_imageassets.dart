@@ -5,6 +5,7 @@ class AppImages {
   static const String onBoardingImageOne = "$imagesRoute/one.PNG";
   static const String onBoardingImageTwo = "$imagesRoute/two.PNG";
   static const String onBoardingImageThree = "$imagesRoute/three.PNG";
+  static const String profile = "$imagesRoute/profile.png";
   static const String loading = "$lottieRoute/loading.json";
   static const String offline = "$lottieRoute/offline.json";
   static const String server = "$lottieRoute/server.json";
