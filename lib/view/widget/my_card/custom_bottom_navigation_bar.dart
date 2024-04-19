@@ -5,8 +5,14 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class CustombottomNavigationBar extends StatelessWidget {
-  const CustombottomNavigationBar({super.key});
-
+  const CustombottomNavigationBar(
+      {super.key,
+      required this.price,
+      required this.shipping,
+      required this.totalPrice});
+  final String price;
+  final String shipping;
+  final String totalPrice;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -18,22 +24,22 @@ class CustombottomNavigationBar extends StatelessWidget {
             textColor: AppColor.grey500!,
             priceColor: AppColor.grey500!,
             text: "Price",
-            price: "1200",
+            price: price,
           ),
           CustomRowWidget(
             textColor: AppColor.grey500!,
             priceColor: AppColor.grey500!,
             text: "Shipping",
-            price: "300",
+            price: shipping,
           ),
           const Divider(
             thickness: 0.5,
           ),
-          const CustomRowWidget(
+          CustomRowWidget(
             textColor: AppColor.secondaryColor,
             priceColor: AppColor.secondaryColor,
             text: "Total Price",
-            price: "1500",
+            price: totalPrice,
           ),
           MaterialButton(
             shape:

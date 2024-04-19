@@ -14,20 +14,24 @@ class MyCardScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     MyCardControllerImp controller = Get.put(MyCardControllerImp());
     return Scaffold(
-      bottomNavigationBar: const CustombottomNavigationBar(),
+      bottomNavigationBar: const CustombottomNavigationBar(
+        price: "1200",
+        shipping: "300",
+        totalPrice: "1500",
+      ),
       body: ListView(
         padding: EdgeInsetsDirectional.symmetric(
           horizontal: horizontalSize(16),
           vertical: verticalSized(30),
         ),
-        children: [
+        children: const [
           MyCardAppBar(
-            onPressed: () {},
+            title: "My Cart",
           ),
-          const ItemsCountCard(
+          ItemsCountCard(
             text: "You Have 2 Items In Your List",
           ),
-          const ListItemsCard()
+          ListItemsCard()
         ],
       ),
     );

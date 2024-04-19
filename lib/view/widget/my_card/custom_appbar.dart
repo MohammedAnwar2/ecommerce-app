@@ -4,18 +4,18 @@ import 'package:flutter/material.dart';
 class MyCardAppBar extends StatelessWidget {
   const MyCardAppBar({
     super.key,
-    required this.onPressed,
+    required this.title,
   });
-  final void Function() onPressed;
+  final String title;
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
         IconButton(
-            onPressed: onPressed, icon: const Icon(Icons.arrow_back, size: 30)),
+            onPressed: () {}, icon: const Icon(Icons.arrow_back, size: 30)),
         Expanded(child: Container()),
         Text(
-          "My Cart",
+          title,
           style: Theme.of(context)
               .textTheme
               .displayMedium!
