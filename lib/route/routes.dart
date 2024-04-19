@@ -11,6 +11,7 @@ import 'package:ecommerce/view/screen/auth/verifycode_signup.dart';
 import 'package:ecommerce/view/screen/home_page.dart';
 import 'package:ecommerce/view/screen/home_screen.dart';
 import 'package:ecommerce/view/screen/items.dart';
+import 'package:ecommerce/view/screen/my_card.dart';
 import 'package:ecommerce/view/screen/my_favorite.dart';
 import 'package:ecommerce/view/screen/onbording.dart';
 import 'package:ecommerce/view/screen/auth/login.dart';
@@ -93,6 +94,11 @@ List<GetPage<dynamic>>? getPages = [
   GetPage(
     name: AppRoute.myFavorite,
     page: () => const MyFavorite(),
+    transition: Transition.rightToLeftWithFade,
+  ),
+  GetPage(
+    name: AppRoute.myCardScreen,
+    page: () => const MyCardScreen(),
     transition: Transition.rightToLeftWithFade,
   ),
 ];

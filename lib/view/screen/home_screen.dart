@@ -18,7 +18,7 @@ class HomeScreen extends StatelessWidget {
         elevation: 5.0,
         shape: BeveledRectangleBorder(borderRadius: BorderRadius.circular(16)),
         onPressed: () {
-          l.changeLangauge('ar');
+          l.changeLangauge('en');
         },
         backgroundColor: AppColor.primaryColor,
         child: const Icon(
