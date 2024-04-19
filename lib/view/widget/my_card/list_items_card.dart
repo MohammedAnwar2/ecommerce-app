@@ -9,7 +9,7 @@ class ListItemsCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView.builder(
       padding: EdgeInsetsDirectional.only(top: verticalSized(15)),
-      itemCount: 10,
+      itemCount: 3,
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
       itemBuilder: (BuildContext context, int index) {

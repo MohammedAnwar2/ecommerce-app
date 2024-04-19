@@ -30,7 +30,7 @@ class ItemCardInfo extends StatelessWidget {
             flex: 3,
             child: ListTile(
               title: Text(
-                "MacBook MI df  ",
+                "MacBook MI ",
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
               ),
@@ -44,11 +44,17 @@ class ItemCardInfo extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 SizedBox(
-                    height: verticalSized(36),
-                    child: IconButton(onPressed: () {}, icon: Icon(Icons.add))),
-                const Text("2ss"),
-                SizedBox(
                     height: verticalSized(38),
+                    child: IconButton(onPressed: () {}, icon: Icon(Icons.add))),
+                Text(
+                  "2",
+                  style: Theme.of(context)
+                      .textTheme
+                      .bodyLarge!
+                      .copyWith(fontFamily: ""),
+                ),
+                SizedBox(
+                    height: verticalSized(36),
                     child: IconButton(
                         onPressed: () {}, icon: Icon(Icons.minimize))),
               ],
