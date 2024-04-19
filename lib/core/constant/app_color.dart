@@ -12,5 +12,7 @@ class AppColor {
   static const Color forthColor = Color.fromARGB(255, 39, 32, 82);
   static Color? grey200 = Colors.grey[200];
   static Color? grey600 = Colors.grey[600];
+  static Color? grey400 = Colors.grey[400];
+  static Color? grey500 = Colors.grey[500];
   static Color? grey800 = Colors.grey[800];
 }
