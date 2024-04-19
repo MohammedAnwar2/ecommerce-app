@@ -43,11 +43,11 @@ class ItemCardInfo extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Container(
+                SizedBox(
                     height: verticalSized(36),
                     child: IconButton(onPressed: () {}, icon: Icon(Icons.add))),
                 const Text("2ss"),
-                Container(
+                SizedBox(
                     height: verticalSized(38),
                     child: IconButton(
                         onPressed: () {}, icon: Icon(Icons.minimize))),

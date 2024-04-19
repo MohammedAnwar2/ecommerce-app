@@ -12,7 +12,9 @@ class ItemsCountCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       alignment: Alignment.center,
-      margin: EdgeInsetsDirectional.only(top: verticalSized(8)),
+      margin: EdgeInsetsDirectional.only(
+        top: verticalSized(8),
+      ),
       height: verticalSized(30),
       decoration: BoxDecoration(
           color: AppColor.thirdColor, borderRadius: BorderRadius.circular(24)),

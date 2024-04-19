@@ -13,7 +13,7 @@ class ListItemsCard extends StatelessWidget {
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
       itemBuilder: (BuildContext context, int index) {
-        return ItemCardInfo();
+        return const ItemCardInfo();
       },
     );
   }

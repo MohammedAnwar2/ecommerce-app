@@ -1,7 +1,7 @@
 import 'package:ecommerce/controller/my_card_controller.dart';
-import 'package:ecommerce/core/constant/app_color.dart';
 import 'package:ecommerce/core/shared/horizontal_and_vertical_size.dart';
 import 'package:ecommerce/view/widget/my_card/custom_appbar.dart';
+import 'package:ecommerce/view/widget/my_card/custom_bottom_navigation_bar.dart';
 import 'package:ecommerce/view/widget/my_card/items_count_card.dart';
 import 'package:ecommerce/view/widget/my_card/list_items_card.dart';
 import 'package:flutter/material.dart';
@@ -14,6 +14,7 @@ class MyCardScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     MyCardControllerImp controller = Get.put(MyCardControllerImp());
     return Scaffold(
+      bottomNavigationBar: const CustombottomNavigationBar(),
       body: ListView(
         padding: EdgeInsetsDirectional.symmetric(
           horizontal: horizontalSize(16),
@@ -26,7 +27,7 @@ class MyCardScreen extends StatelessWidget {
           const ItemsCountCard(
             text: "You Have 2 Items In Your List",
           ),
-          ListItemsCard()
+          const ListItemsCard()
         ],
       ),
     );
