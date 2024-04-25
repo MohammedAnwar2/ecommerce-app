@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'dart:convert';
-import 'dart:developer';
 import 'package:ecommerce/core/class/sratus_request.dart';
 import 'package:ecommerce/core/functions/check_internet.dart';
 import 'package:ecommerce/data/model/return_twotypes.dart';
@@ -11,7 +10,6 @@ class Crud {
     if (await checkInternet()) {
       var response = await http.post(Uri.parse(linkurl), body: data);
       if (response.statusCode == 200 || response.statusCode == 201) {
-        print("object");
         Map responsebody = jsonDecode(response.body);
         return Either.right(responsebody);
       } else {

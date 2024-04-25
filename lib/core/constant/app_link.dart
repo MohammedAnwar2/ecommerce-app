@@ -28,4 +28,9 @@ class AppLink {
   static const String removeFavorite = "$server/favorite/removeFavorite.php";
   static const String viewFavorite = "$server/favorite/viewFavorite.php";
   static const String deleteFavorite = "$server/favorite/deleteFavorite.php";
+  //-------------------- Cart --------------------------
+  static const String addCart = "$server/cart/addCart.php";
+  static const String deleteCart = "$server/cart/deleteCart.php";
+  static const String viewCart = "$server/cart/viewCart.php";
+  static const String getCountItems = "$server/cart/getCountItems.php";
 }

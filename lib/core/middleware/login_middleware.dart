@@ -9,8 +9,8 @@ class LoginMiddleware extends GetMiddleware {
   @override
   RouteSettings? redirect(String? route) {
     if (controller.sharePref.getBool(AppKey.loginMiddleware) == true) {
-      // return const RouteSettings(name: AppRoute.homeScreen);
-      return const RouteSettings(name: AppRoute.myCardScreen);
+      return const RouteSettings(name: AppRoute.homeScreen);
+      //return const RouteSettings(name: AppRoute.myCardScreen);
     }
     return null;
   }
