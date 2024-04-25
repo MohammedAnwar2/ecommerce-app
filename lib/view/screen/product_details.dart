@@ -1,4 +1,6 @@
+import 'package:ecommerce/controller/my_card_controller.dart';
 import 'package:ecommerce/controller/product_details_controller.dart';
+import 'package:ecommerce/core/class/handling_data_veiw.dart';
 import 'package:ecommerce/core/constant/app_color.dart';
 import 'package:ecommerce/core/shared/horizontal_and_vertical_size.dart';
 import 'package:ecommerce/view/widget/product_details/change_color.dart';
@@ -14,8 +16,7 @@ class ProductDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ProductDetailsControllerImp controller =
-        Get.put(ProductDetailsControllerImp());
+    Get.put(ProductDetailsControllerImp());
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: const Size(0, 0),
@@ -26,35 +27,50 @@ class ProductDetails extends StatelessWidget {
       bottomNavigationBar: CustomAddToCartBurromNavigation(
         onPressed: () {},
       ),
-      body: ListView(
-        children: [
-          const ImageVeiw(),
-          verticalSizedBox(85),
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: horizontalSize(16)),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                DetailsTextTitle(title: controller.itemModel.itemsName!),
-                ProductCount(
-                  count: '2',
-                  price: '20',
-                  onAdd: () {},
-                  onRemove: () {},
-                ),
-                Text(
-                  controller.itemModel.itemsDesc!,
-                  style: Theme.of(context).textTheme.displaySmall!.copyWith(
-                      color: AppColor.forthColor,
-                      height: 1.8,
-                      fontWeight: FontWeight.normal),
-                ),
-                const DetailsTextTitle(title: "Color"),
-                const ChanegColor()
-              ],
-            ),
-          ),
-        ],
+      body: GetBuilder<ProductDetailsControllerImp>(
+        builder: (controller) {
+          return HandlingDataView(
+              statusRequest: controller.statusRequest,
+              widget: ListView(
+                children: [
+                  const ImageVeiw(),
+                  verticalSizedBox(85),
+                  Padding(
+                    padding:
+                        EdgeInsets.symmetric(horizontal: horizontalSize(16)),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        DetailsTextTitle(
+                            title: controller.itemModel.itemsName!),
+                        ProductCount(
+                          count: controller.count.toString(),
+                          price: '20',
+                          onAdd: () {
+                            controller.add();
+                          },
+                          onRemove: () {
+                            controller.remove();
+                          },
+                        ),
+                        Text(
+                          controller.itemModel.itemsDesc!,
+                          style: Theme.of(context)
+                              .textTheme
+                              .displaySmall!
+                              .copyWith(
+                                  color: AppColor.forthColor,
+                                  height: 1.8,
+                                  fontWeight: FontWeight.normal),
+                        ),
+                        const DetailsTextTitle(title: "Color"),
+                        const ChanegColor()
+                      ],
+                    ),
+                  ),
+                ],
+              ));
+        },
       ),
     );
   }
