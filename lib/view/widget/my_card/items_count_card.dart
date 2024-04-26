@@ -23,7 +23,7 @@ class ItemsCountCard extends StatelessWidget {
         style: Theme.of(context)
             .textTheme
             .bodyLarge!
-            .copyWith(color: AppColor.primaryColor),
+            .copyWith(color: AppColor.white),
       ),
     );
   }

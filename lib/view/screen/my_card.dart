@@ -13,7 +13,7 @@ class MyCardScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    MyCardControllerImp controller = Get.put(MyCardControllerImp());
+    Get.put(MyCardControllerImp());
     return Scaffold(
       bottomNavigationBar: GetBuilder<MyCardControllerImp>(
         builder: (controller) => CustombottomNavigationBar(

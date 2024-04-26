@@ -4,7 +4,6 @@ import 'package:ecommerce/core/functions/hadlingdata.dart';
 import 'package:ecommerce/core/services/service.dart';
 import 'package:ecommerce/data/datasource/remote/cart/add_cart.dart';
 import 'package:ecommerce/data/datasource/remote/cart/delete_cart.dart';
-import 'package:ecommerce/data/datasource/remote/cart/get_count_cart.dart';
 import 'package:ecommerce/data/datasource/remote/cart/view_all_cart_products.dart';
 import 'package:ecommerce/data/model/view_cart_all_products.dart';
 import 'package:get/get.dart';
@@ -12,7 +11,6 @@ import 'package:get/get.dart';
 abstract class MyCardController extends GetxController {
   addData(String itemId);
   deleteData(String itemId);
-  getCountData(String itemId);
   viewAllCartProducts();
   initData();
   resetView();
@@ -21,7 +19,6 @@ abstract class MyCardController extends GetxController {
 
 class MyCardControllerImp extends MyCardController {
   AddCartData addCartData = AddCartData(Get.find());
-  CoutCartData coutCartData = CoutCartData(Get.find());
   DeleteCartData deleteCartData = DeleteCartData(Get.find());
   ViewCartData viewCartData = ViewCartData(Get.find());
   StatusRequest statusRequest = StatusRequest.success;
@@ -74,22 +71,6 @@ class MyCardControllerImp extends MyCardController {
   }
 
   @override
-  getCountData(String itemId) async {
-    var response = await coutCartData.getCartCount(id.toString(), itemId);
-    statusRequest = handlingData(response);
-    if (statusRequest == StatusRequest.success) {
-      if (response['status'] == 'success') {
-        int count = 0;
-        count = response['count'];
-        print("--------------------- $count");
-        return count;
-      } else {
-        return 0;
-      }
-    }
-    update();
-  }
-
   @override
   viewAllCartProducts() async {
     data.clear();
