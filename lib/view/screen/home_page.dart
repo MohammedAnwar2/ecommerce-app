@@ -1,17 +1,13 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ecommerce/controller/home_page_controller.dart';
 import 'package:ecommerce/core/class/animation.dart';
 import 'package:ecommerce/core/class/handling_data_veiw.dart';
-import 'package:ecommerce/core/constant/app_link.dart';
 import 'package:ecommerce/core/shared/horizontal_and_vertical_size.dart';
-import 'package:ecommerce/data/model/items_model.dart';
-import 'package:ecommerce/route/route_app.dart';
-import 'package:ecommerce/view/components/search_list_items.dart';
 import 'package:ecommerce/view/widget/home/categories_list.dart';
 import 'package:ecommerce/view/components/custom_appbar.dart';
 import 'package:ecommerce/view/widget/home/custom_cashback_card.dart';
 import 'package:ecommerce/view/widget/home/custom_text.dart';
 import 'package:ecommerce/view/widget/home/product_list.dart';
+import 'package:ecommerce/view/widget/home/search_items_list.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -19,7 +15,7 @@ class HomePage extends StatelessWidget {
   const HomePage({super.key});
   @override
   Widget build(BuildContext context) {
-    HomePageControllerImp controller = Get.put(HomePageControllerImp());
+    Get.put(HomePageControllerImp());
 
     return GetBuilder<HomePageControllerImp>(
       builder: (controller) => SafeArea(

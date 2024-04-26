@@ -20,6 +20,7 @@ abstract class HomePageController extends GetxController {
   goToMyFavorite();
   onClickSearch();
   onChangeSearch(String val);
+  goToProductDetails(ItemModel itemModel);
 }
 
 class HomePageControllerImp extends HomePageController {
@@ -120,5 +121,15 @@ class HomePageControllerImp extends HomePageController {
       }
     }
     update();
+  }
+
+  @override
+  goToProductDetails(ItemModel itemModel) {
+    Get.toNamed(
+      AppRoute.productDetails,
+      arguments: {
+        "itemModel": itemModel,
+      },
+    );
   }
 }
