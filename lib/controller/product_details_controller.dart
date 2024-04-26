@@ -1,6 +1,7 @@
 import 'package:ecommerce/controller/my_card_controller.dart';
 import 'package:ecommerce/core/class/sratus_request.dart';
 import 'package:ecommerce/data/model/items_model.dart';
+import 'package:ecommerce/route/route_app.dart';
 import 'package:get/get.dart';
 
 abstract class ProductDetailsController extends GetxController {
@@ -8,6 +9,7 @@ abstract class ProductDetailsController extends GetxController {
   updateCount();
   add();
   remove();
+  goToCard();
 }
 
 class ProductDetailsControllerImp extends ProductDetailsController {
@@ -52,5 +54,11 @@ class ProductDetailsControllerImp extends ProductDetailsController {
       cartController.deleteData(itemModel.itemsId.toString());
     }
     update();
+  }
+
+  @override
+  goToCard() {
+    cartController.refreshView();
+    Get.offNamed(AppRoute.myCardScreen);
   }
 }

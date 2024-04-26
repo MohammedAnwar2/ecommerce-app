@@ -16,7 +16,8 @@ class ProductDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Get.put(ProductDetailsControllerImp());
+    ProductDetailsControllerImp controller =
+        Get.put(ProductDetailsControllerImp());
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: const Size(0, 0),
@@ -25,7 +26,9 @@ class ProductDetails extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: CustomAddToCartBurromNavigation(
-        onPressed: () {},
+        onPressed: () {
+          controller.goToCard();
+        },
       ),
       body: GetBuilder<ProductDetailsControllerImp>(
         builder: (controller) {
