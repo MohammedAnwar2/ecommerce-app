@@ -1,4 +1,5 @@
 import 'package:ecommerce/controller/my_card_controller.dart';
+import 'package:ecommerce/core/class/handling_data_veiw.dart';
 import 'package:ecommerce/core/shared/horizontal_and_vertical_size.dart';
 import 'package:ecommerce/view/widget/my_card/custom_appbar.dart';
 import 'package:ecommerce/view/widget/my_card/custom_bottom_navigation_bar.dart';
@@ -14,25 +15,34 @@ class MyCardScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     MyCardControllerImp controller = Get.put(MyCardControllerImp());
     return Scaffold(
-      bottomNavigationBar: const CustombottomNavigationBar(
-        price: "1200",
-        shipping: "300",
-        totalPrice: "1500",
-      ),
-      body: ListView(
-        padding: EdgeInsetsDirectional.symmetric(
-          horizontal: horizontalSize(16),
-          vertical: verticalSized(30),
+      bottomNavigationBar: GetBuilder<MyCardControllerImp>(
+        builder: (controller) => CustombottomNavigationBar(
+          price: controller.totalprice.toString(),
+          shipping: "300",
+          totalPrice: "1500",
         ),
-        children: const [
-          MyCardAppBar(
-            title: "My Cart",
-          ),
-          ItemsCountCard(
-            text: "You Have 2 Items In Your List",
-          ),
-          ListItemsCard()
-        ],
+      ),
+      appBar: PreferredSize(preferredSize: const Size(0, 0), child: AppBar()),
+      body: GetBuilder<MyCardControllerImp>(
+        builder: (controller) => HandlingDataView(
+            statusRequest: controller.statusRequest,
+            widget: ListView(
+              padding: EdgeInsetsDirectional.only(
+                start: horizontalSize(16),
+                end: horizontalSize(16),
+                top: verticalSized(0),
+                bottom: verticalSized(16),
+              ),
+              children: [
+                const MyCardAppBar(
+                  title: "My Cart",
+                ),
+                ItemsCountCard(
+                  text: "You Have ${controller.totalcount} Items In Your List",
+                ),
+                const ListItemsCard()
+              ],
+            )),
       ),
     );
   }
