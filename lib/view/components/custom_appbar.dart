@@ -8,16 +8,21 @@ class CustomAppBar extends StatelessWidget {
     required this.hintText,
     this.onPressedFavorite,
     this.onPressedSearch,
+    this.onChanged,
+    this.myController,
   });
   final String hintText;
   final void Function()? onPressedFavorite;
   final void Function()? onPressedSearch;
+  final void Function(String)? onChanged;
+  final TextEditingController? myController;
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
         Expanded(
           child: TextFormField(
+            controller: myController,
             decoration: InputDecoration(
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10),
@@ -37,6 +42,7 @@ class CustomAppBar extends StatelessWidget {
                 ),
               ),
             ),
+            onChanged: onChanged,
           ),
         ),
         horizontalSizedBox(10),
