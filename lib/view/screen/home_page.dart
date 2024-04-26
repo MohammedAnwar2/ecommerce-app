@@ -1,7 +1,12 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ecommerce/controller/home_page_controller.dart';
 import 'package:ecommerce/core/class/animation.dart';
 import 'package:ecommerce/core/class/handling_data_veiw.dart';
+import 'package:ecommerce/core/constant/app_link.dart';
 import 'package:ecommerce/core/shared/horizontal_and_vertical_size.dart';
+import 'package:ecommerce/data/model/items_model.dart';
+import 'package:ecommerce/route/route_app.dart';
+import 'package:ecommerce/view/components/search_list_items.dart';
 import 'package:ecommerce/view/widget/home/categories_list.dart';
 import 'package:ecommerce/view/components/custom_appbar.dart';
 import 'package:ecommerce/view/widget/home/custom_cashback_card.dart';
@@ -14,59 +19,71 @@ class HomePage extends StatelessWidget {
   const HomePage({super.key});
   @override
   Widget build(BuildContext context) {
-    Get.put(HomePageControllerImp());
+    HomePageControllerImp controller = Get.put(HomePageControllerImp());
 
     return GetBuilder<HomePageControllerImp>(
-      builder: (controller) => HandlingDataView(
-        statusRequest: controller.statusRequest,
-        widget: SafeArea(
-          child: Container(
-            padding:
-                EdgeInsetsDirectional.symmetric(horizontal: horizontalSize(16)),
-            child: ListView(
-              padding: EdgeInsetsDirectional.only(top: verticalSized(10)),
-              children: [
-                CustomAnimationLeftToRight(
-                  child: CustomAppBar(
-                    hintText: "62".tr,
-                    onPressedSearch: () {
-                      print("onPressedSearch");
-                    },
-                    onPressedFavorite: () {
-                      controller.goToMyFavorite();
-                      print("onPressedFavorite");
-                    },
-                  ),
+      builder: (controller) => SafeArea(
+        child: Container(
+          padding:
+              EdgeInsetsDirectional.symmetric(horizontal: horizontalSize(16)),
+          child: ListView(
+            padding: EdgeInsetsDirectional.only(top: verticalSized(10)),
+            children: [
+              CustomAnimationLeftToRight(
+                child: CustomAppBar(
+                  myController: controller.search,
+                  onChanged: (val) {
+                    controller.onChangeSearch(val);
+                  },
+                  hintText: "62".tr,
+                  onPressedSearch: () {
+                    controller.onClickSearch();
+                  },
+                  onPressedFavorite: () {
+                    controller.goToMyFavorite();
+                  },
                 ),
-                verticalSizedBox(16),
-                CustomCardCashBackHome(
-                    title: "A summer surprice", subTitle: "Cashback 20%"),
-                CustomAnimation(child: verticalSizedBox(5)),
-                CustomAnimation(
-                  child: CustomText(
-                    text: "63".tr,
-                  ),
-                ),
-                const ListCategoriesHome(),
-                CustomAnimation(
-                  child: CustomText(
-                    text: "64".tr,
-                  ),
-                ),
-                CustomAnimation(child: verticalSizedBox(10)),
-                const ListProductItem(),
-                CustomAnimation(
-                  child: CustomText(
-                    text: "65".tr,
-                  ),
-                ),
-                verticalSizedBox(10),
-                const ListProductItem()
-              ],
-            ),
+              ),
+              HandlingDataView(
+                statusRequest: controller.statusRequest,
+                widget: !controller.isSearch
+                    ? ListView(
+                        shrinkWrap: true,
+                        physics: const NeverScrollableScrollPhysics(),
+                        children: [
+                          verticalSizedBox(16),
+                          const CustomCardCashBackHome(
+                              title: "A summer surprice",
+                              subTitle: "Cashback 20%"),
+                          CustomAnimation(child: verticalSizedBox(5)),
+                          CustomAnimation(
+                            child: CustomText(
+                              text: "63".tr,
+                            ),
+                          ),
+                          const ListCategoriesHome(),
+                          CustomAnimation(
+                            child: CustomText(
+                              text: "64".tr,
+                            ),
+                          ),
+                          CustomAnimation(child: verticalSizedBox(10)),
+                          const ListProductItem(),
+                          CustomAnimation(
+                            child: CustomText(
+                              text: "65".tr,
+                            ),
+                          ),
+                          verticalSizedBox(10),
+                          const ListProductItem()
+                        ],
+                      )
+                    : SearchListItems(searchitems: controller.searchItemList),
+              )
+            ],
           ),
         ),
       ),
-    );
+    ); //------------
   }
 }

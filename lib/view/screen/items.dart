@@ -25,12 +25,9 @@ class Items extends StatelessWidget {
           children: [
             CustomAppBar(
               hintText: "62".tr,
-              onPressedSearch: () {
-                print("onPressedSearch");
-              },
+              onPressedSearch: () {},
               onPressedFavorite: () {
                 //  controller.goToMyFavorite();
-                print("onPressedNotification");
               },
             ),
             verticalSizedBox(20),
