@@ -32,7 +32,11 @@ class SearchMethodMix extends GetxController {
         List items = response['data'];
         searchItemList.addAll(items.map((e) => ItemModel.fromJson(e)));
       } else {
-        statusRequest = StatusRequest.nodata;
+        if (isSearch == true) {
+          statusRequest = StatusRequest.nodata;
+        } else {
+          statusRequest = StatusRequest.success;
+        }
         // Get.defaultDialog(
         //     title: response['status'].tr, middleText: response['status']);
       }
@@ -43,6 +47,7 @@ class SearchMethodMix extends GetxController {
   onChangeSearch(String val) {
     if (val == "") {
       isSearch = false;
+      statusRequest = StatusRequest.success;
       // searchData();
     }
     update();
@@ -54,5 +59,12 @@ class SearchMethodMix extends GetxController {
       searchData();
       update();
     }
+  }
+
+  deleteText() {
+    search.clear();
+    isSearch = false;
+    statusRequest = StatusRequest.success;
+    update();
   }
 }

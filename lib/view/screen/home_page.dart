@@ -38,6 +38,17 @@ class HomePage extends StatelessWidget {
                   onPressedFavorite: () {
                     controller.goToMyFavorite();
                   },
+                  suffixIcon: controller.isSearch
+                      ? IconButton(
+                          icon: const Icon(Icons.close),
+                          onPressed: () {
+                            controller.deleteText();
+                          },
+                        )
+                      : Container(
+                          height: 0,
+                          width: 0,
+                        ),
                 ),
               ),
               HandlingDataView(

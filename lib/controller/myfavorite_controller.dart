@@ -104,7 +104,11 @@ class SearchFavorite extends GetxController {
         searchItemList.addAll(items.map((e) => ItemModel.fromJson(e)));
         searchItemList.map((e) => print(e.categoriesName));
       } else {
-        statusRequest = StatusRequest.nodata;
+        if (isSearch == true) {
+          statusRequest = StatusRequest.nodata;
+        } else {
+          statusRequest = StatusRequest.success;
+        }
         // Get.defaultDialog(
         //     title: response['status'].tr, middleText: response['status']);
       }
@@ -127,5 +131,12 @@ class SearchFavorite extends GetxController {
       searchData();
       update();
     }
+  }
+
+  deleteText() {
+    search.clear();
+    isSearch = false;
+    statusRequest = StatusRequest.success;
+    update();
   }
 }

@@ -11,6 +11,7 @@ class CustomAppBar extends StatelessWidget {
     this.onChanged,
     this.myController,
     this.isThereFavorite = true,
+    required this.suffixIcon,
   });
   final String hintText;
   final void Function()? onPressedFavorite;
@@ -18,6 +19,7 @@ class CustomAppBar extends StatelessWidget {
   final void Function(String)? onChanged;
   final TextEditingController? myController;
   final bool? isThereFavorite;
+  final Widget suffixIcon;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -43,6 +45,7 @@ class CustomAppBar extends StatelessWidget {
                   Icons.search,
                 ),
               ),
+              suffixIcon: suffixIcon,
             ),
             onChanged: onChanged,
           ),
