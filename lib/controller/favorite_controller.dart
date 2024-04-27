@@ -2,7 +2,7 @@ import 'package:ecommerce/core/class/sratus_request.dart';
 import 'package:ecommerce/core/constant/app_keys.dart';
 import 'package:ecommerce/core/functions/hadlingdata.dart';
 import 'package:ecommerce/core/services/service.dart';
-import 'package:ecommerce/data/datasource/remote/favorite_data.dart';
+import 'package:ecommerce/data/datasource/remote/favorite/favorite_data.dart';
 import 'package:get/get.dart';
 
 abstract class FavoriteController extends GetxController {
@@ -14,11 +14,11 @@ abstract class FavoriteController extends GetxController {
 }
 
 class FavoriteControllerImp extends FavoriteController {
-  Map isFavorite = {};
   FavoriteData favoriteData = FavoriteData(Get.find());
   StatusRequest statusRequest = StatusRequest.success;
   MyServices services = Get.find<MyServices>();
   late int id;
+  Map isFavorite = {};
   @override
   updateFavoriteState({required int itemId, required int favoriteVal}) {
     isFavorite[itemId] = favoriteVal;

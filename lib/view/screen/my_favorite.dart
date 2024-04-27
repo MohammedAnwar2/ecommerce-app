@@ -10,7 +10,7 @@ class MyFavorite extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Get.put(MyFavoriteControllerImp());
+    MyFavoriteControllerImp controller = Get.put(MyFavoriteControllerImp());
     return Scaffold(
       appBar: PreferredSize(preferredSize: const Size(0, 0), child: AppBar()),
       body: ListView(
@@ -18,13 +18,15 @@ class MyFavorite extends StatelessWidget {
             vertical: verticalSized(10), horizontal: horizontalSize(16)),
         children: [
           CustomAppBar(
+            myController: controller.search,
+            onChanged: (val) {
+              controller.onChangeSearch(val);
+            },
             hintText: "62".tr,
             onPressedSearch: () {
-              print("onPressedSearch");
+              controller.onClickSearch();
             },
-            onPressedFavorite: () {
-              print("onPressedFavorite");
-            },
+            isThereFavorite: false,
           ),
           verticalSizedBox(20),
           ListMyFavorite()

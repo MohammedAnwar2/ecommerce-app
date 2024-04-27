@@ -1,6 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ecommerce/controller/myfavorite_controller.dart';
-import 'package:ecommerce/core/class/animation.dart';
 import 'package:ecommerce/core/constant/app_color.dart';
 import 'package:ecommerce/core/constant/app_link.dart';
 import 'package:ecommerce/core/functions/translate_database.dart';
@@ -83,8 +82,10 @@ class MyFavoriteInfo extends StatelessWidget {
                       onPressed: () {
                         controller
                             .deleteData(myFavoriteInfo.favoriteId.toString());
+                        // controller.favoriteMethods.updateFavoriteState(
+                        //     itemId: myFavoriteInfo.itemsId!, favoriteVal: 0);
                       },
-                      icon: Icon(
+                      icon: const Icon(
                         Icons.delete_outline_outlined,
                         color: AppColor.primaryColor,
                       ),

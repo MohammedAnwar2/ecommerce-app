@@ -1,3 +1,4 @@
+import 'package:ecommerce/controller/mix_class_controller/serch_class_methods.dart';
 import 'package:ecommerce/core/class/sratus_request.dart';
 import 'package:ecommerce/core/constant/app_keys.dart';
 import 'package:ecommerce/core/functions/hadlingdata.dart';
@@ -6,14 +7,22 @@ import 'package:ecommerce/data/datasource/remote/items/items.dart';
 import 'package:ecommerce/data/model/categories_model.dart';
 import 'package:ecommerce/data/model/items_model.dart';
 import 'package:ecommerce/route/route_app.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-abstract class ItemsController extends GetxController {
+abstract class ItemsController extends SearchMethodMix {
   initData();
   changeCategoryItem(int index);
   getData(String categoriesId);
-  goToProductDetails(ItemModel itemModel);
   goToMyFavorite();
+  @override
+  searchData();
+  @override
+  onClickSearch();
+  @override
+  onChangeSearch(String val);
+  @override
+  goToProductDetails(ItemModel itemModel);
 }
 
 class ItemsControllerImp extends ItemsController {
@@ -23,10 +32,12 @@ class ItemsControllerImp extends ItemsController {
   late int id;
   List<ItemModel> itemModelList = [];
   ItemsData itemsData = ItemsData(Get.find());
-  StatusRequest statusRequest = StatusRequest.success;
+  bool hideListItems = false;
+  //StatusRequest statusRequest = StatusRequest.success;
 
   @override
   initData() {
+    search = TextEditingController();
     selectedCat = Get.arguments['selectedCat'];
     categoriesModelList = Get.arguments['categoriesList'];
     id = services.sharePref.getInt(AppKey.usersId)!;
@@ -66,16 +77,6 @@ class ItemsControllerImp extends ItemsController {
     }
 
     update();
-  }
-
-  @override
-  goToProductDetails(ItemModel itemModel) {
-    Get.toNamed(
-      AppRoute.productDetails,
-      arguments: {
-        "itemModel": itemModel,
-      },
-    );
   }
 
   @override

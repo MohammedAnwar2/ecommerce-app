@@ -1,15 +1,14 @@
+import 'package:ecommerce/controller/mix_class_controller/add_delete_items_methods.dart';
 import 'package:ecommerce/core/class/sratus_request.dart';
 import 'package:ecommerce/core/constant/app_keys.dart';
 import 'package:ecommerce/core/functions/hadlingdata.dart';
 import 'package:ecommerce/core/services/service.dart';
-import 'package:ecommerce/data/datasource/remote/cart/add_cart.dart';
-import 'package:ecommerce/data/datasource/remote/cart/delete_cart.dart';
 import 'package:ecommerce/data/datasource/remote/cart/get_count_cart.dart';
 import 'package:ecommerce/data/model/items_model.dart';
 import 'package:ecommerce/route/route_app.dart';
 import 'package:get/get.dart';
 
-abstract class ProductDetailsController extends GetxController {
+abstract class ProductDetailsController extends AddDeleteItemsCounter {
   initData();
   add();
   remove();
@@ -18,14 +17,10 @@ abstract class ProductDetailsController extends GetxController {
 }
 
 class ProductDetailsControllerImp extends ProductDetailsController {
-  StatusRequest statusRequest = StatusRequest.success;
   int count = 0;
   CoutCartData coutCartData = CoutCartData(Get.find());
-  AddCartData addCartData = AddCartData(Get.find());
-  DeleteCartData deleteCartData = DeleteCartData(Get.find());
   MyServices services = Get.find<MyServices>();
   late ItemModel itemModel;
-  late int id;
   List<Map<String, dynamic>> colors = [
     {"name": "Red", "id": 1, "active": "0"},
     {"name": "Blue", "id": 2, "active": "1"},
@@ -68,34 +63,6 @@ class ProductDetailsControllerImp extends ProductDetailsController {
     Get.offNamed(AppRoute.myCardScreen);
   }
 
-  addData(String itemId) async {
-    statusRequest = StatusRequest.loading;
-    update();
-    var response = await addCartData.addCart(id.toString(), itemId);
-    statusRequest = handlingData(response);
-    if (statusRequest == StatusRequest.success) {
-      if (response['status'] == 'success') {
-      } else {
-        statusRequest = StatusRequest.serverfailure;
-      }
-    }
-    update();
-  }
-
-  deleteData(String itemId) async {
-    statusRequest = StatusRequest.loading;
-    update();
-    var response = await deleteCartData.deleteCart(id.toString(), itemId);
-    statusRequest = handlingData(response);
-    if (statusRequest == StatusRequest.success) {
-      if (response['status'] == 'success') {
-      } else {
-        statusRequest = StatusRequest.serverfailure;
-      }
-    }
-    update();
-  }
-
   @override
   getCountData(String itemId) async {
     var response = await coutCartData.getCartCount(id.toString(), itemId);
@@ -104,7 +71,6 @@ class ProductDetailsControllerImp extends ProductDetailsController {
       if (response['status'] == 'success') {
         int count = 0;
         count = response['count'];
-        print("--------------------- $count");
         return count;
       } else {
         return 0;

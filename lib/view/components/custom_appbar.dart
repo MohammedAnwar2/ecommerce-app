@@ -10,12 +10,14 @@ class CustomAppBar extends StatelessWidget {
     this.onPressedSearch,
     this.onChanged,
     this.myController,
+    this.isThereFavorite = true,
   });
   final String hintText;
   final void Function()? onPressedFavorite;
   final void Function()? onPressedSearch;
   final void Function(String)? onChanged;
   final TextEditingController? myController;
+  final bool? isThereFavorite;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -46,22 +48,26 @@ class CustomAppBar extends StatelessWidget {
           ),
         ),
         horizontalSizedBox(10),
-        Container(
-          width: horizontalSize(60),
-          padding: EdgeInsetsDirectional.symmetric(vertical: verticalSized(8)),
-          decoration: BoxDecoration(
-              color: AppColor.grey200, borderRadius: BorderRadius.circular(10)),
-          child: IconButton(
-            onPressed: onPressedFavorite,
-            splashColor: Colors.transparent,
-            highlightColor: Colors.transparent,
-            icon: Icon(
-              Icons.favorite_border_outlined,
-              color: AppColor.grey600,
-              size: 30,
-            ),
-          ),
-        )
+        isThereFavorite!
+            ? Container(
+                width: horizontalSize(60),
+                padding:
+                    EdgeInsetsDirectional.symmetric(vertical: verticalSized(8)),
+                decoration: BoxDecoration(
+                    color: AppColor.grey200,
+                    borderRadius: BorderRadius.circular(10)),
+                child: IconButton(
+                  onPressed: onPressedFavorite,
+                  splashColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
+                  icon: Icon(
+                    Icons.favorite_border_outlined,
+                    color: AppColor.grey600,
+                    size: 30,
+                  ),
+                ),
+              )
+            : Container()
       ],
     );
   }

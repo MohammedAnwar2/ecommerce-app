@@ -22,13 +22,14 @@ class AppLink {
   static const String home = "$server/home.php";
   //-------------------- Items --------------------------
   static const String items = "$server/items/items.php";
-  static const String search = "$server/items/search.php";
+  static const String itemsSearch = "$server/items/search.php";
   //-------------------- Favorite --------------------------
   // static const String favorite = "$server/favorite.php";
   static const String addFavorite = "$server/favorite/addFavorite.php";
   static const String removeFavorite = "$server/favorite/removeFavorite.php";
   static const String viewFavorite = "$server/favorite/viewFavorite.php";
   static const String deleteFavorite = "$server/favorite/deleteFavorite.php";
+  static const String favoriteSearch = "$server/favorite/search.php";
   //-------------------- Cart --------------------------
   static const String addCart = "$server/cart/addCart.php";
   static const String deleteCart = "$server/cart/deleteCart.php";

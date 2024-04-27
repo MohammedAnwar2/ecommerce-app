@@ -1,12 +1,14 @@
 import 'package:ecommerce/controller/favorite_controller.dart';
 import 'package:ecommerce/controller/items_controller.dart';
-import 'package:ecommerce/core/class/animation.dart';
+import 'package:ecommerce/core/class/handling_data_veiw.dart';
 import 'package:ecommerce/core/constant/app_color.dart';
 import 'package:ecommerce/core/shared/horizontal_and_vertical_size.dart';
 import 'package:ecommerce/view/components/custom_appbar.dart';
+import 'package:ecommerce/view/widget/home/search_items_list.dart';
 import 'package:ecommerce/view/widget/items/custom_list_category_items.dart';
 import 'package:ecommerce/view/widget/items/custom_list_items.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
 class Items extends StatelessWidget {
@@ -24,15 +26,30 @@ class Items extends StatelessWidget {
           padding: EdgeInsetsDirectional.all(horizontalSize(15)),
           children: [
             CustomAppBar(
-              hintText: "62".tr,
-              onPressedSearch: () {},
-              onPressedFavorite: () {
-                //  controller.goToMyFavorite();
-              },
-            ),
-            verticalSizedBox(20),
-            const ListCategoriesItems(),
-            verticalSizedBox(20),
+                myController: controller.search,
+                onChanged: (val) {
+                  controller.onChangeSearch(val);
+                },
+                hintText: "62".tr,
+                onPressedSearch: () {
+                  controller.onClickSearch();
+                },
+                onPressedFavorite: () {
+                  controller.goToMyFavorite();
+                }),
+            GetBuilder<ItemsControllerImp>(
+                builder: (controller) => !controller.isSearch
+                    ? ListView(
+                        padding: EdgeInsets.zero,
+                        shrinkWrap: true,
+                        physics: const NeverScrollableScrollPhysics(),
+                        children: [
+                          verticalSizedBox(20),
+                          const ListCategoriesItems(),
+                          verticalSizedBox(20),
+                        ],
+                      )
+                    : Container()),
             const ListItems()
           ],
         ),
@@ -40,3 +57,6 @@ class Items extends StatelessWidget {
     );
   }
 }
+/*
+
+ */

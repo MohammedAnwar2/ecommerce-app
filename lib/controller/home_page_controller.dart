@@ -1,25 +1,29 @@
+import 'package:ecommerce/controller/mix_class_controller/serch_class_methods.dart';
 import 'package:ecommerce/core/class/sratus_request.dart';
 import 'package:ecommerce/core/constant/app_keys.dart';
 import 'package:ecommerce/core/functions/hadlingdata.dart';
 import 'package:ecommerce/core/services/service.dart';
 import 'package:ecommerce/data/datasource/remote/home.dart';
-import 'package:ecommerce/data/datasource/remote/items/search.dart';
 import 'package:ecommerce/data/model/categories_model.dart';
 import 'package:ecommerce/data/model/items_model.dart';
 import 'package:ecommerce/route/route_app.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
-abstract class HomePageController extends GetxController {
+abstract class HomePageController extends SearchMethodMix {
   getData();
-  searchData();
   goToItems(
       {required List<CategoriesModel> categoriesList,
       required int selectedCat});
   initData();
   goToMyFavorite();
+  @override
+  searchData();
+  @override
   onClickSearch();
+  @override
   onChangeSearch(String val);
+  @override
   goToProductDetails(ItemModel itemModel);
 }
 
@@ -27,13 +31,9 @@ class HomePageControllerImp extends HomePageController {
   MyServices services = Get.find<MyServices>();
   List<CategoriesModel> categoriesModelList = [];
   List<ItemModel> itemModelList = [];
-  List<ItemModel> searchItemList = [];
   HomeData homeData = HomeData(Get.find());
-  SearchItemsData searchItemData = SearchItemsData(Get.find());
-  StatusRequest statusRequest = StatusRequest.success;
   late String lang;
-  late TextEditingController search;
-  bool isSearch = false;
+
   @override
   getData() async {
     statusRequest = StatusRequest.loading;
@@ -85,51 +85,5 @@ class HomePageControllerImp extends HomePageController {
   @override
   goToMyFavorite() {
     Get.toNamed(AppRoute.myFavorite);
-  }
-
-  @override
-  onChangeSearch(String val) {
-    if (val == "") {
-      isSearch = false;
-      // searchData();
-    }
-    update();
-  }
-
-  @override
-  onClickSearch() {
-    isSearch = true;
-    searchData();
-    update();
-  }
-
-  @override
-  searchData() async {
-    searchItemList.clear();
-    statusRequest = StatusRequest.loading;
-    update();
-    var response = await searchItemData.searchData(search.text);
-    statusRequest = handlingData(response);
-    if (statusRequest == StatusRequest.success) {
-      if (response['status'] == 'success') {
-        List items = response['data'];
-        searchItemList.addAll(items.map((e) => ItemModel.fromJson(e)));
-      } else {
-        // statusRequest = StatusRequest.nodata;
-        // Get.defaultDialog(
-        //     title: response['status'].tr, middleText: response['status']);
-      }
-    }
-    update();
-  }
-
-  @override
-  goToProductDetails(ItemModel itemModel) {
-    Get.toNamed(
-      AppRoute.productDetails,
-      arguments: {
-        "itemModel": itemModel,
-      },
-    );
   }
 }

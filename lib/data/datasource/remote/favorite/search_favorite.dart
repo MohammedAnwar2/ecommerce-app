@@ -1,13 +1,13 @@
 import 'package:ecommerce/core/class/crud.dart';
 import 'package:ecommerce/core/constant/app_link.dart';
 
-class SearchItemsData {
+class SearchFavoriteItemsData {
   Crud crud;
-  SearchItemsData(this.crud);
+  SearchFavoriteItemsData(this.crud);
 
   searchData(String itemName) async {
     var response = await crud.postData(
-      AppLink.itemsSearch,
+      AppLink.favoriteSearch,
       {
         "itemName": itemName,
       },

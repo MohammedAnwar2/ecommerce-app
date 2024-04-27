@@ -1,15 +1,16 @@
+import 'package:ecommerce/controller/mix_class_controller/add_delete_items_methods.dart';
 import 'package:ecommerce/core/class/sratus_request.dart';
 import 'package:ecommerce/core/constant/app_keys.dart';
 import 'package:ecommerce/core/functions/hadlingdata.dart';
 import 'package:ecommerce/core/services/service.dart';
-import 'package:ecommerce/data/datasource/remote/cart/add_cart.dart';
-import 'package:ecommerce/data/datasource/remote/cart/delete_cart.dart';
 import 'package:ecommerce/data/datasource/remote/cart/view_all_cart_products.dart';
 import 'package:ecommerce/data/model/view_cart_all_products.dart';
 import 'package:get/get.dart';
 
-abstract class MyCardController extends GetxController {
+abstract class MyCardController extends AddDeleteItemsCounter {
+  @override
   addData(String itemId);
+  @override
   deleteData(String itemId);
   viewAllCartProducts();
   initData();
@@ -18,12 +19,8 @@ abstract class MyCardController extends GetxController {
 }
 
 class MyCardControllerImp extends MyCardController {
-  AddCartData addCartData = AddCartData(Get.find());
-  DeleteCartData deleteCartData = DeleteCartData(Get.find());
   ViewCartData viewCartData = ViewCartData(Get.find());
-  StatusRequest statusRequest = StatusRequest.success;
   MyServices services = Get.find<MyServices>();
-  late int id;
   List<ViewCartProductsModel> data = [];
   double totalprice = 0.0;
   String totalcount = "";
@@ -40,37 +37,6 @@ class MyCardControllerImp extends MyCardController {
     super.onInit();
   }
 
-  @override
-  addData(String itemId) async {
-    statusRequest = StatusRequest.loading;
-    update();
-    var response = await addCartData.addCart(id.toString(), itemId);
-    statusRequest = handlingData(response);
-    if (statusRequest == StatusRequest.success) {
-      if (response['status'] == 'success') {
-      } else {
-        statusRequest = StatusRequest.serverfailure;
-      }
-    }
-    update();
-  }
-
-  @override
-  deleteData(String itemId) async {
-    statusRequest = StatusRequest.loading;
-    update();
-    var response = await deleteCartData.deleteCart(id.toString(), itemId);
-    statusRequest = handlingData(response);
-    if (statusRequest == StatusRequest.success) {
-      if (response['status'] == 'success') {
-      } else {
-        statusRequest = StatusRequest.serverfailure;
-      }
-    }
-    update();
-  }
-
-  @override
   @override
   viewAllCartProducts() async {
     data.clear();
