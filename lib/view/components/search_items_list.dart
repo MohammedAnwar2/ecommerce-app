@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ecommerce/controller/home_page_controller.dart';
+import 'package:ecommerce/core/constant/app_color.dart';
 import 'package:ecommerce/core/constant/app_link.dart';
 import 'package:ecommerce/core/shared/horizontal_and_vertical_size.dart';
 import 'package:ecommerce/data/model/items_model.dart';
@@ -34,8 +35,12 @@ class SearchListItemsInfo extends GetView<HomePageControllerImp> {
       child: Padding(
         padding: EdgeInsets.only(top: verticalSized(10)),
         child: Card(
+          elevation: 5,
           child: Container(
             padding: const EdgeInsetsDirectional.all(8),
+            decoration: BoxDecoration(
+                color: AppColor.grey200,
+                borderRadius: BorderRadius.circular(12)),
             child: Row(
               children: [
                 Expanded(

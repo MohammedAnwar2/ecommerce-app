@@ -1,5 +1,6 @@
 import 'package:ecommerce/core/constant/app_color.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class MyCardAppBar extends StatelessWidget {
   const MyCardAppBar({
@@ -12,7 +13,10 @@ class MyCardAppBar extends StatelessWidget {
     return Row(
       children: [
         IconButton(
-            onPressed: () {}, icon: const Icon(Icons.arrow_back, size: 30)),
+            onPressed: () {
+              Get.back();
+            },
+            icon: const Icon(Icons.arrow_back, size: 30)),
         Expanded(child: Container()),
         Text(
           title,
