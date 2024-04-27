@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ecommerce/controller/favorite_controller.dart';
 import 'package:ecommerce/controller/items_controller.dart';
@@ -85,16 +87,19 @@ class ItemInfo extends StatelessWidget {
                             fontFamily: ""),
                       ),
                       GetBuilder<FavoriteControllerImp>(
+                        // GetBuilder<FavoriteControllerImp>(
                         builder: (controller) => IconButton(
                           onPressed: () {
                             if (controller.isFavorite[itemModel.itemsId] == 1) {
                               controller.updateFavoriteState(
                                   itemId: itemModel.itemsId!, favoriteVal: 0);
+
                               controller.removeFavoriteInBackend(
                                   itemId: itemModel.itemsId!);
                             } else {
                               controller.updateFavoriteState(
                                   itemId: itemModel.itemsId!, favoriteVal: 1);
+                              log("${itemModel.itemsId}");
                               controller.addFavoriteInBackend(
                                   itemId: itemModel.itemsId!);
                             }

@@ -29,7 +29,7 @@ class MyFavorite extends StatelessWidget {
             isThereFavorite: false,
           ),
           verticalSizedBox(20),
-          ListMyFavorite()
+          const ListMyFavorite()
         ],
       ),
     );

@@ -17,6 +17,7 @@ class Items extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ItemsControllerImp controller = Get.put(ItemsControllerImp());
+
     Get.put(FavoriteControllerImp());
     return Scaffold(
       backgroundColor: AppColor.white,
