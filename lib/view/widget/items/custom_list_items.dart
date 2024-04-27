@@ -2,7 +2,7 @@ import 'package:ecommerce/controller/favorite_controller.dart';
 import 'package:ecommerce/controller/items_controller.dart';
 import 'package:ecommerce/core/class/animation.dart';
 import 'package:ecommerce/core/class/handling_data_veiw.dart';
-import 'package:ecommerce/view/widget/home/search_items_list.dart';
+import 'package:ecommerce/view/components/search_items_list.dart';
 import 'package:ecommerce/view/widget/items/item_info.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

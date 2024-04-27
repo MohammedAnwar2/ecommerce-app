@@ -2,8 +2,9 @@ import 'package:ecommerce/controller/myfavorite_controller.dart';
 import 'package:ecommerce/core/class/animation.dart';
 import 'package:ecommerce/core/class/handling_data_veiw.dart';
 import 'package:ecommerce/core/class/sratus_request.dart';
+import 'package:ecommerce/view/components/search_items_list.dart';
 import 'package:ecommerce/view/widget/myfavorite/custom_list_myfavorite_items.dart';
-import 'package:ecommerce/view/widget/myfavorite/search_favorite_items.dart';
+// import 'package:ecommerce/view/widget/myfavorite/search_favorite_items.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
