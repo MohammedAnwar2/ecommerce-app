@@ -1,7 +1,4 @@
-import 'dart:developer';
 import 'dart:io';
-import 'package:connectivity_plus/connectivity_plus.dart';
-import 'dart:async';
 // Future<bool> checkInternet() async {
 //   listenToConnectivityChanges();
 //   final List<ConnectivityResult> connectivityResult =

@@ -148,7 +148,4 @@ Map<String, String> en = {
   "64": "Product for you",
   "65": "Offers",
   "66": "Yes",
-  "66": "Yes",
-  "66": "Yes",
-  "66": "Yes",
 };
