@@ -55,7 +55,6 @@ class ItemsControllerImp extends ItemsController {
   @override
   changeCategoryItem(int index) {
     selectedCat = index;
-    log(index.toString());
     getData(categoriesModelList[selectedCat].categoriesId.toString());
     update();
   }
