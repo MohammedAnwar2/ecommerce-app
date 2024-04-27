@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:ecommerce/controller/mix_class_controller/serch_class_methods.dart';
 import 'package:ecommerce/core/class/sratus_request.dart';
 import 'package:ecommerce/core/constant/app_keys.dart';
@@ -53,22 +55,22 @@ class ItemsControllerImp extends ItemsController {
   @override
   changeCategoryItem(int index) {
     selectedCat = index;
+    log(index.toString());
     getData(categoriesModelList[selectedCat].categoriesId.toString());
     update();
   }
 
   @override
   getData(String categoriesId) async {
-    itemModelList.clear();
     statusRequest = StatusRequest.loading;
     update();
     var response = await itemsData.postData(categoriesId, id.toString());
     statusRequest = handlingData(response);
     if (statusRequest == StatusRequest.success) {
       if (response['status'] == 'success') {
-        for (var element in response['data']) {
-          itemModelList.add(ItemModel.fromJson(element));
-        }
+        itemModelList.clear();
+        List data = response['data'];
+        itemModelList.addAll(data.map((e) => ItemModel.fromJson(e)));
       } else {
         statusRequest = StatusRequest.nodata;
         // Get.defaultDialog(

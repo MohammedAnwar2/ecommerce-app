@@ -77,12 +77,12 @@ class MyFavoriteControllerImp extends MyFavoriteController {
 class SearchFavorite extends GetxController {
   late TextEditingController search;
   bool isSearch = false;
+  bool isTyping = false;
   late int id;
   List<ItemModel> searchItemList = [];
   StatusRequest statusRequest = StatusRequest.success;
   SearchFavoriteItemsData searchItemData = SearchFavoriteItemsData(Get.find());
-  SearchFavoriteItemsData searchFavoriteItemData =
-      SearchFavoriteItemsData(Get.find());
+  SearchFavoriteItemsData searchFavoriteItemData = SearchFavoriteItemsData(Get.find());
   goToProductDetails(ItemModel itemModel) {
     Get.toNamed(
       AppRoute.productDetails,
@@ -119,8 +119,10 @@ class SearchFavorite extends GetxController {
   onChangeSearch(String val) {
     if (val == "") {
       isSearch = false;
-      // searchData();
       statusRequest = StatusRequest.success;
+      isTyping = false;
+    } else {
+      isTyping = true;
     }
     update();
   }
@@ -136,6 +138,7 @@ class SearchFavorite extends GetxController {
   deleteText() {
     search.clear();
     isSearch = false;
+    isTyping = false;
     statusRequest = StatusRequest.success;
     update();
   }

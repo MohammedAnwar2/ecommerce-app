@@ -17,26 +17,9 @@ class ItemModel {
   String? categoriesImage;
   String? categoriesDatetime;
   int? favorite;
+  double? itemspricediscount;
 
-  ItemModel(
-      {this.itemsId,
-      this.itemsName,
-      this.itemsNameAr,
-      this.itemsDesc,
-      this.itemsDescAr,
-      this.itemsImage,
-      this.itemsCount,
-      this.itemsActive,
-      this.itemsPrice,
-      this.itemsDiscount,
-      this.itemsDate,
-      this.itemsCat,
-      this.categoriesId,
-      this.categoriesName,
-      this.categoriesNameAr,
-      this.categoriesImage,
-      this.categoriesDatetime,
-      this.favorite});
+  ItemModel({this.itemsId, this.itemsName, this.itemsNameAr, this.itemsDesc, this.itemsDescAr, this.itemsImage, this.itemsCount, this.itemsActive, this.itemsPrice, this.itemsDiscount, this.itemspricediscount, this.itemsDate, this.itemsCat, this.categoriesId, this.categoriesName, this.categoriesNameAr, this.categoriesImage, this.categoriesDatetime, this.favorite});
 
   factory ItemModel.fromJson(Map<String, dynamic> json) {
     return ItemModel(
@@ -44,6 +27,7 @@ class ItemModel {
       itemsName: json['items_name'],
       itemsNameAr: json['items_name_ar'],
       itemsDesc: json['items_desc'],
+      itemspricediscount: json['itemspricediscount'],
       itemsDescAr: json['items_desc_ar'],
       itemsImage: json['items_image'],
       itemsCount: json['items_count'],
@@ -69,6 +53,7 @@ class ItemModel {
     data['items_desc'] = itemsDesc;
     data['items_desc_ar'] = itemsDescAr;
     data['items_image'] = itemsImage;
+    data['itemspricediscount'] = itemspricediscount;
     data['items_count'] = itemsCount;
     data['items_active'] = itemsActive;
     data['items_price'] = itemsPrice;

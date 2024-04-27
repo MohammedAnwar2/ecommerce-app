@@ -25,7 +25,7 @@ class Items extends StatelessWidget {
             padding: EdgeInsetsDirectional.all(horizontalSize(15)),
             children: [
               CustomAppBar(
-                  suffixIcon: controller.isSearch
+                  suffixIcon: controller.isTyping
                       ? IconButton(
                           icon: const Icon(Icons.close),
                           onPressed: () {

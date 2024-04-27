@@ -15,8 +15,7 @@ class ProductDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ProductDetailsControllerImp controller =
-        Get.put(ProductDetailsControllerImp());
+    ProductDetailsControllerImp controller = Get.put(ProductDetailsControllerImp());
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: const Size(0, 0),
@@ -38,16 +37,14 @@ class ProductDetails extends StatelessWidget {
                   const ImageVeiw(),
                   verticalSizedBox(85),
                   Padding(
-                    padding:
-                        EdgeInsets.symmetric(horizontal: horizontalSize(16)),
+                    padding: EdgeInsets.symmetric(horizontal: horizontalSize(16)),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        DetailsTextTitle(
-                            title: controller.itemModel.itemsName!),
+                        DetailsTextTitle(title: controller.itemModel.itemsName!),
                         ProductCount(
                           count: controller.count.toString(),
-                          price: controller.itemModel.itemsPrice.toString(),
+                          price: controller.itemModel.itemspricediscount.toString(),
                           onAdd: () {
                             controller.add();
                           },
@@ -57,13 +54,7 @@ class ProductDetails extends StatelessWidget {
                         ),
                         Text(
                           controller.itemModel.itemsDesc!,
-                          style: Theme.of(context)
-                              .textTheme
-                              .displaySmall!
-                              .copyWith(
-                                  color: AppColor.forthColor,
-                                  height: 1.8,
-                                  fontWeight: FontWeight.normal),
+                          style: Theme.of(context).textTheme.displaySmall!.copyWith(color: AppColor.forthColor, height: 1.8, fontWeight: FontWeight.normal),
                         ),
                         const DetailsTextTitle(title: "Color"),
                         const ChanegColor()

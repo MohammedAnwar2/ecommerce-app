@@ -9,6 +9,7 @@ import 'package:get/get.dart';
 class SearchMethodMix extends GetxController {
   late TextEditingController search;
   bool isSearch = false;
+  bool isTyping = false;
   List<ItemModel> searchItemList = [];
   StatusRequest statusRequest = StatusRequest.success;
   SearchItemsData searchItemData = SearchItemsData(Get.find());
@@ -48,7 +49,9 @@ class SearchMethodMix extends GetxController {
     if (val == "") {
       isSearch = false;
       statusRequest = StatusRequest.success;
-      // searchData();
+      isTyping = false;
+    } else {
+      isTyping = true;
     }
     update();
   }
@@ -64,6 +67,7 @@ class SearchMethodMix extends GetxController {
   deleteText() {
     search.clear();
     isSearch = false;
+    isTyping = false;
     statusRequest = StatusRequest.success;
     update();
   }
