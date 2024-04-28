@@ -1,4 +1,5 @@
 import 'package:ecommerce/controller/myfavorite_controller.dart';
+import 'package:ecommerce/core/constant/app_color.dart';
 import 'package:ecommerce/core/shared/horizontal_and_vertical_size.dart';
 import 'package:ecommerce/view/components/custom_appbar.dart';
 import 'package:ecommerce/view/widget/myfavorite/myfavorite_items_info.dart';
@@ -12,7 +13,11 @@ class MyFavorite extends StatelessWidget {
   Widget build(BuildContext context) {
     Get.put(MyFavoriteControllerImp());
     return Scaffold(
-      appBar: PreferredSize(preferredSize: const Size(0, 0), child: AppBar()),
+      appBar: PreferredSize(
+          preferredSize: const Size(0, 0),
+          child: AppBar(
+            backgroundColor: AppColor.white,
+          )),
       body: ListView(
         padding: EdgeInsetsDirectional.symmetric(vertical: verticalSized(10), horizontal: horizontalSize(16)),
         children: [

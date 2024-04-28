@@ -18,7 +18,11 @@ class Items extends StatelessWidget {
     Get.put(FavoriteControllerImp());
     return Scaffold(
       backgroundColor: AppColor.white,
-      appBar: PreferredSize(preferredSize: const Size(0, 0), child: AppBar()),
+      appBar: PreferredSize(
+          preferredSize: const Size(0, 0),
+          child: AppBar(
+            backgroundColor: AppColor.white,
+          )),
       body: SafeArea(
         child: GetBuilder<ItemsControllerImp>(
           builder: (controller) => ListView(

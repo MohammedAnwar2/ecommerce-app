@@ -10,7 +10,6 @@ import 'package:ecommerce/core/functions/translate_database.dart';
 import 'package:ecommerce/core/shared/horizontal_and_vertical_size.dart';
 import 'package:ecommerce/data/model/items_model.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
 class ItemInfo extends StatelessWidget {

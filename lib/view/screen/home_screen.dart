@@ -10,7 +10,11 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     HomeScreenControllerImp controller = Get.put(HomeScreenControllerImp());
     return Scaffold(
-      appBar: PreferredSize(preferredSize: const Size(0, 0), child: AppBar()),
+      appBar: PreferredSize(
+          preferredSize: const Size(0, 0),
+          child: AppBar(
+            backgroundColor: AppColor.white,
+          )),
       floatingActionButton: FloatingActionButton(
         tooltip: 'Increment',
         elevation: 5.0,
@@ -27,8 +31,7 @@ class HomeScreen extends StatelessWidget {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: const CustomButtomNavigationBar(),
       body: GetBuilder<HomeScreenControllerImp>(
-        builder: (controller) =>
-            controller.listPages.elementAt(controller.currentPage),
+        builder: (controller) => controller.listPages.elementAt(controller.currentPage),
       ),
     );
   }

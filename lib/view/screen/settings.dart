@@ -49,9 +49,12 @@ class Settings extends StatelessWidget {
                   title: const Text("Disable Notification"),
                   trailing: Switch(value: true, onChanged: (val) {}),
                 ),
-                const ListTile(
-                  title: Text("Address"),
-                  trailing: Icon(Icons.location_on_outlined),
+                ListTile(
+                  onTap: () {
+                    controller.goToAddress();
+                  },
+                  title: const Text("Address"),
+                  trailing: const Icon(Icons.location_on_outlined),
                 ),
                 const ListTile(
                   title: Text("About us"),

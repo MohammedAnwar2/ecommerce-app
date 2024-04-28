@@ -1,5 +1,6 @@
 import 'package:ecommerce/controller/my_card_controller.dart';
 import 'package:ecommerce/core/class/handling_data_veiw.dart';
+import 'package:ecommerce/core/constant/app_color.dart';
 import 'package:ecommerce/core/shared/horizontal_and_vertical_size.dart';
 import 'package:ecommerce/view/widget/my_card/custom_appbar.dart';
 import 'package:ecommerce/view/widget/my_card/custom_bottom_navigation_bar.dart';
@@ -22,7 +23,11 @@ class MyCardScreen extends StatelessWidget {
           totalPrice: "1500",
         ),
       ),
-      appBar: PreferredSize(preferredSize: const Size(0, 0), child: AppBar()),
+      appBar: PreferredSize(
+          preferredSize: const Size(0, 0),
+          child: AppBar(
+            backgroundColor: AppColor.white,
+          )),
       body: GetBuilder<MyCardControllerImp>(
         builder: (controller) => HandlingDataView(
             statusRequest: controller.statusRequest,

@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 
 abstract class SettingsController extends GetxController {
   logout();
+  goToAddress();
 }
 
 class SettingsControllerImp extends SettingsController {
@@ -13,5 +14,10 @@ class SettingsControllerImp extends SettingsController {
   logout() {
     services.sharePref.setBool(AppKey.loginMiddleware, false);
     Get.toNamed(AppRoute.login);
+  }
+
+  @override
+  goToAddress() {
+    Get.toNamed(AppRoute.viewAddress);
   }
 }
