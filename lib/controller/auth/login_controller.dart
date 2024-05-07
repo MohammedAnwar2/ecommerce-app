@@ -6,7 +6,7 @@ import 'package:ecommerce/core/functions/hadlingdata.dart';
 import 'package:ecommerce/core/services/service.dart';
 import 'package:ecommerce/data/datasource/remote/auth/login.dart';
 import 'package:ecommerce/data/datasource/remote/auth/verifycode_signup.dart';
-import 'package:ecommerce/route/route_app.dart';
+import 'package:ecommerce/routes/route_app.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

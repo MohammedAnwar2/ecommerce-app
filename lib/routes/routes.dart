@@ -1,6 +1,6 @@
 import 'package:ecommerce/core/middleware/login_middleware.dart';
 import 'package:ecommerce/core/middleware/onboarding_middleware.dart';
-import 'package:ecommerce/route/route_app.dart';
+import 'package:ecommerce/routes/route_app.dart';
 import 'package:ecommerce/view/screen/address/add.dart';
 import 'package:ecommerce/view/screen/address/edit.dart';
 import 'package:ecommerce/view/screen/address/view.dart';

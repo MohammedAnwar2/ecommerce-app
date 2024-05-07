@@ -5,7 +5,7 @@ import 'package:ecommerce/core/functions/hadlingdata.dart';
 import 'package:ecommerce/core/services/service.dart';
 import 'package:ecommerce/data/datasource/remote/cart/get_count_cart.dart';
 import 'package:ecommerce/data/model/items_model.dart';
-import 'package:ecommerce/route/route_app.dart';
+import 'package:ecommerce/routes/route_app.dart';
 import 'package:get/get.dart';
 
 abstract class ProductDetailsController extends AddDeleteItemsCounter {

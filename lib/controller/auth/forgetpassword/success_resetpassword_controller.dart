@@ -1,4 +1,4 @@
-import 'package:ecommerce/route/route_app.dart';
+import 'package:ecommerce/routes/route_app.dart';
 import 'package:get/get.dart';
 
 abstract class SuccessResetPasswordController extends GetxController {

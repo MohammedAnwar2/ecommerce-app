@@ -8,7 +8,7 @@ import 'package:ecommerce/data/model/my_favorite_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ecommerce/data/datasource/remote/favorite/search_favorite.dart';
-import 'package:ecommerce/route/route_app.dart';
+import 'package:ecommerce/routes/route_app.dart';
 
 //FavoriteMethods
 abstract class MyFavoriteController extends SearchFavorite {

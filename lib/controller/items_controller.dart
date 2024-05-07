@@ -8,7 +8,7 @@ import 'package:ecommerce/core/services/service.dart';
 import 'package:ecommerce/data/datasource/remote/items/items.dart';
 import 'package:ecommerce/data/model/categories_model.dart';
 import 'package:ecommerce/data/model/items_model.dart';
-import 'package:ecommerce/route/route_app.dart';
+import 'package:ecommerce/routes/route_app.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

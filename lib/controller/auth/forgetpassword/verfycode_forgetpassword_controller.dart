@@ -1,7 +1,7 @@
 import 'package:ecommerce/core/class/sratus_request.dart';
 import 'package:ecommerce/core/functions/hadlingdata.dart';
 import 'package:ecommerce/data/datasource/remote/auth/verifycode_forget_password.dart';
-import 'package:ecommerce/route/route_app.dart';
+import 'package:ecommerce/routes/route_app.dart';
 import 'package:get/get.dart';
 
 abstract class VerifyCodeForgetPasswordController extends GetxController {
