@@ -12,8 +12,10 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: PreferredSize(
           preferredSize: const Size(0, 0),
-          child: AppBar(
-            backgroundColor: AppColor.white,
+          child: GetBuilder<HomeScreenControllerImp>(
+            builder: (controller) => AppBar(
+              backgroundColor: controller.currentPage != 3 ? AppColor.white : AppColor.primaryColor,
+            ),
           )),
       floatingActionButton: FloatingActionButton(
         tooltip: 'Increment',
