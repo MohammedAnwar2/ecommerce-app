@@ -1,7 +1,9 @@
 import 'package:ecommerce/controller/address/add_address_controller.dart';
+import 'package:ecommerce/core/class/handling_data_veiw.dart';
 import 'package:ecommerce/core/constant/app_color.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class AddAddress extends StatelessWidget {
   const AddAddress({super.key});
@@ -20,8 +22,26 @@ class AddAddress extends StatelessWidget {
         ),
         iconTheme: const IconThemeData(color: AppColor.white),
       ),
-      body: const Center(
-        child: Text("Add Address"),
+      body: GetBuilder<AddAddressControllerIma>(
+        builder: (controller) {
+          return HandlingDataView(
+            statusRequest: controller.statusRequest,
+            widget: Column(
+              children: [
+                if (addAddress.kGooglePlex != null)
+                  Expanded(
+                    child: GoogleMap(
+                      mapType: MapType.normal,
+                      initialCameraPosition: addAddress.kGooglePlex!,
+                      onMapCreated: (GoogleMapController controller) {
+                        addAddress.completorController.complete(controller);
+                      },
+                    ),
+                  )
+              ],
+            ),
+          );
+        },
       ),
     );
   }
