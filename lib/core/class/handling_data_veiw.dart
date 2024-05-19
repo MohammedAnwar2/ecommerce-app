@@ -6,25 +6,33 @@ import 'package:lottie/lottie.dart';
 class HandlingDataView extends StatelessWidget {
   final StatusRequest statusRequest;
   final Widget widget; // Assuming 'data' is a List<String>
-
-  const HandlingDataView(
-      {super.key, required this.statusRequest, required this.widget});
+  double? width;
+  double? hight;
+  HandlingDataView({
+    super.key,
+    required this.statusRequest,
+    required this.widget,
+    this.width = 300,
+    this.hight = 300,
+  });
 
   @override
   Widget build(BuildContext context) {
     switch (statusRequest) {
       case StatusRequest.loading:
         return Center(
-            child: Lottie.asset(AppImages.loading, width: 300, height: 300));
+            child:
+                Lottie.asset(AppImages.loading, width: width, height: hight));
       case StatusRequest.offlinefailure:
         return Center(
-            child: Lottie.asset(AppImages.offline, width: 300, height: 300));
+            child:
+                Lottie.asset(AppImages.offline, width: width, height: hight));
       case StatusRequest.serverfailure:
         return Center(
-            child: Lottie.asset(AppImages.server, width: 300, height: 300));
+            child: Lottie.asset(AppImages.server, width: width, height: hight));
       case StatusRequest.nodata:
         return Center(
-            child: Lottie.asset(AppImages.noData, width: 300, height: 300));
+            child: Lottie.asset(AppImages.noData, width: width, height: hight));
       default:
         return widget;
     }

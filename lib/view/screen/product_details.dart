@@ -15,7 +15,8 @@ class ProductDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ProductDetailsControllerImp controller = Get.put(ProductDetailsControllerImp());
+    ProductDetailsControllerImp controller =
+        Get.put(ProductDetailsControllerImp());
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: const Size(0, 0),
@@ -28,42 +29,38 @@ class ProductDetails extends StatelessWidget {
           controller.goToCard();
         },
       ),
-      body: GetBuilder<ProductDetailsControllerImp>(
-        builder: (controller) {
-          return HandlingDataView(
-              statusRequest: controller.statusRequest,
-              widget: ListView(
-                children: [
-                  const ImageVeiw(),
-                  verticalSizedBox(85),
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: horizontalSize(16)),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        DetailsTextTitle(title: controller.itemModel.itemsName!),
-                        ProductCount(
-                          count: controller.count.toString(),
-                          price: controller.itemModel.itemspricediscount.toString(),
-                          onAdd: () {
-                            controller.add();
-                          },
-                          onRemove: () {
-                            controller.remove();
-                          },
-                        ),
-                        Text(
-                          controller.itemModel.itemsDesc!,
-                          style: Theme.of(context).textTheme.displaySmall!.copyWith(color: AppColor.forthColor, height: 1.8, fontWeight: FontWeight.normal),
-                        ),
-                        const DetailsTextTitle(title: "Color"),
-                        const ChanegColor()
-                      ],
-                    ),
-                  ),
-                ],
-              ));
-        },
+      body: ListView(
+        children: [
+          const ImageVeiw(),
+          verticalSizedBox(85),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: horizontalSize(16)),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                DetailsTextTitle(title: controller.itemModel.itemsName!),
+                ProductCount(
+                  price: controller.itemModel.itemspricediscount.toString(),
+                  onAdd: () {
+                    controller.add();
+                  },
+                  onRemove: () {
+                    controller.remove();
+                  },
+                ),
+                Text(
+                  controller.itemModel.itemsDesc!,
+                  style: Theme.of(context).textTheme.displaySmall!.copyWith(
+                      color: AppColor.forthColor,
+                      height: 1.8,
+                      fontWeight: FontWeight.normal),
+                ),
+                const DetailsTextTitle(title: "Color"),
+                const ChanegColor()
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
