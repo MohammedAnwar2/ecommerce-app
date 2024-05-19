@@ -4,63 +4,52 @@ version: 1.0.0+1
 environment:
   sdk: '>=3.2.6 <4.0.0'
 dependencies:
+  auto_animated: ^3.2.0
+  badges: ^3.1.2
+  cached_network_image: ^3.3.1
+  cloud_firestore: ^4.15.9
+  connectivity_plus: ^6.0.2
+  cupertino_icons: ^1.0.6
+  dartz: ^0.10.1
+  dropdown_search: ^5.0.6
+  firebase_core: ^2.27.1
+  firebase_messaging: ^14.7.20
   flutter:
     sdk: flutter
-  cupertino_icons: ^1.0.6
-  get: ^4.6.6
-# DateTime
-  jiffy: ^6.2.2
-  intl: ^0.19.0
-  http: ^1.2.1
-# Images
-  cached_network_image: ^3.3.1
-  image_picker: ^1.0.7
-# Animation
-  show_up_animation: ^2.0.0
-  auto_animated: ^3.2.0
-# Google Map
-  flutter_polyline_points: ^2.0.0
-  google_maps_flutter: ^2.6.0
-  geolocator: ^11.0.0
-  geocoding: ^3.0.0
-# Firebase And Notification 
-  firebase_messaging: ^14.7.20
-  firebase_core: ^2.27.1
   flutter_local_notifications: ^17.0.0
-  cloud_firestore: ^4.15.9
-# Local Data Cache
-  sqflite: ^2.3.2
-  shared_preferences: ^2.2.2
-  path: ^1.8.3
-# Qrcode 
-  qr_flutter: ^4.1.0
-  # scan: ^1.6.0
-  grouped_list: ^5.1.2
-  url_launcher: ^6.2.5
-  dropdown_search: ^5.0.6
-  badges: ^3.1.2
-# Icon 
-  flutter_svg: ^2.0.10+1
-  font_awesome_flutter: ^10.7.0
-  fluttericon: ^2.0.0
-  dartz: ^0.10.1
-  fpdart: ^1.1.0
-# Google Auth 
-  google_sign_in: ^6.2.1
-  responsive_builder: ^0.7.0
-  flutter_screenutil: ^5.9.0
   flutter_otp_text_field: ^1.1.2+1
+  flutter_polyline_points: ^2.0.0
+  flutter_screenutil: ^5.9.0
+  flutter_svg: ^2.0.10+1
+  fluttericon: ^2.0.0
+  font_awesome_flutter: ^10.7.0
+  fpdart: ^1.1.0
+  geocoding: ^3.0.0
+  geolocator: ^11.0.0
+  get: ^4.6.6
+  google_maps_flutter: ^2.6.0
+  google_sign_in: ^6.2.1
+  grouped_list: ^5.1.2
+  http: ^1.2.1
+  image_picker: ^1.0.7
+  intl: ^0.19.0
+  jiffy: ^6.2.2
+  location: ^6.0.2
   lottie: ^3.1.0
+  path: ^1.8.3
+  qr_flutter: ^4.1.0
+  responsive_builder: ^0.7.0
+  shared_preferences: ^2.2.2
   shimmer: ^3.0.0
-  connectivity_plus: ^6.0.2
-  
-  
+  show_up_animation: ^2.0.0
+  sqflite: ^2.3.2
+  url_launcher: ^6.2.5
 
 dev_dependencies:
-  flutter_test:
-    sdk: flutter
 
   flutter_lints: ^3.0.1
+  flutter_test:
+    sdk: flutter
 
 flutter:
 
@@ -72,13 +61,10 @@ flutter:
     - assets/lottie/
 
   #   - images/a_dot_ham.jpeg
-
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
-
   # For details regarding adding assets from package dependencies, see
   # https://flutter.dev/assets-and-images/#from-packages
-
   # To add custom fonts to your application, add a fonts section here,
   # in this "flutter" section. Each entry in this list should have a
   # "family" key with the font family name, and a "fonts" key with a
@@ -90,14 +76,13 @@ flutter:
         - asset: assets/fonts/Cairo/Cairo-Bold.ttf
         - asset: assets/fonts/Cairo/Cairo-Regular.ttf
           weight: 700
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
+    #       - asset: fonts/Schyler-Italic.ttf
+    #         style: italic
     - family: PlayfairDisplay
       fonts:
         - asset: assets/fonts/PlayfairDisplay/PlayfairDisplay-Regular.ttf
         - asset: assets/fonts/PlayfairDisplay/PlayfairDisplay-Bold.ttf
           weight: 700
-  #
   # For details regarding fonts from package dependencies,
-  # see 
+  # see
   #from-packages
