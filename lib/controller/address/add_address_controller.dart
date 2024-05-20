@@ -9,6 +9,7 @@ import 'package:location/location.dart';
 abstract class AddAddressPart1Controller extends GetxController {
   getCurrentLocation();
   goToAddAddressDetails();
+  changeTheLocation(LatLng latLng);
 }
 
 class AddAddressPart1ControllerImp extends AddAddressPart1Controller {
@@ -16,6 +17,18 @@ class AddAddressPart1ControllerImp extends AddAddressPart1Controller {
   late Completer<GoogleMapController> completorController;
   StatusRequest statusRequest = StatusRequest.none;
   late LatLng latLng;
+  Set<Marker> markers = <Marker>{};
+
+  @override
+  changeTheLocation(LatLng latLng) {
+    this.latLng = latLng;
+    markers.clear();
+    markers.add(
+      Marker(markerId: const MarkerId("1"), position: latLng),
+    );
+    update();
+  }
+
   @override
   void onInit() {
     getCurrentLocation();
@@ -31,8 +44,9 @@ class AddAddressPart1ControllerImp extends AddAddressPart1Controller {
     latLng = LatLng(location.latitude!, location.longitude!);
     kGooglePlex = CameraPosition(
       target: latLng,
-      zoom: 14.4746,
+      zoom: 16,
     );
+    changeTheLocation(latLng);
     statusRequest = StatusRequest.success;
     update();
   }

@@ -35,6 +35,10 @@ class AddAddress extends StatelessWidget {
                       alignment: Alignment.center,
                       children: [
                         GoogleMap(
+                          onTap: (latLng) {
+                            addAddress.changeTheLocation(latLng);
+                          },
+                          markers: addAddress.markers,
                           mapType: MapType.normal,
                           initialCameraPosition: addAddress.kGooglePlex!,
                           onMapCreated: (GoogleMapController controller) {
@@ -42,16 +46,24 @@ class AddAddress extends StatelessWidget {
                           },
                         ),
                         Positioned(
-                            bottom: 0,
-                            left: 0,
-                            right: 0,
-                            child: ElevatedButton(
-                                style: ElevatedButton.styleFrom(
-                                    backgroundColor: AppColor.primaryColor),
-                                onPressed: () {
-                                  addAddress.goToAddAddressDetails();
-                                },
-                                child: const Text("Complete")))
+                          bottom: 10,
+                          // left: 0,
+                          ///  right: 0,
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                                backgroundColor: AppColor.primaryColor),
+                            onPressed: () {
+                              addAddress.goToAddAddressDetails();
+                            },
+                            child: Text(
+                              "Complete",
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyLarge!
+                                  .copyWith(color: AppColor.white),
+                            ),
+                          ),
+                        )
                       ],
                     ),
                   )
