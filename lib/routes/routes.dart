@@ -1,7 +1,8 @@
 import 'package:ecommerce/core/middleware/login_middleware.dart';
 import 'package:ecommerce/core/middleware/onboarding_middleware.dart';
 import 'package:ecommerce/routes/route_app.dart';
-import 'package:ecommerce/view/screen/address/add.dart';
+import 'package:ecommerce/view/screen/address/add_address.dart';
+import 'package:ecommerce/view/screen/address/add_address_details.dart';
 import 'package:ecommerce/view/screen/address/edit.dart';
 import 'package:ecommerce/view/screen/address/view.dart';
 import 'package:ecommerce/view/screen/auth/forgetPassword/forgetpassword.dart';
@@ -33,23 +34,45 @@ List<GetPage<dynamic>>? getPages = [
       LoginMiddleware(),
     ],
   ),
-  GetPage(name: AppRoute.signUp, page: () => const SignUp(), transition: Transition.fade),
-  GetPage(name: AppRoute.forgetPassword, page: () => const ForgetPassword(), transition: Transition.fade),
-  GetPage(name: AppRoute.verifyCodeForgetPassword, page: () => const VerifyCodeForgetPassword(), transition: Transition.fade),
-  GetPage(name: AppRoute.resetPassword, page: () => const ResetPassword(), transition: Transition.fade),
-  GetPage(name: AppRoute.successResetpassword, page: () => const SuccessResetpassword(), transition: Transition.fade),
-  GetPage(name: AppRoute.successSignup, page: () => const SuccessSignup(), transition: Transition.fade),
-  GetPage(name: AppRoute.verifyCodeSignUp, page: () => const VerifyCodeSignUp(), transition: Transition.fade),
+  GetPage(
+      name: AppRoute.signUp,
+      page: () => const SignUp(),
+      transition: Transition.fade),
+  GetPage(
+      name: AppRoute.forgetPassword,
+      page: () => const ForgetPassword(),
+      transition: Transition.fade),
+  GetPage(
+      name: AppRoute.verifyCodeForgetPassword,
+      page: () => const VerifyCodeForgetPassword(),
+      transition: Transition.fade),
+  GetPage(
+      name: AppRoute.resetPassword,
+      page: () => const ResetPassword(),
+      transition: Transition.fade),
+  GetPage(
+      name: AppRoute.successResetpassword,
+      page: () => const SuccessResetpassword(),
+      transition: Transition.fade),
+  GetPage(
+      name: AppRoute.successSignup,
+      page: () => const SuccessSignup(),
+      transition: Transition.fade),
+  GetPage(
+      name: AppRoute.verifyCodeSignUp,
+      page: () => const VerifyCodeSignUp(),
+      transition: Transition.fade),
   // onboarding
-  GetPage(name: AppRoute.onbording, page: () => const Onboarding(), transition: Transition.fade),
+  GetPage(
+      name: AppRoute.onbording,
+      page: () => const Onboarding(),
+      transition: Transition.fade),
   //first page
   GetPage(
     name: AppRoute.language,
     page: () => const Language(),
     transition: Transition.fade,
-    middlewares: [
-      AuthMiddleWare()
-    ],
+    middlewares: [AuthMiddleWare()],
   ),
   //home page
   GetPage(
@@ -82,7 +105,7 @@ List<GetPage<dynamic>>? getPages = [
     page: () => const MyCardScreen(),
     transition: Transition.rightToLeftWithFade,
   ),
-  //address
+  //* Address
   GetPage(
     name: AppRoute.viewAddress,
     page: () => const ViewAddress(),
@@ -96,6 +119,11 @@ List<GetPage<dynamic>>? getPages = [
   GetPage(
     name: AppRoute.editAddress,
     page: () => const EditAddress(),
+    transition: Transition.rightToLeftWithFade,
+  ),
+  GetPage(
+    name: AppRoute.addAddressDetails,
+    page: () => const AddAddressDetails(),
     transition: Transition.rightToLeftWithFade,
   ),
 ];
