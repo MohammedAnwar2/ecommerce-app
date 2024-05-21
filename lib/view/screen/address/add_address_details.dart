@@ -1,6 +1,7 @@
 import 'package:ecommerce/controller/address/add_address_details_controller.dart';
 import 'package:ecommerce/core/class/handling_data_veiw.dart';
 import 'package:ecommerce/core/constant/app_color.dart';
+import 'package:ecommerce/core/functions/validation.dart';
 import 'package:ecommerce/core/shared/horizontal_and_vertical_size.dart';
 import 'package:ecommerce/view/widget/address/custom_address_button.dart';
 import 'package:ecommerce/view/widget/auth/custom_text_form_field_auth.dart';
@@ -41,7 +42,10 @@ class AddAddressDetails extends StatelessWidget {
                       controller: controller.city,
                       lable: "Enter Your City",
                       icon: Icons.location_city_outlined,
-                      validator: (v) {},
+                      validator: (val) {
+                        return validationInput(
+                            val: val!, min: 3, max: 50, type: "text");
+                      },
                       obscureText: false,
                       keyboardType: TextInputType.datetime,
                     ),
@@ -51,7 +55,10 @@ class AddAddressDetails extends StatelessWidget {
                       controller: controller.street,
                       lable: "Street",
                       icon: Icons.streetview_outlined,
-                      validator: (v) {},
+                      validator: (val) {
+                        return validationInput(
+                            val: val!, min: 3, max: 50, type: "text");
+                      },
                       obscureText: false,
                       keyboardType: TextInputType.datetime,
                     ),
@@ -61,7 +68,10 @@ class AddAddressDetails extends StatelessWidget {
                       controller: controller.name,
                       lable: "Name",
                       icon: Icons.near_me_outlined,
-                      validator: (v) {},
+                      validator: (val) {
+                        return validationInput(
+                            val: val!, min: 3, max: 50, type: "text");
+                      },
                       obscureText: false,
                       keyboardType: TextInputType.datetime,
                     ),

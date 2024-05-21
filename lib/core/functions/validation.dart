@@ -5,7 +5,7 @@ validationInput(
     required int min,
     required int max,
     required String type}) {
-  if (val.isEmpty) {
+  if (val.trim().isEmpty) {
     return "can't be empyt";
   }
   if (type == "username") {
@@ -16,6 +16,9 @@ validationInput(
     // if (!usernameRegExp.hasMatch(val)) {
     //   return "not valid username , can't be more than 16";
     // }
+  }
+  if (type == "text") {
+    return null;
   }
   // if (type == "username") {
   //   if (!GetUtils.isUsername(val)) {
