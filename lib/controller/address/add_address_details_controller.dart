@@ -15,6 +15,7 @@ abstract class AddAddressDetailsController extends GetxController {
 }
 
 class AddAddressDetailsControllerImp extends AddAddressDetailsController {
+  GlobalKey<FormState> formKey = GlobalKey<FormState>();
   late LatLng latLng;
   late TextEditingController name;
   late TextEditingController street;
@@ -26,24 +27,26 @@ class AddAddressDetailsControllerImp extends AddAddressDetailsController {
   @override
   @override
   addAddress() async {
-    statusRequest = StatusRequest.loading;
-    update();
-    log("name = ${name.text}");
-    log("city = ${city.text}");
-    log("street = ${street.text}");
-    log("id = $id");
-    var response = await adressData.addAddress(
-        id, name.text, city.text, street.text, latLng);
-    statusRequest = handlingData(response);
-    if (statusRequest == StatusRequest.success) {
-      if (response['status'] == 'success') {
-        Get.offAllNamed(AppRoute.homeScreen);
-      } else {
-        statusRequest = StatusRequest.serverfailure;
+    if (formKey.currentState!.validate()) {
+      statusRequest = StatusRequest.loading;
+      update();
+      log("name = ${name.text}");
+      log("city = ${city.text}");
+      log("street = ${street.text}");
+      log("id = $id");
+      var response = await adressData.addAddress(
+          id, name.text, city.text, street.text, latLng);
+      statusRequest = handlingData(response);
+      if (statusRequest == StatusRequest.success) {
+        if (response['status'] == 'success') {
+          Get.offAllNamed(AppRoute.homeScreen);
+        } else {
+          statusRequest = StatusRequest.serverfailure;
+        }
       }
-    }
 
-    update();
+      update();
+    }
   }
 
   @override

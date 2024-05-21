@@ -1,6 +1,8 @@
 import 'package:ecommerce/controller/address/edit_address_controller.dart';
 import 'package:ecommerce/core/class/handling_data_veiw.dart';
 import 'package:ecommerce/core/constant/app_color.dart';
+import 'package:ecommerce/view/widget/address/completed_button.dart';
+import 'package:ecommerce/view/widget/address/custom_appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -12,15 +14,7 @@ class EditAddress extends StatelessWidget {
   Widget build(BuildContext context) {
     Get.put(EditAddressControllerImp());
     return Scaffold(
-      appBar: AppBar(
-          title: Text(
-            "Edit Address",
-            style: Theme.of(context)
-                .textTheme
-                .displayLarge!
-                .copyWith(color: AppColor.white),
-          ),
-          iconTheme: const IconThemeData(color: AppColor.white)),
+      appBar: const CustomAppBar(title: "Edit Address"),
       body: GetBuilder<EditAddressControllerImp>(
         builder: (controller) {
           return HandlingDataView(
@@ -43,24 +37,10 @@ class EditAddress extends StatelessWidget {
                             //  controller.completorController.complete(controller);
                           },
                         ),
-                        Positioned(
-                          bottom: 10,
-                          // left: 0,
-                          ///  right: 0,
-                          child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                                backgroundColor: AppColor.primaryColor),
-                            onPressed: () {
-                              controller.goToEditAddressDetails();
-                            },
-                            child: Text(
-                              "Complete",
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .bodyLarge!
-                                  .copyWith(color: AppColor.white),
-                            ),
-                          ),
+                        CompletedButton(
+                          onPressed: () {
+                            controller.goToEditAddressDetails();
+                          },
                         )
                       ],
                     ),
@@ -73,3 +53,7 @@ class EditAddress extends StatelessWidget {
     );
   }
 }
+
+// Adjust the import based on your project structure
+
+

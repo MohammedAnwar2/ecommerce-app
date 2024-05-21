@@ -2,6 +2,7 @@ import 'package:ecommerce/controller/address/view_address_controller.dart';
 import 'package:ecommerce/core/class/handling_data_veiw.dart';
 import 'package:ecommerce/core/constant/app_color.dart';
 import 'package:ecommerce/core/shared/horizontal_and_vertical_size.dart';
+import 'package:ecommerce/view/widget/address/custom_appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -26,16 +27,7 @@ class _ViewAddressState extends State<ViewAddress> {
           color: AppColor.white,
         ),
       ),
-      appBar: AppBar(
-        title: Text(
-          "View Address",
-          style: Theme.of(context)
-              .textTheme
-              .displayLarge!
-              .copyWith(color: AppColor.white),
-        ),
-        iconTheme: const IconThemeData(color: AppColor.white),
-      ),
+      appBar: const CustomAppBar(title: "View Address"),
       body: GetBuilder<ViewAddressControllerIma>(
         builder: (controller) {
           return HandlingDataView(

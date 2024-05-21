@@ -13,6 +13,7 @@ abstract class EditAddressDetailsController extends GetxController {
 }
 
 class EditAddressDetailsControllerImp extends EditAddressDetailsController {
+  GlobalKey<FormState> formKey = GlobalKey<FormState>();
   late ViewAddressModel dataList;
   StatusRequest statusRequest = StatusRequest.success;
   AdressData adressData = AdressData(Get.find());
@@ -24,26 +25,28 @@ class EditAddressDetailsControllerImp extends EditAddressDetailsController {
   late TextEditingController city;
   @override
   editAddress() async {
-    statusRequest = StatusRequest.loading;
-    update();
-    var response = await adressData.editAddress(
-      addressId.toString(),
-      name.text,
-      city.text,
-      street.text,
-      LatLng(latLng.latitude, latLng.longitude),
-    );
+    if (formKey.currentState!.validate()) {
+      statusRequest = StatusRequest.loading;
+      update();
+      var response = await adressData.editAddress(
+        addressId.toString(),
+        name.text,
+        city.text,
+        street.text,
+        LatLng(latLng.latitude, latLng.longitude),
+      );
 
-    statusRequest = handlingData(response);
-    if (statusRequest == StatusRequest.success) {
-      if (response['status'] == 'success') {
-        Get.offAllNamed(AppRoute.homeScreen);
-      } else {
-        statusRequest = StatusRequest.serverfailure;
+      statusRequest = handlingData(response);
+      if (statusRequest == StatusRequest.success) {
+        if (response['status'] == 'success') {
+          Get.offAllNamed(AppRoute.homeScreen);
+        } else {
+          statusRequest = StatusRequest.serverfailure;
+        }
       }
-    }
 
-    update();
+      update();
+    }
   }
 
   @override
