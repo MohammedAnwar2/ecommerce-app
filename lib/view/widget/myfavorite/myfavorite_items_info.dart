@@ -45,6 +45,7 @@ class ListMyFavorite extends StatelessWidget {
                         ),
                       )
                     : HandlingDataView(
+                        isMargin: true,
                         statusRequest: StatusRequest.nodata,
                         widget: Container(),
                       ),
