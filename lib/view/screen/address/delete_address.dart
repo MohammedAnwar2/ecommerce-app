@@ -18,8 +18,7 @@ class DeleteAddress extends StatelessWidget {
         onPressed: () {
           controller.deleteAddressFromButtom();
         },
-        // ignore: prefer_const_constructors
-        child: Icon(
+        child: const Icon(
           Icons.delete_outline,
           color: AppColor.white,
         ),
@@ -28,46 +27,44 @@ class DeleteAddress extends StatelessWidget {
       body: GetBuilder<DeleteAddressControllerIma>(
         builder: (controller) {
           return HandlingDataView(
-              statusRequest: controller.statusRequest,
-              widget: ListView.builder(
-                padding: EdgeInsetsDirectional.only(top: verticalSized(5)),
-                itemCount: controller.checkAddressItems.length,
-                itemBuilder: (context, index) {
-                  return Padding(
-                    padding:
-                        EdgeInsets.symmetric(horizontal: horizontalSize(5)),
-                    child: Row(
-                      children: [
-                        Checkbox(
-                          value: controller.checkAddressItems[index],
-                          onChanged: (val) {
-                            controller.selectAddressToDelete(index);
-                          },
-                        ),
-                        Expanded(
-                          // flex:
-                          //     7, // Adjust the flex value if needed to give more space to the ListTile
-                          child: Card(
-                            color: AppColor.grey200,
-                            child: ListTile(
-                              title: Text(
-                                controller
-                                    .viewAddressListdelete[index].addressName
-                                    .toString(),
-                              ),
-                              subtitle: Text(
-                                controller
-                                    .viewAddressListdelete[index].addressCity
-                                    .toString(),
-                              ),
+            statusRequest: controller.statusRequest,
+            widget: ListView.builder(
+              padding: EdgeInsetsDirectional.only(top: verticalSized(5)),
+              itemCount: controller.checkAddressItems.length,
+              itemBuilder: (context, index) {
+                return Padding(
+                  padding: EdgeInsets.symmetric(horizontal: horizontalSize(5)),
+                  child: Row(
+                    children: [
+                      Checkbox(
+                        value: controller.checkAddressItems[index],
+                        onChanged: (val) {
+                          controller.selectAddressToDelete(index);
+                        },
+                      ),
+                      Expanded(
+                        child: Card(
+                          color: AppColor.grey200,
+                          child: ListTile(
+                            title: Text(
+                              controller
+                                  .viewAddressListdelete[index].addressName
+                                  .toString(),
+                            ),
+                            subtitle: Text(
+                              controller
+                                  .viewAddressListdelete[index].addressCity
+                                  .toString(),
                             ),
                           ),
                         ),
-                      ],
-                    ),
-                  );
-                },
-              ));
+                      ),
+                    ],
+                  ),
+                );
+              },
+            ),
+          );
         },
       ),
     );
