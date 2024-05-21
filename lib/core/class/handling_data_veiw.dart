@@ -1,5 +1,6 @@
 import 'package:ecommerce/core/class/sratus_request.dart';
 import 'package:ecommerce/core/constant/app_imageassets.dart';
+import 'package:ecommerce/core/shared/horizontal_and_vertical_size.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
@@ -8,31 +9,54 @@ class HandlingDataView extends StatelessWidget {
   final Widget widget; // Assuming 'data' is a List<String>
   double? width;
   double? hight;
-  HandlingDataView({
-    super.key,
-    required this.statusRequest,
-    required this.widget,
-    this.width = 300,
-    this.hight = 300,
-  });
+  bool? isMargin;
+  HandlingDataView(
+      {super.key,
+      required this.statusRequest,
+      required this.widget,
+      this.width = 300,
+      this.hight = 300,
+      this.isMargin = false});
 
   @override
   Widget build(BuildContext context) {
     switch (statusRequest) {
       case StatusRequest.loading:
-        return Center(
-            child:
-                Lottie.asset(AppImages.loading, width: width, height: hight));
+        return Container(
+          margin: isMargin == true
+              ? EdgeInsets.only(top: verticalSized(200))
+              : const EdgeInsets.only(),
+          child: Center(
+              child:
+                  Lottie.asset(AppImages.loading, width: width, height: hight)),
+        );
       case StatusRequest.offlinefailure:
-        return Center(
-            child:
-                Lottie.asset(AppImages.offline, width: width, height: hight));
+        return Container(
+          margin: isMargin == true
+              ? EdgeInsets.only(top: verticalSized(200))
+              : const EdgeInsets.only(),
+          child: Center(
+              child:
+                  Lottie.asset(AppImages.offline, width: width, height: hight)),
+        );
       case StatusRequest.serverfailure:
-        return Center(
-            child: Lottie.asset(AppImages.server, width: width, height: hight));
+        return Container(
+          margin: isMargin == true
+              ? EdgeInsets.only(top: verticalSized(200))
+              : const EdgeInsets.only(),
+          child: Center(
+              child:
+                  Lottie.asset(AppImages.server, width: width, height: hight)),
+        );
       case StatusRequest.nodata:
-        return Center(
-            child: Lottie.asset(AppImages.noData, width: width, height: hight));
+        return Container(
+          margin: isMargin == true
+              ? EdgeInsets.only(top: verticalSized(200))
+              : const EdgeInsets.only(),
+          child: Center(
+              child:
+                  Lottie.asset(AppImages.noData, width: width, height: hight)),
+        );
       default:
         return widget;
     }
