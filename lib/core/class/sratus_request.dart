@@ -6,6 +6,7 @@ enum StatusRequest {
   serverfailure,
   offlinefailure,
   nodata,
+  nolocation,
 }
 
 // enum StatusRequest {

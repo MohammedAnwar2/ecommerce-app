@@ -57,6 +57,15 @@ class HandlingDataView extends StatelessWidget {
               child:
                   Lottie.asset(AppImages.noData, width: width, height: hight)),
         );
+      case StatusRequest.nolocation:
+        return Container(
+          margin: isMargin == true
+              ? EdgeInsets.only(top: verticalSized(200))
+              : const EdgeInsets.only(),
+          child: Center(
+              child: Lottie.asset(AppImages.noLocation,
+                  width: width, height: hight)),
+        );
       default:
         return widget;
     }

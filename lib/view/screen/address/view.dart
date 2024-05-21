@@ -57,6 +57,9 @@ class _ViewAddressState extends State<ViewAddress> {
                       subtitle: Text(controller
                           .viewAddressList[index].addressCity
                           .toString()),
+                      trailing: Text(controller
+                          .viewAddressList[index].addressStreet
+                          .toString()),
                     ),
                   ),
                 );

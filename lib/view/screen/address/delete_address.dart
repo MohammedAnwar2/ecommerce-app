@@ -14,8 +14,8 @@ class DeleteAddress extends StatelessWidget {
     final controller = Get.put(DeleteAddressControllerIma());
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-        onPressed: () async {
-          await controller.deleteAddressFromButtom();
+        onPressed: () {
+          controller.deleteAddressFromButtom();
         },
         // ignore: prefer_const_constructors
         child: Icon(
@@ -59,11 +59,13 @@ class DeleteAddress extends StatelessWidget {
                             color: AppColor.grey200,
                             child: ListTile(
                               title: Text(
-                                controller.viewAddressList[index].addressName
+                                controller
+                                    .viewAddressListdelete[index].addressName
                                     .toString(),
                               ),
                               subtitle: Text(
-                                controller.viewAddressList[index].addressCity
+                                controller
+                                    .viewAddressListdelete[index].addressCity
                                     .toString(),
                               ),
                             ),

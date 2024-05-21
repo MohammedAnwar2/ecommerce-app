@@ -11,4 +11,5 @@ class AppImages {
   static const String offline = "$lottieRoute/offline.json";
   static const String server = "$lottieRoute/server.json";
   static const String noData = "$lottieRoute/nodata.json";
+  static const String noLocation = "$lottieRoute/location.json";
 }

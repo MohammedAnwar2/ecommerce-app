@@ -15,6 +15,7 @@ abstract class ViewAddressController extends GetxController {
   // deleteAddress(String addressId);
   goToAddAddress();
   goToDeleteAddress();
+  deleteSpecificAddress(int idAddress);
 }
 
 class ViewAddressControllerIma extends ViewAddressController {
@@ -35,53 +36,12 @@ class ViewAddressControllerIma extends ViewAddressController {
         List data = response['data'];
         viewAddressList.addAll(data.map((e) => ViewAddressModel.fromJson(e)));
       } else {
-        viewAddressList.clear();
-        statusRequest = StatusRequest.none;
+        statusRequest = StatusRequest.nolocation;
       }
     }
-    for (var element in viewAddressList) {
-      log(element.addressName.toString());
-    }
+
     update();
   }
-
-  // viewAddress2() async {
-  //   var response = await adressData.viewAddress(id.toString());
-  //   statusRequest = handlingData(response);
-  //   if (statusRequest == StatusRequest.success) {
-  //     if (response['status'] == 'success') {
-  //       viewAddressList.clear();
-  //       List data = response['data'];
-  //       viewAddressList.addAll(data.map((e) => ViewAddressModel.fromJson(e)));
-  //     } else {
-  //       viewAddressList.clear();
-  //       statusRequest = StatusRequest.none;
-  //     }
-  //   }
-
-  //   update();
-  // }
-
-  // @override
-  // deleteAddress(String addressId) async {
-  //   statusRequest = StatusRequest.loading;
-  //   update();
-  //   var response = await adressData.deleteAddress(addressId);
-  //   statusRequest = handlingData(response);
-  //   if (statusRequest == StatusRequest.success) {
-  //     if (response['status'] == 'success') {
-  //       //   itemModelList.clear();
-  //       //   List data = response['data'];
-  //       //   itemModelList.addAll(data.map((e) => ItemModel.fromJson(e)));
-  //     } else {
-  //       statusRequest = StatusRequest.nodata;
-  //       // Get.defaultDialog(
-  //       //     title: response['status'].tr, middleText: response['status']);
-  //     }
-  //   }
-
-  //   update();
-  // }
 
   // editAddress(String addressId, String name, String city, String street,
   //     LatLng latLng) async {
@@ -122,11 +82,23 @@ class ViewAddressControllerIma extends ViewAddressController {
   }
 
   @override
-  goToDeleteAddress() async {
-    final result = await Get.toNamed(AppRoute.deleteAddress,
+  goToDeleteAddress() {
+    Get.toNamed(AppRoute.deleteAddress,
         arguments: {"dataList": viewAddressList});
-    if (result != null) {
-      viewAddress();
-    }
+  }
+  // @override
+  // goToDeleteAddress() async {
+  //   final result = await Get.toNamed(AppRoute.deleteAddress,
+  //       arguments: {"dataList": viewAddressList});
+  //   if (result != null) {
+  //     viewAddress();
+  //   }
+  // }
+
+  @override
+  deleteSpecificAddress(int idAddress) {
+    viewAddressList.removeWhere((element) => element.addressId == idAddress);
+    viewAddress();
+    update();
   }
 }
