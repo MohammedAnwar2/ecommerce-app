@@ -30,7 +30,8 @@ class ItemInfo extends StatelessWidget {
         child: Card(
           elevation: 5,
           child: Container(
-            decoration: BoxDecoration(color: AppColor.white, borderRadius: BorderRadius.circular(12)),
+            decoration: BoxDecoration(
+                color: AppColor.white, borderRadius: BorderRadius.circular(12)),
             child: Stack(
               children: [
                 Padding(
@@ -41,13 +42,16 @@ class ItemInfo extends StatelessWidget {
                       Hero(
                         tag: "${itemModel.itemsId}",
                         child: CachedNetworkImage(
-                          imageUrl: "${AppLink.imageItem}/${itemModel.itemsImage!}",
+                          imageUrl:
+                              "${AppLink.imageItem}/${itemModel.itemsImage!}",
                           height: 100,
                           fit: BoxFit.fill,
                         ),
                       ),
                       Text(
-                        translateDatabase(columnAr: itemModel.itemsNameAr!, columnEn: itemModel.itemsName!),
+                        translateDatabase(
+                            columnAr: itemModel.itemsNameAr!,
+                            columnEn: itemModel.itemsName!),
                         style: TextStyle(
                           fontSize: fontSize(14),
                           fontWeight: FontWeight.bold,
@@ -79,38 +83,59 @@ class ItemInfo extends StatelessWidget {
                                     Text(
                                       "${itemModel.itemsPrice!}\$",
                                       style: TextStyle(
-                                        fontSize: fontSize(11), fontWeight: FontWeight.bold, color: AppColor.black, fontFamily: "", decoration: TextDecoration.lineThrough,
-                                        decorationColor: AppColor.primaryColor, // Color of the line
+                                        fontSize: fontSize(11),
+                                        fontWeight: FontWeight.bold,
+                                        color: AppColor.black,
+                                        fontFamily: "",
+                                        decoration: TextDecoration.lineThrough,
+                                        decorationColor: AppColor
+                                            .primaryColor, // Color of the line
                                         decorationThickness: 3.0,
                                       ),
                                     ),
                                     horizontalSizedBox(10),
                                     Text(
                                       "${itemModel.itemspricediscount!}\$",
-                                      style: TextStyle(fontSize: fontSize(14), fontWeight: FontWeight.bold, color: AppColor.primaryColor, fontFamily: ""),
+                                      style: TextStyle(
+                                          fontSize: fontSize(14),
+                                          fontWeight: FontWeight.bold,
+                                          color: AppColor.primaryColor,
+                                          fontFamily: ""),
                                     ),
                                   ],
                                 )
                               : Text(
                                   "${itemModel.itemspricediscount!}\$",
-                                  style: TextStyle(fontSize: fontSize(16), fontWeight: FontWeight.bold, color: AppColor.primaryColor, fontFamily: ""),
+                                  style: TextStyle(
+                                      fontSize: fontSize(16),
+                                      fontWeight: FontWeight.bold,
+                                      color: AppColor.primaryColor,
+                                      fontFamily: ""),
                                 ),
                           GetBuilder<FavoriteControllerImp>(
                             // GetBuilder<FavoriteControllerImp>(
                             builder: (controller) => IconButton(
                               onPressed: () {
-                                if (controller.isFavorite[itemModel.itemsId] == 1) {
-                                  controller.updateFavoriteState(itemId: itemModel.itemsId!, favoriteVal: 0);
-
-                                  controller.removeFavoriteInBackend(itemId: itemModel.itemsId!);
+                                if (controller.isFavorite[itemModel.itemsId] ==
+                                    1) {
+                                  controller.updateFavoriteState(
+                                      itemId: itemModel.itemsId!,
+                                      favoriteVal: 0);
+                                  controller.removeFavoriteInBackend(
+                                      itemId: itemModel.itemsId!);
                                 } else {
-                                  controller.updateFavoriteState(itemId: itemModel.itemsId!, favoriteVal: 1);
+                                  controller.updateFavoriteState(
+                                      itemId: itemModel.itemsId!,
+                                      favoriteVal: 1);
                                   log("${itemModel.itemsId}");
-                                  controller.addFavoriteInBackend(itemId: itemModel.itemsId!);
+                                  controller.addFavoriteInBackend(
+                                      itemId: itemModel.itemsId!);
                                 }
                               },
                               icon: Icon(
-                                controller.isFavorite[itemModel.itemsId] == 1 ? Icons.favorite : Icons.favorite_border_outlined,
+                                controller.isFavorite[itemModel.itemsId] == 1
+                                    ? Icons.favorite
+                                    : Icons.favorite_border_outlined,
                                 color: AppColor.primaryColor,
                               ),
                             ),

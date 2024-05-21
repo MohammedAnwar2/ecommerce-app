@@ -21,7 +21,8 @@ class MyFavoriteInfo extends StatelessWidget {
       builder: (controller) => Card(
         elevation: 5,
         child: Container(
-          decoration: BoxDecoration(color: AppColor.white, borderRadius: BorderRadius.circular(12)),
+          decoration: BoxDecoration(
+              color: AppColor.white, borderRadius: BorderRadius.circular(12)),
           child: Stack(
             children: [
               Padding(
@@ -37,13 +38,16 @@ class MyFavoriteInfo extends StatelessWidget {
                     Hero(
                       tag: "${myFavoriteInfo.itemsId}",
                       child: CachedNetworkImage(
-                        imageUrl: "${AppLink.imageItem}/${myFavoriteInfo.itemsImage!}",
+                        imageUrl:
+                            "${AppLink.imageItem}/${myFavoriteInfo.itemsImage!}",
                         height: 100,
                         fit: BoxFit.fill,
                       ),
                     ),
                     Text(
-                      translateDatabase(columnAr: myFavoriteInfo.itemsNameAr!, columnEn: myFavoriteInfo.itemsName!),
+                      translateDatabase(
+                          columnAr: myFavoriteInfo.itemsNameAr!,
+                          columnEn: myFavoriteInfo.itemsName!),
                       style: TextStyle(
                         fontSize: fontSize(14),
                         fontWeight: FontWeight.bold,
@@ -75,27 +79,42 @@ class MyFavoriteInfo extends StatelessWidget {
                                   Text(
                                     "${myFavoriteInfo.itemsPrice!}\$",
                                     style: TextStyle(
-                                      fontSize: fontSize(11), fontWeight: FontWeight.bold, color: AppColor.black, fontFamily: "", decoration: TextDecoration.lineThrough,
-                                      decorationColor: AppColor.primaryColor, // Color of the line
+                                      fontSize: fontSize(11),
+                                      fontWeight: FontWeight.bold,
+                                      color: AppColor.black,
+                                      fontFamily: "",
+                                      decoration: TextDecoration.lineThrough,
+                                      decorationColor: AppColor
+                                          .primaryColor, // Color of the line
                                       decorationThickness: 3.0,
                                     ),
                                   ),
                                   horizontalSizedBox(10),
                                   Text(
                                     "${myFavoriteInfo.totalPrice!}\$",
-                                    style: TextStyle(fontSize: fontSize(14), fontWeight: FontWeight.bold, color: AppColor.primaryColor, fontFamily: ""),
+                                    style: TextStyle(
+                                        fontSize: fontSize(14),
+                                        fontWeight: FontWeight.bold,
+                                        color: AppColor.primaryColor,
+                                        fontFamily: ""),
                                   ),
                                 ],
                               )
                             : Text(
                                 "${myFavoriteInfo.itemsPrice!}\$",
-                                style: TextStyle(fontSize: fontSize(14), fontWeight: FontWeight.bold, color: AppColor.primaryColor, fontFamily: ""),
+                                style: TextStyle(
+                                    fontSize: fontSize(14),
+                                    fontWeight: FontWeight.bold,
+                                    color: AppColor.primaryColor,
+                                    fontFamily: ""),
                               ),
                         IconButton(
                           onPressed: () {
-                            controller.deleteData(myFavoriteInfo.favoriteId.toString());
-                            // controller.favoriteMethods.updateFavoriteState(
-                            //     itemId: myFavoriteInfo.itemsId!, favoriteVal: 0);
+                            controller.deleteData(
+                                myFavoriteInfo.favoriteId.toString());
+                            controller.favoriteController.updateFavoriteState(
+                                itemId: myFavoriteInfo.itemsId!,
+                                favoriteVal: 0);
                           },
                           icon: const Icon(
                             Icons.delete_outline_outlined,

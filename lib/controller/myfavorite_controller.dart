@@ -1,3 +1,4 @@
+import 'package:ecommerce/controller/favorite_controller.dart';
 import 'package:ecommerce/core/class/sratus_request.dart';
 import 'package:ecommerce/core/constant/app_keys.dart';
 import 'package:ecommerce/core/functions/hadlingdata.dart';
@@ -31,6 +32,7 @@ class MyFavoriteControllerImp extends MyFavoriteController {
   MyServices services = Get.find<MyServices>();
   List<MyFavoriteModel> data = [];
   RxInt count = 0.obs;
+  FavoriteControllerImp favoriteController = Get.put(FavoriteControllerImp());
   @override
   initData() {
     search = TextEditingController();
@@ -82,7 +84,8 @@ class SearchFavorite extends GetxController {
   List<ItemModel> searchItemList = [];
   StatusRequest statusRequest = StatusRequest.success;
   SearchFavoriteItemsData searchItemData = SearchFavoriteItemsData(Get.find());
-  SearchFavoriteItemsData searchFavoriteItemData = SearchFavoriteItemsData(Get.find());
+  SearchFavoriteItemsData searchFavoriteItemData =
+      SearchFavoriteItemsData(Get.find());
   goToProductDetails(ItemModel itemModel) {
     Get.toNamed(
       AppRoute.productDetails,

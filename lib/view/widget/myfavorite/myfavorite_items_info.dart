@@ -18,6 +18,7 @@ class ListMyFavorite extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetBuilder<MyFavoriteControllerImp>(
       builder: (controller) => HandlingDataView(
+        isMargin: true,
         statusRequest: controller.statusRequest,
         widget: !controller.isSearch
             ? Obx(

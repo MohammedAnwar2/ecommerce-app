@@ -98,7 +98,9 @@ class ViewAddressControllerIma extends ViewAddressController {
   @override
   deleteSpecificAddress(int idAddress) {
     viewAddressList.removeWhere((element) => element.addressId == idAddress);
-    viewAddress();
+    if (viewAddressList.isEmpty) {
+      statusRequest = StatusRequest.nolocation;
+    }
     update();
   }
 
