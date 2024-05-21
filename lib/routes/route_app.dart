@@ -17,6 +17,7 @@ class AppRoute {
   static const String myCardScreen = "/myCardScreen";
   //*address
   static const String viewAddress = "/viewaddress";
+  static const String deleteAddress = "/deleteaddress";
   static const String editAddress = "/editaddress";
   static const String addAddress = "/addaddress";
   static const String addAddressDetails = "/addaddressdetails";

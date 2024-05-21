@@ -3,6 +3,7 @@ import 'package:ecommerce/core/middleware/onboarding_middleware.dart';
 import 'package:ecommerce/routes/route_app.dart';
 import 'package:ecommerce/view/screen/address/add_address.dart';
 import 'package:ecommerce/view/screen/address/add_address_details.dart';
+import 'package:ecommerce/view/screen/address/delete_address.dart';
 import 'package:ecommerce/view/screen/address/edit.dart';
 import 'package:ecommerce/view/screen/address/view.dart';
 import 'package:ecommerce/view/screen/auth/forgetPassword/forgetpassword.dart';
@@ -124,6 +125,11 @@ List<GetPage<dynamic>>? getPages = [
   GetPage(
     name: AppRoute.addAddressDetails,
     page: () => const AddAddressDetails(),
+    transition: Transition.rightToLeftWithFade,
+  ),
+  GetPage(
+    name: AppRoute.deleteAddress,
+    page: () => const DeleteAddress(),
     transition: Transition.rightToLeftWithFade,
   ),
 ];
