@@ -20,7 +20,8 @@ class HomePage extends StatelessWidget {
     return GetBuilder<HomePageControllerImp>(
       builder: (controller) => SafeArea(
         child: Container(
-          padding: EdgeInsetsDirectional.symmetric(horizontal: horizontalSize(16)),
+          padding:
+              EdgeInsetsDirectional.symmetric(horizontal: horizontalSize(16)),
           child: ListView(
             padding: EdgeInsetsDirectional.only(top: verticalSized(10)),
             children: [
@@ -51,6 +52,7 @@ class HomePage extends StatelessWidget {
                 ),
               ),
               HandlingDataView(
+                isMargin: true,
                 statusRequest: controller.statusRequest,
                 widget: !controller.isSearch
                     ? ListView(
@@ -58,7 +60,9 @@ class HomePage extends StatelessWidget {
                         physics: const NeverScrollableScrollPhysics(),
                         children: [
                           verticalSizedBox(16),
-                          const CustomCardCashBackHome(title: "A summer surprice", subTitle: "Cashback 20%"),
+                          const CustomCardCashBackHome(
+                              title: "A summer surprice",
+                              subTitle: "Cashback 20%"),
                           CustomAnimation(child: verticalSizedBox(5)),
                           CustomAnimation(
                             child: CustomText(
