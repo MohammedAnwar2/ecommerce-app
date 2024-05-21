@@ -1,24 +1,24 @@
 import 'dart:async';
 import 'package:ecommerce/core/class/sratus_request.dart';
-import 'package:ecommerce/core/services/location_services.dart';
+import 'package:ecommerce/data/model/view_address_model.dart';
 import 'package:ecommerce/routes/route_app.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:location/location.dart';
 
-abstract class AddAddressController extends GetxController {
+abstract class EditAddressController extends GetxController {
+  initData();
   getCurrentLocation();
-  goToAddAddressDetails();
+  goToEditAddressDetails();
   changeTheLocation(LatLng latLng);
 }
 
-class AddAddressPart1ControllerImp extends AddAddressController {
+class EditAddressControllerImp extends EditAddressController {
   CameraPosition? kGooglePlex;
   late Completer<GoogleMapController> completorController;
   StatusRequest statusRequest = StatusRequest.none;
   late LatLng latLng;
   Set<Marker> markers = <Marker>{};
-
+  late ViewAddressModel dataList;
   @override
   changeTheLocation(LatLng latLng) {
     this.latLng = latLng;
@@ -31,6 +31,7 @@ class AddAddressPart1ControllerImp extends AddAddressController {
 
   @override
   void onInit() {
+    initData();
     getCurrentLocation();
     completorController = Completer<GoogleMapController>();
     super.onInit();
@@ -40,8 +41,6 @@ class AddAddressPart1ControllerImp extends AddAddressController {
   getCurrentLocation() async {
     statusRequest = StatusRequest.loading;
     update();
-    LocationData location = await LocationService().getLocation();
-    latLng = LatLng(location.latitude!, location.longitude!);
     kGooglePlex = CameraPosition(
       target: latLng,
       zoom: 16,
@@ -52,7 +51,15 @@ class AddAddressPart1ControllerImp extends AddAddressController {
   }
 
   @override
-  goToAddAddressDetails() {
-    Get.toNamed(AppRoute.addAddressDetails, arguments: {"latLng": latLng});
+  goToEditAddressDetails() {
+    dataList.addressLat = latLng.latitude;
+    dataList.addressLong = latLng.longitude;
+    Get.toNamed(AppRoute.editAddressDetails, arguments: {"data": dataList});
+  }
+
+  @override
+  initData() {
+    dataList = Get.arguments["data"];
+    latLng = LatLng(dataList.addressLat!, dataList.addressLong!);
   }
 }

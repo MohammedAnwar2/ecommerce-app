@@ -52,6 +52,9 @@ class _ViewAddressState extends State<ViewAddress> {
                       onLongPress: () {
                         controller.goToDeleteAddress();
                       },
+                      onTap: () {
+                        controller.goToEditAddress(index);
+                      },
                       title: Text(controller.viewAddressList[index].addressName
                           .toString()),
                       subtitle: Text(controller

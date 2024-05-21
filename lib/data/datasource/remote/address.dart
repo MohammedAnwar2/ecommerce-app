@@ -40,8 +40,8 @@ class AdressData {
       "name": name,
       "city": city,
       "street": street,
-      "lat": latLng.latitude,
-      "long": latLng.longitude
+      "lat": latLng.latitude.toString(),
+      "long": latLng.longitude.toString()
     });
     return response.fold((l) => l, (r) => r);
   }

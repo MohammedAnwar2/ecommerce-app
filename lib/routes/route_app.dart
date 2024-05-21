@@ -19,6 +19,7 @@ class AppRoute {
   static const String viewAddress = "/viewaddress";
   static const String deleteAddress = "/deleteaddress";
   static const String editAddress = "/editaddress";
+  static const String editAddressDetails = "/editaddressdetails";
   static const String addAddress = "/addaddress";
   static const String addAddressDetails = "/addaddressdetails";
 }

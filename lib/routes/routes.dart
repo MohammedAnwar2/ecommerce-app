@@ -5,6 +5,7 @@ import 'package:ecommerce/view/screen/address/add_address.dart';
 import 'package:ecommerce/view/screen/address/add_address_details.dart';
 import 'package:ecommerce/view/screen/address/delete_address.dart';
 import 'package:ecommerce/view/screen/address/edit_address.dart';
+import 'package:ecommerce/view/screen/address/edit_address_details.dart';
 import 'package:ecommerce/view/screen/address/view_address.dart';
 import 'package:ecommerce/view/screen/auth/forgetPassword/forgetpassword.dart';
 import 'package:ecommerce/view/screen/auth/forgetPassword/resetpassword.dart';
@@ -120,6 +121,11 @@ List<GetPage<dynamic>>? getPages = [
   GetPage(
     name: AppRoute.editAddress,
     page: () => const EditAddress(),
+    transition: Transition.rightToLeftWithFade,
+  ),
+  GetPage(
+    name: AppRoute.editAddressDetails,
+    page: () => const EditAddressDetails(),
     transition: Transition.rightToLeftWithFade,
   ),
   GetPage(

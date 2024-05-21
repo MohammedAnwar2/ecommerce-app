@@ -1,0 +1,67 @@
+import 'package:ecommerce/core/class/sratus_request.dart';
+import 'package:ecommerce/core/functions/hadlingdata.dart';
+import 'package:ecommerce/data/datasource/remote/address.dart';
+import 'package:ecommerce/data/model/view_address_model.dart';
+import 'package:ecommerce/routes/route_app.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
+
+abstract class EditAddressDetailsController extends GetxController {
+  initData();
+  editAddress();
+}
+
+class EditAddressDetailsControllerImp extends EditAddressDetailsController {
+  late ViewAddressModel dataList;
+  StatusRequest statusRequest = StatusRequest.success;
+  AdressData adressData = AdressData(Get.find());
+
+  late LatLng latLng;
+  late int addressId;
+  late TextEditingController name;
+  late TextEditingController street;
+  late TextEditingController city;
+  @override
+  editAddress() async {
+    statusRequest = StatusRequest.loading;
+    update();
+    var response = await adressData.editAddress(
+      addressId.toString(),
+      name.text,
+      city.text,
+      street.text,
+      LatLng(latLng.latitude, latLng.longitude),
+    );
+
+    statusRequest = handlingData(response);
+    if (statusRequest == StatusRequest.success) {
+      if (response['status'] == 'success') {
+        Get.offAllNamed(AppRoute.homeScreen);
+      } else {
+        statusRequest = StatusRequest.serverfailure;
+      }
+    }
+
+    update();
+  }
+
+  @override
+  void onInit() {
+    name = TextEditingController();
+    street = TextEditingController();
+    city = TextEditingController();
+    initData();
+    super.onInit();
+  }
+
+  @override
+  initData() {
+    dataList = Get.arguments["data"];
+    latLng = LatLng(dataList.addressLat!, dataList.addressLong!);
+    addressId = dataList.addressId!;
+    name.text = dataList.addressName!;
+    street.text = dataList.addressStreet!;
+    city.text = dataList.addressCity!;
+  }
+}

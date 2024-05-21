@@ -12,9 +12,9 @@ import 'package:get/get.dart';
 abstract class ViewAddressController extends GetxController {
   initData();
   viewAddress();
-  // deleteAddress(String addressId);
   goToAddAddress();
   goToDeleteAddress();
+  goToEditAddress(int index);
   deleteSpecificAddress(int idAddress);
 }
 
@@ -48,7 +48,7 @@ class ViewAddressControllerIma extends ViewAddressController {
   //   statusRequest = StatusRequest.loading;
   //   update();
   //   var response =
-  //       await adressData.editAddress(addressId, name, city, street, latLng);
+  // await adressData.editAddress(addressId, name, city, street, latLng);
   //   statusRequest = handlingData(response);
   //   if (statusRequest == StatusRequest.success) {
   //     if (response['status'] == 'success') {
@@ -100,5 +100,11 @@ class ViewAddressControllerIma extends ViewAddressController {
     viewAddressList.removeWhere((element) => element.addressId == idAddress);
     viewAddress();
     update();
+  }
+
+  @override
+  goToEditAddress(int index) {
+    Get.toNamed(AppRoute.editAddress,
+        arguments: {"data": viewAddressList[index]});
   }
 }
