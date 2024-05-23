@@ -29,31 +29,38 @@ class MyCardScreen extends StatelessWidget {
           ),
         ),
       ),
-      appBar: PreferredSize(
-          preferredSize: const Size(0, 0),
-          child: AppBar(
-            backgroundColor: AppColor.white,
-          )),
+      appBar: AppBar(
+        centerTitle: true,
+        backgroundColor: AppColor.white,
+        title: Text(
+          "My Cart",
+          style: Theme.of(context)
+              .textTheme
+              .displayMedium!
+              .copyWith(color: AppColor.grey500),
+        ),
+      ),
       body: GetBuilder<MyCardControllerImp>(
         builder: (controller) => HandlingDataView(
-            statusRequest: controller.statusRequest,
-            widget: ListView(
-              padding: EdgeInsetsDirectional.only(
-                start: horizontalSize(16),
-                end: horizontalSize(16),
-                top: verticalSized(0),
-                bottom: verticalSized(16),
+          statusRequest: controller.statusRequest,
+          widget: ListView(
+            padding: EdgeInsetsDirectional.only(
+              start: horizontalSize(16),
+              end: horizontalSize(16),
+              top: verticalSized(0),
+              bottom: verticalSized(16),
+            ),
+            children: [
+              // const MyCardAppBar(
+              //   title: "My Cart",
+              // ),
+              ItemsCountCard(
+                text: "You Have ${controller.totalcount} Items In Your List",
               ),
-              children: [
-                const MyCardAppBar(
-                  title: "My Cart",
-                ),
-                ItemsCountCard(
-                  text: "You Have ${controller.totalcount} Items In Your List",
-                ),
-                const ListItemsCard()
-              ],
-            )),
+              const ListItemsCard()
+            ],
+          ),
+        ),
       ),
     );
   }

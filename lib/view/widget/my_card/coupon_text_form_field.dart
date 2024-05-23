@@ -32,7 +32,7 @@ class CouponTextFormField extends StatelessWidget {
           focusedBorder: const OutlineInputBorder(
               borderSide: BorderSide(color: AppColor.secondaryColor)),
           contentPadding: EdgeInsets.symmetric(
-            vertical: verticalSized(1),
+            vertical: verticalSized(2),
             horizontal: horizontalSize(10),
           ),
         ),

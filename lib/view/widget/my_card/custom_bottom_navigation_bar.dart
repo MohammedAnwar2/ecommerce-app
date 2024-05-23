@@ -37,8 +37,10 @@ class CustombottomNavigationBar extends StatelessWidget {
             horizontalSizedBox(8),
             Expanded(
                 child: CustomCouponButton(
-              text: "apply",
-              onCoupon: () {},
+              text: "Apply",
+              onCoupon: () {
+                focusScopeNode.unfocus();
+              },
             )),
           ]),
         ),
@@ -57,9 +59,7 @@ class CustombottomNavigationBar extends StatelessWidget {
               verticalSizedBox(14),
               CustomPlaceOrderButton(
                 text: "Place Order",
-                onPlaceOrder: () {
-                  focusScopeNode.unfocus();
-                },
+                onPlaceOrder: () {},
               ),
             ],
           ),
