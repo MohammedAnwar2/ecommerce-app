@@ -20,8 +20,10 @@ class CouponTextFormField extends StatelessWidget {
         ),
       ),
       child: TextFormField(
+        style: Theme.of(context).textTheme.bodyLarge!.copyWith(height: 1.2),
+        keyboardType: TextInputType.text,
+        cursorColor: AppColor.primaryColor,
         controller: couponCintroller,
-        textAlignVertical: TextAlignVertical.top,
         decoration: InputDecoration(
           hintText: "Coupon Code",
           hintStyle: Theme.of(context).textTheme.bodyLarge,
