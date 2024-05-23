@@ -9,16 +9,20 @@ class CustombottomNavigationBar extends StatelessWidget {
   const CustombottomNavigationBar({
     super.key,
     required this.price,
-    required this.shipping,
+    required this.discount,
     required this.totalPrice,
     this.couponCintroller,
+    required this.shipping,
   });
   final String price;
+  final String discount;
   final String shipping;
   final String totalPrice;
   final TextEditingController? couponCintroller;
   @override
   Widget build(BuildContext context) {
+    final FocusScopeNode focusScopeNode = FocusScope.of(context);
+
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
@@ -46,11 +50,16 @@ class CustombottomNavigationBar extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               CustomFinalyCardPrice(
-                  price: price, shipping: shipping, totalPrice: totalPrice),
+                  shipping: shipping,
+                  price: price,
+                  discount: discount,
+                  totalPrice: totalPrice),
               verticalSizedBox(14),
               CustomPlaceOrderButton(
                 text: "Place Order",
-                onPlaceOrder: () {},
+                onPlaceOrder: () {
+                  focusScopeNode.unfocus();
+                },
               ),
             ],
           ),

@@ -5,6 +5,7 @@ import 'package:ecommerce/core/functions/hadlingdata.dart';
 import 'package:ecommerce/core/services/service.dart';
 import 'package:ecommerce/data/datasource/remote/cart/view_all_cart_products.dart';
 import 'package:ecommerce/data/model/view_cart_all_products.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 abstract class MyCardController extends AddDeleteItemsCounter {
@@ -24,6 +25,7 @@ class MyCardControllerImp extends MyCardController {
   List<ViewCartProductsModel> data = [];
   double totalprice = 0.0;
   String totalcount = "";
+  late TextEditingController couponCintroller;
 
   @override
   initData() {
@@ -33,6 +35,7 @@ class MyCardControllerImp extends MyCardController {
 
   @override
   void onInit() {
+    couponCintroller = TextEditingController();
     initData();
     super.onInit();
   }

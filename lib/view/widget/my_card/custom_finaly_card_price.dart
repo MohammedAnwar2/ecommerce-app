@@ -7,11 +7,13 @@ class CustomFinalyCardPrice extends StatelessWidget {
   const CustomFinalyCardPrice({
     super.key,
     required this.price,
-    required this.shipping,
+    required this.discount,
     required this.totalPrice,
+    required this.shipping,
   });
 
   final String price;
+  final String discount;
   final String shipping;
   final String totalPrice;
 
@@ -30,6 +32,13 @@ class CustomFinalyCardPrice extends StatelessWidget {
             priceColor: AppColor.grey500!,
             text: "Price",
             price: price,
+          ),
+          CustomRowWidget(
+            textColor: AppColor.grey500!,
+            priceColor: AppColor.grey500!,
+            text: "Discount",
+            price: discount,
+            isPrice: false,
           ),
           CustomRowWidget(
             textColor: AppColor.grey500!,

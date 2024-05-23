@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
 
 class CustomRowWidget extends StatelessWidget {
-  const CustomRowWidget({
-    super.key,
-    required this.text,
-    required this.price,
-    required this.priceColor,
-    required this.textColor,
-  });
+  CustomRowWidget(
+      {super.key,
+      required this.text,
+      required this.price,
+      required this.priceColor,
+      required this.textColor,
+      this.isPrice = true});
   final String text;
   final String price;
   final Color priceColor;
   final Color textColor;
+  final bool? isPrice;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -23,7 +24,7 @@ class CustomRowWidget extends StatelessWidget {
               Theme.of(context).textTheme.bodyLarge!.copyWith(color: textColor),
         ),
         Text(
-          "$price \$",
+          isPrice! ? "$price \$" : "$price %",
           style: Theme.of(context)
               .textTheme
               .bodyLarge!

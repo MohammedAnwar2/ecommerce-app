@@ -17,10 +17,16 @@ class MyCardScreen extends StatelessWidget {
     Get.put(MyCardControllerImp());
     return Scaffold(
       bottomNavigationBar: GetBuilder<MyCardControllerImp>(
-        builder: (controller) => CustombottomNavigationBar(
-          price: controller.totalprice.toString(),
-          shipping: "300",
-          totalPrice: "1500",
+        builder: (controller) => Padding(
+          padding:
+              EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
+          child: CustombottomNavigationBar(
+            shipping: "30",
+            price: controller.totalprice.toString(),
+            discount: "45",
+            totalPrice: "1500",
+            couponCintroller: controller.couponCintroller,
+          ),
         ),
       ),
       appBar: PreferredSize(
