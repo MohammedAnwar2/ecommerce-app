@@ -15,7 +15,6 @@ class ListItems extends GetView<ItemsControllerImp> {
   @override
   Widget build(BuildContext context) {
     FavoriteControllerImp favController = Get.find<FavoriteControllerImp>();
-    //;
     return GetBuilder<ItemsControllerImp>(
       builder: (controller) => HandlingDataView(
         statusRequest: controller.statusRequest,
