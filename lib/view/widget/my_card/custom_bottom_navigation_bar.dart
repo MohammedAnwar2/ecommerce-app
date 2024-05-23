@@ -1,58 +1,61 @@
-import 'package:ecommerce/core/constant/app_color.dart';
 import 'package:ecommerce/core/shared/horizontal_and_vertical_size.dart';
-import 'package:ecommerce/view/widget/my_card/custom_row_widget.dart';
+import 'package:ecommerce/view/widget/my_card/coupon_button.dart';
+import 'package:ecommerce/view/widget/my_card/coupon_text_form_field.dart';
+import 'package:ecommerce/view/widget/my_card/place_order_button.dart';
+import 'package:ecommerce/view/widget/my_card/custom_finaly_card_price.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class CustombottomNavigationBar extends StatelessWidget {
-  const CustombottomNavigationBar(
-      {super.key,
-      required this.price,
-      required this.shipping,
-      required this.totalPrice});
+  const CustombottomNavigationBar({
+    super.key,
+    required this.price,
+    required this.shipping,
+    required this.totalPrice,
+    this.couponCintroller,
+  });
   final String price;
   final String shipping;
   final String totalPrice;
+  final TextEditingController? couponCintroller;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsetsDirectional.symmetric(horizontal: horizontalSize(25)),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          CustomRowWidget(
-            textColor: AppColor.grey500!,
-            priceColor: AppColor.grey500!,
-            text: "Price",
-            price: price,
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Container(
+          padding:
+              EdgeInsetsDirectional.symmetric(horizontal: horizontalSize(8)),
+          child: Row(mainAxisSize: MainAxisSize.max, children: [
+            Expanded(
+              flex: 2,
+              child: CouponTextFormField(couponCintroller: couponCintroller),
+            ),
+            horizontalSizedBox(8),
+            Expanded(
+                child: CustomCouponButton(
+              text: "apply",
+              onCoupon: () {},
+            )),
+          ]),
+        ),
+        verticalSizedBox(10),
+        Container(
+          margin:
+              EdgeInsetsDirectional.symmetric(horizontal: horizontalSize(8)),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              CustomFinalyCardPrice(
+                  price: price, shipping: shipping, totalPrice: totalPrice),
+              verticalSizedBox(14),
+              CustomPlaceOrderButton(
+                text: "Place Order",
+                onPlaceOrder: () {},
+              ),
+            ],
           ),
-          CustomRowWidget(
-            textColor: AppColor.grey500!,
-            priceColor: AppColor.grey500!,
-            text: "Shipping",
-            price: shipping,
-          ),
-          const Divider(
-            thickness: 0.5,
-          ),
-          CustomRowWidget(
-            textColor: AppColor.secondaryColor,
-            priceColor: AppColor.secondaryColor,
-            text: "Total Price",
-            price: totalPrice,
-          ),
-          MaterialButton(
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-            padding: EdgeInsets.symmetric(
-                horizontal: Get.width / 3 - horizontalSize(10)),
-            onPressed: () {},
-            color: AppColor.primaryColor,
-            child: Text("Place Order",
-                style: Theme.of(context).textTheme.displaySmall),
-          ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
