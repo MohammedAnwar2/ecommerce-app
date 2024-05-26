@@ -1,24 +1,26 @@
+import 'package:ecommerce/controller/my_card_controller.dart';
 import 'package:ecommerce/core/shared/horizontal_and_vertical_size.dart';
 import 'package:ecommerce/view/widget/my_card/coupon_button.dart';
 import 'package:ecommerce/view/widget/my_card/coupon_text_form_field.dart';
 import 'package:ecommerce/view/widget/my_card/place_order_button.dart';
 import 'package:ecommerce/view/widget/my_card/custom_finaly_card_price.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-class CustombottomNavigationBar extends StatelessWidget {
+class CustombottomNavigationBar extends GetView<MyCardControllerImp> {
   const CustombottomNavigationBar({
     super.key,
     required this.price,
     required this.discount,
     required this.totalPrice,
-    this.couponCintroller,
+    this.couponController,
     required this.shipping,
   });
   final String price;
   final String discount;
   final String shipping;
   final String totalPrice;
-  final TextEditingController? couponCintroller;
+  final TextEditingController? couponController;
   @override
   Widget build(BuildContext context) {
     final FocusScopeNode focusScopeNode = FocusScope.of(context);
@@ -32,13 +34,14 @@ class CustombottomNavigationBar extends StatelessWidget {
           child: Row(mainAxisSize: MainAxisSize.max, children: [
             Expanded(
               flex: 2,
-              child: CouponTextFormField(couponCintroller: couponCintroller),
+              child: CouponTextFormField(couponCintroller: couponController),
             ),
             horizontalSizedBox(8),
             Expanded(
                 child: CustomCouponButton(
               text: "Apply",
               onCoupon: () {
+                controller.checkCoupon();
                 focusScopeNode.unfocus();
               },
             )),
@@ -61,6 +64,7 @@ class CustombottomNavigationBar extends StatelessWidget {
                 text: "Place Order",
                 onPlaceOrder: () {},
               ),
+              verticalSizedBox(8),
             ],
           ),
         ),

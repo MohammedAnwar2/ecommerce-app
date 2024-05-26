@@ -2,7 +2,6 @@ import 'package:ecommerce/controller/my_card_controller.dart';
 import 'package:ecommerce/core/class/handling_data_veiw.dart';
 import 'package:ecommerce/core/constant/app_color.dart';
 import 'package:ecommerce/core/shared/horizontal_and_vertical_size.dart';
-import 'package:ecommerce/view/widget/my_card/custom_appbar.dart';
 import 'package:ecommerce/view/widget/my_card/custom_bottom_navigation_bar.dart';
 import 'package:ecommerce/view/widget/my_card/items_count_card.dart';
 import 'package:ecommerce/view/widget/my_card/list_items_card.dart';
@@ -16,6 +15,7 @@ class MyCardScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     Get.put(MyCardControllerImp());
     return Scaffold(
+      backgroundColor: AppColor.white,
       bottomNavigationBar: GetBuilder<MyCardControllerImp>(
         builder: (controller) => Padding(
           padding:
@@ -23,9 +23,9 @@ class MyCardScreen extends StatelessWidget {
           child: CustombottomNavigationBar(
             shipping: "30",
             price: controller.totalprice.toString(),
-            discount: "45",
-            totalPrice: "1500",
-            couponCintroller: controller.couponCintroller,
+            discount: controller.discount.toString(),
+            totalPrice: controller.getTotalPiceAfterDiscount().toString(),
+            couponController: controller.couponController,
           ),
         ),
       ),
