@@ -21,7 +21,7 @@ class MyCardScreen extends StatelessWidget {
           padding:
               EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
           child: CustombottomNavigationBar(
-            shipping: "30",
+            shipping: "0",
             price: controller.totalprice.toString(),
             discount: controller.discount.toString(),
             totalPrice: controller.getTotalPiceAfterDiscount().toString(),
@@ -31,14 +31,10 @@ class MyCardScreen extends StatelessWidget {
       ),
       appBar: AppBar(
         centerTitle: true,
-        backgroundColor: AppColor.white,
-        title: Text(
-          "My Cart",
-          style: Theme.of(context)
-              .textTheme
-              .displayMedium!
-              .copyWith(color: AppColor.grey500),
-        ),
+        // backgroundColor: AppColor.white,
+        iconTheme: IconThemeData(
+            color: AppColor.primaryColor, size: horizontalSize(25)),
+        title: Text("My Cart"),
       ),
       body: GetBuilder<MyCardControllerImp>(
         builder: (controller) => HandlingDataView(
