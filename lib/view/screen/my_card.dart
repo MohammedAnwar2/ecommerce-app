@@ -34,7 +34,7 @@ class MyCardScreen extends StatelessWidget {
         // backgroundColor: AppColor.white,
         iconTheme: IconThemeData(
             color: AppColor.primaryColor, size: horizontalSize(25)),
-        title: Text("My Cart"),
+        title: const Text("My Cart"),
       ),
       body: GetBuilder<MyCardControllerImp>(
         builder: (controller) => HandlingDataView(
