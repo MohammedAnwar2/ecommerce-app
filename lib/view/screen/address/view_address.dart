@@ -27,7 +27,7 @@ class _ViewAddressState extends State<ViewAddress> {
           color: AppColor.white,
         ),
       ),
-      appBar: const CustomAppBar(title: "View Address"),
+      appBar: AppBar(title: Text("View Address")),
       body: GetBuilder<ViewAddressControllerIma>(
         builder: (controller) {
           return HandlingDataView(

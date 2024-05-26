@@ -13,7 +13,7 @@ class EditAddress extends StatelessWidget {
   Widget build(BuildContext context) {
     Get.put(EditAddressControllerImp());
     return Scaffold(
-      appBar: const CustomAppBar(title: "Edit Address"),
+      appBar: AppBar(title: Text("Edit Address")),
       body: GetBuilder<EditAddressControllerImp>(
         builder: (controller) {
           return HandlingDataView(

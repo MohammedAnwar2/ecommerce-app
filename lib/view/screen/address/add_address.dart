@@ -14,7 +14,7 @@ class AddAddress extends StatelessWidget {
     AddAddressPart1ControllerImp addAddress =
         Get.put(AddAddressPart1ControllerImp());
     return Scaffold(
-      appBar: const CustomAppBar(title: "Add Address"),
+      appBar: AppBar(title: Text("Add Address")),
       body: GetBuilder<AddAddressPart1ControllerImp>(
         builder: (controller) {
           return HandlingDataView(

@@ -16,7 +16,7 @@ class AddAddressDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     final addAddressController = Get.put(AddAddressDetailsControllerImp());
     return Scaffold(
-      appBar: const CustomAppBar(title: "Add Address Details"),
+      appBar: AppBar(title: Text("Add Address Details")),
       body: GetBuilder<AddAddressDetailsControllerImp>(
         builder: (controller) {
           return HandlingDataView(

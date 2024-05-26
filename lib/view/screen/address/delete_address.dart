@@ -23,7 +23,7 @@ class DeleteAddress extends StatelessWidget {
           color: AppColor.white,
         ),
       ),
-      appBar: const CustomAppBar(title: "Delete Address"),
+      appBar: AppBar(title: Text("Delete Address")),
       body: GetBuilder<DeleteAddressControllerIma>(
         builder: (controller) {
           return HandlingDataView(
