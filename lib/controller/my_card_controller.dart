@@ -33,6 +33,7 @@ class MyCardControllerImp extends MyCardController {
   double totalprice = 0.0;
   String totalcount = "";
   int discount = 0;
+  String? couponName;
   late TextEditingController couponController;
   CheckCouponData checkCouponData = CheckCouponData(Get.find());
   @override
@@ -80,9 +81,11 @@ class MyCardControllerImp extends MyCardController {
         Map<String, dynamic> alldata = response['data'];
         couponData = CouponModel.fromJson(alldata);
         discount = couponData.couponDiscount!;
+        couponName = couponData.couponName;
         //log(couponData.toString());
       } else {
-        statusRequest = StatusRequest.none;
+        statusRequest = StatusRequest.success;
+        discount = 0;
         //log("no data");
       }
     }

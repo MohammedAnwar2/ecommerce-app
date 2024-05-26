@@ -1,4 +1,5 @@
 import 'package:ecommerce/controller/my_card_controller.dart';
+import 'package:ecommerce/core/constant/app_color.dart';
 import 'package:ecommerce/core/shared/horizontal_and_vertical_size.dart';
 import 'package:ecommerce/view/widget/my_card/coupon_button.dart';
 import 'package:ecommerce/view/widget/my_card/coupon_text_form_field.dart';
@@ -31,21 +32,33 @@ class CustombottomNavigationBar extends GetView<MyCardControllerImp> {
         Container(
           padding:
               EdgeInsetsDirectional.symmetric(horizontal: horizontalSize(8)),
-          child: Row(mainAxisSize: MainAxisSize.max, children: [
-            Expanded(
-              flex: 2,
-              child: CouponTextFormField(couponCintroller: couponController),
-            ),
-            horizontalSizedBox(8),
-            Expanded(
-                child: CustomCouponButton(
-              text: "Apply",
-              onCoupon: () {
-                controller.checkCoupon();
-                focusScopeNode.unfocus();
-              },
-            )),
-          ]),
+          child: controller.couponName == null
+              ? Row(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Expanded(
+                      flex: 2,
+                      child: CouponTextFormField(
+                          couponCintroller: couponController),
+                    ),
+                    horizontalSizedBox(8),
+                    Expanded(
+                      child: CustomCouponButton(
+                        text: "Apply",
+                        onCoupon: () {
+                          controller.checkCoupon();
+                          focusScopeNode.unfocus();
+                        },
+                      ),
+                    ),
+                  ],
+                )
+              : Center(
+                  child: Text(
+                      "Coupon Code '${controller.couponName.toString()}'",
+                      style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                          fontFamily: "",
+                          color: AppColor.secondaryColor.withOpacity(0.9)))),
         ),
         verticalSizedBox(10),
         Container(
