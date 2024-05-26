@@ -28,4 +28,14 @@ class CouponModel {
 				'coupon_discount': couponDiscount,
 				'coupon_count': couponCount,
 			};
+
+       String toString() {
+    return '''CouponModel(
+      couponId: $couponId, 
+      couponName: $couponName, 
+      couponExpiredate: $couponExpiredate, 
+      couponDiscount: $couponDiscount, 
+      couponCount: $couponCount
+      )''';
+  }
 }
