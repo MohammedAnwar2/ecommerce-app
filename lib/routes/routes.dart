@@ -14,6 +14,7 @@ import 'package:ecommerce/view/screen/auth/forgetPassword/verifycode_forgetpassw
 import 'package:ecommerce/view/screen/auth/signup.dart';
 import 'package:ecommerce/view/screen/auth/success_signup.dart';
 import 'package:ecommerce/view/screen/auth/verifycode_signup.dart';
+import 'package:ecommerce/view/screen/checkout.dart';
 import 'package:ecommerce/view/screen/home_page.dart';
 import 'package:ecommerce/view/screen/home_screen.dart';
 import 'package:ecommerce/view/screen/items.dart';
@@ -136,6 +137,12 @@ List<GetPage<dynamic>>? getPages = [
   GetPage(
     name: AppRoute.deleteAddress,
     page: () => const DeleteAddress(),
+    transition: Transition.rightToLeftWithFade,
+  ),
+  //*checkout
+  GetPage(
+    name: AppRoute.checkOut,
+    page: () => const CheckOut(),
     transition: Transition.rightToLeftWithFade,
   ),
 ];
