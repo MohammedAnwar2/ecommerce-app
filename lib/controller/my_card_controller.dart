@@ -1,9 +1,13 @@
+import 'dart:developer';
+
 import 'package:ecommerce/controller/mix_class_controller/add_delete_items_methods.dart';
 import 'package:ecommerce/core/class/sratus_request.dart';
 import 'package:ecommerce/core/constant/app_keys.dart';
 import 'package:ecommerce/core/functions/hadlingdata.dart';
 import 'package:ecommerce/core/services/service.dart';
+import 'package:ecommerce/data/datasource/remote/cart/check_coupon.dart';
 import 'package:ecommerce/data/datasource/remote/cart/view_all_cart_products.dart';
+import 'package:ecommerce/data/model/coupon_model.dart';
 import 'package:ecommerce/data/model/view_cart_all_products.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -17,16 +21,20 @@ abstract class MyCardController extends AddDeleteItemsCounter {
   initData();
   resetView();
   refreshView();
+  checkCoupon();
+  getTotalPiceAfterDiscount();
 }
 
 class MyCardControllerImp extends MyCardController {
   ViewCartData viewCartData = ViewCartData(Get.find());
   MyServices services = Get.find<MyServices>();
   List<ViewCartProductsModel> data = [];
+  CouponModel couponData = CouponModel();
   double totalprice = 0.0;
   String totalcount = "";
-  late TextEditingController couponCintroller;
-
+  int discount = 0;
+  late TextEditingController couponController;
+  CheckCouponData checkCouponData = CheckCouponData(Get.find());
   @override
   initData() {
     id = services.sharePref.getInt(AppKey.usersId)!;
@@ -35,7 +43,7 @@ class MyCardControllerImp extends MyCardController {
 
   @override
   void onInit() {
-    couponCintroller = TextEditingController();
+    couponController = TextEditingController();
     initData();
     super.onInit();
   }
@@ -62,6 +70,26 @@ class MyCardControllerImp extends MyCardController {
   }
 
   @override
+  checkCoupon() async {
+    statusRequest = StatusRequest.loading;
+    update();
+    var response = await checkCouponData.checkCoupon(couponController.text);
+    statusRequest = handlingData(response);
+    if (statusRequest == StatusRequest.success) {
+      if (response['status'] == 'success') {
+        Map<String, dynamic> alldata = response['data'];
+        couponData = CouponModel.fromJson(alldata);
+        discount = couponData.couponDiscount!;
+        //log(couponData.toString());
+      } else {
+        statusRequest = StatusRequest.none;
+        //log("no data");
+      }
+    }
+    update();
+  }
+
+  @override
   refreshView() {
     resetView();
     viewAllCartProducts();
@@ -72,5 +100,10 @@ class MyCardControllerImp extends MyCardController {
     data.clear();
     totalcount = "";
     totalprice = 0;
+  }
+
+  @override
+  getTotalPiceAfterDiscount() {
+    return totalprice - totalprice * (discount / 100);
   }
 }
