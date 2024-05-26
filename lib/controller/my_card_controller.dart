@@ -9,6 +9,7 @@ import 'package:ecommerce/data/datasource/remote/cart/check_coupon.dart';
 import 'package:ecommerce/data/datasource/remote/cart/view_all_cart_products.dart';
 import 'package:ecommerce/data/model/coupon_model.dart';
 import 'package:ecommerce/data/model/view_cart_all_products.dart';
+import 'package:ecommerce/routes/route_app.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -23,6 +24,7 @@ abstract class MyCardController extends AddDeleteItemsCounter {
   refreshView();
   checkCoupon();
   getTotalPiceAfterDiscount();
+  goToCheckOut();
 }
 
 class MyCardControllerImp extends MyCardController {
@@ -108,5 +110,10 @@ class MyCardControllerImp extends MyCardController {
   @override
   getTotalPiceAfterDiscount() {
     return totalprice - totalprice * (discount / 100);
+  }
+
+  @override
+  goToCheckOut() {
+    Get.toNamed(AppRoute.checkOut);
   }
 }
