@@ -7,7 +7,7 @@ class PendingData {
 
   pendingOrder(int userId) async {
     var response =
-        await crud.postData(AppLink.checkout, {"userid": userId.toString()});
+        await crud.postData(AppLink.pending, {"userid": userId.toString()});
     return response.fold((l) => l, (r) => r);
   }
 }
