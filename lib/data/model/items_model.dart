@@ -19,7 +19,26 @@ class ItemModel {
   int? favorite;
   double? itemspricediscount;
 
-  ItemModel({this.itemsId, this.itemsName, this.itemsNameAr, this.itemsDesc, this.itemsDescAr, this.itemsImage, this.itemsCount, this.itemsActive, this.itemsPrice, this.itemsDiscount, this.itemspricediscount, this.itemsDate, this.itemsCat, this.categoriesId, this.categoriesName, this.categoriesNameAr, this.categoriesImage, this.categoriesDatetime, this.favorite});
+  ItemModel(
+      {this.itemsId,
+      this.itemsName,
+      this.itemsNameAr,
+      this.itemsDesc,
+      this.itemsDescAr,
+      this.itemsImage,
+      this.itemsCount,
+      this.itemsActive,
+      this.itemsPrice,
+      this.itemsDiscount,
+      this.itemspricediscount,
+      this.itemsDate,
+      this.itemsCat,
+      this.categoriesId,
+      this.categoriesName,
+      this.categoriesNameAr,
+      this.categoriesImage,
+      this.categoriesDatetime,
+      this.favorite});
 
   factory ItemModel.fromJson(Map<String, dynamic> json) {
     return ItemModel(
