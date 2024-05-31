@@ -14,7 +14,9 @@ class HomeScreen extends StatelessWidget {
           preferredSize: const Size(0, 0),
           child: GetBuilder<HomeScreenControllerImp>(
             builder: (controller) => AppBar(
-              backgroundColor: controller.currentPage != 3 ? AppColor.white : AppColor.primaryColor,
+              backgroundColor: controller.currentPage != 3
+                  ? AppColor.white
+                  : AppColor.primaryColor,
             ),
           )),
       floatingActionButton: FloatingActionButton(
@@ -33,7 +35,8 @@ class HomeScreen extends StatelessWidget {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: const CustomButtomNavigationBar(),
       body: GetBuilder<HomeScreenControllerImp>(
-        builder: (controller) => controller.listPages.elementAt(controller.currentPage),
+        builder: (controller) =>
+            controller.listPages.elementAt(controller.currentPage),
       ),
     );
   }
