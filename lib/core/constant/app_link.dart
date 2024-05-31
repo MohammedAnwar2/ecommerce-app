@@ -42,4 +42,8 @@ class AppLink {
   static const String deleteAdress = "$server/address/delete.php";
   //*------------------- Coupon -------------------------
   static const String checkCoupon = "$server/coupon/checkCoupon.php";
+  //*------------------- Orders -------------------------
+  static const String checkout = "$server/orders/checkout.php";
+  static const String pending = "$server/orders/pending.php";
+  static const String archive = "$server/orders/archive.php";
 }
