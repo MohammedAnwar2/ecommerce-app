@@ -65,6 +65,9 @@ class CheckoutControllerImp extends GetxController
     if (deliveryType == null) {
       return showCustomSnackbar("You Should Select Delivery Type");
     }
+    if (deliveryType == "0" && addressId == "0") {
+      return showCustomSnackbar("You Should Select Shipping Address");
+    }
     statusRequest = StatusRequest.loading;
     update();
     var response = await checkoutData.checkout(id, paymentType!, addressId,
