@@ -28,7 +28,9 @@ class Settings extends StatelessWidget {
               right: Get.width / 2.7,
               child: Container(
                 padding: EdgeInsets.all(horizontalSize(4)),
-                decoration: BoxDecoration(color: AppColor.white, borderRadius: BorderRadius.circular(100)),
+                decoration: BoxDecoration(
+                    color: AppColor.white,
+                    borderRadius: BorderRadius.circular(100)),
                 child: CircleAvatar(
                   radius: raduis(35),
                   backgroundColor: AppColor.grey200!.withOpacity(0.5),
