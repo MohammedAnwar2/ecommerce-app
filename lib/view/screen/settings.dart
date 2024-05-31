@@ -58,6 +58,20 @@ class Settings extends StatelessWidget {
                   title: const Text("Address"),
                   trailing: const Icon(Icons.location_on_outlined),
                 ),
+                ListTile(
+                  onTap: () {
+                    controller.goToOrdersPending();
+                  },
+                  title: const Text("Orders Pending"),
+                  trailing: const Icon(Icons.pending_actions_sharp),
+                ),
+                ListTile(
+                  onTap: () {
+                    controller.goToOrdersArchive();
+                  },
+                  title: const Text("Orders Archive"),
+                  trailing: const Icon(Icons.archive_outlined),
+                ),
                 const ListTile(
                   title: Text("About us"),
                   trailing: Icon(Icons.help_outline_sharp),
