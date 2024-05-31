@@ -11,7 +11,7 @@ import 'package:ecommerce/data/model/view_address_model.dart';
 import 'package:ecommerce/routes/route_app.dart';
 import 'package:get/get.dart';
 
-abstract class CheckoutControllerMethods extends GetxController {
+mixin CheckoutControllerMethods {
   choosePaymentMethod(String val);
   chooseDeliveryType(String val);
   chooseShippingAddress(String val);
@@ -36,8 +36,8 @@ mixin CheckoutControllerVaraibles {
   List<ViewAddressModel> viewAddressList = [];
 }
 
-class CheckoutControllerImp extends CheckoutControllerMethods
-    with CheckoutControllerVaraibles {
+class CheckoutControllerImp extends GetxController
+    with CheckoutControllerMethods, CheckoutControllerVaraibles {
   @override
   getShippingAddress() async {
     statusRequest = StatusRequest.loading;
