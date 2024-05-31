@@ -62,29 +62,29 @@ class DeleteAddressControllerIma extends DeleteAddressController {
   }
 }
 
-  // Future<void> deleteAddressFromButtom() async {
-  //   if (checkAddressItems.contains(true)) {
-  //     for (int i = 0; i < checkAddressItems.length; i++) {
-  //       if (checkAddressItems[i]) {
-  //         await deleteAddress(viewAddressList[i].addressId.toString());
-  //         viewAddressController
-  //             .deleteSpecificAddress(viewAddressList[i].addressId!);
-  //       }
-  //     }
-  //     Get.back(result: "update screen");
-  //   }
-  // }
+// Future<void> deleteAddressFromButtom() async {
+//   if (checkAddressItems.contains(true)) {
+//     for (int i = 0; i < checkAddressItems.length; i++) {
+//       if (checkAddressItems[i]) {
+//         await deleteAddress(viewAddressList[i].addressId.toString());
+//         viewAddressController
+//             .deleteSpecificAddress(viewAddressList[i].addressId!);
+//       }
+//     }
+//     Get.back(result: "update screen");
+//   }
+// }
 
-  // deleteAddress(String addressId) async {
-  //   statusRequest = StatusRequest.loading;
-  //   update();
-  //   var response = await adressData.deleteAddress(addressId);
-  //   statusRequest = handlingData(response);
-  //   if (statusRequest == StatusRequest.success) {
-  //     if (response['status'] == 'success') {
-  //     } else {
-  //       statusRequest = StatusRequest.serverfailure;
-  //     }
-  //   }
-  //   update();
-  // }
+// deleteAddress(String addressId) async {
+//   statusRequest = StatusRequest.loading;
+//   update();
+//   var response = await adressData.deleteAddress(addressId);
+//   statusRequest = handlingData(response);
+//   if (statusRequest == StatusRequest.success) {
+//     if (response['status'] == 'success') {
+//     } else {
+//       statusRequest = StatusRequest.serverfailure;
+//     }
+//   }
+//   update();
+// }
