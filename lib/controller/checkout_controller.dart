@@ -6,7 +6,7 @@ import 'package:ecommerce/core/functions/hadlingdata.dart';
 import 'package:ecommerce/core/functions/show_custom_snackbar.dart';
 import 'package:ecommerce/core/services/service.dart';
 import 'package:ecommerce/data/datasource/remote/address.dart';
-import 'package:ecommerce/data/datasource/remote/checkout.dart';
+import 'package:ecommerce/data/datasource/remote/orders/checkout.dart';
 import 'package:ecommerce/data/model/view_address_model.dart';
 import 'package:ecommerce/routes/route_app.dart';
 import 'package:get/get.dart';
