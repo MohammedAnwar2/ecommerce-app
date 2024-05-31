@@ -99,8 +99,6 @@ checkInternet() async {
 //   return false;
 // }
 
-
-
 // import 'dart:io';
 
 // Future<bool> checkInternet() async {

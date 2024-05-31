@@ -1,3 +1,4 @@
 {
-    "cmake.sourceDirectory": "D:/advanced_projects/ecommerce/windows"
+    "cmake.sourceDirectory": "D:/advanced_projects/ecommerce/windows",
+    "cmake.configureOnOpen": true
 }
