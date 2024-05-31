@@ -9,7 +9,6 @@ import 'package:ecommerce/view/widget/checkout/delivery_type_bottom.dart';
 import 'package:ecommerce/view/widget/checkout/payment_method_bottom.dart';
 import 'package:ecommerce/view/widget/checkout/selected_address_bottom.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
 class CheckOut extends StatelessWidget {

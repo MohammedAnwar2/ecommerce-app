@@ -81,29 +81,31 @@ class MyCardControllerImp extends MyCardControllerMethods
 
   @override
   checkCoupon() async {
-    statusRequest = StatusRequest.loading;
-    update();
-    var response = await checkCouponData.checkCoupon(couponController.text);
-    statusRequest = handlingData(response);
-    if (statusRequest == StatusRequest.success) {
-      if (response['status'] == 'success') {
-        Map<String, dynamic> alldata = response['data'];
-        couponData = CouponModel.fromJson(alldata);
-        discount = couponData.couponDiscount!;
-        couponName = couponData.couponName;
-        couponId = couponData.couponId.toString();
-        log(couponId.toString());
-        //log(couponData.toString());
-      } else {
-        statusRequest = StatusRequest.success;
-        discount = 0;
-        //! i do not know why ??
-        couponId = null;
-        couponName = null;
-        //log("no data");
+    if (couponController.text.trim().isNotEmpty) {
+      statusRequest = StatusRequest.loading;
+      update();
+      var response = await checkCouponData.checkCoupon(couponController.text);
+      statusRequest = handlingData(response);
+      if (statusRequest == StatusRequest.success) {
+        if (response['status'] == 'success') {
+          Map<String, dynamic> alldata = response['data'];
+          couponData = CouponModel.fromJson(alldata);
+          discount = couponData.couponDiscount!;
+          couponName = couponData.couponName;
+          couponId = couponData.couponId.toString();
+          log(couponId.toString());
+          //log(couponData.toString());
+        } else {
+          statusRequest = StatusRequest.success;
+          discount = 0;
+          //! i do not know why ??
+          couponId = null;
+          couponName = null;
+          //log("no data");
+        }
       }
+      update();
     }
-    update();
   }
 
   @override
