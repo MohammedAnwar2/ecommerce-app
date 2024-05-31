@@ -17,10 +17,44 @@ class MyFavoriteModel {
   int? usersId;
   double? totalPrice;
 
-  MyFavoriteModel({this.favoriteId, this.favoriteUsersId, this.favoriteItemsId, this.itemsId, this.itemsName, this.itemsNameAr, this.itemsDesc, this.itemsDescAr, this.itemsImage, this.itemsCount, this.itemsActive, this.itemsPrice, this.itemsDiscount, this.itemsDate, this.totalPrice, this.itemsCat, this.usersId});
+  MyFavoriteModel(
+      {this.favoriteId,
+      this.favoriteUsersId,
+      this.favoriteItemsId,
+      this.itemsId,
+      this.itemsName,
+      this.itemsNameAr,
+      this.itemsDesc,
+      this.itemsDescAr,
+      this.itemsImage,
+      this.itemsCount,
+      this.itemsActive,
+      this.itemsPrice,
+      this.itemsDiscount,
+      this.itemsDate,
+      this.totalPrice,
+      this.itemsCat,
+      this.usersId});
 
   factory MyFavoriteModel.fromJson(Map<String, dynamic> json) {
-    return MyFavoriteModel(favoriteId: json['favorite_id'], favoriteUsersId: json['favorite_usersId'], favoriteItemsId: json['favorite_itemsId'], itemsId: json['items_id'], itemsName: json['items_name'], totalPrice: json['total_price'], itemsNameAr: json['items_name_ar'], itemsDesc: json['items_desc'], itemsDescAr: json['items_desc_ar'], itemsImage: json['items_image'], itemsCount: json['items_count'], itemsActive: json['items_active'], itemsPrice: json['items_price'], itemsDiscount: json['items_discount'], itemsDate: json['items_date'], itemsCat: json['items_cat'], usersId: json['users_id']);
+    return MyFavoriteModel(
+        favoriteId: json['favorite_id'],
+        favoriteUsersId: json['favorite_usersId'],
+        favoriteItemsId: json['favorite_itemsId'],
+        itemsId: json['items_id'],
+        itemsName: json['items_name'],
+        totalPrice: json['total_price'],
+        itemsNameAr: json['items_name_ar'],
+        itemsDesc: json['items_desc'],
+        itemsDescAr: json['items_desc_ar'],
+        itemsImage: json['items_image'],
+        itemsCount: json['items_count'],
+        itemsActive: json['items_active'],
+        itemsPrice: json['items_price'],
+        itemsDiscount: json['items_discount'],
+        itemsDate: json['items_date'],
+        itemsCat: json['items_cat'],
+        usersId: json['users_id']);
   }
 
   Map<String, dynamic> toJson() {

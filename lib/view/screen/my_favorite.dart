@@ -19,7 +19,8 @@ class MyFavorite extends StatelessWidget {
             backgroundColor: AppColor.white,
           )),
       body: ListView(
-        padding: EdgeInsetsDirectional.symmetric(vertical: verticalSized(10), horizontal: horizontalSize(16)),
+        padding: EdgeInsetsDirectional.symmetric(
+            vertical: verticalSized(10), horizontal: horizontalSize(16)),
         children: [
           GetBuilder<MyFavoriteControllerImp>(
             builder: (controller) => CustomAppBar(

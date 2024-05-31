@@ -28,7 +28,6 @@ class FavoriteData {
   }
 }
 
-
 // class FavoriteData {
 //   Crud crud;
 //   FavoriteData(this.crud);
