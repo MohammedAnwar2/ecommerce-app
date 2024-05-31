@@ -1,6 +1,8 @@
 import 'package:ecommerce/core/middleware/login_middleware.dart';
 import 'package:ecommerce/core/middleware/onboarding_middleware.dart';
 import 'package:ecommerce/routes/route_app.dart';
+import 'package:ecommerce/view/screen/orders/archive.dart';
+import 'package:ecommerce/view/screen/orders/pending.dart';
 import 'package:ecommerce/view/screen/address/add_address.dart';
 import 'package:ecommerce/view/screen/address/add_address_details.dart';
 import 'package:ecommerce/view/screen/address/delete_address.dart';
@@ -141,8 +143,15 @@ List<GetPage<dynamic>>? getPages = [
   ),
   //*checkout
   GetPage(
-    name: AppRoute.checkOut,
-    page: () => const CheckOut(),
-    transition: Transition.rightToLeftWithFade,
-  ),
+      name: AppRoute.checkOut,
+      page: () => const CheckOut(),
+      transition: Transition.rightToLeftWithFade),
+  GetPage(
+      name: AppRoute.pendingorders,
+      page: () => const PendingOrders(),
+      transition: Transition.rightToLeftWithFade),
+  GetPage(
+      name: AppRoute.archiveorders,
+      page: () => const ArchiveOrders(),
+      transition: Transition.rightToLeftWithFade),
 ];
