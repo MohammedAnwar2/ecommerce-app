@@ -45,6 +45,7 @@ class CustombottomNavigationBar extends GetView<MyCardControllerImp> {
                     Expanded(
                       child: CustomCouponButton(
                         text: "Apply",
+                        isThereData: controller.data.isNotEmpty,
                         onCoupon: () {
                           controller.checkCoupon();
                           focusScopeNode.unfocus();

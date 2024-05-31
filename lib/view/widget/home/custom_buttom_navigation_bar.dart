@@ -37,17 +37,6 @@ class CustomButtomNavigationBar extends GetView<HomeScreenControllerImp> {
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-
 // class CustomButtomNavigationBar extends GetView<HomeScreenControllerImp> {
 //   const CustomButtomNavigationBar({
 //     super.key,
@@ -74,34 +63,34 @@ class CustomButtomNavigationBar extends GetView<HomeScreenControllerImp> {
 //                   ),
 //           )
 
-          // Row(
-          //   children: [
-          // CustomBottomAppBar(
-          //   index: 0,
-          //   text: "Home",
-          //   icon: Icons.home,
-          // ),
-          //     CustomBottomAppBar(
-          //       index: 1,
-          //       text: "Settings",
-          //       icon: Icons.settings,
-          //     ),
-          //   ],
-          // ),
-          // Row(
-          //   children: [
-          //     CustomBottomAppBar(
-          //       index: 2,
-          //       text: "Profile",
-          //       icon: Icons.person,
-          //     ),
-          //     CustomBottomAppBar(
-          //       index: 3,
-          //       text: "Favorite",
-          //       icon: Icons.favorite,
-          //     ),
-          //   ],
-          // )
+// Row(
+//   children: [
+// CustomBottomAppBar(
+//   index: 0,
+//   text: "Home",
+//   icon: Icons.home,
+// ),
+//     CustomBottomAppBar(
+//       index: 1,
+//       text: "Settings",
+//       icon: Icons.settings,
+//     ),
+//   ],
+// ),
+// Row(
+//   children: [
+//     CustomBottomAppBar(
+//       index: 2,
+//       text: "Profile",
+//       icon: Icons.person,
+//     ),
+//     CustomBottomAppBar(
+//       index: 3,
+//       text: "Favorite",
+//       icon: Icons.favorite,
+//     ),
+//   ],
+// )
 //         ],
 //       ),
 //     );

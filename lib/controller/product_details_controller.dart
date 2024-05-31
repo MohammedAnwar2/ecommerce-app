@@ -9,6 +9,10 @@ import 'package:ecommerce/routes/route_app.dart';
 import 'package:get/get.dart';
 
 abstract class ProductDetailsController extends AddDeleteItemsCounter {
+  @override
+  addData(String itemId);
+  @override
+  deleteData(String itemId);
   initData();
   add();
   remove();

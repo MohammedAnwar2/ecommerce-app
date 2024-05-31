@@ -7,15 +7,18 @@ class CustomCouponButton extends StatelessWidget {
     super.key,
     this.onCoupon,
     required this.text,
+    required this.isThereData,
   });
   final void Function()? onCoupon;
   final String text;
+  final bool isThereData;
   @override
   Widget build(BuildContext context) {
     return MaterialButton(
+      disabledColor: Colors.grey,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
       padding: EdgeInsets.symmetric(vertical: verticalSized(5)),
-      onPressed: onCoupon,
+      onPressed: isThereData ? onCoupon : null,
       color: AppColor.primaryColor,
       child: Text(text, style: Theme.of(context).textTheme.displaySmall),
     );

@@ -2,8 +2,10 @@ import 'dart:developer';
 
 import 'package:ecommerce/controller/mix_class_controller/add_delete_items_methods.dart';
 import 'package:ecommerce/core/class/sratus_request.dart';
+import 'package:ecommerce/core/constant/app_color.dart';
 import 'package:ecommerce/core/constant/app_keys.dart';
 import 'package:ecommerce/core/functions/hadlingdata.dart';
+import 'package:ecommerce/core/functions/show_custom_snackbar.dart';
 import 'package:ecommerce/core/services/service.dart';
 import 'package:ecommerce/data/datasource/remote/cart/check_coupon.dart';
 import 'package:ecommerce/data/datasource/remote/cart/view_all_cart_products.dart';
@@ -13,7 +15,7 @@ import 'package:ecommerce/routes/route_app.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-abstract class MyCardController extends AddDeleteItemsCounter {
+abstract class MyCardControllerMethods extends AddDeleteItemsCounter {
   @override
   addData(String itemId);
   @override
@@ -27,7 +29,7 @@ abstract class MyCardController extends AddDeleteItemsCounter {
   goToCheckOut();
 }
 
-class MyCardControllerImp extends MyCardController {
+mixin MyCardControllerVariables {
   ViewCartData viewCartData = ViewCartData(Get.find());
   MyServices services = Get.find<MyServices>();
   List<ViewCartProductsModel> data = [];
@@ -36,8 +38,13 @@ class MyCardControllerImp extends MyCardController {
   String totalcount = "";
   int discount = 0;
   String? couponName;
+  String? couponId;
   late TextEditingController couponController;
   CheckCouponData checkCouponData = CheckCouponData(Get.find());
+}
+
+class MyCardControllerImp extends MyCardControllerMethods
+    with MyCardControllerVariables {
   @override
   initData() {
     id = services.sharePref.getInt(AppKey.usersId)!;
@@ -84,10 +91,15 @@ class MyCardControllerImp extends MyCardController {
         couponData = CouponModel.fromJson(alldata);
         discount = couponData.couponDiscount!;
         couponName = couponData.couponName;
+        couponId = couponData.couponId.toString();
+        log(couponId.toString());
         //log(couponData.toString());
       } else {
         statusRequest = StatusRequest.success;
         discount = 0;
+        //! i do not know why ??
+        couponId = null;
+        couponName = null;
         //log("no data");
       }
     }
@@ -107,6 +119,7 @@ class MyCardControllerImp extends MyCardController {
     totalprice = 0;
   }
 
+//* total price with discount
   @override
   getTotalPiceAfterDiscount() {
     return totalprice - totalprice * (discount / 100);
@@ -114,6 +127,14 @@ class MyCardControllerImp extends MyCardController {
 
   @override
   goToCheckOut() {
-    Get.toNamed(AppRoute.checkOut);
+    if (data.isNotEmpty) {
+      Get.toNamed(AppRoute.checkOut, arguments: {
+        "couponId": couponId ?? "0",
+        "totalPice": totalprice.toString(),
+        "discountCoupon": discount.toString()
+      });
+    } else {
+      showCustomSnackbar("THERE ARE NO ITEMS IN CART");
+    }
   }
 }

@@ -20,7 +20,9 @@ class CheckOut extends StatelessWidget {
     CheckoutControllerImp checkoutController = Get.put(CheckoutControllerImp());
     return Scaffold(
       bottomNavigationBar: CheckoutBotton(
-        onPressed: () {},
+        onPressed: () async {
+          await checkoutController.checkoutProcess();
+        },
       ),
       appBar: AppBar(title: const Text("CheckOut")),
       body: GetBuilder<CheckoutControllerImp>(
@@ -34,17 +36,17 @@ class CheckOut extends StatelessWidget {
                 Column(
                   children: [
                     CustomSelectedPaymentMehtodBottom(
-                      isActive: controller.paymentType == "cash" ? true : false,
+                      isActive: controller.paymentType == "0" ? true : false,
                       text: "Cash",
                       onPressed: () {
-                        controller.choosePaymentMethod("cash");
+                        controller.choosePaymentMethod("0");
                       },
                     ),
                     CustomSelectedPaymentMehtodBottom(
-                      isActive: controller.paymentType == "card" ? true : false,
+                      isActive: controller.paymentType == "1" ? true : false,
                       text: "Payment Cards",
                       onPressed: () {
-                        controller.choosePaymentMethod("card");
+                        controller.choosePaymentMethod("1");
                       },
                     ),
                   ],
@@ -56,32 +58,30 @@ class CheckOut extends StatelessWidget {
                   children: [
                     CustomSelectedDeliveryType(
                       image: AppImages.deliveryman,
-                      isActive:
-                          controller.deliveryType == "delivery" ? true : false,
+                      isActive: controller.deliveryType == "0" ? true : false,
                       typeName: "Delivery",
                       onTap: () {
-                        controller.chooseDeliveryType("delivery");
+                        controller.chooseDeliveryType("0");
                       },
                     ),
                     horizontalSizedBox(10),
                     CustomSelectedDeliveryType(
                       image: AppImages.deliverycar,
-                      isActive:
-                          controller.deliveryType == "recive" ? true : false,
-                      typeName: "Drive Thru",
+                      isActive: controller.deliveryType == "1" ? true : false,
+                      typeName: "Store",
                       onTap: () {
-                        controller.chooseDeliveryType("recive");
+                        controller.chooseDeliveryType("1");
                       },
                     ),
                   ],
                 ),
-                if (controller.deliveryType == "delivery")
+                if (controller.deliveryType == "0")
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       verticalSizedBox(16),
                       const CustomTitleCeckoutText(
-                          text: "Choose Delivery Type"),
+                          text: "Choose Shipping Address"),
                       ...List.generate(
                         controller.viewAddressList.length,
                         (i) => CustomSelectedAddressCard(
@@ -90,7 +90,7 @@ class CheckOut extends StatelessWidget {
                                 .viewAddressList[i].addressId
                                 .toString());
                           },
-                          isActive: controller.addressName ==
+                          isActive: controller.addressId ==
                               controller.viewAddressList[i].addressId
                                   .toString(),
                           viewAddress: controller.viewAddressList[i],
