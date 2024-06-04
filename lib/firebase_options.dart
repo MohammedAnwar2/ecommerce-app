@@ -50,19 +50,20 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyAZpb3C7CyS0ZNdwlZrU9Dl-59DDvCi7Vw',
-    appId: '1:422358596647:web:5ef3b18758c7443850a202',
-    messagingSenderId: '422358596647',
-    projectId: 'ecommerce-32fc3',
-    authDomain: 'ecommerce-32fc3.firebaseapp.com',
-    storageBucket: 'ecommerce-32fc3.appspot.com',
+    apiKey: 'AIzaSyAqKrU9J5DIdxydJtYHxHdE2oQsnquWSV8',
+    appId: '1:850178454275:web:89670845cf11ee2ac82f36',
+    messagingSenderId: '850178454275',
+    projectId: 'first-project-c2a07',
+    authDomain: 'first-project-c2a07.firebaseapp.com',
+    storageBucket: 'first-project-c2a07.appspot.com',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyAoUqsXiGCJrEfU17ezmtK2bG59hSpjZ7s',
-    appId: '1:422358596647:android:d7aa4daa50f9999150a202',
-    messagingSenderId: '422358596647',
-    projectId: 'ecommerce-32fc3',
-    storageBucket: 'ecommerce-32fc3.appspot.com',
+    apiKey: 'AIzaSyBUToyGF_610WwMO_bq29bwXUede5bKXB0',
+    appId: '1:850178454275:android:d2ad37a411da171bc82f36',
+    messagingSenderId: '850178454275',
+    projectId: 'first-project-c2a07',
+    storageBucket: 'first-project-c2a07.appspot.com',
   );
+
 }

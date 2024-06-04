@@ -48,6 +48,7 @@ class LoginControllerImp extends LoginController {
                 .setString(AppKey.usersEmail, response['data']['users_email']);
             controller.sharePref
                 .setString(AppKey.usersPhone, response['data']['users_phone']);
+            FirebaseMessaging.instance.subscribeToTopic("users");
             controller.sharePref.setBool(AppKey.loginMiddleware, true);
             Get.offAllNamed(AppRoute.homeScreen);
           } else {

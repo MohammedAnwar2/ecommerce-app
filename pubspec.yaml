@@ -13,7 +13,7 @@ dependencies:
   dartz: ^0.10.1
   dropdown_search: ^5.0.6
   firebase_core: ^2.27.1
-  firebase_messaging: ^14.7.20
+  firebase_messaging: ^14.9.4
   flutter:
     sdk: flutter
   flutter_local_notifications: ^17.0.0
@@ -46,7 +46,6 @@ dependencies:
   url_launcher: ^6.2.5
 
 dev_dependencies:
-
   flutter_lints: ^3.0.1
   flutter_test:
     sdk: flutter

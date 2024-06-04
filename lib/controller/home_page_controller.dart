@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:ecommerce/controller/mix_class_controller/serch_class_methods.dart';
 import 'package:ecommerce/core/class/sratus_request.dart';
 import 'package:ecommerce/core/constant/app_keys.dart';
@@ -9,6 +11,7 @@ import 'package:ecommerce/data/model/items_model.dart';
 import 'package:ecommerce/routes/route_app.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 
 abstract class HomePageController extends SearchMethodMix {
   getData();
@@ -61,6 +64,7 @@ class HomePageControllerImp extends HomePageController {
   @override
   void onInit() {
     initData();
+
     super.onInit();
   }
 
