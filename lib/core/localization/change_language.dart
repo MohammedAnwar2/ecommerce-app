@@ -1,5 +1,6 @@
 import 'package:ecommerce/core/constant/app_theme.dart';
 import 'package:ecommerce/core/constant/app_keys.dart';
+import 'package:ecommerce/core/services/notification_services.dart';
 import 'package:ecommerce/core/services/service.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -19,6 +20,7 @@ class MyLanguageController extends GetxController {
 
   @override
   void onInit() {
+    NotificationServices.runAllFunctions();
     String? sharedPrefLang = myServices.sharePref.getString(AppKey.language);
     if (sharedPrefLang == "ar") {
       language = const Locale("ar");
