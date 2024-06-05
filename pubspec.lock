@@ -732,10 +732,10 @@ packages:
     dependency: "direct main"
     description:
       name: jiffy
-      sha256: b09b6aacc0ebe7d178d2fcbabfd73e7d3340594043fe949bb7e0814093b00201
+      sha256: "3497caaa36d36a29033e66803c9739ce6bccbc7e241ca46070f76ee9e6f6eb0c"
       url: "https://pub.dev"
     source: hosted
-    version: "6.3.0"
+    version: "6.3.1"
   js:
     dependency: transitive
     description:

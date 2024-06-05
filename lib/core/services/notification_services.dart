@@ -1,3 +1,6 @@
+import 'dart:developer';
+
+import 'package:ecommerce/controller/orders/pending_controller.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:get/get.dart';
 import 'package:flutter_ringtone_player/flutter_ringtone_player.dart';
@@ -31,8 +34,18 @@ class NotificationServices {
         FlutterRingtonePlayer().playNotification();
         Get.snackbar(message.notification!.title.toString(),
             message.notification!.body.toString());
+        refreshOrderPindingPage(message.data);
       }
     });
+  }
+
+  static refreshOrderPindingPage(Map data) async {
+    if (data["pagename"] == "orderpendingrefresh" &&
+        Get.currentRoute == "/pendingorders") {
+      PendingConrollerImp controller = Get.find<PendingConrollerImp>();
+      await controller.refreshPendingOrders();
+      log("refresh =-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=");
+    }
   }
 
   static Future<void> runAllFunctions() async {

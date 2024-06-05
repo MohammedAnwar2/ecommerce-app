@@ -13,6 +13,7 @@ mixin PendingConrollerMethods {
   printOrderType(String val);
   printPaymentMethod(String val);
   printStatus(String val);
+  refreshPendingOrders();
 }
 mixin PendingConrollerVaraibles {
   late int id;
@@ -83,5 +84,10 @@ class PendingConrollerImp extends GetxController
     } else {
       return "Archive";
     }
+  }
+
+  @override
+  refreshPendingOrders() async {
+    await getPendingOrders();
   }
 }

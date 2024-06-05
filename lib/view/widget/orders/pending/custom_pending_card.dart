@@ -4,6 +4,7 @@ import 'package:ecommerce/core/shared/horizontal_and_vertical_size.dart';
 import 'package:ecommerce/data/model/pending_orders_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:jiffy/jiffy.dart';
 
 class CustomCard extends GetView<PendingConrollerImp> {
   const CustomCard({super.key, required this.pendingOrders});
@@ -20,10 +21,23 @@ class CustomCard extends GetView<PendingConrollerImp> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                "Order Number : ${pendingOrders.ordersId}",
-                style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                    fontSize: fontSize(18), fontWeight: FontWeight.bold),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Order Number : ${pendingOrders.ordersId}",
+                    style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                        fontSize: fontSize(18), fontWeight: FontWeight.bold),
+                  ),
+                  Text(
+                    Jiffy.parse(pendingOrders.ordersDatetime!).fromNow(),
+                    style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                        fontSize: fontSize(13),
+                        fontWeight: FontWeight.bold,
+                        color: AppColor.secondaryColor,
+                        fontFamily: ""),
+                  ),
+                ],
               ),
               const Divider(thickness: 0.5),
               Text(
