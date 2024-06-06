@@ -7,8 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:jiffy/jiffy.dart';
 
-class CustomCard extends GetView<ArchiveConrollerImp> {
-  const CustomCard({super.key, required this.archiveOrders});
+class CustomArchiveCard extends GetView<ArchiveConrollerImp> {
+  const CustomArchiveCard({super.key, required this.archiveOrders});
   final ArchiveOrdersModel archiveOrders;
 
   @override

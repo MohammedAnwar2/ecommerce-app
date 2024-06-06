@@ -26,7 +26,7 @@ class PendingOrders extends StatelessWidget {
               ),
               itemCount: pendingConroller.pendingOrdersList.length,
               itemBuilder: (context, i) {
-                return CustomCard(
+                return CustomPendingCard(
                     pendingOrders: pendingConroller.pendingOrdersList[i]);
               },
             ),
