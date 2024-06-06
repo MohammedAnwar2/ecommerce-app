@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:ecommerce/controller/notifications/view_notifications_controller.dart';
 import 'package:ecommerce/controller/orders/pending_controller.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:get/get.dart';
@@ -34,17 +35,22 @@ class NotificationServices {
         FlutterRingtonePlayer().playNotification();
         Get.snackbar(message.notification!.title.toString(),
             message.notification!.body.toString());
-        refreshOrderPindingPage(message.data);
+        refreshOrdersAndNotifcation(message.data);
       }
     });
   }
 
-  static refreshOrderPindingPage(Map data) async {
+  static refreshOrdersAndNotifcation(Map data) async {
     if (data["pagename"] == "orderpendingrefresh" &&
         Get.currentRoute == "/pendingorders") {
       PendingConrollerImp controller = Get.find<PendingConrollerImp>();
       await controller.refreshPendingOrders();
       log("refresh =-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=");
+    }
+    if (data["pagename"] == "orderpendingrefresh") {
+      ViewNotificationControllerImp controller =
+          Get.put(ViewNotificationControllerImp());
+      controller.refereshNotificarions();
     }
   }
 
