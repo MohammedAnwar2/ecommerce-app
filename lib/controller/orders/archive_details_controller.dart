@@ -1,20 +1,19 @@
 import 'dart:async';
-import 'dart:developer';
 
 import 'package:ecommerce/core/class/sratus_request.dart';
 import 'package:ecommerce/core/functions/hadlingdata.dart';
 import 'package:ecommerce/data/datasource/remote/orders/details.dart';
+import 'package:ecommerce/data/model/archive_orders_model.dart';
 import 'package:ecommerce/data/model/orders_details_model.dart';
-import 'package:ecommerce/data/model/pending_orders_model.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
-mixin OrderDetailsMethods {
+mixin OrderArchiveDetailsMethods {
   initData();
-  viewOreredDetails();
+  viewArchiveOreredDetails();
 }
-mixin OrderDetailsVaraible {
-  late PendingOrdersModel pendingOrders;
+mixin OrderArchiveDetailsVaraible {
+  late ArchiveOrdersModel archiveOrders;
   OrderDetailsData orderdetails = OrderDetailsData(Get.find());
   late CameraPosition cameraPosition;
   late Completer<GoogleMapController> completorController;
@@ -24,13 +23,13 @@ mixin OrderDetailsVaraible {
   List<OrdersDetailsModel> ordersDetailsList = [];
 }
 
-class OrderDetailsControllerImp extends GetxController
-    with OrderDetailsMethods, OrderDetailsVaraible {
+class OrderArchiveDetailsControllerImp extends GetxController
+    with OrderArchiveDetailsMethods, OrderArchiveDetailsVaraible {
   @override
-  viewOreredDetails() async {
+  viewArchiveOreredDetails() async {
     statusRequest = StatusRequest.loading;
     update();
-    var response = await orderdetails.orderDetails(pendingOrders.ordersId!);
+    var response = await orderdetails.orderDetails(archiveOrders!.ordersId!);
     statusRequest = handlingData(response);
     if (statusRequest == StatusRequest.success) {
       if (response['status'] == 'success') {
@@ -47,10 +46,10 @@ class OrderDetailsControllerImp extends GetxController
 
   @override
   initData() {
-    pendingOrders = Get.arguments["orderdetails"];
-    if (pendingOrders.ordersType == 0) {
+    archiveOrders = Get.arguments["archiveorderdetails"];
+    if (archiveOrders.ordersType == 0) {
       completorController = Completer<GoogleMapController>();
-      latLng = LatLng(pendingOrders.addressLat!, pendingOrders.addressLong!);
+      latLng = LatLng(archiveOrders.addressLat!, archiveOrders.addressLong!);
       cameraPosition = CameraPosition(
         target: latLng,
         zoom: 16,
@@ -64,7 +63,7 @@ class OrderDetailsControllerImp extends GetxController
   @override
   void onInit() {
     initData();
-    viewOreredDetails();
+    viewArchiveOreredDetails();
     super.onInit();
   }
 }

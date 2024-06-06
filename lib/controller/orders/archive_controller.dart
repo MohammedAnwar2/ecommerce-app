@@ -15,7 +15,7 @@ mixin AchiveConrollerMethods {
   printPaymentMethod(String val);
   printStatus(String val);
   refreshPendingOrders();
-  goToOrderDetails(ArchiveOrdersModel archiveOrders);
+  goToArchiveOrderDetails(ArchiveOrdersModel archiveOrders);
 }
 mixin AchiveConrollerVaraibles {
   late int id;
@@ -96,8 +96,8 @@ class ArchiveConrollerImp extends GetxController
   }
 
   @override
-  goToOrderDetails(ArchiveOrdersModel archiveOrders) {
-    Get.toNamed(AppRoute.orderDetails,
-        arguments: {"orderdetails": archiveOrders});
+  goToArchiveOrderDetails(ArchiveOrdersModel archiveOrders) {
+    Get.toNamed(AppRoute.orderArchiveDetails,
+        arguments: {"archiveorderdetails": archiveOrders});
   }
 }

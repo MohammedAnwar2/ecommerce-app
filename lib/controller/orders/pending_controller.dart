@@ -16,7 +16,7 @@ mixin PendingConrollerMethods {
   printPaymentMethod(String val);
   printStatus(String val);
   refreshPendingOrders();
-  goToOrderDetails(PendingOrdersModel pendingOrders);
+  goToPendingOrderDetails(PendingOrdersModel pendingOrders);
 }
 mixin PendingConrollerVaraibles {
   late int id;
@@ -114,8 +114,8 @@ class PendingConrollerImp extends GetxController
   }
 
   @override
-  goToOrderDetails(PendingOrdersModel pendingOrders) {
-    Get.toNamed(AppRoute.orderDetails,
-        arguments: {"orderdetails": pendingOrders});
+  goToPendingOrderDetails(PendingOrdersModel pendingOrders) {
+    Get.toNamed(AppRoute.orderPendingDetails,
+        arguments: {"pendingorderdetails": pendingOrders});
   }
 }

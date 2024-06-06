@@ -2,7 +2,7 @@ import 'package:ecommerce/controller/orders/pending_controller.dart';
 import 'package:ecommerce/core/constant/app_color.dart';
 import 'package:ecommerce/core/shared/horizontal_and_vertical_size.dart';
 import 'package:ecommerce/data/model/pending_orders_model.dart';
-import 'package:ecommerce/view/widget/orders/custom_order_botton.dart';
+import 'package:ecommerce/view/widget/orders/components/custom_order_botton.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:jiffy/jiffy.dart';
@@ -80,7 +80,7 @@ class CustomPendingCard extends GetView<PendingConrollerImp> {
                       CustomOrderButtom(
                         text: "Details",
                         onPressed: () {
-                          controller.goToOrderDetails(pendingOrders);
+                          controller.goToPendingOrderDetails(pendingOrders);
                         },
                       ),
                     ],
