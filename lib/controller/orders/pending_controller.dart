@@ -100,6 +100,8 @@ class PendingConrollerImp extends GetxController
     } else if (val == "1") {
       return "The order is being prepared";
     } else if (val == "2") {
+      return "The order has been recived with delivery man";
+    } else if (val == "3") {
       return "On the way";
     } else {
       return "Archive";
