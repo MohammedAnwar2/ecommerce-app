@@ -6,6 +6,7 @@ import 'package:ecommerce/core/functions/hadlingdata.dart';
 import 'package:ecommerce/core/services/service.dart';
 import 'package:ecommerce/data/datasource/remote/orders/pending.dart';
 import 'package:ecommerce/data/model/pending_orders_model.dart';
+import 'package:ecommerce/routes/route_app.dart';
 import 'package:get/get.dart';
 
 mixin PendingConrollerMethods {
@@ -14,6 +15,7 @@ mixin PendingConrollerMethods {
   printPaymentMethod(String val);
   printStatus(String val);
   refreshPendingOrders();
+  goToOrderDetails(PendingOrdersModel pendingOrders);
 }
 mixin PendingConrollerVaraibles {
   late int id;
@@ -89,5 +91,11 @@ class PendingConrollerImp extends GetxController
   @override
   refreshPendingOrders() async {
     await getPendingOrders();
+  }
+
+  @override
+  goToOrderDetails(PendingOrdersModel pendingOrders) {
+    Get.toNamed(AppRoute.orderDetails,
+        arguments: {"orderdetails": pendingOrders});
   }
 }
