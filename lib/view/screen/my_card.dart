@@ -21,7 +21,7 @@ class MyCardScreen extends StatelessWidget {
           padding:
               EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
           child: CustombottomNavigationBar(
-            shipping: "0",
+            shipping: controller.totalprice == 0.0 ? "0" : "30",
             price: controller.totalprice.toString(),
             discount: controller.discount.toString(),
             totalPrice: controller.getTotalPiceAfterDiscount().toString(),
