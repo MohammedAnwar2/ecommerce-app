@@ -5,7 +5,7 @@ class PendingOrdersModel {
   int? ordersAddressId;
   int? ordersType;
   int? ordersPricedelivery;
-  int? ordersPrice;
+  double? ordersPrice;
   double? ordersTotalprice;
   int? ordersCoupon;
   String? ordersDatetime;
@@ -47,7 +47,7 @@ class PendingOrdersModel {
         ordersAddressId: json['orders_addressId'] as int?,
         ordersType: json['orders_type'] as int?,
         ordersPricedelivery: json['orders_pricedelivery'] as int?,
-        ordersPrice: json['orders_price'] as int?,
+        ordersPrice: json['orders_price'] as double?,
         ordersTotalprice: (json['orders_totalprice'] as num?)?.toDouble(),
         ordersCoupon: json['orders_coupon'] as int?,
         ordersDatetime: json['orders_datetime'] as String?,
