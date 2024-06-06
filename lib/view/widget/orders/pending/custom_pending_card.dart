@@ -2,6 +2,7 @@ import 'package:ecommerce/controller/orders/pending_controller.dart';
 import 'package:ecommerce/core/constant/app_color.dart';
 import 'package:ecommerce/core/shared/horizontal_and_vertical_size.dart';
 import 'package:ecommerce/data/model/pending_orders_model.dart';
+import 'package:ecommerce/view/widget/orders/custom_order_botton.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:jiffy/jiffy.dart';
@@ -68,7 +69,7 @@ class CustomCard extends GetView<PendingConrollerImp> {
                   Row(
                     children: [
                       if (pendingOrders.ordersStatus == 0)
-                        CustomPendingButtom(
+                        CustomOrderButtom(
                           text: "Delete",
                           onPressed: () {
                             controller
@@ -76,7 +77,7 @@ class CustomCard extends GetView<PendingConrollerImp> {
                           },
                         ),
                       horizontalSizedBox(10),
-                      CustomPendingButtom(
+                      CustomOrderButtom(
                         text: "Details",
                         onPressed: () {
                           controller.goToOrderDetails(pendingOrders);
@@ -88,34 +89,6 @@ class CustomCard extends GetView<PendingConrollerImp> {
               )
             ],
           ),
-        ),
-      ),
-    );
-  }
-}
-
-class CustomPendingButtom extends StatelessWidget {
-  const CustomPendingButtom(
-      {super.key, required this.onPressed, required this.text});
-  final void Function() onPressed;
-  final String text;
-  @override
-  Widget build(BuildContext context) {
-    return MaterialButton(
-      padding: EdgeInsets.zero, // Removes the default padding
-      materialTapTargetSize:
-          MaterialTapTargetSize.shrinkWrap, // Shrinks the tap target
-      minWidth: horizontalSize(60), // Minimum width
-      height: verticalSized(30),
-      color: AppColor.primaryColor,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-      onPressed: onPressed,
-      child: Text(
-        text,
-        style: TextStyle(
-          color: AppColor.white,
-          fontWeight: FontWeight.bold,
-          fontSize: fontSize(12),
         ),
       ),
     );
