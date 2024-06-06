@@ -69,7 +69,9 @@ class CustomCard extends GetView<PendingConrollerImp> {
                     color: AppColor.primaryColor,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(8)),
-                    onPressed: () {},
+                    onPressed: () {
+                      controller.goToOrderDetails(pendingOrders);
+                    },
                     child: Text(
                       "Details",
                       style: TextStyle(
