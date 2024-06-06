@@ -46,6 +46,8 @@ class AppLink {
   static const String checkout = "$server/orders/checkout.php";
   static const String pending = "$server/orders/pending.php";
   static const String archive = "$server/orders/archive.php";
+  static const String orderDetails = "$server/orders/details.php";
+  static const String deleteOrder = "$server/orders/delete.php";
   //*------------------- Notification -------------------------
   static const String viewNotifications = "$server/notification/view.php";
   static const String deleteNotifications = "$server/notification/delete.php";
