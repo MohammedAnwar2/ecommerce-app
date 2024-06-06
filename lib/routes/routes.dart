@@ -1,6 +1,7 @@
 import 'package:ecommerce/core/middleware/login_middleware.dart';
 import 'package:ecommerce/core/middleware/onboarding_middleware.dart';
 import 'package:ecommerce/routes/route_app.dart';
+import 'package:ecommerce/view/screen/notification.dart';
 import 'package:ecommerce/view/screen/orders/archive.dart';
 import 'package:ecommerce/view/screen/orders/pending.dart';
 import 'package:ecommerce/view/screen/address/add_address.dart';

@@ -1,5 +1,6 @@
 import 'package:ecommerce/routes/route_app.dart';
 import 'package:ecommerce/view/screen/home_page.dart';
+import 'package:ecommerce/view/screen/notification.dart';
 import 'package:ecommerce/view/screen/settings.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -19,19 +20,14 @@ class HomeScreenControllerImp extends HomeScreenController {
         children: [Text("profile")],
       ),
     ),
-    const Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [Text("notification")],
-      ),
-    ),
+    NotificationPage(),
     Settings()
   ];
 
   List<List> navigationBarNames = [
     ["58".tr, Icons.home],
     ["60".tr, Icons.person],
-    ["61".tr, Icons.favorite],
+    ["67".tr, Icons.notifications_active],
     ["59".tr, Icons.settings]
   ];
   @override

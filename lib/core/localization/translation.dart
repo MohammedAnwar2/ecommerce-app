@@ -78,6 +78,7 @@ Map<String, String> ar = {
   "64": "المنتجات المناسبة لك",
   "65": "العروض",
   "66": "نعم",
+  "67": "الإشعارات",
 };
 
 Map<String, String> en = {
@@ -148,4 +149,5 @@ Map<String, String> en = {
   "64": "Product for you",
   "65": "Offers",
   "66": "Yes",
+  "67": "Notifiacation",
 };
