@@ -4,13 +4,14 @@ import 'package:ecommerce/core/class/sratus_request.dart';
 import 'package:ecommerce/core/constant/app_keys.dart';
 import 'package:ecommerce/core/functions/hadlingdata.dart';
 import 'package:ecommerce/core/services/service.dart';
+import 'package:ecommerce/data/datasource/remote/orders/delete.dart';
 import 'package:ecommerce/data/datasource/remote/orders/pending.dart';
 import 'package:ecommerce/data/model/pending_orders_model.dart';
 import 'package:ecommerce/routes/route_app.dart';
 import 'package:get/get.dart';
 
 mixin PendingConrollerMethods {
-  getPendingOrders();
+  viewPendingOrders();
   printOrderType(String val);
   printPaymentMethod(String val);
   printStatus(String val);
@@ -21,6 +22,7 @@ mixin PendingConrollerVaraibles {
   late int id;
   StatusRequest statusRequest = StatusRequest.success;
   PendingData pendingData = PendingData(Get.find());
+  DeleteOrderData deleteOrderData = DeleteOrderData(Get.find());
   MyServices services = Get.find<MyServices>();
   List<PendingOrdersModel> pendingOrdersList = [];
 }
@@ -28,7 +30,7 @@ mixin PendingConrollerVaraibles {
 class PendingConrollerImp extends GetxController
     with PendingConrollerVaraibles, PendingConrollerMethods {
   @override
-  getPendingOrders() async {
+  viewPendingOrders() async {
     statusRequest = StatusRequest.loading;
     update();
     var response = await pendingData.pendingOrder(id);
@@ -50,10 +52,26 @@ class PendingConrollerImp extends GetxController
     update();
   }
 
+  deletePendingOrders(int orderid) async {
+    statusRequest = StatusRequest.loading;
+    update();
+    var response = await deleteOrderData.deleteOrder(orderid);
+    statusRequest = handlingData(response);
+    if (statusRequest == StatusRequest.success) {
+      if (response['status'] == 'success') {
+        refreshPendingOrders();
+      } else {
+        statusRequest = StatusRequest.nodata;
+      }
+    }
+
+    update();
+  }
+
   @override
   void onInit() {
     id = services.sharePref.getInt(AppKey.usersId)!;
-    getPendingOrders();
+    viewPendingOrders();
     super.onInit();
   }
 
@@ -90,7 +108,7 @@ class PendingConrollerImp extends GetxController
 
   @override
   refreshPendingOrders() async {
-    await getPendingOrders();
+    await viewPendingOrders();
   }
 
   @override
