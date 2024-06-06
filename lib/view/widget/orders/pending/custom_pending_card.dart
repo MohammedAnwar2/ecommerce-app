@@ -65,26 +65,57 @@ class CustomCard extends GetView<PendingConrollerImp> {
                         fontSize: fontSize(14),
                         fontFamily: ""),
                   ),
-                  MaterialButton(
-                    color: AppColor.primaryColor,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8)),
-                    onPressed: () {
-                      controller.goToOrderDetails(pendingOrders);
-                    },
-                    child: Text(
-                      "Details",
-                      style: TextStyle(
-                        color: AppColor.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: fontSize(14),
+                  Row(
+                    children: [
+                      if (pendingOrders.ordersStatus == 0)
+                        CustomPendingButtom(
+                          text: "Delete",
+                          onPressed: () {
+                            controller
+                                .deletePendingOrders(pendingOrders.ordersId!);
+                          },
+                        ),
+                      horizontalSizedBox(10),
+                      CustomPendingButtom(
+                        text: "Details",
+                        onPressed: () {
+                          controller.goToOrderDetails(pendingOrders);
+                        },
                       ),
-                    ),
+                    ],
                   )
                 ],
               )
             ],
           ),
+        ),
+      ),
+    );
+  }
+}
+
+class CustomPendingButtom extends StatelessWidget {
+  const CustomPendingButtom(
+      {super.key, required this.onPressed, required this.text});
+  final void Function() onPressed;
+  final String text;
+  @override
+  Widget build(BuildContext context) {
+    return MaterialButton(
+      padding: EdgeInsets.zero, // Removes the default padding
+      materialTapTargetSize:
+          MaterialTapTargetSize.shrinkWrap, // Shrinks the tap target
+      minWidth: horizontalSize(60), // Minimum width
+      height: verticalSized(30),
+      color: AppColor.primaryColor,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+      onPressed: onPressed,
+      child: Text(
+        text,
+        style: TextStyle(
+          color: AppColor.white,
+          fontWeight: FontWeight.bold,
+          fontSize: fontSize(12),
         ),
       ),
     );
