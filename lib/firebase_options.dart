@@ -65,5 +65,4 @@ class DefaultFirebaseOptions {
     projectId: 'first-project-c2a07',
     storageBucket: 'first-project-c2a07.appspot.com',
   );
-
 }
