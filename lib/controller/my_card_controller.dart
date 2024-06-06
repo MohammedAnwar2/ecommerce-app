@@ -1,4 +1,5 @@
 import 'dart:developer';
+import 'dart:math';
 
 import 'package:ecommerce/controller/mix_class_controller/add_delete_items_methods.dart';
 import 'package:ecommerce/core/class/sratus_request.dart';
@@ -93,7 +94,6 @@ class MyCardControllerImp extends MyCardControllerMethods
           discount = couponData.couponDiscount!;
           couponName = couponData.couponName;
           couponId = couponData.couponId.toString();
-          log(couponId.toString());
           //log(couponData.toString());
         } else {
           statusRequest = StatusRequest.success;
@@ -122,9 +122,15 @@ class MyCardControllerImp extends MyCardControllerMethods
   }
 
 //* total price with discount
+  double roundToDecimalPlaces(double value, int places) {
+    double mod = pow(10.0, places).toDouble();
+    return ((value * mod).round().toDouble() / mod);
+  }
+
   @override
   getTotalPiceAfterDiscount() {
-    return totalprice - totalprice * (discount / 100);
+    var price = totalprice - totalprice * (discount / 100);
+    return roundToDecimalPlaces(price, 2);
   }
 
   @override
