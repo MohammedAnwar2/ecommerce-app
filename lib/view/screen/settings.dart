@@ -79,9 +79,12 @@ class Settings extends StatelessWidget {
                     title: Text("About us"),
                     trailing: Icon(Icons.help_outline_sharp),
                   ),
-                  const ListTile(
+                  ListTile(
                     title: Text("Contact us"),
                     trailing: Icon(Icons.phone_callback_outlined),
+                    onTap: () async {
+                      await controller.contactUs("tel:+74117 00309");
+                    },
                   ),
                   ListTile(
                     onTap: () {
