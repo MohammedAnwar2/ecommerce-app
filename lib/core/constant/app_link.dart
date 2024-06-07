@@ -52,5 +52,5 @@ class AppLink {
   static const String viewNotifications = "$server/notification/view.php";
   static const String deleteNotifications = "$server/notification/delete.php";
   //*------------------- Offers -------------------------
-  static const String oversView = "$server/offers/view.php";
+  static const String offersView = "$server/offers/view.php";
 }
