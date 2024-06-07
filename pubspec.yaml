@@ -44,7 +44,7 @@ dependencies:
   shimmer: ^3.0.0
   show_up_animation: ^2.0.0
   sqflite: ^2.3.2
-  url_launcher: ^6.2.5
+  url_launcher: ^6.3.0
 
 dev_dependencies:
   flutter_lints: ^3.0.1
