@@ -1,6 +1,7 @@
 import 'package:ecommerce/routes/route_app.dart';
 import 'package:ecommerce/view/screen/home_page.dart';
 import 'package:ecommerce/view/screen/notification.dart';
+import 'package:ecommerce/view/screen/offers.dart';
 import 'package:ecommerce/view/screen/settings.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -14,19 +15,14 @@ class HomeScreenControllerImp extends HomeScreenController {
   int currentPage = 0;
   List<Widget> listPages = [
     const HomePage(),
-    const Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [Text("profile")],
-      ),
-    ),
-    NotificationPage(),
+    const Offers(),
+    const NotificationPage(),
     Settings()
   ];
 
   List<List> navigationBarNames = [
     ["58".tr, Icons.home],
-    ["60".tr, Icons.person],
+    ["68".tr, Icons.money_off_csred_rounded],
     ["67".tr, Icons.notifications_active],
     ["59".tr, Icons.settings]
   ];
