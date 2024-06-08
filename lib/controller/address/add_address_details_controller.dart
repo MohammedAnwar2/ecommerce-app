@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'package:ecommerce/core/class/sratus_request.dart';
 import 'package:ecommerce/core/constant/app_keys.dart';
 import 'package:ecommerce/core/functions/hadlingdata.dart';
@@ -9,13 +8,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
-abstract class AddAddressDetailsController extends GetxController {
+mixin AddAddressDetailsMethods {
   initData();
   addAddress();
 }
-
-class AddAddressDetailsControllerImp extends AddAddressDetailsController {
-  GlobalKey<FormState> formKey = GlobalKey<FormState>();
+mixin AddAddressDetailsVariables {
   late LatLng latLng;
   late TextEditingController name;
   late TextEditingController street;
@@ -24,16 +21,17 @@ class AddAddressDetailsControllerImp extends AddAddressDetailsController {
   StatusRequest statusRequest = StatusRequest.success;
   AdressData adressData = AdressData(Get.find());
   MyServices services = Get.find<MyServices>();
-  @override
+}
+
+class AddAddressDetailsControllerImp extends GetxController
+    with AddAddressDetailsMethods, AddAddressDetailsVariables {
+  GlobalKey<FormState> formKey = GlobalKey<FormState>();
+
   @override
   addAddress() async {
     if (formKey.currentState!.validate()) {
       statusRequest = StatusRequest.loading;
       update();
-      log("name = ${name.text}");
-      log("city = ${city.text}");
-      log("street = ${street.text}");
-      log("id = $id");
       var response = await adressData.addAddress(
           id, name.text, city.text, street.text, latLng);
       statusRequest = handlingData(response);
@@ -62,7 +60,5 @@ class AddAddressDetailsControllerImp extends AddAddressDetailsController {
   initData() {
     id = services.sharePref.getInt(AppKey.usersId)!;
     latLng = Get.arguments["latLng"];
-    log(latLng.latitude.toString());
-    log(latLng.longitude.toString());
   }
 }
