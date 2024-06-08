@@ -6,19 +6,21 @@ import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:location/location.dart';
 
-abstract class AddAddressController extends GetxController {
+mixin AddAddressControllerMethods {
   getCurrentLocation();
   goToAddAddressDetails();
   changeTheLocation(LatLng latLng);
 }
-
-class AddAddressPart1ControllerImp extends AddAddressController {
+mixin AddAddressControllerVaraibles {
   CameraPosition? kGooglePlex;
   late Completer<GoogleMapController> completorController;
   StatusRequest statusRequest = StatusRequest.none;
   late LatLng latLng;
   Set<Marker> markers = <Marker>{};
+}
 
+class AddAddressPart1ControllerImp extends GetxController
+    with AddAddressControllerMethods, AddAddressControllerVaraibles {
   @override
   changeTheLocation(LatLng latLng) {
     this.latLng = latLng;
