@@ -70,7 +70,7 @@ List<GetPage<dynamic>>? getPages = [
       name: AppRoute.verifyCodeSignUp,
       page: () => const VerifyCodeSignUp(),
       transition: Transition.fade),
-  // onboarding
+  //* onboarding
   GetPage(
       name: AppRoute.onbording,
       page: () => const Onboarding(),
