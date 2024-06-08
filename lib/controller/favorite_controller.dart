@@ -5,20 +5,23 @@ import 'package:ecommerce/core/services/service.dart';
 import 'package:ecommerce/data/datasource/remote/favorite/favorite_data.dart';
 import 'package:get/get.dart';
 
-abstract class FavoriteController extends GetxController {
+mixin FavoriteMethods {
   updateFavoriteState({required int itemId, required int favoriteVal});
   // upateFavoriteInBackend({required int itemId});
   addFavoriteInBackend({required int itemId});
   removeFavoriteInBackend({required int itemId});
   initData();
 }
-
-class FavoriteControllerImp extends FavoriteController {
+mixin FavoriteVariables {
   FavoriteData favoriteData = FavoriteData(Get.find());
   StatusRequest statusRequest = StatusRequest.success;
   MyServices services = Get.find<MyServices>();
   late int id;
   Map isFavorite = {};
+}
+
+class FavoriteControllerImp extends GetxController
+    with FavoriteMethods, FavoriteVariables {
   @override
   updateFavoriteState({required int itemId, required int favoriteVal}) {
     isFavorite[itemId] = favoriteVal;
@@ -71,20 +74,4 @@ class FavoriteControllerImp extends FavoriteController {
     }
     update();
   }
-
-  // @override
-  // upateFavoriteInBackend({required int itemId}) async {
-  //   statusRequest = StatusRequest.loading;
-  //   update();
-  //   var response =
-  //       await favoriteData.postData(id.toString(), itemId.toString());
-  //   statusRequest = handlingData(response);
-  //   if (statusRequest == StatusRequest.success) {
-  //     if (response['status'] == 'success') {
-  //     } else {
-  //       // statusRequest = StatusRequest.nodata;
-  //     }
-  //   }
-  //   update();
-  // }
 }
