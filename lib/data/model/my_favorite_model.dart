@@ -1,3 +1,5 @@
+import 'package:ecommerce/data/model/items_model.dart';
+
 class MyFavoriteModel {
   int? favoriteId;
   int? favoriteUsersId;
@@ -77,5 +79,22 @@ class MyFavoriteModel {
     data['items_cat'] = itemsCat;
     data['users_id'] = usersId;
     return data;
+  }
+
+  void copyToItemModel(ItemModel itemModel) {
+    itemModel.itemsId = itemsId;
+    itemModel.itemsName = itemsName;
+    itemModel.itemsNameAr = itemsNameAr;
+    itemModel.itemsDesc = itemsDesc;
+    itemModel.itemsDescAr = itemsDescAr;
+    itemModel.itemsImage = itemsImage;
+    itemModel.itemsCount = itemsCount;
+    itemModel.itemsActive = itemsActive;
+    itemModel.itemsPrice = itemsPrice;
+    itemModel.itemsDiscount = itemsDiscount;
+    itemModel.itemsDate = itemsDate;
+    itemModel.itemsCat = itemsCat;
+    itemModel.itemsPrice = itemsPrice;
+    itemModel.itemspricediscount = totalPrice;
   }
 }
