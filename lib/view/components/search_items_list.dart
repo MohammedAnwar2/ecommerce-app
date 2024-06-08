@@ -30,6 +30,7 @@ class SearchListItemsInfo extends GetView<HomePageControllerImp> {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
+        print(searchitems.itemspricediscount);
         controller.goToProductDetails(searchitems);
       },
       child: Padding(
