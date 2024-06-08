@@ -1,6 +1,3 @@
-import 'dart:convert';
-import 'dart:developer';
-
 import 'package:ecommerce/core/class/sratus_request.dart';
 import 'package:ecommerce/core/functions/hadlingdata.dart';
 import 'package:ecommerce/data/datasource/remote/address.dart';
@@ -10,13 +7,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
-abstract class EditAddressDetailsController extends GetxController {
+mixin EditAddressDetailsMethods {
   initData();
   editAddress();
   bool checkValue();
 }
-
-class EditAddressDetailsControllerImp extends EditAddressDetailsController {
+mixin EditAddressDetailsVariables {
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
   late ViewAddressModel dataList;
   StatusRequest statusRequest = StatusRequest.success;
@@ -27,7 +23,10 @@ class EditAddressDetailsControllerImp extends EditAddressDetailsController {
   late TextEditingController name;
   late TextEditingController street;
   late TextEditingController city;
+}
 
+class EditAddressDetailsControllerImp extends GetxController
+    with EditAddressDetailsMethods, EditAddressDetailsVariables {
   @override
   bool checkValue() {
     return dataList.addressName == name.text &&
@@ -42,8 +41,6 @@ class EditAddressDetailsControllerImp extends EditAddressDetailsController {
     if (formKey.currentState!.validate()) {
       statusRequest = StatusRequest.loading;
       update();
-      log(latLng.latitude.toString());
-      log(latLng.longitude.toString());
       var response = await adressData.editAddress(
         addressId.toString(),
         name.text,
@@ -57,7 +54,6 @@ class EditAddressDetailsControllerImp extends EditAddressDetailsController {
         if (response['status'] == 'success') {
           Get.offAllNamed(AppRoute.homeScreen);
         } else {
-          log(checkValue().toString());
           if (checkValue()) {
             Get.offAllNamed(AppRoute.homeScreen);
           } else {

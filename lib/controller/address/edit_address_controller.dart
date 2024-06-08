@@ -5,20 +5,23 @@ import 'package:ecommerce/routes/route_app.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
-abstract class EditAddressController extends GetxController {
+mixin EditAddressMethods {
   initData();
   getCurrentLocation();
   goToEditAddressDetails();
   changeTheLocation(LatLng latLng);
 }
-
-class EditAddressControllerImp extends EditAddressController {
+mixin EditAddressVariables {
   CameraPosition? kGooglePlex;
   late Completer<GoogleMapController> completorController;
   StatusRequest statusRequest = StatusRequest.none;
   late LatLng latLng;
   Set<Marker> markers = <Marker>{};
   late ViewAddressModel dataList;
+}
+
+class EditAddressControllerImp extends GetxController
+    with EditAddressMethods, EditAddressVariables {
   @override
   changeTheLocation(LatLng latLng) {
     this.latLng = latLng;

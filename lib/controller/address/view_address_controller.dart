@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:ecommerce/core/class/sratus_request.dart';
 import 'package:ecommerce/core/constant/app_keys.dart';
 import 'package:ecommerce/core/functions/hadlingdata.dart';
@@ -9,7 +7,7 @@ import 'package:ecommerce/data/model/view_address_model.dart';
 import 'package:ecommerce/routes/route_app.dart';
 import 'package:get/get.dart';
 
-abstract class ViewAddressController extends GetxController {
+mixin ViewAddressMethods {
   initData();
   viewAddress();
   goToAddAddress();
@@ -17,13 +15,16 @@ abstract class ViewAddressController extends GetxController {
   goToEditAddress(int index);
   deleteSpecificAddress(int idAddress);
 }
-
-class ViewAddressControllerIma extends ViewAddressController {
+mixin ViewAddressVariables {
   late int id;
   StatusRequest statusRequest = StatusRequest.success;
   AdressData adressData = AdressData(Get.find());
   MyServices services = Get.find<MyServices>();
   List<ViewAddressModel> viewAddressList = [];
+}
+
+class ViewAddressControllerIma extends GetxController
+    with ViewAddressMethods, ViewAddressVariables {
   @override
   viewAddress() async {
     statusRequest = StatusRequest.loading;
@@ -43,27 +44,6 @@ class ViewAddressControllerIma extends ViewAddressController {
     update();
   }
 
-  // editAddress(String addressId, String name, String city, String street,
-  //     LatLng latLng) async {
-  //   statusRequest = StatusRequest.loading;
-  //   update();
-  //   var response =
-  // await adressData.editAddress(addressId, name, city, street, latLng);
-  //   statusRequest = handlingData(response);
-  //   if (statusRequest == StatusRequest.success) {
-  //     if (response['status'] == 'success') {
-  //       //   itemModelList.clear();
-  //       //   List data = response['data'];
-  //       //   itemModelList.addAll(data.map((e) => ItemModel.fromJson(e)));
-  //     } else {
-  //       statusRequest = StatusRequest.nodata;
-  //       // Get.defaultDialog(
-  //       //     title: response['status'].tr, middleText: response['status']);
-  //     }
-  //   }
-
-  //   update();
-  // }
   @override
   goToAddAddress() {
     Get.toNamed(AppRoute.addAddress);
@@ -86,14 +66,6 @@ class ViewAddressControllerIma extends ViewAddressController {
     Get.toNamed(AppRoute.deleteAddress,
         arguments: {"dataList": viewAddressList});
   }
-  // @override
-  // goToDeleteAddress() async {
-  //   final result = await Get.toNamed(AppRoute.deleteAddress,
-  //       arguments: {"dataList": viewAddressList});
-  //   if (result != null) {
-  //     viewAddress();
-  //   }
-  // }
 
   @override
   deleteSpecificAddress(int idAddress) {
