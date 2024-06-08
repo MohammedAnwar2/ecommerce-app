@@ -18,6 +18,7 @@ mixin CheckoutControllerMethods {
   getShippingAddress();
   checkoutProcess();
   initData();
+  goToAddAddress();
 }
 
 mixin CheckoutControllerVaraibles {
@@ -50,7 +51,7 @@ class CheckoutControllerImp extends GetxController
         List data = response['data'];
         viewAddressList.addAll(data.map((e) => ViewAddressModel.fromJson(e)));
       } else {
-        statusRequest = StatusRequest.nolocation;
+        statusRequest = StatusRequest.none;
       }
     }
 
@@ -65,8 +66,8 @@ class CheckoutControllerImp extends GetxController
     if (deliveryType == null) {
       return showCustomSnackbar("You Should Select Delivery Type");
     }
-    if (deliveryType == "0" && addressId == "0") {
-      return showCustomSnackbar("You Should Select Shipping Address");
+    if (deliveryType == "0" && viewAddressList.isEmpty) {
+      return showCustomSnackbar("You Should Add Your Address");
     }
     statusRequest = StatusRequest.loading;
     update();
@@ -86,6 +87,11 @@ class CheckoutControllerImp extends GetxController
 
   @override
   chooseDeliveryType(String val) {
+    if (val == "0" && viewAddressList.isNotEmpty) {
+      addressId = viewAddressList[0].addressId.toString();
+    } else {
+      addressId = "0";
+    }
     deliveryType = val;
     update();
   }
@@ -115,5 +121,10 @@ class CheckoutControllerImp extends GetxController
     totalPrice = Get.arguments["totalPice"];
     discountCoupon = Get.arguments["discountCoupon"];
     id = services.sharePref.getInt(AppKey.usersId)!;
+  }
+
+  @override
+  goToAddAddress() {
+    Get.toNamed(AppRoute.addAddress);
   }
 }
