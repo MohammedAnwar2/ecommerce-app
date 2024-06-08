@@ -19,6 +19,7 @@ dependencies:
   flutter_local_notifications: ^17.0.0
   flutter_otp_text_field: ^1.1.2+1
   flutter_polyline_points: ^2.0.0
+  flutter_rating_stars: ^1.1.0
   flutter_ringtone_player: ^4.0.0+3
   flutter_screenutil: ^5.9.0
   flutter_svg: ^2.0.10+1
@@ -39,6 +40,7 @@ dependencies:
   lottie: ^3.1.0
   path: ^1.8.3
   qr_flutter: ^4.1.0
+  rate_my_app: ^2.2.0
   responsive_builder: ^0.7.0
   shared_preferences: ^2.2.2
   shimmer: ^3.0.0
