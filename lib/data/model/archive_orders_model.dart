@@ -9,6 +9,8 @@ class ArchiveOrdersModel {
   double? ordersTotalprice;
   int? ordersCoupon;
   String? ordersDatetime;
+  int? ordersRating;
+  String? ordersNoteRating;
   int? ordersStatus;
   int? addressId;
   int? addressUsersId;
@@ -29,6 +31,8 @@ class ArchiveOrdersModel {
     this.ordersTotalprice,
     this.ordersCoupon,
     this.ordersDatetime,
+    this.ordersRating,
+    this.ordersNoteRating,
     this.ordersStatus,
     this.addressId,
     this.addressUsersId,
@@ -47,10 +51,12 @@ class ArchiveOrdersModel {
         ordersAddressId: json['orders_addressId'] as int?,
         ordersType: json['orders_type'] as int?,
         ordersPricedelivery: json['orders_pricedelivery'] as int?,
-        ordersPrice: json['orders_price'] as double?,
+        ordersPrice: (json['orders_price'] as num?)?.toDouble(),
         ordersTotalprice: (json['orders_totalprice'] as num?)?.toDouble(),
         ordersCoupon: json['orders_coupon'] as int?,
         ordersDatetime: json['orders_datetime'] as String?,
+        ordersRating: json['orders_rating'] as int?,
+        ordersNoteRating: json['orders_noteRating'] as String?,
         ordersStatus: json['orders_status'] as int?,
         addressId: json['address_id'] as int?,
         addressUsersId: json['address_usersId'] as int?,
@@ -72,6 +78,8 @@ class ArchiveOrdersModel {
         'orders_totalprice': ordersTotalprice,
         'orders_coupon': ordersCoupon,
         'orders_datetime': ordersDatetime,
+        'orders_rating': ordersRating,
+        'orders_noteRating': ordersNoteRating,
         'orders_status': ordersStatus,
         'address_id': addressId,
         'address_usersId': addressUsersId,
