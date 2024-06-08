@@ -17,39 +17,44 @@ class ItemInfoHome extends GetView<HomePageControllerImp> {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        Container(
-          padding: const EdgeInsets.all(10),
-          margin: EdgeInsets.symmetric(horizontal: horizontalSize(10)),
-          child: CachedNetworkImage(
-            imageUrl: "${AppLink.imageItem}/${itemModel.itemsImage}",
-            height: verticalSized(100),
-            width: horizontalSize(150),
-            //fit: BoxFit.fill,
+    return GestureDetector(
+      onTap: () {
+        controller.goToProductDetails(itemModel);
+      },
+      child: Stack(
+        children: [
+          Container(
+            padding: const EdgeInsets.all(10),
+            margin: EdgeInsets.symmetric(horizontal: horizontalSize(10)),
+            child: CachedNetworkImage(
+              imageUrl: "${AppLink.imageItem}/${itemModel.itemsImage}",
+              height: verticalSized(100),
+              width: horizontalSize(150),
+              //fit: BoxFit.fill,
+            ),
           ),
-        ),
-        Container(
-          height: verticalSized(120),
-          width: verticalSized(180),
-          decoration: BoxDecoration(
-              color: AppColor.black.withOpacity(0.3),
-              borderRadius: BorderRadius.circular(24)),
-        ),
-        Positioned(
-          left: horizontalSize(10),
-          right: horizontalSize(10),
-          child: Text(
-            translateDatabase(
-                columnAr: itemModel.itemsNameAr!,
-                columnEn: itemModel.itemsName!),
-            style: TextStyle(
-                fontSize: fontSize(14),
-                color: AppColor.white,
-                fontWeight: FontWeight.bold),
+          Container(
+            height: verticalSized(120),
+            width: verticalSized(180),
+            decoration: BoxDecoration(
+                color: AppColor.black.withOpacity(0.3),
+                borderRadius: BorderRadius.circular(24)),
           ),
-        )
-      ],
+          Positioned(
+            left: horizontalSize(10),
+            right: horizontalSize(10),
+            child: Text(
+              translateDatabase(
+                  columnAr: itemModel.itemsNameAr!,
+                  columnEn: itemModel.itemsName!),
+              style: TextStyle(
+                  fontSize: fontSize(14),
+                  color: AppColor.white,
+                  fontWeight: FontWeight.bold),
+            ),
+          )
+        ],
+      ),
     );
   }
 }

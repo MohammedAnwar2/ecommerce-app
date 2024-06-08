@@ -79,8 +79,32 @@ class CheckOut extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       verticalSizedBox(16),
-                      const CustomTitleCeckoutText(
-                          text: "Choose Shipping Address"),
+                      controller.viewAddressList.isNotEmpty
+                          ? const CustomTitleCeckoutText(
+                              text: "Choose Shipping Address")
+                          : Padding(
+                              padding: EdgeInsets.only(top: verticalSized(60)),
+                              child: TextButton(
+                                onPressed: () {
+                                  controller.goToAddAddress();
+                                },
+                                child: Center(
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      Text(
+                                        "Please Add Shipping Address\nClick Here",
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(
+                                            color: AppColor.secondaryColor,
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: fontSize(16)),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
                       ...List.generate(
                         controller.viewAddressList.length,
                         (i) => CustomSelectedAddressCard(

@@ -40,7 +40,7 @@ class EditAddressDetails extends StatelessWidget {
                               val: val!, min: 3, max: 50, type: "text");
                         },
                         obscureText: false,
-                        keyboardType: TextInputType.datetime,
+                        keyboardType: TextInputType.text,
                       ),
                       verticalSizedBox(20),
                       CustomTextFormFieldAuth(
@@ -53,7 +53,7 @@ class EditAddressDetails extends StatelessWidget {
                               val: val!, min: 3, max: 50, type: "text");
                         },
                         obscureText: false,
-                        keyboardType: TextInputType.datetime,
+                        keyboardType: TextInputType.text,
                       ),
                       verticalSizedBox(20),
                       CustomTextFormFieldAuth(
@@ -66,7 +66,7 @@ class EditAddressDetails extends StatelessWidget {
                               val: val!, min: 3, max: 50, type: "text");
                         },
                         obscureText: false,
-                        keyboardType: TextInputType.datetime,
+                        keyboardType: TextInputType.text,
                       ),
                       verticalSizedBox(30),
                       CustomAddressButton(

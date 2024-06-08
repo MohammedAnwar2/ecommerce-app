@@ -15,7 +15,7 @@ class HomePage extends StatelessWidget {
   const HomePage({super.key});
   @override
   Widget build(BuildContext context) {
-    Get.put(HomePageControllerImp());
+    final homePageController = Get.put(HomePageControllerImp());
 
     return GetBuilder<HomePageControllerImp>(
       builder: (controller) => SafeArea(
@@ -60,9 +60,12 @@ class HomePage extends StatelessWidget {
                         physics: const NeverScrollableScrollPhysics(),
                         children: [
                           verticalSizedBox(16),
-                          const CustomCardCashBackHome(
-                              title: "A summer surprice",
-                              subTitle: "Cashback 20%"),
+
+                          CustomCardCashBackHome(
+                              title: homePageController
+                                  .strings.first.stringsTitle!,
+                              subTitle: homePageController
+                                  .strings.first.stringsBody!),
                           CustomAnimation(child: verticalSizedBox(5)),
                           CustomAnimation(
                             child: CustomText(
@@ -72,18 +75,18 @@ class HomePage extends StatelessWidget {
                           const ListCategoriesHome(),
                           CustomAnimation(
                             child: CustomText(
-                              text: "64".tr,
+                              text: "69".tr,
                             ),
                           ),
                           CustomAnimation(child: verticalSizedBox(10)),
                           const ListProductItem(),
-                          CustomAnimation(
-                            child: CustomText(
-                              text: "65".tr,
-                            ),
-                          ),
-                          verticalSizedBox(10),
-                          const ListProductItem()
+                          // CustomAnimation(
+                          //   child: CustomText(
+                          //     text: "65".tr,
+                          //   ),
+                          // ),
+                          // verticalSizedBox(10),
+                          // const ListProductItem()
                         ],
                       )
                     : SearchListItems(searchitems: controller.searchItemList),

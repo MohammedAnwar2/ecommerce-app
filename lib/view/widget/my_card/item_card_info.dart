@@ -26,7 +26,7 @@ class ItemCardInfo extends GetView<MyCardControllerImp> {
                 imageUrl:
                     "${AppLink.imageItem}/${viewCartProductsModel.itemsImage}",
                 height: verticalSized(90),
-                fit: BoxFit.fill,
+                fit: BoxFit.contain,
               ),
             ),
           ),

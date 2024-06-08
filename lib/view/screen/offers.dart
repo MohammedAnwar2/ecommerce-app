@@ -77,8 +77,6 @@ class Offers extends StatelessWidget {
   }
 }
 
-
-
 /*
 
 */

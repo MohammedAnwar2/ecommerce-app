@@ -29,7 +29,7 @@ class OrderArchiveDetailsControllerImp extends GetxController
   viewArchiveOreredDetails() async {
     statusRequest = StatusRequest.loading;
     update();
-    var response = await orderdetails.orderDetails(archiveOrders!.ordersId!);
+    var response = await orderdetails.orderDetails(archiveOrders.ordersId!);
     statusRequest = handlingData(response);
     if (statusRequest == StatusRequest.success) {
       if (response['status'] == 'success') {

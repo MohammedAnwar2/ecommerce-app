@@ -1,7 +1,9 @@
 import 'package:ecommerce/controller/orders/archive_controller.dart';
+import 'package:ecommerce/controller/orders/rating_controller.dart';
 import 'package:ecommerce/core/constant/app_color.dart';
 import 'package:ecommerce/core/shared/horizontal_and_vertical_size.dart';
 import 'package:ecommerce/data/model/archive_orders_model.dart';
+import 'package:ecommerce/view/widget/orders/archive/custom_rating_dialog.dart';
 import 'package:ecommerce/view/widget/orders/components/custom_order_botton.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -13,6 +15,7 @@ class CustomArchiveCard extends GetView<ArchiveConrollerImp> {
 
   @override
   Widget build(BuildContext context) {
+    RatingConrollerImp ratingConroller = Get.put(RatingConrollerImp());
     return Padding(
       padding: EdgeInsets.only(bottom: verticalSized(5)),
       child: Card(
@@ -68,14 +71,18 @@ class CustomArchiveCard extends GetView<ArchiveConrollerImp> {
                   ),
                   Row(
                     children: [
-                      // if (archiveOrders.ordersStatus == 0)
-                      //   CustomOrderButtom(
-                      //     text: "Delete",
-                      //     onPressed: () {
-                      //       controller
-                      //           .deletePendingOrders(archiveOrders.ordersId!);
-                      //     },
-                      //   ),
+                      if (archiveOrders.ordersRating == 0)
+                        CustomOrderButtom(
+                          text: "Rating",
+                          onPressed: () {
+                            ratingConroller.resetValue();
+                            RatingDialog(
+                                    context: context,
+                                    ratingController: ratingConroller,
+                                    archiveOrders: archiveOrders)
+                                .show();
+                          },
+                        ),
                       horizontalSizedBox(10),
                       CustomOrderButtom(
                         text: "Details",

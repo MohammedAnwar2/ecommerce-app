@@ -8,10 +8,10 @@ import 'package:ecommerce/core/services/service.dart';
 import 'package:ecommerce/data/datasource/remote/home.dart';
 import 'package:ecommerce/data/model/categories_model.dart';
 import 'package:ecommerce/data/model/items_model.dart';
+import 'package:ecommerce/data/model/strings_model.dart';
 import 'package:ecommerce/routes/route_app.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
 
 abstract class HomePageController extends SearchMethodMix {
   getData();
@@ -34,6 +34,9 @@ class HomePageControllerImp extends HomePageController {
   MyServices services = Get.find<MyServices>();
   List<CategoriesModel> categoriesModelList = [];
   List<ItemModel> itemModelList = [];
+  List<StringsModel> strings = [
+    StringsModel(stringsBody: "", stringsTitle: "")
+  ];
   HomeData homeData = HomeData(Get.find());
   late String lang;
 
@@ -45,12 +48,15 @@ class HomePageControllerImp extends HomePageController {
     statusRequest = handlingData(response);
     if (statusRequest == StatusRequest.success) {
       if (response['status'] == 'success') {
-        for (var element in response['categories']) {
-          categoriesModelList.add(CategoriesModel.fromJson(element));
-        }
-        for (var element in response['items']) {
-          itemModelList.add(ItemModel.fromJson(element));
-        }
+        strings.clear();
+        List data1 = response['strings'];
+        log("$data1");
+        strings.addAll(data1.map((e) => StringsModel.fromJson(e)));
+        data1 = response['categories'];
+        categoriesModelList
+            .addAll(data1.map((e) => CategoriesModel.fromJson(e)));
+        data1 = response['items'];
+        itemModelList.addAll(data1.map((e) => ItemModel.fromJson(e)));
       } else {
         statusRequest = StatusRequest.nodata;
         // Get.defaultDialog(
