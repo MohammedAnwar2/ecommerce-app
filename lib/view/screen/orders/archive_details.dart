@@ -48,7 +48,7 @@ class OrderArchiveDetails extends StatelessWidget {
                   ),
                   if (controller.archiveOrders.ordersType == 0)
                     CustomArchiveShippingAddressCard(
-                        archiveOrders: controller.archiveOrders!),
+                        archiveOrders: controller.archiveOrders),
                   if (controller.archiveOrders.ordersType == 0)
                     const CustomArchiveGoogleMapCard()
                 ],

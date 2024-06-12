@@ -15,8 +15,8 @@ class CustomPlaceOrderButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialButton(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-      padding:
-          EdgeInsets.symmetric(horizontal: Get.width / 3 - horizontalSize(10)),
+      padding: EdgeInsets.symmetric(
+          horizontal: Get.width / 2.5 - horizontalSize(20)),
       onPressed: onPlaceOrder,
       color: AppColor.primaryColor,
       child: Text(text, style: Theme.of(context).textTheme.displaySmall),

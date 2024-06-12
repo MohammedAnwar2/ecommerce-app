@@ -45,7 +45,7 @@ class RatingDialog {
             CustomRating(),
             TextFormField(
               controller: ratingController.notes,
-              maxLines: 3,
+              maxLines: 2,
               minLines: 1,
               decoration: InputDecoration(
                   hintText: "Write your notes",

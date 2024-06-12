@@ -43,7 +43,8 @@ class ArchiveOrdersTable extends GetView<OrderArchiveDetailsControllerImp> {
         children: [
           _buildDataCell(controller.ordersDetailsList[i].itemsName.toString()),
           _buildDataCell(controller.ordersDetailsList[i].itemscount.toString()),
-          _buildDataCell(controller.ordersDetailsList[i].itemsPrice.toString()),
+          _buildDataCell(
+              controller.ordersDetailsList[i].cartItemprice.toString()),
         ],
       ),
     );

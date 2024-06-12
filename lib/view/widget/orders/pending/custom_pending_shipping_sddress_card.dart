@@ -22,7 +22,7 @@ class CustomPendingShippingAddressCard extends StatelessWidget {
               fontSize: fontSize(15)),
         ),
         subtitle: Text(
-          "${pendingOrders.addressCity} - ${pendingOrders.addressStreet} - ${pendingOrders.addressName}",
+          "${pendingOrders.orderAddressCity} - ${pendingOrders.orderAddressStreet} - ${pendingOrders.orderAddressName}",
           style:
               TextStyle(color: AppColor.grey500, fontWeight: FontWeight.bold),
         ),

@@ -48,7 +48,8 @@ class OrderPendingDetailsControllerImp extends GetxController
     pendingOrders = Get.arguments["pendingorderdetails"];
     if (pendingOrders!.ordersType == 0) {
       completorController = Completer<GoogleMapController>();
-      latLng = LatLng(pendingOrders!.addressLat!, pendingOrders!.addressLong!);
+      latLng = LatLng(
+          pendingOrders!.orderAddressLat!, pendingOrders!.orderAddressLong!);
       cameraPosition = CameraPosition(
         target: latLng,
         zoom: 16,

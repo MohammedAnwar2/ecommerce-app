@@ -28,6 +28,7 @@ class CustomNotificationCart extends StatelessWidget {
                 right: horizontalSize(5),
                 child: Text(
                     Jiffy.parse(notificationsModel.notificationsDatetime!)
+                        .add(hours: 6)
                         .fromNow(),
                     style: const TextStyle(
                         color: AppColor.primaryColor,

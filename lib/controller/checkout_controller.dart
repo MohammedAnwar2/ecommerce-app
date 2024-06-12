@@ -1,8 +1,7 @@
-import 'dart:developer';
-
 import 'package:ecommerce/core/class/sratus_request.dart';
 import 'package:ecommerce/core/constant/app_keys.dart';
 import 'package:ecommerce/core/functions/hadlingdata.dart';
+import 'package:ecommerce/core/functions/paypal_payment.dart';
 import 'package:ecommerce/core/functions/show_custom_snackbar.dart';
 import 'package:ecommerce/core/services/service.dart';
 import 'package:ecommerce/data/datasource/remote/address.dart';
@@ -19,6 +18,7 @@ mixin CheckoutControllerMethods {
   checkoutProcess();
   initData();
   goToAddAddress();
+  handleCheckout(String paymentWay);
 }
 
 mixin CheckoutControllerVaraibles {
@@ -69,6 +69,27 @@ class CheckoutControllerImp extends GetxController
     if (deliveryType == "0" && viewAddressList.isEmpty) {
       return showCustomSnackbar("You Should Add Your Address");
     }
+
+    if (paymentType == "1") {
+      var transactionData = getTransactionData(totalPrice);
+      int paymentSuccess = await executePaymentPayPal(transactionData);
+      if (paymentSuccess == 1) {
+        await handleCheckout("1");
+      } else if (paymentSuccess == 0) {
+        showCustomSnackbar(
+            "There are something went wrong with PayPal payment");
+      } else {
+        showCustomSnackbar("Cancel PayPal payment");
+      }
+    } else {
+      await handleCheckout("0");
+    }
+  }
+
+  //! 0 -> cash
+  //! 1 -> card
+  @override
+  handleCheckout(String paymentWay) async {
     statusRequest = StatusRequest.loading;
     update();
     var response = await checkoutData.checkout(id, paymentType!, addressId,
@@ -76,10 +97,16 @@ class CheckoutControllerImp extends GetxController
     statusRequest = handlingData(response);
     if (statusRequest == StatusRequest.success) {
       if (response['status'] == 'success') {
-        Get.offAllNamed(AppRoute.homeScreen);
+        if (paymentWay == "1") {
+          Get.snackbar(
+              "Successfully", "The Payment Was Completed Successfully");
+        } else {
+          Get.snackbar("Successfully", "Your Ordr Is Under The Processing");
+        }
+        // Get.offAllNamed(AppRoute.homeScreen);
       } else {
-        showCustomSnackbar("The Order Not Complete Successfully");
-        Get.offAllNamed(AppRoute.homeScreen);
+        showCustomSnackbar("The Order Not Completed Successfully");
+        // Get.offAllNamed(AppRoute.homeScreen);
       }
     }
     update();

@@ -2,13 +2,14 @@ import 'package:ecommerce/core/constant/app_color.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-void showCustomSnackbar(String text) {
+void showCustomSnackbar(String text,
+    {Color backgroundColor = AppColor.primaryColor}) {
   Get.snackbar(
     "",
     "",
     icon: const Icon(Icons.warning, color: Colors.white),
     snackPosition: SnackPosition.TOP,
-    backgroundColor: AppColor.primaryColor,
+    backgroundColor: backgroundColor,
     borderRadius: 20,
     margin: const EdgeInsets.all(15),
     duration: const Duration(seconds: 2),

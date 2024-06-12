@@ -22,7 +22,7 @@ class CustomArchiveShippingAddressCard extends StatelessWidget {
               fontSize: fontSize(15)),
         ),
         subtitle: Text(
-          "${archiveOrders.addressCity} - ${archiveOrders.addressStreet} - ${archiveOrders.addressName}",
+          "${archiveOrders.orderAddressCity} - ${archiveOrders.orderAddressStreet} - ${archiveOrders.orderAddressName}",
           style:
               TextStyle(color: AppColor.grey500, fontWeight: FontWeight.bold),
         ),

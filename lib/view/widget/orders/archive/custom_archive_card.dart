@@ -34,7 +34,9 @@ class CustomArchiveCard extends GetView<ArchiveConrollerImp> {
                         fontSize: fontSize(18), fontWeight: FontWeight.bold),
                   ),
                   Text(
-                    Jiffy.parse(archiveOrders.ordersDatetime!).fromNow(),
+                    Jiffy.parse(archiveOrders.ordersDatetime!)
+                        .add(hours: 6)
+                        .fromNow(),
                     style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                         fontSize: fontSize(13),
                         fontWeight: FontWeight.bold,

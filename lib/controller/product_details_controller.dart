@@ -10,7 +10,7 @@ import 'package:get/get.dart';
 
 abstract class ProductDetailsController extends AddDeleteItemsCounter {
   @override
-  addData(String itemId);
+  addData(String itemId, itemprice);
   @override
   deleteData(String itemId);
   initData();
@@ -49,7 +49,8 @@ class ProductDetailsControllerImp extends ProductDetailsController {
   @override
   add() {
     count++;
-    addData(itemModel.itemsId.toString());
+    addData(
+        itemModel.itemsId.toString(), itemModel.itemspricediscount.toString());
     update();
   }
 

@@ -18,7 +18,7 @@ import 'package:get/get.dart';
 
 abstract class MyCardControllerMethods extends AddDeleteItemsCounter {
   @override
-  addData(String itemId);
+  addData(String itemId, itemprice);
   @override
   deleteData(String itemId);
   viewAllCartProducts();

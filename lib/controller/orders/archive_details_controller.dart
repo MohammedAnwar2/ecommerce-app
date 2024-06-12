@@ -49,7 +49,8 @@ class OrderArchiveDetailsControllerImp extends GetxController
     archiveOrders = Get.arguments["archiveorderdetails"];
     if (archiveOrders.ordersType == 0) {
       completorController = Completer<GoogleMapController>();
-      latLng = LatLng(archiveOrders.addressLat!, archiveOrders.addressLong!);
+      latLng = LatLng(
+          archiveOrders.orderAddressLat!, archiveOrders.orderAddressLong!);
       cameraPosition = CameraPosition(
         target: latLng,
         zoom: 16,

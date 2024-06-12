@@ -17,7 +17,7 @@ class MyFavoriteModel {
   String? itemsDate;
   int? itemsCat;
   int? usersId;
-  double? totalPrice;
+  double? totalPrice; //! totalPrice = itemspricediscount
 
   MyFavoriteModel(
       {this.favoriteId,
@@ -95,6 +95,7 @@ class MyFavoriteModel {
     itemModel.itemsDate = itemsDate;
     itemModel.itemsCat = itemsCat;
     itemModel.itemsPrice = itemsPrice;
-    itemModel.itemspricediscount = totalPrice;
+    itemModel.itemspricediscount =
+        totalPrice; //! totalPrice = itemspricediscount
   }
 }

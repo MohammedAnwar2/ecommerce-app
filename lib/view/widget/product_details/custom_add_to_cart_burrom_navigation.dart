@@ -20,7 +20,7 @@ class CustomAddToCartBurromNavigation extends StatelessWidget {
         color: AppColor.primaryColor,
         onPressed: onPressed,
         child: Text(
-          "Add To Cart",
+          "Go To Cart",
           style: Theme.of(context)
               .textTheme
               .bodyLarge!

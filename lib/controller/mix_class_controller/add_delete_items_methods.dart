@@ -9,10 +9,10 @@ class AddDeleteItemsCounter extends GetxController {
   DeleteCartData deleteCartData = DeleteCartData(Get.find());
   StatusRequest statusRequest = StatusRequest.success;
   late int id;
-  addData(String itemId) async {
+  addData(String itemId, String itemprice) async {
     statusRequest = StatusRequest.loading;
     update();
-    var response = await addCartData.addCart(id.toString(), itemId);
+    var response = await addCartData.addCart(id.toString(), itemId, itemprice);
     statusRequest = handlingData(response);
     if (statusRequest == StatusRequest.success) {
       if (response['status'] == 'success') {

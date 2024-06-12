@@ -75,7 +75,7 @@ class CustombottomNavigationBar extends GetView<MyCardControllerImp> {
                   totalPrice: totalPrice),
               verticalSizedBox(14),
               CustomPlaceOrderButton(
-                text: "Place Order",
+                text: "Order",
                 onPlaceOrder: () {
                   controller.goToCheckOut();
                 },
