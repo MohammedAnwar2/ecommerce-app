@@ -102,11 +102,12 @@ class CheckoutControllerImp extends GetxController
               "Successfully", "The Payment Was Completed Successfully");
         } else {
           Get.snackbar("Successfully", "Your Ordr Is Under The Processing");
+          Get.offAllNamed(AppRoute.homeScreen);
         }
         // Get.offAllNamed(AppRoute.homeScreen);
       } else {
         showCustomSnackbar("The Order Not Completed Successfully");
-        // Get.offAllNamed(AppRoute.homeScreen);
+        Get.offAllNamed(AppRoute.homeScreen);
       }
     }
     update();
