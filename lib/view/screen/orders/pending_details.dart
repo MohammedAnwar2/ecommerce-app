@@ -33,11 +33,21 @@ class OrderPendingDetails extends StatelessWidget {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           const PendingOrdersTable(),
+                          // if (controller.pendingOrders!.ordersPricedelivery !=
+                          //     0)
+                          const Divider(),
                           CustomPriceCard(
                               text: "Delivery Price",
                               price: controller
                                   .pendingOrders!.ordersPricedelivery!
                                   .toString()),
+                          if (controller.pendingOrders!.couponDiscount != null)
+                            CustomPriceCard(
+                                text: "Coupon",
+                                price:
+                                    "${controller.pendingOrders!.couponDiscount!}%"
+                                        .toString()),
+
                           CustomPriceCard(
                               text: "Total Price",
                               price: controller.pendingOrders!.ordersTotalprice!
