@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:ecommerce/core/class/sratus_request.dart';
 import 'package:ecommerce/core/constant/app_keys.dart';
 import 'package:ecommerce/core/functions/hadlingdata.dart';
@@ -19,6 +21,8 @@ mixin CheckoutControllerMethods {
   initData();
   goToAddAddress();
   handleCheckout(String paymentWay);
+  double roundToDecimalPlaces(double value, int places);
+  getTotalPiceAfterDiscount();
 }
 
 mixin CheckoutControllerVaraibles {
@@ -74,7 +78,7 @@ class CheckoutControllerImp extends GetxController
     if (!isPressBotton) {
       isPressBotton = true;
       if (paymentType == "1") {
-        var transactionData = getTransactionData(totalPrice);
+        var transactionData = getTransactionData(getTotalPiceAfterDiscount());
         int paymentSuccess = await executePaymentPayPal(transactionData);
         if (paymentSuccess == 1) {
           await handleCheckout("1");
@@ -158,5 +162,19 @@ class CheckoutControllerImp extends GetxController
   @override
   goToAddAddress() {
     Get.toNamed(AppRoute.addAddress);
+  }
+
+  //* total price with discount
+  @override
+  double roundToDecimalPlaces(double value, int places) {
+    double mod = pow(10.0, places).toDouble();
+    return ((value * mod).round().toDouble() / mod);
+  }
+
+  @override
+  getTotalPiceAfterDiscount() {
+    var price = double.parse(totalPrice) -
+        double.parse(totalPrice) * (int.parse(discountCoupon) / 100);
+    return roundToDecimalPlaces(price, 2).toString();
   }
 }
