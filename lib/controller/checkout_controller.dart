@@ -26,6 +26,8 @@ mixin CheckoutControllerVaraibles {
   String? deliveryType;
   String addressId = "0";
 
+  bool isPressBotton = false;
+
   late String couponid;
   late String totalPrice;
   late String discountCoupon;
@@ -69,20 +71,22 @@ class CheckoutControllerImp extends GetxController
     if (deliveryType == "0" && viewAddressList.isEmpty) {
       return showCustomSnackbar("You Should Add Your Address");
     }
-
-    if (paymentType == "1") {
-      var transactionData = getTransactionData(totalPrice);
-      int paymentSuccess = await executePaymentPayPal(transactionData);
-      if (paymentSuccess == 1) {
-        await handleCheckout("1");
-      } else if (paymentSuccess == 0) {
-        showCustomSnackbar(
-            "There are something went wrong with PayPal payment");
+    if (!isPressBotton) {
+      isPressBotton = true;
+      if (paymentType == "1") {
+        var transactionData = getTransactionData(totalPrice);
+        int paymentSuccess = await executePaymentPayPal(transactionData);
+        if (paymentSuccess == 1) {
+          await handleCheckout("1");
+        } else if (paymentSuccess == 0) {
+          showCustomSnackbar(
+              "There are something went wrong with PayPal payment");
+        } else {
+          showCustomSnackbar("Cancel PayPal payment");
+        }
       } else {
-        showCustomSnackbar("Cancel PayPal payment");
+        await handleCheckout("0");
       }
-    } else {
-      await handleCheckout("0");
     }
   }
 
