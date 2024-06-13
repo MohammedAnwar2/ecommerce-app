@@ -35,7 +35,7 @@ class CustomArchiveCard extends GetView<ArchiveConrollerImp> {
                   ),
                   Text(
                     Jiffy.parse(archiveOrders.ordersDatetime!)
-                        .add(hours: 6)
+                        .add(hours: 5, minutes: 30)
                         .fromNow(),
                     style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                         fontSize: fontSize(13),

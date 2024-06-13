@@ -33,7 +33,7 @@ class CustomPendingCard extends GetView<PendingConrollerImp> {
                   ),
                   Text(
                     Jiffy.parse(pendingOrders.ordersDatetime!)
-                        .add(hours: 6)
+                        .add(hours: 5, minutes: 30)
                         .fromNow(),
                     style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                         fontSize: fontSize(13),
@@ -49,6 +49,9 @@ class CustomPendingCard extends GetView<PendingConrollerImp> {
                   style: Theme.of(context).textTheme.bodyLarge),
               Text("Order Price : ${pendingOrders.ordersPrice}\$",
                   style: Theme.of(context).textTheme.bodyLarge),
+              if (pendingOrders.couponDiscount != null)
+                Text("Coupon : ${pendingOrders.couponDiscount}%",
+                    style: Theme.of(context).textTheme.bodyLarge),
               Text("Delivery Price : ${pendingOrders.ordersPricedelivery}\$",
                   style: Theme.of(context).textTheme.bodyLarge),
               Text(
