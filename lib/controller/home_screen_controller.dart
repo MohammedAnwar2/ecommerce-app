@@ -5,6 +5,7 @@ import 'package:ecommerce/view/screen/offers.dart';
 import 'package:ecommerce/view/screen/settings.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 abstract class HomeScreenController extends GetxController {
   changePage(int index);
@@ -21,10 +22,10 @@ class HomeScreenControllerImp extends HomeScreenController {
   ];
 
   List<List> navigationBarNames = [
-    ["58".tr, Icons.home],
-    ["68".tr, Icons.money_off_csred_rounded],
-    ["67".tr, Icons.notifications_active],
-    ["59".tr, Icons.settings]
+    ["58".tr, FontAwesomeIcons.house],
+    ["68".tr, FontAwesomeIcons.gift],
+    ["67".tr, FontAwesomeIcons.solidBell],
+    ["59".tr, FontAwesomeIcons.gear]
   ];
   @override
   changePage(int index) {

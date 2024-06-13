@@ -50,10 +50,10 @@ class Settings extends StatelessWidget {
               color: AppColor.white,
               child: Column(
                 children: [
-                  ListTile(
-                    title: const Text("Disable Notification"),
-                    trailing: Switch(value: true, onChanged: (val) {}),
-                  ),
+                  // ListTile(
+                  //   title: const Text("Disable Notification"),
+                  //   trailing: Switch(value: true, onChanged: (val) {}),
+                  // ),
                   ListTile(
                     onTap: () {
                       controller.goToAddress();
@@ -75,9 +75,10 @@ class Settings extends StatelessWidget {
                     title: const Text("Orders Archive"),
                     trailing: const Icon(Icons.archive_outlined),
                   ),
-                  const ListTile(
+                  ListTile(
                     title: Text("About us"),
                     trailing: Icon(Icons.help_outline_sharp),
+                    onTap: () {},
                   ),
                   ListTile(
                     title: Text("Contact us"),

@@ -1,6 +1,7 @@
 import 'package:ecommerce/controller/home_screen_controller.dart';
 import 'package:ecommerce/core/constant/app_color.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 
 class CustomBottomAppBar extends StatelessWidget {
@@ -25,7 +26,7 @@ class CustomBottomAppBar extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Icon(
+            FaIcon(
               icon,
               color: controller.currentPage == index
                   ? AppColor.primaryColor
