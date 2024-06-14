@@ -26,7 +26,8 @@ import 'package:get/get.dart';
 }
 
 Future<int> executePaymentPayPal(
-    ({AmountModel amount, ItemListModel itemList}) transactionData) async {
+    ({AmountModel amount, ItemListModel itemList}) transactionData,
+    Function(int) handleProcess) async {
   int paymentSuccess = 0;
   await Get.to(PaypalCheckoutView(
     sandboxMode: true,
@@ -49,18 +50,22 @@ Future<int> executePaymentPayPal(
     onSuccess: (Map params) async {
       log("onSuccess: $params");
       paymentSuccess = 1;
+      handleProcess(paymentSuccess);
       Get.offAllNamed(AppRoute.homeScreen);
     },
     onError: (error) {
       log("onError: $error");
       paymentSuccess = 0;
+      handleProcess(paymentSuccess);
       Get.back();
     },
     onCancel: () {
       print('cancelled:');
       paymentSuccess = -1;
+      handleProcess(paymentSuccess);
       Get.back();
     },
   ));
+
   return paymentSuccess;
 }

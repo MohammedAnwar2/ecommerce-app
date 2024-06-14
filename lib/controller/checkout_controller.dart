@@ -77,17 +77,24 @@ class CheckoutControllerImp extends GetxController
     }
     if (!isPressBotton) {
       isPressBotton = true;
+      Future.delayed(const Duration(seconds: 5), () {
+        isPressBotton = false;
+      });
       if (paymentType == "1") {
         var transactionData = getTransactionData(getTotalPiceAfterDiscount());
-        int paymentSuccess = await executePaymentPayPal(transactionData);
-        if (paymentSuccess == 1) {
-          await handleCheckout("1");
-        } else if (paymentSuccess == 0) {
-          showCustomSnackbar(
-              "There are something went wrong with PayPal payment");
-        } else {
-          showCustomSnackbar("Cancel PayPal payment");
-        }
+        await executePaymentPayPal(
+          transactionData,
+          (paymentSuccess) async {
+            if (paymentSuccess == 1) {
+              await handleCheckout("1");
+            } else if (paymentSuccess == 0) {
+              showCustomSnackbar(
+                  "There are something went wrong with PayPal payment");
+            } else {
+              showCustomSnackbar("Cancel PayPal payment");
+            }
+          },
+        );
       } else {
         await handleCheckout("0");
       }
