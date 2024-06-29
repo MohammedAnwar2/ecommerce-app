@@ -38,7 +38,7 @@ class ViewCartProductsModel {
 
   factory ViewCartProductsModel.fromJson(Map<String, dynamic> json) {
     return ViewCartProductsModel(
-      totalPrice: json['total_price'],
+      totalPrice: json['total_price'].toDouble(),
       itemscount: json['Itemscount'],
       cartId: json['cart_id'],
       cartUsersId: json['cart_usersId'],
@@ -51,7 +51,7 @@ class ViewCartProductsModel {
       itemsImage: json['items_image'],
       itemsCount: json['items_count'],
       itemsActive: json['items_active'],
-      itemsPrice: json['items_price'],
+      itemsPrice: json['items_price'].toDouble(),
       itemsDiscount: json['items_discount'],
       itemsDate: json['items_date'],
       itemsCat: json['items_cat'],

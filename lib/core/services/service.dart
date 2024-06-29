@@ -1,4 +1,3 @@
-import 'package:ecommerce/core/services/location_services.dart';
 import 'package:ecommerce/firebase_options.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';

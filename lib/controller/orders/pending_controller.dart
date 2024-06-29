@@ -6,7 +6,7 @@ import 'package:ecommerce/core/functions/hadlingdata.dart';
 import 'package:ecommerce/core/services/service.dart';
 import 'package:ecommerce/data/datasource/remote/orders/delete.dart';
 import 'package:ecommerce/data/datasource/remote/orders/pending.dart';
-import 'package:ecommerce/data/model/pending_orders_model.dart';
+import 'package:ecommerce/data/model/orders_model.dart';
 import 'package:ecommerce/routes/route_app.dart';
 import 'package:get/get.dart';
 
@@ -16,7 +16,7 @@ mixin PendingConrollerMethods {
   printPaymentMethod(String val);
   printStatus(String val);
   refreshPendingOrders();
-  goToPendingOrderDetails(PendingOrdersModel pendingOrders);
+  goToOrderDetails(OrdersModel ordersModel);
 }
 mixin PendingConrollerVaraibles {
   late int id;
@@ -24,7 +24,7 @@ mixin PendingConrollerVaraibles {
   PendingData pendingData = PendingData(Get.find());
   DeleteOrderData deleteOrderData = DeleteOrderData(Get.find());
   MyServices services = Get.find<MyServices>();
-  List<PendingOrdersModel> pendingOrdersList = [];
+  List<OrdersModel> pendingOrdersList = [];
 }
 
 class PendingConrollerImp extends GetxController
@@ -41,8 +41,7 @@ class PendingConrollerImp extends GetxController
         List data = response['data'];
         print(data);
         log("successfully");
-        pendingOrdersList
-            .addAll(data.map((e) => PendingOrdersModel.fromJson(e)));
+        pendingOrdersList.addAll(data.map((e) => OrdersModel.fromJson(e)));
       } else {
         log("faild");
         statusRequest = StatusRequest.nodata;
@@ -114,8 +113,8 @@ class PendingConrollerImp extends GetxController
   }
 
   @override
-  goToPendingOrderDetails(PendingOrdersModel pendingOrders) {
-    Get.toNamed(AppRoute.orderPendingDetails,
-        arguments: {"pendingorderdetails": pendingOrders});
+  goToOrderDetails(OrdersModel ordersModel) {
+    Get.toNamed(AppRoute.orderDetails,
+        arguments: {"orderdetails": ordersModel});
   }
 }

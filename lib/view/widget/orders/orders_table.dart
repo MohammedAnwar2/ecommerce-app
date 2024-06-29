@@ -1,11 +1,11 @@
-import 'package:ecommerce/controller/orders/archive_details_controller.dart';
+import 'package:ecommerce/controller/orders/details_controller.dart';
 import 'package:ecommerce/core/constant/app_color.dart';
 import 'package:ecommerce/core/shared/horizontal_and_vertical_size.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class ArchiveOrdersTable extends GetView<OrderArchiveDetailsControllerImp> {
-  const ArchiveOrdersTable({super.key});
+class OrdersTable extends GetView<OrderDetailsControllerImp> {
+  const OrdersTable({super.key});
 
   @override
   Widget build(BuildContext context) {

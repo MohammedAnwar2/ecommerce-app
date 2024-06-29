@@ -2,15 +2,15 @@ import 'package:ecommerce/controller/orders/pending_controller.dart';
 import 'package:ecommerce/core/constant/app_color.dart';
 import 'package:ecommerce/core/functions/show_delete_dialog.dart';
 import 'package:ecommerce/core/shared/horizontal_and_vertical_size.dart';
-import 'package:ecommerce/data/model/pending_orders_model.dart';
-import 'package:ecommerce/view/widget/orders/components/custom_order_botton.dart';
+import 'package:ecommerce/data/model/orders_model.dart';
+import 'package:ecommerce/view/widget/orders/custom_order_botton.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:jiffy/jiffy.dart';
 
 class CustomPendingCard extends GetView<PendingConrollerImp> {
-  const CustomPendingCard({super.key, required this.pendingOrders});
-  final PendingOrdersModel pendingOrders;
+  const CustomPendingCard({super.key, required this.ordersModel});
+  final OrdersModel ordersModel;
 
   @override
   Widget build(BuildContext context) {
@@ -27,12 +27,12 @@ class CustomPendingCard extends GetView<PendingConrollerImp> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    "Order Number : ${pendingOrders.ordersId}",
+                    "Order Number : ${ordersModel.ordersId}",
                     style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                         fontSize: fontSize(18), fontWeight: FontWeight.bold),
                   ),
                   Text(
-                    Jiffy.parse(pendingOrders.ordersDatetime!)
+                    Jiffy.parse(ordersModel.ordersDatetime!)
                         .add(hours: 5, minutes: 30)
                         .fromNow(),
                     style: Theme.of(context).textTheme.bodyLarge!.copyWith(
@@ -45,27 +45,27 @@ class CustomPendingCard extends GetView<PendingConrollerImp> {
               ),
               const Divider(thickness: 0.5),
               Text(
-                  "Order Type : ${controller.printOrderType(pendingOrders.ordersType.toString())}",
+                  "Order Type : ${controller.printOrderType(ordersModel.ordersType.toString())}",
                   style: Theme.of(context).textTheme.bodyLarge),
-              Text("Order Price : ${pendingOrders.ordersPrice}\$",
+              Text("Order Price : ${ordersModel.ordersPrice}\$",
                   style: Theme.of(context).textTheme.bodyLarge),
-              if (pendingOrders.couponDiscount != null)
-                Text("Coupon : ${pendingOrders.couponDiscount}%",
+              if (ordersModel.couponDiscount != null)
+                Text("Coupon : ${ordersModel.couponDiscount}%",
                     style: Theme.of(context).textTheme.bodyLarge),
-              Text("Delivery Price : ${pendingOrders.ordersPricedelivery}\$",
+              Text("Delivery Price : ${ordersModel.ordersPricedelivery}\$",
                   style: Theme.of(context).textTheme.bodyLarge),
               Text(
-                  "Payment Method : ${controller.printPaymentMethod(pendingOrders.ordersPaymentmethod.toString())}",
+                  "Payment Method : ${controller.printPaymentMethod(ordersModel.ordersPaymentmethod.toString())}",
                   style: Theme.of(context).textTheme.bodyLarge),
               Text(
-                  "Order Status : ${controller.printStatus(pendingOrders.ordersStatus.toString())}",
+                  "Order Status : ${controller.printStatus(ordersModel.ordersStatus.toString())}",
                   style: Theme.of(context).textTheme.bodyLarge),
               const Divider(thickness: 0.8),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    "Total Price : ${pendingOrders.ordersTotalprice}\$",
+                    "Total Price : ${ordersModel.ordersTotalprice}\$",
                     style: TextStyle(
                         color: AppColor.secondaryColor,
                         fontWeight: FontWeight.bold,
@@ -74,14 +74,14 @@ class CustomPendingCard extends GetView<PendingConrollerImp> {
                   ),
                   Row(
                     children: [
-                      if (pendingOrders.ordersStatus == 0)
+                      if (ordersModel.ordersStatus == 0)
                         CustomOrderButtom(
                           text: "Delete",
                           onPressed: () async {
                             showDeleteDialog(
                               () {
-                                controller.deletePendingOrders(
-                                    pendingOrders.ordersId!);
+                                controller
+                                    .deletePendingOrders(ordersModel.ordersId!);
                                 Get.back();
                               },
                             );
@@ -92,7 +92,7 @@ class CustomPendingCard extends GetView<PendingConrollerImp> {
                       CustomOrderButtom(
                         text: "Details",
                         onPressed: () {
-                          controller.goToPendingOrderDetails(pendingOrders);
+                          controller.goToOrderDetails(ordersModel);
                         },
                       ),
                     ],

@@ -2,16 +2,16 @@ import 'package:ecommerce/controller/orders/archive_controller.dart';
 import 'package:ecommerce/controller/orders/rating_controller.dart';
 import 'package:ecommerce/core/constant/app_color.dart';
 import 'package:ecommerce/core/shared/horizontal_and_vertical_size.dart';
-import 'package:ecommerce/data/model/archive_orders_model.dart';
-import 'package:ecommerce/view/widget/orders/archive/custom_rating_dialog.dart';
-import 'package:ecommerce/view/widget/orders/components/custom_order_botton.dart';
+import 'package:ecommerce/data/model/orders_model.dart';
+import 'package:ecommerce/core/shared/custom_rating_dialog.dart';
+import 'package:ecommerce/view/widget/orders/custom_order_botton.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:jiffy/jiffy.dart';
 
 class CustomArchiveCard extends GetView<ArchiveConrollerImp> {
-  const CustomArchiveCard({super.key, required this.archiveOrders});
-  final ArchiveOrdersModel archiveOrders;
+  const CustomArchiveCard({super.key, required this.ordersModel});
+  final OrdersModel ordersModel;
 
   @override
   Widget build(BuildContext context) {
@@ -29,12 +29,12 @@ class CustomArchiveCard extends GetView<ArchiveConrollerImp> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    "Order Number : ${archiveOrders.ordersId}",
+                    "Order Number : ${ordersModel.ordersId}",
                     style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                         fontSize: fontSize(18), fontWeight: FontWeight.bold),
                   ),
                   Text(
-                    Jiffy.parse(archiveOrders.ordersDatetime!)
+                    Jiffy.parse(ordersModel.ordersDatetime!)
                         .add(hours: 5, minutes: 30)
                         .fromNow(),
                     style: Theme.of(context).textTheme.bodyLarge!.copyWith(
@@ -47,24 +47,24 @@ class CustomArchiveCard extends GetView<ArchiveConrollerImp> {
               ),
               const Divider(thickness: 0.5),
               Text(
-                  "Order Type : ${controller.printOrderType(archiveOrders.ordersType.toString())}",
+                  "Order Type : ${controller.printOrderType(ordersModel.ordersType.toString())}",
                   style: Theme.of(context).textTheme.bodyLarge),
-              Text("Order Price : ${archiveOrders.ordersPrice}\$",
+              Text("Order Price : ${ordersModel.ordersPrice}\$",
                   style: Theme.of(context).textTheme.bodyLarge),
-              Text("Delivery Price : ${archiveOrders.ordersPricedelivery}\$",
-                  style: Theme.of(context).textTheme.bodyLarge),
-              Text(
-                  "Payment Method : ${controller.printPaymentMethod(archiveOrders.ordersPaymentmethod.toString())}",
+              Text("Delivery Price : ${ordersModel.ordersPricedelivery}\$",
                   style: Theme.of(context).textTheme.bodyLarge),
               Text(
-                  "Order Status : ${controller.printStatus(archiveOrders.ordersStatus.toString())}",
+                  "Payment Method : ${controller.printPaymentMethod(ordersModel.ordersPaymentmethod.toString())}",
+                  style: Theme.of(context).textTheme.bodyLarge),
+              Text(
+                  "Order Status : ${controller.printStatus(ordersModel.ordersStatus.toString())}",
                   style: Theme.of(context).textTheme.bodyLarge),
               const Divider(thickness: 0.8),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    "Total Price : ${archiveOrders.ordersTotalprice}\$",
+                    "Total Price : ${ordersModel.ordersTotalprice}\$",
                     style: TextStyle(
                         color: AppColor.secondaryColor,
                         fontWeight: FontWeight.bold,
@@ -73,7 +73,7 @@ class CustomArchiveCard extends GetView<ArchiveConrollerImp> {
                   ),
                   Row(
                     children: [
-                      if (archiveOrders.ordersRating == 0)
+                      if (ordersModel.ordersRating == 0)
                         CustomOrderButtom(
                           text: "Rating",
                           onPressed: () {
@@ -81,7 +81,7 @@ class CustomArchiveCard extends GetView<ArchiveConrollerImp> {
                             RatingDialog(
                                     context: context,
                                     ratingController: ratingConroller,
-                                    archiveOrders: archiveOrders)
+                                    ordersModel: ordersModel)
                                 .show();
                           },
                         ),
@@ -89,7 +89,7 @@ class CustomArchiveCard extends GetView<ArchiveConrollerImp> {
                       CustomOrderButtom(
                         text: "Details",
                         onPressed: () {
-                          controller.goToArchiveOrderDetails(archiveOrders);
+                          controller.goToArchiveOrderDetails(ordersModel);
                         },
                       ),
                     ],

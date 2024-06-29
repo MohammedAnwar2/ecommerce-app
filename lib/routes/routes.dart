@@ -158,11 +158,7 @@ List<GetPage<dynamic>>? getPages = [
       page: () => const ArchiveOrders(),
       transition: Transition.rightToLeftWithFade),
   GetPage(
-      name: AppRoute.orderPendingDetails,
-      page: () => const OrderPendingDetails(),
-      transition: Transition.rightToLeftWithFade),
-  GetPage(
-      name: AppRoute.orderArchiveDetails,
-      page: () => const OrderArchiveDetails(),
+      name: AppRoute.orderDetails,
+      page: () => const OrderDetails(),
       transition: Transition.rightToLeftWithFade),
 ];

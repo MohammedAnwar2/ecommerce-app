@@ -1,81 +1,40 @@
 import 'package:ecommerce/controller/orders/rating_controller.dart';
 import 'package:ecommerce/core/constant/app_color.dart';
-import 'package:ecommerce/core/constant/app_imageassets.dart';
-import 'package:ecommerce/core/shared/horizontal_and_vertical_size.dart';
-import 'package:ecommerce/data/model/archive_orders_model.dart';
-import 'package:ecommerce/view/widget/orders/archive/cutom_rating_dialog.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_stars/flutter_rating_stars.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-class RatingDialog {
-  final BuildContext context;
-  final RatingConrollerImp ratingController;
-  final ArchiveOrdersModel archiveOrders;
-  RatingDialog(
-      {required this.archiveOrders,
-      required this.context,
-      required this.ratingController});
+class CustomRating extends StatelessWidget {
+  const CustomRating({
+    super.key,
+  });
 
-  Future<void> show() async {
-    await showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        backgroundColor: AppColor.white,
-        content: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Image.asset(AppImages.logoAuth),
-            Text(
-              "Rating This Product",
-              style: TextStyle(
-                  fontSize: fontSize(20),
-                  color: AppColor.secondaryColor,
-                  fontWeight: FontWeight.bold),
-            ),
-            Text(
-              textAlign: TextAlign.center,
-              "Tap a star to set your ratings. Add more description here if you want",
-              style: TextStyle(
-                  fontSize: fontSize(13),
-                  color: AppColor.grey500,
-                  fontWeight: FontWeight.bold),
-            ),
-            verticalSizedBox(10),
-            CustomRating(),
-            TextFormField(
-              controller: ratingController.notes,
-              maxLines: 2,
-              minLines: 1,
-              decoration: InputDecoration(
-                  hintText: "Write your notes",
-                  hintStyle: TextStyle(
-                      fontSize: fontSize(13),
-                      color: AppColor.grey500,
-                      fontWeight: FontWeight.bold)),
-            ),
-            verticalSizedBox(10),
-            TextButton(
-              onPressed: () {
-                print("==========notes=============> ");
-                print(ratingController.notes.text);
-                print("==========rating=============> ");
-                print(ratingController.ratingValue);
-                //ratingController.refreshArchivePage();
-                ratingController.ratingProduct(archiveOrders.ordersId!);
-                Get.back();
-              },
-              child: Text(
-                "Submit",
-                style: TextStyle(
-                    fontSize: fontSize(18),
-                    color: AppColor.secondaryColor,
-                    fontWeight: FontWeight.bold),
-              ),
-            )
-          ],
-        ),
-      ),
+  @override
+  Widget build(BuildContext context) {
+    return GetBuilder<RatingConrollerImp>(
+      builder: (controller) {
+        return RatingStars(
+          axis: Axis.horizontal,
+          value: controller.ratingValue,
+          onValueChanged: (v) {
+            controller.changeStarsRating(v);
+          },
+          starCount: 5,
+          starSize: 30.r,
+          maxValue: 5,
+          starSpacing: 15,
+          maxValueVisibility: false,
+          valueLabelVisibility: false,
+          animationDuration: const Duration(milliseconds: 1000),
+          valueLabelPadding:
+              const EdgeInsets.symmetric(vertical: 1, horizontal: 8),
+          valueLabelMargin: const EdgeInsets.only(right: 8),
+          starOffColor: AppColor.grey400!,
+          starColor: AppColor.yellow600!,
+          angle: 0,
+        );
+      },
     );
   }
 }

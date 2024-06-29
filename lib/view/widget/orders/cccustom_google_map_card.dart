@@ -1,13 +1,12 @@
-import 'package:ecommerce/controller/orders/pending_details_controller.dart';
+import 'package:ecommerce/controller/orders/details_controller.dart';
 import 'package:ecommerce/core/constant/app_color.dart';
 import 'package:ecommerce/core/shared/horizontal_and_vertical_size.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
-class CustomPendingGoogleMapCard
-    extends GetView<OrderPendingDetailsControllerImp> {
-  const CustomPendingGoogleMapCard({
+class CustomGoogleMapCard extends GetView<OrderDetailsControllerImp> {
+  const CustomGoogleMapCard({
     super.key,
   });
   @override

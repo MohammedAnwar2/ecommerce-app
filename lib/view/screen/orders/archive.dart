@@ -27,7 +27,7 @@ class ArchiveOrders extends StatelessWidget {
               itemCount: controller.archiveOrdersList.length,
               itemBuilder: (context, i) {
                 return CustomArchiveCard(
-                    archiveOrders: controller.archiveOrdersList[i]);
+                    ordersModel: controller.archiveOrdersList[i]);
               },
             ),
           );

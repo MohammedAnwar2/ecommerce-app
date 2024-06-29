@@ -78,7 +78,8 @@ class ItemInfo extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           itemModel.itemsDiscount != 0.0
-                              ? Row(
+                              ? Column(
+                                  mainAxisSize: MainAxisSize.min,
                                   children: [
                                     Text(
                                       "${itemModel.itemsPrice!}\$",
@@ -93,7 +94,7 @@ class ItemInfo extends StatelessWidget {
                                         decorationThickness: 3.0,
                                       ),
                                     ),
-                                    horizontalSizedBox(10),
+                                    //horizontalSizedBox(10),
                                     Text(
                                       "${itemModel.itemspricediscount!}\$",
                                       style: TextStyle(

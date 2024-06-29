@@ -3,16 +3,17 @@ import 'package:ecommerce/core/class/sratus_request.dart';
 import 'package:ecommerce/core/functions/hadlingdata.dart';
 import 'package:ecommerce/data/datasource/remote/orders/details.dart';
 import 'package:ecommerce/data/model/orders_details_model.dart';
-import 'package:ecommerce/data/model/pending_orders_model.dart';
+import 'package:ecommerce/data/model/orders_model.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
-mixin OrderPendingDetailsMethods {
+mixin OrderDetailsMethods {
   initData();
   viewPendingOreredDetails();
+  viewArchiveOreredDetails();
 }
-mixin OrderPendingDetailsVaraible {
-  PendingOrdersModel? pendingOrders;
+mixin OrderDetailsVaraible {
+  late OrdersModel ordersModel;
   OrderDetailsData orderdetails = OrderDetailsData(Get.find());
   late CameraPosition cameraPosition;
   late Completer<GoogleMapController> completorController;
@@ -22,13 +23,32 @@ mixin OrderPendingDetailsVaraible {
   List<OrdersDetailsModel> ordersDetailsList = [];
 }
 
-class OrderPendingDetailsControllerImp extends GetxController
-    with OrderPendingDetailsMethods, OrderPendingDetailsVaraible {
+class OrderDetailsControllerImp extends GetxController
+    with OrderDetailsMethods, OrderDetailsVaraible {
   @override
   viewPendingOreredDetails() async {
     statusRequest = StatusRequest.loading;
     update();
-    var response = await orderdetails.orderDetails(pendingOrders!.ordersId!);
+    var response = await orderdetails.orderDetails(ordersModel!.ordersId!);
+    statusRequest = handlingData(response);
+    if (statusRequest == StatusRequest.success) {
+      if (response['status'] == 'success') {
+        List data = response['data'];
+        ordersDetailsList
+            .addAll(data.map((e) => OrdersDetailsModel.fromJson(e)));
+      } else {
+        statusRequest = StatusRequest.serverfailure;
+      }
+    }
+
+    update();
+  }
+
+  @override
+  viewArchiveOreredDetails() async {
+    statusRequest = StatusRequest.loading;
+    update();
+    var response = await orderdetails.orderDetails(ordersModel.ordersId!);
     statusRequest = handlingData(response);
     if (statusRequest == StatusRequest.success) {
       if (response['status'] == 'success') {
@@ -45,11 +65,11 @@ class OrderPendingDetailsControllerImp extends GetxController
 
   @override
   initData() {
-    pendingOrders = Get.arguments["pendingorderdetails"];
-    if (pendingOrders!.ordersType == 0) {
+    ordersModel = Get.arguments["orderdetails"];
+    if (ordersModel.ordersType == 0) {
       completorController = Completer<GoogleMapController>();
-      latLng = LatLng(
-          pendingOrders!.orderAddressLat!, pendingOrders!.orderAddressLong!);
+      latLng =
+          LatLng(ordersModel.orderAddressLat!, ordersModel.orderAddressLong!);
       cameraPosition = CameraPosition(
         target: latLng,
         zoom: 16,

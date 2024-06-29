@@ -1,11 +1,10 @@
 import 'dart:developer';
-
 import 'package:ecommerce/core/class/sratus_request.dart';
 import 'package:ecommerce/core/constant/app_keys.dart';
 import 'package:ecommerce/core/functions/hadlingdata.dart';
 import 'package:ecommerce/core/services/service.dart';
 import 'package:ecommerce/data/datasource/remote/orders/archive.dart';
-import 'package:ecommerce/data/model/archive_orders_model.dart';
+import 'package:ecommerce/data/model/orders_model.dart';
 import 'package:ecommerce/routes/route_app.dart';
 import 'package:get/get.dart';
 
@@ -15,14 +14,14 @@ mixin AchiveConrollerMethods {
   printPaymentMethod(String val);
   printStatus(String val);
   refreshPendingOrders();
-  goToArchiveOrderDetails(ArchiveOrdersModel archiveOrders);
+  goToArchiveOrderDetails(OrdersModel ordersModel);
 }
 mixin AchiveConrollerVaraibles {
   late int id;
   StatusRequest statusRequest = StatusRequest.success;
   ArchiveData archiveData = ArchiveData(Get.find());
   MyServices services = Get.find<MyServices>();
-  List<ArchiveOrdersModel> archiveOrdersList = [];
+  List<OrdersModel> archiveOrdersList = [];
 }
 
 class ArchiveConrollerImp extends GetxController
@@ -37,12 +36,9 @@ class ArchiveConrollerImp extends GetxController
       if (response['status'] == 'success') {
         archiveOrdersList.clear();
         List data = response['data'];
-        print(data);
         log("successfully");
-        archiveOrdersList
-            .addAll(data.map((e) => ArchiveOrdersModel.fromJson(e)));
+        archiveOrdersList.addAll(data.map((e) => OrdersModel.fromJson(e)));
       } else {
-        log("faild");
         statusRequest = StatusRequest.nodata;
       }
     }
@@ -96,8 +92,8 @@ class ArchiveConrollerImp extends GetxController
   }
 
   @override
-  goToArchiveOrderDetails(ArchiveOrdersModel archiveOrders) {
-    Get.toNamed(AppRoute.orderArchiveDetails,
-        arguments: {"archiveorderdetails": archiveOrders});
+  goToArchiveOrderDetails(OrdersModel ordersModel) {
+    Get.toNamed(AppRoute.orderDetails,
+        arguments: {"orderdetails": ordersModel});
   }
 }

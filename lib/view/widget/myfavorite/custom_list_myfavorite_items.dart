@@ -81,7 +81,7 @@ class MyFavoriteInfo extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           myFavoriteInfo.itemsDiscount != 0
-                              ? Row(
+                              ? Column(
                                   children: [
                                     Text(
                                       "${myFavoriteInfo.itemsPrice!}\$",
@@ -96,7 +96,7 @@ class MyFavoriteInfo extends StatelessWidget {
                                         decorationThickness: 3.0,
                                       ),
                                     ),
-                                    horizontalSizedBox(10),
+                                    //  horizontalSizedBox(10),
                                     Text(
                                       "${myFavoriteInfo.totalPrice!}\$",
                                       style: TextStyle(

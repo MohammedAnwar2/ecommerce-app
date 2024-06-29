@@ -46,12 +46,16 @@ class ItemModel {
       itemsName: json['items_name'],
       itemsNameAr: json['items_name_ar'],
       itemsDesc: json['items_desc'],
-      itemspricediscount: json['itemspricediscount'],
+      itemspricediscount: json['itemspricediscount'] is int
+          ? json['itemspricediscount'].toDouble()
+          : json['itemspricediscount'],
       itemsDescAr: json['items_desc_ar'],
       itemsImage: json['items_image'],
       itemsCount: json['items_count'],
       itemsActive: json['items_active'],
-      itemsPrice: json['items_price'],
+      itemsPrice: json['items_price'] is int
+          ? json['items_price'].toDouble()
+          : json['items_price'],
       itemsDiscount: json['items_discount'],
       itemsDate: json['items_date'],
       itemsCat: json['items_cat'],
