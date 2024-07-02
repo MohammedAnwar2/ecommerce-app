@@ -7,7 +7,7 @@ dependencies:
   auto_animated: ^3.2.0
   badges: ^3.1.2
   cached_network_image: ^3.3.1
-  cloud_firestore: ^4.15.9
+  cloud_firestore: ^4.17.5
   connectivity_plus: ^6.0.2
   cupertino_icons: ^1.0.6
   dartz: ^0.10.1

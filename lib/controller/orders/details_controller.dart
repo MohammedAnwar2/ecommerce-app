@@ -4,6 +4,7 @@ import 'package:ecommerce/core/functions/hadlingdata.dart';
 import 'package:ecommerce/data/datasource/remote/orders/details.dart';
 import 'package:ecommerce/data/model/orders_details_model.dart';
 import 'package:ecommerce/data/model/orders_model.dart';
+import 'package:ecommerce/routes/route_app.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
@@ -11,6 +12,7 @@ mixin OrderDetailsMethods {
   initData();
   viewPendingOreredDetails();
   viewArchiveOreredDetails();
+  goToTracking();
 }
 mixin OrderDetailsVaraible {
   late OrdersModel ordersModel;
@@ -85,5 +87,10 @@ class OrderDetailsControllerImp extends GetxController
     initData();
     viewPendingOreredDetails();
     super.onInit();
+  }
+
+  @override
+  goToTracking() {
+    Get.toNamed(AppRoute.trackingorder, arguments: {"details": ordersModel});
   }
 }

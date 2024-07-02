@@ -1,6 +1,6 @@
 import 'dart:developer';
 
-import 'package:ecommerce/controller/mix_class_controller/serch_class_methods.dart';
+import 'package:ecommerce/controller/mix_class_controller/search_class_methods.dart';
 import 'package:ecommerce/core/class/sratus_request.dart';
 import 'package:ecommerce/core/constant/app_keys.dart';
 import 'package:ecommerce/core/functions/hadlingdata.dart';
