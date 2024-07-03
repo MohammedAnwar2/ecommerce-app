@@ -6,6 +6,7 @@ class ItemModel {
   String? itemsDescAr;
   String? itemsImage;
   int? itemsCount;
+  int? itemsIsnotify;
   int? itemsActive;
   double? itemsPrice;
   int? itemsDiscount;
@@ -27,6 +28,7 @@ class ItemModel {
       this.itemsDescAr,
       this.itemsImage,
       this.itemsCount,
+      this.itemsIsnotify,
       this.itemsActive,
       this.itemsPrice,
       this.itemsDiscount,
@@ -52,6 +54,7 @@ class ItemModel {
       itemsDescAr: json['items_desc_ar'],
       itemsImage: json['items_image'],
       itemsCount: json['items_count'],
+      itemsIsnotify: json['items_isnotify'] as int?,
       itemsActive: json['items_active'],
       itemsPrice: json['items_price'] is int
           ? json['items_price'].toDouble()
@@ -78,6 +81,7 @@ class ItemModel {
     data['items_image'] = itemsImage;
     data['itemspricediscount'] = itemspricediscount;
     data['items_count'] = itemsCount;
+    data['items_isnotify'] = itemsIsnotify;
     data['items_active'] = itemsActive;
     data['items_price'] = itemsPrice;
     data['items_discount'] = itemsDiscount;

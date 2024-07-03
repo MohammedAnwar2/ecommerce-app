@@ -51,8 +51,7 @@ class CustomAnimationLeftToRight extends StatefulWidget {
   final int? time;
 
   const CustomAnimationLeftToRight(
-      {Key? key, required this.child, this.time = 800})
-      : super(key: key);
+      {super.key, required this.child, this.time = 800});
 
   @override
   _CustomAnimationLeftToRightState createState() =>
