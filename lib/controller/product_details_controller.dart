@@ -1,11 +1,15 @@
+import 'dart:developer';
+
 import 'package:ecommerce/controller/mix_class_controller/add_delete_items_methods.dart';
 import 'package:ecommerce/core/class/sratus_request.dart';
 import 'package:ecommerce/core/constant/app_keys.dart';
 import 'package:ecommerce/core/functions/hadlingdata.dart';
 import 'package:ecommerce/core/services/service.dart';
+import 'package:ecommerce/core/shared/horizontal_and_vertical_size.dart';
 import 'package:ecommerce/data/datasource/remote/cart/get_count_cart.dart';
 import 'package:ecommerce/data/model/items_model.dart';
 import 'package:ecommerce/routes/route_app.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 abstract class ProductDetailsController extends AddDeleteItemsCounter {
@@ -48,10 +52,21 @@ class ProductDetailsControllerImp extends ProductDetailsController {
 
   @override
   add() {
-    count++;
-    addData(
-        itemModel.itemsId.toString(), itemModel.itemspricediscount.toString());
-    update();
+    if (itemModel.itemsCount! > count) {
+      count++;
+      addData(itemModel.itemsId.toString(),
+          itemModel.itemspricediscount.toString());
+      update();
+    } else {
+      Get.snackbar("", "",
+          titleText: Row(
+            children: [
+              Icon(Icons.dangerous),
+              horizontalSizedBox(20),
+              Text("Sorry we have limited quantity"),
+            ],
+          ));
+    }
   }
 
   @override
