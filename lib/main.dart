@@ -5,6 +5,7 @@ import 'package:ecommerce/core/services/service.dart';
 import 'package:ecommerce/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 
 void main() async {
@@ -14,7 +15,8 @@ void main() async {
 }
 
 class MyApp extends StatelessWidget {
-  MyApp({Key? key}) : super(key: key);
+  MyApp({super.key});
+  MyServices services = Get.find<MyServices>();
   @override
   Widget build(BuildContext context) {
     ScreenUtil.init(context); //first
@@ -26,6 +28,8 @@ class MyApp extends StatelessWidget {
       splitScreenMode: true,
       builder: (_, child) {
         return GetMaterialApp(
+          navigatorKey: services.navigatorKey,
+          builder: FToastBuilder(),
           translations: LocalizationModel(),
           locale: controller.language,
           debugShowCheckedModeBanner: false,

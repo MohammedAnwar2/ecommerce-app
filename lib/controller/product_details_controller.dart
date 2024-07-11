@@ -4,6 +4,7 @@ import 'package:ecommerce/controller/mix_class_controller/add_delete_items_metho
 import 'package:ecommerce/core/class/sratus_request.dart';
 import 'package:ecommerce/core/constant/app_keys.dart';
 import 'package:ecommerce/core/functions/hadlingdata.dart';
+import 'package:ecommerce/core/functions/show_tost.dart';
 import 'package:ecommerce/core/services/service.dart';
 import 'package:ecommerce/core/shared/horizontal_and_vertical_size.dart';
 import 'package:ecommerce/data/datasource/remote/cart/get_count_cart.dart';
@@ -58,14 +59,8 @@ class ProductDetailsControllerImp extends ProductDetailsController {
           itemModel.itemspricediscount.toString());
       update();
     } else {
-      Get.snackbar("", "",
-          titleText: Row(
-            children: [
-              Icon(Icons.dangerous),
-              horizontalSizedBox(20),
-              Text("Sorry we have limited quantity"),
-            ],
-          ));
+      showToast(
+          text: "Sorry we have limited quantity", height: verticalSized(100));
     }
   }
 

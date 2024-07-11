@@ -1,6 +1,6 @@
 class ViewCartProductsModel {
   double? totalPrice;
-  int? itemscount;
+  int? currentItemsCount;
   int? cartId;
   int? cartUsersId;
   int? cartItemsId;
@@ -19,7 +19,7 @@ class ViewCartProductsModel {
 
   ViewCartProductsModel(
       {this.totalPrice,
-      this.itemscount,
+      this.currentItemsCount,
       this.cartId,
       this.cartUsersId,
       this.cartItemsId,
@@ -39,7 +39,7 @@ class ViewCartProductsModel {
   factory ViewCartProductsModel.fromJson(Map<String, dynamic> json) {
     return ViewCartProductsModel(
       totalPrice: json['total_price'].toDouble(),
-      itemscount: json['Itemscount'],
+      currentItemsCount: json['currentItemsCount'],
       cartId: json['cart_id'],
       cartUsersId: json['cart_usersId'],
       cartItemsId: json['cart_itemsId'],
@@ -61,7 +61,7 @@ class ViewCartProductsModel {
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
     data['total_price'] = totalPrice;
-    data['Itemscount'] = itemscount;
+    data['currentItemsCount'] = currentItemsCount;
     data['cart_id'] = cartId;
     data['cart_usersId'] = cartUsersId;
     data['cart_itemsId'] = cartItemsId;

@@ -11,11 +11,12 @@ class ListItemsCard extends GetView<MyCardControllerImp> {
   Widget build(BuildContext context) {
     return ListView.builder(
       padding: EdgeInsetsDirectional.only(top: verticalSized(15)),
-      itemCount: controller.data.length,
+      itemCount: controller.viewCartProductsList.length,
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
       itemBuilder: (BuildContext context, int i) {
-        return ItemCardInfo(viewCartProductsModel: controller.data[i]);
+        return ItemCardInfo(
+            viewCartProductsModel: controller.viewCartProductsList[i]);
       },
     );
   }

@@ -10,7 +10,9 @@ class RouteModel {
   factory RouteModel.fromJson(Map<String, dynamic> json) => RouteModel(
         distanceMeters: json['distanceMeters'] as int?,
         duration: json['duration'] as String?,
-        polyline: json['polyline'] == null ? null : Polyline.fromJson(json['polyline'] as Map<String, dynamic>),
+        polyline: json['polyline'] == null
+            ? null
+            : Polyline.fromJson(json['polyline'] as Map<String, dynamic>),
       );
 
   Map<String, dynamic> toJson() => {

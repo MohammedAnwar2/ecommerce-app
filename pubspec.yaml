@@ -25,6 +25,7 @@ dependencies:
   flutter_screenutil: ^5.9.0
   flutter_svg: ^2.0.10+1
   fluttericon: ^2.0.0
+  fluttertoast: ^8.2.6
   font_awesome_flutter: ^10.7.0
   fpdart: ^1.1.0
   geocoding: ^3.0.0

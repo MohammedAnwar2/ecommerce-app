@@ -6,7 +6,9 @@ class LocationModel {
   LocationModel({this.latLng});
 
   factory LocationModel.fromJson(Map<String, dynamic> json) => LocationModel(
-        latLng: json['latLng'] == null ? null : LatLngModel.fromJson(json['latLng'] as Map<String, dynamic>),
+        latLng: json['latLng'] == null
+            ? null
+            : LatLngModel.fromJson(json['latLng'] as Map<String, dynamic>),
       );
 
   Map<String, dynamic> toJson() => {
