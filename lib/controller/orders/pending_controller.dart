@@ -1,11 +1,12 @@
 import 'dart:developer';
-
 import 'package:ecommerce/core/class/sratus_request.dart';
 import 'package:ecommerce/core/constant/app_keys.dart';
 import 'package:ecommerce/core/functions/hadlingdata.dart';
 import 'package:ecommerce/core/services/service.dart';
 import 'package:ecommerce/data/datasource/remote/orders/delete.dart';
 import 'package:ecommerce/data/datasource/remote/orders/pending.dart';
+import 'package:ecommerce/data/datasource/remote/orders/return_values_again.dart';
+import 'package:ecommerce/data/model/get_items_ids_model.dart';
 import 'package:ecommerce/data/model/orders_model.dart';
 import 'package:ecommerce/routes/route_app.dart';
 import 'package:get/get.dart';
@@ -17,14 +18,18 @@ mixin PendingConrollerMethods {
   printStatus(String val);
   refreshPendingOrders();
   goToOrderDetails(OrdersModel ordersModel);
+  deletePendingOrders(int orderid);
+  Future<void> returnItemsValueMethod(int itemsid, int currentitemscount);
 }
 mixin PendingConrollerVaraibles {
   late int id;
   StatusRequest statusRequest = StatusRequest.success;
   PendingData pendingData = PendingData(Get.find());
   DeleteOrderData deleteOrderData = DeleteOrderData(Get.find());
+  ReturnItemsValueData returnItemsValue = ReturnItemsValueData(Get.find());
   MyServices services = Get.find<MyServices>();
   List<OrdersModel> pendingOrdersList = [];
+  List<GetItemsIdsOrdersModel> getItemsIdsList = [];
 }
 
 class PendingConrollerImp extends GetxController
@@ -38,10 +43,12 @@ class PendingConrollerImp extends GetxController
     if (statusRequest == StatusRequest.success) {
       if (response['status'] == 'success') {
         pendingOrdersList.clear();
-        List data = response['data'];
-        print(data);
-        log("successfully");
-        pendingOrdersList.addAll(data.map((e) => OrdersModel.fromJson(e)));
+        List ordersviewdata = response['ordersview'];
+        List itemsidorderdata = response['itemsidorder'];
+        pendingOrdersList
+            .addAll(ordersviewdata.map((e) => OrdersModel.fromJson(e)));
+        getItemsIdsList.addAll(
+            itemsidorderdata.map((e) => GetItemsIdsOrdersModel.fromJson(e)));
       } else {
         log("faild");
         statusRequest = StatusRequest.nodata;
@@ -51,6 +58,7 @@ class PendingConrollerImp extends GetxController
     update();
   }
 
+  @override
   deletePendingOrders(int orderid) async {
     statusRequest = StatusRequest.loading;
     update();
@@ -58,6 +66,12 @@ class PendingConrollerImp extends GetxController
     statusRequest = handlingData(response);
     if (statusRequest == StatusRequest.success) {
       if (response['status'] == 'success') {
+        for (var element in getItemsIdsList) {
+          if (element.cartOrders == orderid) {
+            await returnItemsValueMethod(
+                element.cartItemsId!, element.currentcountitems!);
+          }
+        }
         refreshPendingOrders();
       } else {
         statusRequest = StatusRequest.nodata;
@@ -116,5 +130,14 @@ class PendingConrollerImp extends GetxController
   goToOrderDetails(OrdersModel ordersModel) {
     Get.toNamed(AppRoute.orderDetails,
         arguments: {"orderdetails": ordersModel});
+  }
+
+  @override
+  Future<void> returnItemsValueMethod(
+      int itemsid, int currentitemscount) async {
+    var response =
+        await returnItemsValue.returnItemsValue(itemsid, currentitemscount);
+    statusRequest = handlingData(response);
+    statusRequest = StatusRequest.success;
   }
 }

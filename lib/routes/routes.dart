@@ -90,7 +90,7 @@ List<GetPage<dynamic>>? getPages = [
   ),
   GetPage(
     name: AppRoute.homeScreen,
-    page: () => HomeScreen(),
+    page: () => const HomeScreen(),
     transition: Transition.fade,
   ),
   GetPage(
@@ -163,7 +163,12 @@ List<GetPage<dynamic>>? getPages = [
       transition: Transition.rightToLeftWithFade),
   GetPage(
     name: AppRoute.trackingorder,
-    page: () => TrackingOrder(),
+    page: () => const TrackingOrder(),
+    transition: Transition.fade,
+  ),
+  GetPage(
+    name: AppRoute.notificationPage,
+    page: () => const NotificationPage(),
     transition: Transition.fade,
   ),
 ];

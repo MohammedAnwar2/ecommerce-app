@@ -1,7 +1,9 @@
 import 'dart:developer';
 
+import 'package:ecommerce/controller/items_controller.dart';
 import 'package:ecommerce/controller/notifications/view_notifications_controller.dart';
 import 'package:ecommerce/controller/orders/pending_controller.dart';
+import 'package:ecommerce/routes/route_app.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:get/get.dart';
 import 'package:flutter_ringtone_player/flutter_ringtone_player.dart';
@@ -48,6 +50,16 @@ class NotificationServices {
       log("refresh =-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=");
     }
     if (data["pagename"] == "orderpendingrefresh") {
+      ViewNotificationControllerImp controller =
+          Get.put(ViewNotificationControllerImp());
+      controller.refereshNotificarions();
+    }
+    //* when update the item count when the user wanted notify him if the item is avaliable
+    if (data["pagename"] == "notifyme" && Get.currentRoute == AppRoute.items) {
+      ItemsControllerImp controller = Get.find<ItemsControllerImp>();
+      controller.refereshItemsPage();
+    }
+    if (data["pagename"] == "notifyme") {
       ViewNotificationControllerImp controller =
           Get.put(ViewNotificationControllerImp());
       controller.refereshNotificarions();

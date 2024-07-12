@@ -18,6 +18,7 @@ mixin ItemsControllerMethod {
   goToMyFavorite();
   updateNotifyMeState({required int itemId, required int notifyMeState});
   updateNotifyMeInBackend({required int itemId});
+  refereshItemsPage();
 }
 
 mixin ItemsControllerVaraible {
@@ -106,5 +107,10 @@ class ItemsControllerImp extends SearchMethodMix
   @override
   goToMyFavorite() {
     Get.toNamed(AppRoute.myFavorite);
+  }
+
+  @override
+  refereshItemsPage() async {
+    await getData(categoriesModelList[selectedCat].categoriesId.toString());
   }
 }

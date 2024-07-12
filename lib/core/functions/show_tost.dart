@@ -12,18 +12,20 @@ void showToast({required String text, double height = 0}) {
   fToast.init(services.navigatorKey.currentContext!);
   Widget toast = Container(
     padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 8.h),
+    margin: EdgeInsets.symmetric(horizontal: 16.w),
     decoration: BoxDecoration(
       borderRadius: BorderRadius.circular(25.0),
       color: AppColor.primaryColor,
     ),
-    child: Row(
-      mainAxisSize: MainAxisSize.min,
+    child: Wrap(
+      direction: Axis.horizontal,
       children: [
         const Icon(Icons.soap, color: Colors.white),
         horizontalSizedBox(10),
         Text(
           text,
           style: const TextStyle(color: AppColor.white),
+          textAlign: TextAlign.center,
         ),
       ],
     ),

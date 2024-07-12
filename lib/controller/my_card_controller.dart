@@ -151,7 +151,8 @@ class MyCardControllerImp extends MyCardControllerMethods
       Get.toNamed(AppRoute.checkOut, arguments: {
         "couponId": couponId ?? "0",
         "totalPice": totalprice.toString(),
-        "discountCoupon": discount.toString()
+        "discountCoupon": discount.toString(),
+        "viewCartProductsList": viewCartProductsList
       });
     } else {
       showCustomSnackbar("THERE ARE NO ITEMS IN CART");
