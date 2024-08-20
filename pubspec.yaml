@@ -16,6 +16,7 @@ dependencies:
   firebase_messaging: ^14.9.4
   flutter:
     sdk: flutter
+  flutter_launcher_icons: ^0.13.1
   flutter_local_notifications: ^17.0.0
   flutter_otp_text_field: ^1.1.2+1
   flutter_paypal_payment: ^1.0.6
@@ -53,6 +54,10 @@ dev_dependencies:
   flutter_lints: ^3.0.1
   flutter_test:
     sdk: flutter
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/images/new_logo.PNG"
 
 flutter:
 
