@@ -1,5 +1,5 @@
 class AppLink {
-  static const String server = "https://mohammedanwar.in/ecommerce";
+  static const String server = "https://mohammedanwar.in/ecommerce/users";
   static const String image = "https://mohammedanwar.in/ecommerce/uploade";
 
   //*-------------------------- Image ------------------------------
@@ -22,6 +22,7 @@ class AppLink {
   static const String home = "$server/home.php";
   //*-------------------- Items --------------------------
   static const String items = "$server/items/items.php";
+  static const String notifyme = "$server/items/notifyme.php";
   static const String itemsSearch = "$server/items/search.php";
   //*-------------------- Favorite --------------------------
   //* static const String favorite = "$server/favorite.php";
@@ -49,6 +50,11 @@ class AppLink {
   static const String orderDetails = "$server/orders/details.php";
   static const String deleteOrder = "$server/orders/delete.php";
   static const String rating = "$server/orders/rating.php";
+  static const String returnsItemsValuesAgain =
+      "$server/orders/returns_items_values_again.php";
+  static const String decreseItems = "$server/orders/decrese_items.php";
+  static const String checkExistingItems =
+      "$server/orders/check_existing_items.php";
   //*------------------- Notification -------------------------
   static const String viewNotifications = "$server/notification/view.php";
   static const String deleteNotifications = "$server/notification/delete.php";

@@ -3,8 +3,7 @@ import 'package:ecommerce/core/middleware/onboarding_middleware.dart';
 import 'package:ecommerce/routes/route_app.dart';
 import 'package:ecommerce/view/screen/notification.dart';
 import 'package:ecommerce/view/screen/orders/archive.dart';
-import 'package:ecommerce/view/screen/orders/archive_details.dart';
-import 'package:ecommerce/view/screen/orders/pending_details.dart';
+import 'package:ecommerce/view/screen/orders/details.dart';
 import 'package:ecommerce/view/screen/orders/pending.dart';
 import 'package:ecommerce/view/screen/address/add_address.dart';
 import 'package:ecommerce/view/screen/address/add_address_details.dart';
@@ -28,6 +27,7 @@ import 'package:ecommerce/view/screen/my_favorite.dart';
 import 'package:ecommerce/view/screen/onbording.dart';
 import 'package:ecommerce/view/screen/auth/login.dart';
 import 'package:ecommerce/view/screen/language.dart';
+import 'package:ecommerce/view/screen/orders/tracking.dart';
 import 'package:ecommerce/view/screen/product_details.dart';
 import 'package:get/get.dart';
 
@@ -90,7 +90,7 @@ List<GetPage<dynamic>>? getPages = [
   ),
   GetPage(
     name: AppRoute.homeScreen,
-    page: () => HomeScreen(),
+    page: () => const HomeScreen(),
     transition: Transition.fade,
   ),
   GetPage(
@@ -158,11 +158,17 @@ List<GetPage<dynamic>>? getPages = [
       page: () => const ArchiveOrders(),
       transition: Transition.rightToLeftWithFade),
   GetPage(
-      name: AppRoute.orderPendingDetails,
-      page: () => const OrderPendingDetails(),
+      name: AppRoute.orderDetails,
+      page: () => const OrderDetails(),
       transition: Transition.rightToLeftWithFade),
   GetPage(
-      name: AppRoute.orderArchiveDetails,
-      page: () => const OrderArchiveDetails(),
-      transition: Transition.rightToLeftWithFade),
+    name: AppRoute.trackingorder,
+    page: () => const TrackingOrder(),
+    transition: Transition.fade,
+  ),
+  GetPage(
+    name: AppRoute.notificationPage,
+    page: () => const NotificationPage(),
+    transition: Transition.fade,
+  ),
 ];

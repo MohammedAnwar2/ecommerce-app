@@ -1,13 +1,12 @@
-import 'dart:developer';
 import 'dart:math';
-
 import 'package:ecommerce/controller/mix_class_controller/add_delete_items_methods.dart';
 import 'package:ecommerce/core/class/sratus_request.dart';
-import 'package:ecommerce/core/constant/app_color.dart';
 import 'package:ecommerce/core/constant/app_keys.dart';
 import 'package:ecommerce/core/functions/hadlingdata.dart';
 import 'package:ecommerce/core/functions/show_custom_snackbar.dart';
+import 'package:ecommerce/core/functions/show_tost.dart';
 import 'package:ecommerce/core/services/service.dart';
+import 'package:ecommerce/core/shared/horizontal_and_vertical_size.dart';
 import 'package:ecommerce/data/datasource/remote/cart/check_coupon.dart';
 import 'package:ecommerce/data/datasource/remote/cart/view_all_cart_products.dart';
 import 'package:ecommerce/data/model/coupon_model.dart';
@@ -15,6 +14,7 @@ import 'package:ecommerce/data/model/view_cart_all_products.dart';
 import 'package:ecommerce/routes/route_app.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 abstract class MyCardControllerMethods extends AddDeleteItemsCounter {
   @override
@@ -33,7 +33,7 @@ abstract class MyCardControllerMethods extends AddDeleteItemsCounter {
 mixin MyCardControllerVariables {
   ViewCartData viewCartData = ViewCartData(Get.find());
   MyServices services = Get.find<MyServices>();
-  List<ViewCartProductsModel> data = [];
+  List<ViewCartProductsModel> viewCartProductsList = [];
   CouponModel couponData = CouponModel();
   double totalprice = 0.0;
   String totalcount = "";
@@ -61,7 +61,7 @@ class MyCardControllerImp extends MyCardControllerMethods
 
   @override
   viewAllCartProducts() async {
-    data.clear();
+    viewCartProductsList.clear();
     statusRequest = StatusRequest.loading;
     update();
     var response = await viewCartData.viewAllCartProducts(id.toString());
@@ -70,7 +70,8 @@ class MyCardControllerImp extends MyCardControllerMethods
       if (response['status'] == 'success') {
         List alldata = response['datacart'];
         List countprice = response['countprice'];
-        data.addAll(alldata.map((e) => ViewCartProductsModel.fromJson(e)));
+        viewCartProductsList
+            .addAll(alldata.map((e) => ViewCartProductsModel.fromJson(e)));
         totalprice = countprice[0]["totalprice"];
         totalcount = countprice[0]["totalcount"];
       } else {
@@ -78,6 +79,17 @@ class MyCardControllerImp extends MyCardControllerMethods
       }
     }
     update();
+  }
+
+  add(ViewCartProductsModel viewCartProductslist) async {
+    if (viewCartProductslist.currentItemsCount! <
+        viewCartProductslist.itemsCount!) {
+      await addData(viewCartProductslist.itemsId.toString(),
+          viewCartProductslist.itemsPrice.toString());
+      refreshView();
+    } else {
+      showToast(text: "Sorry we have limited quantity");
+    }
   }
 
   @override
@@ -116,7 +128,7 @@ class MyCardControllerImp extends MyCardControllerMethods
 
   @override
   resetView() {
-    data.clear();
+    viewCartProductsList.clear();
     totalcount = "";
     totalprice = 0;
   }
@@ -135,11 +147,12 @@ class MyCardControllerImp extends MyCardControllerMethods
 
   @override
   goToCheckOut() {
-    if (data.isNotEmpty) {
+    if (viewCartProductsList.isNotEmpty) {
       Get.toNamed(AppRoute.checkOut, arguments: {
         "couponId": couponId ?? "0",
         "totalPice": totalprice.toString(),
-        "discountCoupon": discount.toString()
+        "discountCoupon": discount.toString(),
+        "viewCartProductsList": viewCartProductsList
       });
     } else {
       showCustomSnackbar("THERE ARE NO ITEMS IN CART");

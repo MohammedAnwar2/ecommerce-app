@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ecommerce/controller/my_card_controller.dart';
 import 'package:ecommerce/core/constant/app_link.dart';
+import 'package:ecommerce/core/functions/show_tost.dart';
 import 'package:ecommerce/core/shared/horizontal_and_vertical_size.dart';
 import 'package:ecommerce/data/model/view_cart_all_products.dart';
 import 'package:flutter/material.dart';
@@ -51,14 +52,15 @@ class ItemCardInfo extends GetView<MyCardControllerImp> {
                     height: verticalSized(38),
                     child: IconButton(
                         onPressed: () async {
-                          await controller.addData(
-                              viewCartProductsModel.itemsId.toString(),
-                              viewCartProductsModel.itemsPrice.toString());
-                          controller.refreshView();
+                          await controller.add(viewCartProductsModel);
+                          // await controller.addData(
+                          //     viewCartProductsModel.itemsId.toString(),
+                          //     viewCartProductsModel.itemsPrice.toString());
+                          // controller.refreshView();
                         },
                         icon: const Icon(Icons.add))),
                 Text(
-                  viewCartProductsModel.itemscount.toString(),
+                  viewCartProductsModel.currentItemsCount.toString(),
                   style: Theme.of(context)
                       .textTheme
                       .bodyLarge!

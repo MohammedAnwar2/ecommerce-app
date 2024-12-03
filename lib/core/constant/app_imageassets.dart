@@ -7,6 +7,7 @@ class AppImages {
   static const String onBoardingImageTwo = "$imagesRoute/two.PNG";
   static const String onBoardingImageThree = "$imagesRoute/three.PNG";
   static const String sale = "$imagesRoute/sale.png";
+  static const String deliveryman2 = "$imagesRoute/deliveryman2.png";
   static const String profile = "$imagesRoute/profile.png";
   static const String deliveryman = "$imagesRoute/deliveryman.svg";
   static const String deliverycar = "$imagesRoute/deliverycar.svg";

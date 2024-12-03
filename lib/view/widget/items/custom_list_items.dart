@@ -15,6 +15,7 @@ class ListItems extends GetView<ItemsControllerImp> {
   @override
   Widget build(BuildContext context) {
     FavoriteControllerImp favController = Get.find<FavoriteControllerImp>();
+    ItemsControllerImp notifyController = Get.find<ItemsControllerImp>();
     return GetBuilder<ItemsControllerImp>(
       builder: (controller) => HandlingDataView(
         statusRequest: controller.statusRequest,
@@ -31,6 +32,7 @@ class ListItems extends GetView<ItemsControllerImp> {
                   favController.updateFavoriteState(
                       itemId: controller.itemModelList[i].itemsId!,
                       favoriteVal: controller.itemModelList[i].favorite!);
+
                   return CustomAnimation(
                     time: 500,
                     child: ItemInfo(

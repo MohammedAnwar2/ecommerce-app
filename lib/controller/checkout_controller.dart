@@ -5,10 +5,14 @@ import 'package:ecommerce/core/constant/app_keys.dart';
 import 'package:ecommerce/core/functions/hadlingdata.dart';
 import 'package:ecommerce/core/functions/paypal_payment.dart';
 import 'package:ecommerce/core/functions/show_custom_snackbar.dart';
+import 'package:ecommerce/core/functions/show_tost.dart';
 import 'package:ecommerce/core/services/service.dart';
 import 'package:ecommerce/data/datasource/remote/address.dart';
+import 'package:ecommerce/data/datasource/remote/orders/check_existing_items.dart';
 import 'package:ecommerce/data/datasource/remote/orders/checkout.dart';
+import 'package:ecommerce/data/datasource/remote/orders/decrease_items.dart';
 import 'package:ecommerce/data/model/view_address_model.dart';
+import 'package:ecommerce/data/model/view_cart_all_products.dart';
 import 'package:ecommerce/routes/route_app.dart';
 import 'package:get/get.dart';
 
@@ -23,6 +27,8 @@ mixin CheckoutControllerMethods {
   handleCheckout(String paymentWay);
   double roundToDecimalPlaces(double value, int places);
   getTotalPiceAfterDiscount();
+  Future<bool> checkExistingItemsMethod(int itemsid, int currentitemscount);
+  Future<bool> decreaseItemsMethod(int itemsid, int currentitemscount);
 }
 
 mixin CheckoutControllerVaraibles {
@@ -39,8 +45,12 @@ mixin CheckoutControllerVaraibles {
   StatusRequest statusRequest = StatusRequest.success;
   AdressData adressData = AdressData(Get.find());
   CheckoutData checkoutData = CheckoutData(Get.find());
+  DecreaseItemsData decreaseItems = DecreaseItemsData(Get.find());
+  CheckExistingItemsData checkExistingItems =
+      CheckExistingItemsData(Get.find());
   MyServices services = Get.find<MyServices>();
   List<ViewAddressModel> viewAddressList = [];
+  List<ViewCartProductsModel> viewCartProductsList = [];
 }
 
 class CheckoutControllerImp extends GetxController
@@ -74,6 +84,16 @@ class CheckoutControllerImp extends GetxController
     }
     if (deliveryType == "0" && viewAddressList.isEmpty) {
       return showCustomSnackbar("You Should Add Your Address");
+    }
+    for (var element in viewCartProductsList) {
+      if (!await checkExistingItemsMethod(
+          element.itemsId!, element.currentItemsCount!)) {
+        return showToast(
+            text: "sorry we have limited item count of ${element.itemsName}");
+      }
+    }
+    for (var element in viewCartProductsList) {
+      await decreaseItemsMethod(element.itemsId!, element.currentItemsCount!);
     }
     if (!isPressBotton) {
       isPressBotton = true;
@@ -164,6 +184,7 @@ class CheckoutControllerImp extends GetxController
     totalPrice = Get.arguments["totalPice"];
     discountCoupon = Get.arguments["discountCoupon"];
     id = services.sharePref.getInt(AppKey.usersId)!;
+    viewCartProductsList = Get.arguments["viewCartProductsList"];
   }
 
   @override
@@ -183,5 +204,48 @@ class CheckoutControllerImp extends GetxController
     var price = double.parse(totalPrice) -
         double.parse(totalPrice) * (int.parse(discountCoupon) / 100);
     return roundToDecimalPlaces(price, 2).toString();
+  }
+
+  @override
+  Future<bool> checkExistingItemsMethod(
+      int itemsid, int currentitemscount) async {
+    statusRequest = StatusRequest.loading;
+    update();
+    var response =
+        await checkExistingItems.checkItems(itemsid, currentitemscount);
+    statusRequest = handlingData(response);
+    if (statusRequest == StatusRequest.success) {
+      statusRequest = StatusRequest.success;
+      update();
+      if (response['status'] == 'success') {
+        return true;
+      } else {
+        return false;
+      }
+    } else {
+      statusRequest = StatusRequest.success;
+      update();
+      return true;
+    }
+  }
+
+  @override
+  Future<bool> decreaseItemsMethod(int itemsid, int currentitemscount) async {
+    statusRequest = StatusRequest.loading;
+    update();
+    var response =
+        await decreaseItems.decreaseItems(itemsid, currentitemscount);
+    statusRequest = handlingData(response);
+    statusRequest = StatusRequest.success;
+    update();
+    if (statusRequest == StatusRequest.success) {
+      if (response['status'] == 'success') {
+        return true;
+      } else {
+        return false;
+      }
+    } else {
+      return true;
+    }
   }
 }

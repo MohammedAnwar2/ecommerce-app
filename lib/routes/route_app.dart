@@ -1,8 +1,8 @@
 class AppRoute {
   static const String language = "/";
-  static const String login = "/login";
-  static const String homePage = "/homePage";
   static const String onbording = "/onbording";
+  static const String homePage = "/homePage";
+  static const String login = "/login";
   static const String signUp = "/signUp";
   static const String forgetPassword = "/forgetPassword";
   static const String resetPassword = "/resetPassword";
@@ -15,6 +15,7 @@ class AppRoute {
   static const String productDetails = "/productDetails";
   static const String myFavorite = "/myFavorite";
   static const String myCardScreen = "/myCardScreen";
+  static const String notificationPage = "/notificationPage";
   //*address
   static const String viewAddress = "/viewaddress";
   static const String deleteAddress = "/deleteaddress";
@@ -26,6 +27,7 @@ class AppRoute {
   static const String checkOut = "/checkOut";
   static const String pendingorders = "/pendingorders";
   static const String archiveorders = "/archiveorders";
-  static const String orderPendingDetails = "/orderPendingDetails";
-  static const String orderArchiveDetails = "/orderArchiveDetails";
+  static const String orderDetails = "/orderdetails";
+  //* tracking
+  static const String trackingorder = "/tackingPage";
 }

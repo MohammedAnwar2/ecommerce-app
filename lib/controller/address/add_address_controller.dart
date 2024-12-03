@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:ecommerce/core/class/sratus_request.dart';
-import 'package:ecommerce/core/services/location_services.dart';
+import 'package:ecommerce/core/services/google_map_services/location_services.dart';
 import 'package:ecommerce/routes/route_app.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
