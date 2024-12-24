@@ -9,7 +9,7 @@ Welcome to **E-Commerce App**! 🛒✨ This app is designed to provide a seamles
 ### 1. **🔐 User Authentication (Login, Register, Forgot Password)**
 
 Securely access your account with our user authentication system. 🔒 Whether you’re logging in, registering a new account, or resetting your password, the process is smooth and secure. 🛡️✨
-
+<img src="assets/screenshots/Authentication.png" alt="Authentication" width="400" height="300">
 ---
 
 ### 2. **🛍️ Product Listing with Categories and Filters**
