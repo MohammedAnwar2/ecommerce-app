@@ -28,29 +28,49 @@ Securely log in, register, or reset your password with our user-friendly authent
 
 ---
 
-### 3. **Product Listing with Categories and Filters 🛍️**
-<img src="assets/screenshots/Products.png" alt="Products" width="800">  
-Browse products organized into categories and apply filters to find exactly what you’re looking for. The app provides a clean and intuitive layout to make shopping easy and enjoyable.
+### 3. **Product Listing with Details Integration 🛍️📝**
 
-- **Categories:** Products are grouped into categories for easy navigation.  
-- **Filters:** Narrow down your search with filters such as price range, brand, and ratings.  
+ShopEase combines the power of an intuitive product listing experience with in-depth product details, ensuring a smooth and informative shopping journey.
 
 ---
 
-### 4. **Product Details Page 📝**
+### **Browse Products Effortlessly**
 
-Get detailed information about each product, including high-quality images, descriptions, pricing, and user reviews.
+<img src="assets/screenshots/Products.png" alt="Products" width="800">
 
-- **Images:** View multiple images of the product.  
-- **Description:** Read detailed information about the product’s features.  
-- **Price:** See the current price and any discounts.  
-- **Reviews:** Read reviews from other users to make informed decisions.  
+Explore a wide variety of products organized into categories and subcategories for effortless navigation. Use advanced filters to narrow down your options and find exactly what you need.
 
-**Image Path:** `assets/screenshots/Products.png`
+- **Categories:** Seamlessly browse through products grouped by category.  
+- **Filters:** Refine your search with filters like price range, brand, ratings, and more.  
+- **Search:** Quickly locate products by typing in names or keywords.  
 
 ---
 
-### 5. **Add to Cart & Checkout Process 🛒💳**
+### **Detailed Product Information**
+
+Clicking on any product in the listing takes you to its detailed page, offering a closer look at everything you need to know to make an informed decision.
+
+#### **Features of the Product Details Page:**
+
+- **High-Quality Images:** Swipe through multiple images to inspect the product from every angle.  
+- **Comprehensive Descriptions:** Understand the features, specifications, and uses of the product.  
+- **Pricing Information:** View the current price, any discounts, and savings at a glance.  
+- **User Reviews:** Read real customer feedback and ratings to guide your purchase decisions.  
+
+---
+
+### **Seamless Navigation Between Listing and Details**
+
+ShopEase makes transitioning between browsing and exploring product details a breeze:  
+
+- **From Listing to Details:** Select a product from the listing to instantly access its detailed view.  
+- **Back to Listing:** Easily return to your search results or category view without losing your place.  
+
+This integration ensures that your shopping experience is both efficient and enjoyable.
+
+---
+
+### 4. **Add to Cart & Checkout Process 🛒💳**
 
 Easily add products to your cart for later checkout. The cart updates dynamically, showing the quantity and total price for all items. When ready, complete your purchase with a smooth and secure checkout process.  
 
@@ -62,7 +82,7 @@ Easily add products to your cart for later checkout. The cart updates dynamicall
 
 ---
 
-### 6. **Order History 📦**
+### 5. **Order History 📦**
 
 Track your past purchases easily with the order history feature. View order details, including items purchased, order status, and delivery updates.
 
@@ -70,7 +90,7 @@ Track your past purchases easily with the order history feature. View order deta
 
 ---
 
-### 7. **Search Functionality 🔍**
+### 6. **Search Functionality 🔍**
 
 Find products quickly with our powerful search feature. Search by name, category, or keywords to locate what you need in seconds.
 
@@ -78,7 +98,7 @@ Find products quickly with our powerful search feature. Search by name, category
 
 ---
 
-### 8. **User Profile Page 👤**
+### 7. **User Profile Page 👤**
 
 Manage your account settings and view your order history on the profile page. Customize your preferences and keep track of your activity effortlessly.
 
