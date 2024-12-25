@@ -100,14 +100,19 @@ Find your favorite products in seconds and save them for future reference! 📌�
 
 ---
 
-### 7. **User Profile Page 👤**
+### **7. User Profile Page 👤**
 
-Your profile is where you can manage your account settings and view your past orders. Customize your preferences and keep track of everything with ease! 🖥️🔧
+Your profile is where you can manage your account settings and view your past orders. Customize your preferences and keep track of everything with ease! 🖥️🔧  
+The profile page also includes important sections for managing your account, tracking orders, and more.
 
 - **Settings:** Update your personal details and preferences! ⚙️  
 - **Order History:** Access and view all your past orders! 🛍️🔍  
-
-**Image Path:** `assets/screenshots/Orders.png`
+- **Address:** Manage and update your delivery addresses for a smooth checkout process. 📍  
+- **Pending Orders:** View orders that are still being processed and are yet to be completed. ⏳  
+- **Archived Orders:** Check orders that have been completed or archived for your reference. 📅🗃️  
+- **About Us:** Learn more about our company, mission, and values. 🌟  
+- **Contact Us:** Reach out to us for inquiries, feedback, or support. 📬  
+- **Logout:** Log out of your account when you're done shopping! 🚪
 
 ---
 
