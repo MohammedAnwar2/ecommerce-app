@@ -105,28 +105,6 @@ Manage your account settings and view your order history on the profile page. Cu
 
 ---
 
-## **🛠️ How to Use 🛠️**
-
-### 1. **Installation:**
-
-To install this project locally, follow these steps:  
-
-1. Download the project from [GitHub repository](https://github.com/YourUsername/shopEase).  
-2. Run it using Flutter. 🚀  
-
-### 2. **Development:**
-
-- Feel free to modify the design and features as per your requirements. 💡  
-- Add more products or categories to enrich the shopping experience. 🎨  
-
----
-
-## **🤝 Contribute to the Project 🤝**
-
-If you would like to contribute to this project, feel free to open a pull request with your suggested changes. 👩‍💻👨‍💻
-
----
-
 ## **📬 Contact Us 📬**
 
 If you have any questions or inquiries, or if you'd like to discuss improvements or suggestions for the project, you can reach us through the following channels:  
