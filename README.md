@@ -85,11 +85,17 @@ Track your past purchases easily with the order history feature. View order deta
 
 ---
 
-### 6. **Search Functionality 🔍**
+بالطبع! إليك النسخة المعدلة حيث تم دمج **"Search Functionality"** و **"Favorite"** معًا:
 
-Find products quickly with our powerful search feature. Search by name, category, or keywords to locate what you need in seconds.
+---
 
-**Image Path:** `assets/screenshots/Products.png`
+### **6. Search & Favorite 🔍❤️**
+<img src="assets/screenshots/Search_and_Favorite.png" alt="Products" width="800">
+Find products quickly with our powerful search feature and easily save your favorite items for future reference. Search by name, category, or keywords to locate what you need in seconds and add them to your favorites.
+
+- **Search:** Quickly locate products by typing in names or keywords.  
+- **Filters:** Refine your search with filters like price range, brand, ratings, and more.  
+- **Favorite Products:** Save your preferred items to easily access them later.  
 
 ---
 
