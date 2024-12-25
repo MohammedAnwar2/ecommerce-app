@@ -18,13 +18,13 @@ Securely log in, register, or reset your password with our user-friendly authent
 ---
 
 ### 2. **Product Listing with Categories and Filters 🛍️**
-
+<img src="assets/screenshots/Products.png" alt="Products" width="800">
 Browse products organized into categories and apply filters to find exactly what you’re looking for. The app provides a clean and intuitive layout to make shopping easy and enjoyable.
 
 - **Categories:** Products are grouped into categories for easy navigation.
 - **Filters:** Narrow down your search with filters such as price range, brand, and ratings.
 
-**Image Path:** `assets/screenshots/Products.png`
+
 
 ---
 
