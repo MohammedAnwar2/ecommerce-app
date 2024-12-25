@@ -29,14 +29,12 @@ Securely log in, register, or reset your password with our user-friendly authent
 ---
 
 ### 3. **Product Listing with Details Integration 🛍️📝**
-
+<img src="assets/screenshots/Products.png" alt="Products" width="800">
 ShopEase combines the power of an intuitive product listing experience with in-depth product details, ensuring a smooth and informative shopping journey.
 
 ---
 
 ### **Browse Products Effortlessly**
-
-<img src="assets/screenshots/Products.png" alt="Products" width="800">
 
 Explore a wide variety of products organized into categories and subcategories for effortless navigation. Use advanced filters to narrow down your options and find exactly what you need.
 
