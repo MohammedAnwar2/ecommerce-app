@@ -1,6 +1,6 @@
-### **App: Electronic Store** 🛒🌐
+### **App: Ecommerce App** 🛒🌐
 
-Welcome to **Electronic Store**! 🌟🛍️ This app is here to revolutionize your shopping experience with a vast selection of electronic products, all at your fingertips! With its sleek design, powerful features, and an intuitive user interface, **Electronic Store** guarantees a fun, fast, and seamless shopping journey for everyone! ✨🚀
+Welcome to **Ecommerce App**! 🌟🛍️ This app is here to revolutionize your shopping experience with a vast selection of electronic products, all at your fingertips! With its sleek design, powerful features, and an intuitive user interface, **Ecommerce App** guarantees a fun, fast, and seamless shopping journey for everyone! ✨🚀
 
 Whether you’re looking for the latest gadgets, home electronics, or accessories, we have it all! 🌟 From easy navigation to secure payments, everything is designed to make your shopping experience super smooth! 💻📱
 
@@ -11,9 +11,9 @@ Whether you’re looking for the latest gadgets, home electronics, or accessorie
 ### 1. **Onboarding Experience 🎉🖥️**
 <img src="assets/screenshots/Onboarding.png" alt="Onboarding" width="800">
 
-Start your journey with **Electronic Store** with an engaging and informative onboarding experience! 🎈📝 Our onboarding screens will guide you through the app, highlighting key features and setting you up for a smooth start.
+Start your journey with **Ecommerce App** with an engaging and informative onboarding experience! 🎈📝 Our onboarding screens will guide you through the app, highlighting key features and setting you up for a smooth start.
 
-- **Welcome Screen:** A friendly and warm introduction to **Electronic Store** 🏠🎉  
+- **Welcome Screen:** A friendly and warm introduction to **Ecommerce App** 🏠🎉  
 - **Feature Highlights:** Learn about the top features, such as easy navigation, secure payments, exclusive offers, and more! 🏷️💳  
 - **Easy Navigation:** Get oriented with the app’s simple, user-friendly interface! 🎮📱  
 
@@ -22,7 +22,7 @@ Start your journey with **Electronic Store** with an engaging and informative on
 ### 2. **User Authentication 🔐🔑**
 <img src="assets/screenshots/Authentication.png" alt="Authentication" width="800">
 
-Logging in, registering, and resetting your password has never been easier or more secure! 🛡️ With **Electronic Store**, we ensure your personal information is protected with advanced security protocols. 🏦🔒
+Logging in, registering, and resetting your password has never been easier or more secure! 🛡️ With **Ecommerce App**, we ensure your personal information is protected with advanced security protocols. 🏦🔒
 
 - **Login:** Access your account easily using your credentials! 👨‍💻👩‍💻  
 - **Register:** Set up your account with just a few simple steps! ✍️📲  
@@ -61,7 +61,7 @@ Click on any product to access detailed information, ensuring you make an inform
 
 ### **Seamless Navigation Between Listing and Details 🔄**
 
-With **Electronic Store**, you can easily switch between browsing products and viewing detailed information!
+With **Ecommerce App**, you can easily switch between browsing products and viewing detailed information!
 
 - **From Listing to Details:** Simply tap on a product in the list to instantly see more details! 📱🛍️  
 - **Back to Listing:** Return to your previous search or category without losing your place! 🔙  
@@ -76,7 +76,7 @@ Adding products to your cart and completing checkout has never been easier! 🛍
 
 - **Cart Features:** View all your items, update quantities, or remove products as needed! 🧾🛒  
 - **Shipping Address:** Add or select your delivery address with just a few taps! 🏠🚚  
-- **Payment Options:** Choose from a variety of payment methods, including credit cards, debit cards, and digital wallets! 💳💵  
+- **Payment Options:** Choose from a variety of payment methods, including PayPal! 💳  
 
 ---
 
@@ -92,7 +92,7 @@ View and manage your past orders, including **pending orders**, **archived order
 
 ### **6. Search & Favorite 🔍❤️**
 <img src="assets/screenshots/Search_and_Favorite.png" alt="Search and Favorite" width="800">
-Find your favorite products in seconds and save them for future reference! 📌💖 With **Electronic Store**, searching and favoriting products has never been easier or more fun!
+Find your favorite products in seconds and save them for future reference! 📌💖 With **Ecommerce App**, searching and favoriting products has never been easier or more fun!
 
 - **Search:** Quickly locate products by typing in names, categories, or keywords! 🔍👨‍💻  
 - **Filters:** Narrow down your search using filters such as price, brand, rating, etc.! 📊  
@@ -128,6 +128,8 @@ If you have any questions or need assistance, or if you'd like to discuss sugges
 
 ### **🌟 Thank you for visiting! 🌟**
 
-We look forward to your feedback and suggestions to continue improving your shopping experience with **Electronic Store**! ✨💬
+We look forward to your feedback and suggestions to continue improving your shopping experience with **Ecommerce App**! ✨💬
 
-تم تحديث النصوص مع إضافة الإيموجي والشرح الموسع كما طلبت.
+---
+
+تم تغيير اسم المشروع إلى **Ecommerce App** كما طلبت.
