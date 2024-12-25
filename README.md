@@ -7,14 +7,13 @@ Welcome to **ShopEase**! 🛍️ This app is designed to provide a seamless shop
 ## **🌟 Features 🌟**
 
 ### 1. **User Authentication 🔐**
+<img src="assets/screenshots/Authentication.png" alt="Authentication" width="800">
 
 Securely log in, register, or reset your password with our user-friendly authentication system. ShopEase ensures the safety of your personal information with advanced security protocols.
 
 - **Login:** Access your account easily with your credentials.
 - **Register:** Create a new account in just a few steps.
 - **Forgot Password:** Reset your password securely if you’ve forgotten it.
-
-**Image Path:** <img src="assets/screenshots/Authentication.png" alt="Authentication" width="800">
 
 ---
 
