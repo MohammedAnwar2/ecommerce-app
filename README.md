@@ -78,15 +78,12 @@ Easily add products to your cart for later checkout. The cart updates dynamicall
 - **Shipping Address:** Add or select your delivery address.  
 - **Payment Options:** Choose from available payment methods like credit cards, debit cards, or digital wallets.  
 
-**Image Path:** `assets/screenshots/Checkout.png`
-
 ---
 
 ### 5. **Order History 📦**
-
+<img src="assets/screenshots/Orders.png" alt="Products" width="800">
 Track your past purchases easily with the order history feature. View order details, including items purchased, order status, and delivery updates.
 
-**Image Path:** `assets/screenshots/Orders.png`
 
 ---
 
