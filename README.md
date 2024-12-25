@@ -80,9 +80,13 @@ Adding products to your cart and completing checkout has never been easier! 🛍
 
 ---
 
-### 5. **Order History 📦**
-<img src="assets/screenshots/Orders.png" alt="Products" width="800">
-Keep track of your past orders easily and stay updated on your deliveries with our **Order History** feature! 📦🎁
+### **5. Order History, Tracking & Status 📦📍**
+<img src="assets/screenshots/Orders.png" alt="Orders" width="800">
+View and manage your past orders, including **pending orders**, **archived orders**, and track the real-time status of your delivery via Google Maps! 🚚📍
+
+- **Pending Orders:** See orders that are still being processed. ⏳🛒  
+- **Archived Orders:** Access orders that have been completed or archived. 📅🗃️  
+- **Track Orders:** Follow your delivery’s journey in real-time on Google Maps, so you know exactly where your order is at all times! 📍🗺️
 
 ---
 
