@@ -129,7 +129,3 @@ If you have any questions or need assistance, or if you'd like to discuss sugges
 ### **🌟 Thank you for visiting! 🌟**
 
 We look forward to your feedback and suggestions to continue improving your shopping experience with **Ecommerce App**! ✨💬
-
----
-
-تم تغيير اسم المشروع إلى **Ecommerce App** كما طلبت.
