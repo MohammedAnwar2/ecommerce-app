@@ -14,7 +14,7 @@ Securely log in, register, or reset your password with our user-friendly authent
 - **Register:** Create a new account in just a few steps.
 - **Forgot Password:** Reset your password securely if you’ve forgotten it.
 
-**Image Path:** `assets/screenshots/Authentication.png`
+**Image Path:** <img src="assets/screenshots/Authentication.png" alt="Authentication" width="800">
 
 ---
 
