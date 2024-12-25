@@ -82,11 +82,6 @@ Easily add products to your cart for later checkout. The cart updates dynamicall
 <img src="assets/screenshots/Orders.png" alt="Products" width="800">
 Track your past purchases easily with the order history feature. View order details, including items purchased, order status, and delivery updates.
 
-
----
-
-بالطبع! إليك النسخة المعدلة حيث تم دمج **"Search Functionality"** و **"Favorite"** معًا:
-
 ---
 
 ### **6. Search & Favorite 🔍❤️**
