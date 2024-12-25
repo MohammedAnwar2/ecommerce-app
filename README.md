@@ -55,8 +55,6 @@ Click on any product to access detailed information, ensuring you make an inform
 - **High-Quality Images:** Swipe through multiple angles to get a full view of the product! 📸👀  
 - **Comprehensive Descriptions:** Read all the important details, such as features, specs, and usage info! 📑📝  
 - **Pricing Information:** See the current price, any discounts, and special offers at a glance! 💰💸  
-- **User Reviews:** Check out real feedback from customers to help you make the right choice! ⭐💬  
-
 ---
 
 ### **Seamless Navigation Between Listing and Details 🔄**
