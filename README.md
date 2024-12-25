@@ -71,7 +71,7 @@ This integration ensures that your shopping experience is both efficient and enj
 ---
 
 ### 4. **Add to Cart & Checkout Process 🛒💳**
-
+<img src="assets/screenshots/Checkout.png" alt="Onboarding" width="800">
 Easily add products to your cart for later checkout. The cart updates dynamically, showing the quantity and total price for all items. When ready, complete your purchase with a smooth and secure checkout process.  
 
 - **Cart Features:** View all items, update quantities, or remove items as needed.  
