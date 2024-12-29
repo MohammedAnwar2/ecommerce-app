@@ -2,7 +2,7 @@
 
 Welcome to **Alwaseet**! 🎉🔎 This multi-category platform is your gateway to exploring a world of diverse services and products, covering everything from restaurants and clinics to Arab personalities, Russian news, consumer products, and more. With its sleek design, user-friendly interface, and comprehensive features, **Alwaseet** ensures a seamless and personalized experience for every user. ✨🚀
 
----
+
 
 ## **🌟 Features 🌟**
 
