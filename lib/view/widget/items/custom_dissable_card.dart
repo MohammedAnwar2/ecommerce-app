@@ -92,13 +92,16 @@ class CustomDissableCard extends StatelessWidget {
                                             ),
                                           ),
                                           //horizontalSizedBox(10),
-                                          Text(
-                                            "${itemModel.itemspricediscount!}\$",
-                                            style: TextStyle(
-                                                fontSize: fontSize(14),
-                                                fontWeight: FontWeight.bold,
-                                                color: AppColor.primaryColor,
-                                                fontFamily: ""),
+                                          FittedBox(
+                                            fit: BoxFit.scaleDown,
+                                            child: Text(
+                                              "${itemModel.itemspricediscount!}\$",
+                                              style: TextStyle(
+                                                  fontSize: fontSize(14),
+                                                  fontWeight: FontWeight.bold,
+                                                  color: AppColor.primaryColor,
+                                                  fontFamily: ""),
+                                            ),
                                           ),
                                         ],
                                       )
@@ -110,7 +113,7 @@ class CustomDissableCard extends StatelessWidget {
                                             color: AppColor.primaryColor,
                                             fontFamily: ""),
                                       ),
-                                NotifyMe(itemModel: itemModel)
+                                Expanded(child: NotifyMe(itemModel: itemModel))
                               ],
                             )
                           ],

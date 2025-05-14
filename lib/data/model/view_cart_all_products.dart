@@ -1,3 +1,5 @@
+import 'package:ecommerce/core/functions/convers_datatypes.dart';
+
 class ViewCartProductsModel {
   double? totalPrice;
   int? currentItemsCount;
@@ -38,7 +40,7 @@ class ViewCartProductsModel {
 
   factory ViewCartProductsModel.fromJson(Map<String, dynamic> json) {
     return ViewCartProductsModel(
-      totalPrice: json['total_price'].toDouble(),
+      totalPrice: convertToDouble(json['total_price']),
       currentItemsCount: json['currentItemsCount'],
       cartId: json['cart_id'],
       cartUsersId: json['cart_usersId'],
@@ -51,8 +53,8 @@ class ViewCartProductsModel {
       itemsImage: json['items_image'],
       itemsCount: json['items_count'],
       itemsActive: json['items_active'],
-      itemsPrice: json['items_price'].toDouble(),
-      itemsDiscount: json['items_discount'],
+      itemsPrice: convertToDouble(json['items_price']),
+      itemsDiscount: convertToInt(json['items_discount']),
       itemsDate: json['items_date'],
       itemsCat: json['items_cat'],
     );

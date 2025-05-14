@@ -1,3 +1,5 @@
+import 'package:ecommerce/core/functions/convers_datatypes.dart';
+
 class GetItemsIdsOrdersModel {
   int? cartId;
   int? cartUsersId;
@@ -21,7 +23,7 @@ class GetItemsIdsOrdersModel {
       cartUsersId: json['cart_usersId'] as int?,
       cartItemsId: json['cart_itemsId'] as int?,
       cartOrders: json['cart_orders'] as int?,
-      cartItemprice: (json['cart_itemprice'] as num?)?.toDouble(),
+      cartItemprice: convertToDouble(json['cart_itemprice']),
       currentcountitems: json['currentcountitems'] as int?,
     );
   }

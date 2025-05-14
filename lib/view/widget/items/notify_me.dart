@@ -32,11 +32,14 @@ class NotifyMe extends StatelessWidget {
                     child: Padding(
                     padding:
                         EdgeInsets.symmetric(horizontal: horizontalSize(10)),
-                    child: Text("Notify Me",
-                        style: TextStyle(
-                            fontSize: fontSize(12),
-                            color: AppColor.black,
-                            fontWeight: FontWeight.bold)),
+                    child: FittedBox(
+                      fit: BoxFit.scaleDown,
+                      child: Text("Notify Me",
+                          style: TextStyle(
+                              fontSize: fontSize(12),
+                              color: AppColor.black,
+                              fontWeight: FontWeight.bold)),
+                    ),
                   ))
                 : Icon(Icons.notification_add));
       },

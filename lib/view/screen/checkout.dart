@@ -20,7 +20,7 @@ class CheckOut extends StatelessWidget {
     return Scaffold(
       bottomNavigationBar: CheckoutBotton(
         onPressed: () async {
-          await checkoutController.checkoutProcess();
+          await checkoutController.checkoutProcess(context);
         },
       ),
       appBar: AppBar(title: const Text("CheckOut")),

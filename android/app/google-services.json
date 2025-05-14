@@ -7,9 +7,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:850178454275:android:d2ad37a411da171bc82f36",
+        "mobilesdk_app_id": "1:850178454275:android:992652fb5755453fc82f36",
         "android_client_info": {
-          "package_name": "com.moanbm123.ecommerce_app"
+          "package_name": "com.ecommercedeliverymoanbm123.delivery"
         }
       },
       "oauth_client": [
@@ -36,20 +36,41 @@
     },
     {
       "client_info": {
-        "mobilesdk_app_id": "1:850178454275:android:86cc4f4ec681c337c82f36",
+        "mobilesdk_app_id": "1:850178454275:android:bb5887cd8924975bc82f36",
         "android_client_info": {
-          "package_name": "com.mohammed.app.ppppppp"
+          "package_name": "com.example.ecommerce"
         }
       },
       "oauth_client": [
         {
-          "client_id": "850178454275-iddso0pqv4l76q370jpru9i1u1g4sm27.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.mohammed.app.ppppppp",
-            "certificate_hash": "b3370d912141a06dc38e7a39abcefb7ccc7c3966"
-          }
-        },
+          "client_id": "850178454275-6bmsjlst0p2pr2r3ugqo32egvhsfvkn1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBUToyGF_610WwMO_bq29bwXUede5bKXB0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "850178454275-6bmsjlst0p2pr2r3ugqo32egvhsfvkn1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:850178454275:android:873d79718aa984c8c82f36",
+        "android_client_info": {
+          "package_name": "com.moan123.ecommerceadmin"
+        }
+      },
+      "oauth_client": [
         {
           "client_id": "850178454275-6bmsjlst0p2pr2r3ugqo32egvhsfvkn1.apps.googleusercontent.com",
           "client_type": 3

@@ -93,18 +93,18 @@ class LoginControllerImp extends LoginController {
 
   @override
   void onInit() {
-    setupToken();
+    // setupToken();
     email = TextEditingController();
     password = TextEditingController();
     super.onInit();
   }
 
-  //@override
-  // void onClose() {
-  //   email.dispose();
-  //   password.dispose();
-  //   super.onClose();
-  // }
+  @override
+  void onClose() {
+    email.dispose();
+    password.dispose();
+    super.onClose();
+  }
 
   Future<void> setupToken() async {
     // Get the token each time the application loads

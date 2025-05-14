@@ -1,3 +1,5 @@
+import 'package:ecommerce/core/functions/convers_datatypes.dart';
+
 class OrdersModel {
   int? ordersId;
   int? ordersPaymentmethod;
@@ -51,16 +53,16 @@ class OrdersModel {
 
   factory OrdersModel.fromJson(Map<String, dynamic> json) => OrdersModel(
         ordersId: json['orders_id'] as int?,
-        ordersPaymentmethod: json['orders_paymentmethod'] as int?,
+        ordersPaymentmethod: convertToInt(json['orders_paymentmethod']),
         ordersUserId: json['orders_userId'] as int?,
         ordersAddressId: json['orders_addressId'] as int?,
-        ordersType: json['orders_type'] as int?,
+        ordersType: convertToInt(json['orders_type']) ,
         ordersDeliveryid: json['orders_deliveryid'] as int?,
-        ordersPricedelivery: json['orders_pricedelivery'] as int?,
-        ordersPrice: (json['orders_price'] as num?)?.toDouble(),
-        ordersTotalprice: (json['orders_totalprice'] as num?)?.toDouble(),
+        ordersPricedelivery: convertToInt(json['orders_pricedelivery']),
+        ordersPrice: convertToDouble(json['orders_price']),
+        ordersTotalprice: convertToDouble(json['orders_totalprice']),
         ordersCoupon: json['orders_coupon'] as int?,
-        ordersDatetime: json['orders_datetime'] as String?,
+        ordersDatetime: json['orders_date'] as String?,
         ordersRating: json['orders_rating'] as int?,
         ordersNoteRating: json['orders_noteRating'] as String?,
         ordersStatus: json['orders_status'] as int?,

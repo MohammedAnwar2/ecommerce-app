@@ -5,20 +5,20 @@ import 'package:ecommerce/core/services/service.dart';
 import 'package:ecommerce/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:fluttertoast/fluttertoast.dart';
+// import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await initServices();
-  runApp(MyApp());
+  runApp(EcommerceUsersApp());
 }
 
-class MyApp extends StatelessWidget {
-  MyApp({super.key});
-  MyServices services = Get.find<MyServices>();
+class EcommerceUsersApp extends StatelessWidget {
+  const EcommerceUsersApp({super.key});
   @override
   Widget build(BuildContext context) {
+  MyServices services = Get.find<MyServices>();
     ScreenUtil.init(context); //first
     MyLanguageController controller = Get.put(MyLanguageController()); //second
     //otherwise will go wrong
@@ -29,7 +29,6 @@ class MyApp extends StatelessWidget {
       builder: (_, child) {
         return GetMaterialApp(
           navigatorKey: services.navigatorKey,
-          builder: FToastBuilder(),
           translations: LocalizationModel(),
           locale: controller.language,
           debugShowCheckedModeBanner: false,

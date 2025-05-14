@@ -1,6 +1,12 @@
 class AppLink {
-  static const String server = "https://mohammedanwar.in/ecommerce/users";
-  static const String image = "https://mohammedanwar.in/ecommerce/uploade";
+  // static const String server = "http://ecommerce.local/users";
+  // static const String image = "http://ecommerce.local/uploade";
+  static const String server = "http://192.168.1.37/ecommerce/users";
+  static const String image = "http://192.168.1.37/ecommerce/uploade";
+  // static const String server = "http://10.0.2.2/ecommerce/users";
+  // static const String image = "http://10.0.2.2/ecommerce/uploade";
+  // static const String server = "https://mohammedanwar.in/ecommerce/users";
+  // static const String image = "https://mohammedanwar.in/ecommerce/uploade";
 
   //*-------------------------- Image ------------------------------
   static const String imageCategories = "$image/categories";

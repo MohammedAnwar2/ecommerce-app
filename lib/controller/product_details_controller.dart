@@ -19,7 +19,7 @@ abstract class ProductDetailsController extends AddDeleteItemsCounter {
   @override
   deleteData(String itemId);
   initData();
-  add();
+  add(BuildContext context);
   remove();
   goToCard();
   getCountData(String itemId);
@@ -52,7 +52,7 @@ class ProductDetailsControllerImp extends ProductDetailsController {
   }
 
   @override
-  add() {
+  add(BuildContext context) async {
     if (itemModel.itemsCount! > count) {
       count++;
       addData(itemModel.itemsId.toString(),
@@ -60,7 +60,7 @@ class ProductDetailsControllerImp extends ProductDetailsController {
       update();
     } else {
       showToast(
-          text: "Sorry we have limited quantity", height: verticalSized(100));
+          text: "Sorry we have limited quantity", height: verticalSized(100), context: context);
     }
   }
 

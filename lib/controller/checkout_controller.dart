@@ -14,14 +14,16 @@ import 'package:ecommerce/data/datasource/remote/orders/decrease_items.dart';
 import 'package:ecommerce/data/model/view_address_model.dart';
 import 'package:ecommerce/data/model/view_cart_all_products.dart';
 import 'package:ecommerce/routes/route_app.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:path/path.dart';
 
 mixin CheckoutControllerMethods {
   choosePaymentMethod(String val);
   chooseDeliveryType(String val);
   chooseShippingAddress(String val);
   getShippingAddress();
-  checkoutProcess();
+  checkoutProcess(BuildContext context);
   initData();
   goToAddAddress();
   handleCheckout(String paymentWay);
@@ -75,7 +77,7 @@ class CheckoutControllerImp extends GetxController
   }
 
   @override
-  checkoutProcess() async {
+  checkoutProcess(BuildContext context) async {
     if (paymentType == null) {
       return showCustomSnackbar("You Should Select Payment Type");
     }
@@ -89,7 +91,7 @@ class CheckoutControllerImp extends GetxController
       if (!await checkExistingItemsMethod(
           element.itemsId!, element.currentItemsCount!)) {
         return showToast(
-            text: "sorry we have limited item count of ${element.itemsName}");
+            text: "sorry we have limited item count of ${element.itemsName}",context: context);
       }
     }
     for (var element in viewCartProductsList) {
@@ -181,6 +183,7 @@ class CheckoutControllerImp extends GetxController
   @override
   initData() {
     couponid = Get.arguments["couponId"];
+    print("coupon id $couponid");
     totalPrice = Get.arguments["totalPice"];
     discountCoupon = Get.arguments["discountCoupon"];
     id = services.sharePref.getInt(AppKey.usersId)!;

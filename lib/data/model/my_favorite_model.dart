@@ -1,3 +1,4 @@
+import 'package:ecommerce/core/functions/convers_datatypes.dart';
 import 'package:ecommerce/data/model/items_model.dart';
 
 class MyFavoriteModel {
@@ -45,15 +46,15 @@ class MyFavoriteModel {
         favoriteItemsId: json['favorite_itemsId'],
         itemsId: json['items_id'],
         itemsName: json['items_name'],
-        totalPrice: json['total_price'].toDouble(),
+        totalPrice: convertToDouble(json['total_price']),
         itemsNameAr: json['items_name_ar'],
         itemsDesc: json['items_desc'],
         itemsDescAr: json['items_desc_ar'],
         itemsImage: json['items_image'],
         itemsCount: json['items_count'],
         itemsActive: json['items_active'],
-        itemsPrice: json['items_price'].toDouble(),
-        itemsDiscount: json['items_discount'],
+        itemsPrice: convertToDouble(json['items_price']) ,
+        itemsDiscount: convertToInt(json['items_discount']),
         itemsDate: json['items_date'],
         itemsCat: json['items_cat'],
         usersId: json['users_id']);

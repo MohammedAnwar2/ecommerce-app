@@ -1,3 +1,5 @@
+import 'package:ecommerce/core/functions/convers_datatypes.dart';
+
 class ViewAddressModel {
   int? addressId;
   int? addressUsersId;
@@ -24,8 +26,10 @@ class ViewAddressModel {
       addressName: json['address_name'] as String?,
       addressCity: json['address_city'] as String?,
       addressStreet: json['address_street'] as String?,
-      addressLat: (json['address_lat'] as num?)?.toDouble(),
-      addressLong: (json['address_long'] as num?)?.toDouble(),
+      addressLat: convertToDouble(json['address_lat']),
+      addressLong: convertToDouble(json['address_long']),
+      // addressLat: (json['address_lat'] as num?)?.toDouble(),
+      // addressLong: (json['address_long'] as num?)?.toDouble(),
     );
   }
 

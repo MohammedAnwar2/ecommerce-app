@@ -42,7 +42,7 @@ class ProductDetails extends StatelessWidget {
                 ProductCount(
                   price: controller.itemModel.itemspricediscount.toString(),
                   onAdd: () {
-                    controller.add();
+                    controller.add(context);
                   },
                   onRemove: () {
                     controller.remove();

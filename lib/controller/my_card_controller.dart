@@ -2,6 +2,7 @@ import 'dart:math';
 import 'package:ecommerce/controller/mix_class_controller/add_delete_items_methods.dart';
 import 'package:ecommerce/core/class/sratus_request.dart';
 import 'package:ecommerce/core/constant/app_keys.dart';
+import 'package:ecommerce/core/functions/convers_datatypes.dart';
 import 'package:ecommerce/core/functions/hadlingdata.dart';
 import 'package:ecommerce/core/functions/show_custom_snackbar.dart';
 import 'package:ecommerce/core/functions/show_tost.dart';
@@ -14,7 +15,7 @@ import 'package:ecommerce/data/model/view_cart_all_products.dart';
 import 'package:ecommerce/routes/route_app.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:fluttertoast/fluttertoast.dart';
+import 'package:path/path.dart';
 
 abstract class MyCardControllerMethods extends AddDeleteItemsCounter {
   @override
@@ -72,7 +73,7 @@ class MyCardControllerImp extends MyCardControllerMethods
         List countprice = response['countprice'];
         viewCartProductsList
             .addAll(alldata.map((e) => ViewCartProductsModel.fromJson(e)));
-        totalprice = countprice[0]["totalprice"];
+        totalprice = convertToDouble(countprice[0]["totalprice"]);
         totalcount = countprice[0]["totalcount"];
       } else {
         statusRequest = StatusRequest.nodata;
@@ -81,14 +82,14 @@ class MyCardControllerImp extends MyCardControllerMethods
     update();
   }
 
-  add(ViewCartProductsModel viewCartProductslist) async {
+  add(ViewCartProductsModel viewCartProductslist,BuildContext context) async {
     if (viewCartProductslist.currentItemsCount! <
         viewCartProductslist.itemsCount!) {
       await addData(viewCartProductslist.itemsId.toString(),
           viewCartProductslist.itemsPrice.toString());
       refreshView();
     } else {
-      showToast(text: "Sorry we have limited quantity");
+      showToast(text: "Sorry we have limited quantity",context: context);
     }
   }
 

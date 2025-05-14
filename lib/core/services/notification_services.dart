@@ -6,7 +6,7 @@ import 'package:ecommerce/controller/orders/pending_controller.dart';
 import 'package:ecommerce/routes/route_app.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:get/get.dart';
-import 'package:flutter_ringtone_player/flutter_ringtone_player.dart';
+// import 'package:flutter_ringtone_player/flutter_ringtone_player.dart';
 
 class NotificationServices {
   static FirebaseMessaging messaging = FirebaseMessaging.instance;
@@ -34,7 +34,7 @@ class NotificationServices {
   static Future<void> reciveMessage() async {
     FirebaseMessaging.onMessage.listen((RemoteMessage message) {
       if (message.notification != null) {
-        FlutterRingtonePlayer().playNotification();
+        // FlutterRingtonePlayer().playNotification();
         Get.snackbar(message.notification!.title.toString(),
             message.notification!.body.toString());
         refreshOrdersAndNotifcation(message.data);

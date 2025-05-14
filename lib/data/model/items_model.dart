@@ -1,3 +1,5 @@
+import 'package:ecommerce/core/functions/convers_datatypes.dart';
+
 class ItemModel {
   int? itemsId;
   String? itemsName;
@@ -48,18 +50,14 @@ class ItemModel {
       itemsName: json['items_name'],
       itemsNameAr: json['items_name_ar'],
       itemsDesc: json['items_desc'],
-      itemspricediscount: json['itemspricediscount'] is int
-          ? json['itemspricediscount'].toDouble()
-          : json['itemspricediscount'],
+      itemspricediscount:  double.parse(json['itemspricediscount'].toString()),
       itemsDescAr: json['items_desc_ar'],
       itemsImage: json['items_image'],
       itemsCount: json['items_count'],
       itemsIsnotify: json['items_isnotify'] as int?,
       itemsActive: json['items_active'],
-      itemsPrice: json['items_price'] is int
-          ? json['items_price'].toDouble()
-          : json['items_price'],
-      itemsDiscount: json['items_discount'],
+      itemsPrice: double.parse(json['items_price'].toString()) ,
+      itemsDiscount: convertToInt (json['items_discount']),
       itemsDate: json['items_date'],
       itemsCat: json['items_cat'],
       categoriesId: json['categories_id'],

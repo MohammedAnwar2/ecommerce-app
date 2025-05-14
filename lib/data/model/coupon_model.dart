@@ -1,3 +1,5 @@
+import 'package:ecommerce/core/functions/convers_datatypes.dart';
+
 class CouponModel {
   int? couponId;
   String? couponName;
@@ -17,7 +19,7 @@ class CouponModel {
         couponId: json['coupon_id'] as int?,
         couponName: json['coupon_name'] as String?,
         couponExpiredate: json['coupon_expiredate'] as String?,
-        couponDiscount: json['coupon_discount'] as int?,
+        couponDiscount: convertToInt(json['coupon_discount']),
         couponCount: json['coupon_count'] as int?,
       );
 

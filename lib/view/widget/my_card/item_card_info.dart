@@ -52,7 +52,7 @@ class ItemCardInfo extends GetView<MyCardControllerImp> {
                     height: verticalSized(38),
                     child: IconButton(
                         onPressed: () async {
-                          await controller.add(viewCartProductsModel);
+                          await controller.add(viewCartProductsModel,context);
                           // await controller.addData(
                           //     viewCartProductsModel.itemsId.toString(),
                           //     viewCartProductsModel.itemsPrice.toString());
