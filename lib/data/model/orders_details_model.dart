@@ -1,3 +1,5 @@
+import 'package:ecommerce/core/functions/convers_datatypes.dart';
+
 class OrdersDetailsModel {
   double? totalPrice;
   int? itemscount;
@@ -43,13 +45,13 @@ class OrdersDetailsModel {
 
   factory OrdersDetailsModel.fromJson(Map<String, dynamic> json) =>
       OrdersDetailsModel(
-        totalPrice: (json['total_price'] as num?)?.toDouble(),
+        totalPrice: convertToDouble(json['total_price']),
         itemscount: json['Itemscount'] as int?,
         cartId: json['cart_id'] as int?,
         cartUsersId: json['cart_usersId'] as int?,
         cartItemsId: json['cart_itemsId'] as int?,
         cartOrders: json['cart_orders'] as int?,
-        cartItemprice: (json['cart_itemprice'] as num?)?.toDouble(),
+        cartItemprice: convertToDouble(json['cart_itemprice']),
         itemsId: json['items_id'] as int?,
         itemsName: json['items_name'] as String?,
         itemsNameAr: json['items_name_ar'] as String?,
@@ -58,8 +60,8 @@ class OrdersDetailsModel {
         itemsImage: json['items_image'] as String?,
         itemsCount: json['items_count'] as int?,
         itemsActive: json['items_active'] as int?,
-        itemsPrice: (json['items_price'] as num?)?.toDouble(),
-        itemsDiscount: json['items_discount'] as int?,
+        itemsPrice: convertToDouble(json['items_price']),
+        itemsDiscount: convertToInt(json['items_discount']),
         itemsDate: json['items_date'] as String?,
         itemsCat: json['items_cat'] as int?,
       );

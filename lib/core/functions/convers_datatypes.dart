@@ -1,21 +1,23 @@
-int convertToInt(String value) {
+int? convertToInt(String? value) {
   // Try parsing the string as a double
-  final doubleValue = double.tryParse(value);
-  if (doubleValue != null) {
-    return doubleValue.toInt(); // Truncates if it's a decimal
+  if (value != null) {
+    final doubleValue = double.tryParse(value);
+    if (doubleValue != null) {
+      return doubleValue.toInt(); // Truncates if it's a decimal
+    }
   }
 
   // Fallback if the string can't be parsed to a number
-  return 0;
+  return null;
 }
 
-double convertToDouble(String value) {
+double? convertToDouble(String? value) {
   // Try parsing the string as a double
-  final doubleValue = double.tryParse(value);
-  if (doubleValue != null) {
-    return doubleValue;
+  if (value != null) {
+    final doubleValue = double.tryParse(value);
+    if (doubleValue != null) {
+      return doubleValue;
+    }
   }
-
-  // Fallback if the string can't be parsed to a number
-  return 0.0;
+  return null; // Return null if the input is null
 }

@@ -70,11 +70,11 @@ class OrdersModel {
         orderAddressName: json['orderAddress_name'] as dynamic,
         orderAddressCity: json['orderAddress_city'] as dynamic,
         orderAddressStreet: json['orderAddress_street'] as dynamic,
-        orderAddressLat: json['orderAddress_lat'] as dynamic,
-        orderAddressLong: json['orderAddress_long'] as dynamic,
+        orderAddressLat: convertToDouble(json['orderAddress_lat']) ,
+        orderAddressLong: convertToDouble(json['orderAddress_long']) ,
         orderAddressAddressId: json['orderAddress_addressId'] as dynamic,
         orderAddressOrderId: json['orderAddress_orderId'] as dynamic,
-        couponDiscount: json['coupon_discount'] as dynamic,
+        couponDiscount: convertToInt(json['coupon_discount']),
       );
 
   Map<String, dynamic> toJson() => {
