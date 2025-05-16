@@ -45,7 +45,7 @@ class HomePage extends StatelessWidget {
                             controller.deleteText();
                           },
                         )
-                      : Container(
+                      : SizedBox(
                           height: 0,
                           width: 0,
                         ),
