@@ -11,18 +11,18 @@ dependencies:
   connectivity_plus: ^6.0.2
   cupertino_icons: ^1.0.6
   dartz: ^0.10.1
+  device_preview: ^1.2.0
   dropdown_search: ^6.0.2
   firebase_core: ^3.13.0
   firebase_messaging: ^15.2.5
   flutter:
     sdk: flutter
+  flutter_inappwebview: ^6.0.0
   flutter_launcher_icons: ^0.14.3
-  # flutter_local_notifications: ^17.0.0
   flutter_otp_text_field: ^1.1.2+1
   flutter_paypal_payment: ^1.0.6
   flutter_polyline_points: ^2.0.0
   flutter_rating_stars: ^1.1.0
-  # flutter_ringtone_player: ^4.0.0+3
   flutter_screenutil: ^5.9.0
   flutter_svg: ^2.0.10+1
   fluttericon: ^2.0.0
@@ -36,7 +36,7 @@ dependencies:
   grouped_list: ^6.0.0
   http: ^1.2.1
   image_picker: ^1.0.7
-  intl: ^0.20.2
+  intl: ^0.19.0
   jiffy: ^6.3.1
   location: ^8.0.0
   lottie: ^3.1.0
@@ -46,8 +46,7 @@ dependencies:
   show_up_animation: ^2.0.0
   sqflite: ^2.3.3
   url_launcher: ^6.3.0
-  flutter_inappwebview: ^6.0.0
-  
+
 dev_dependencies:
   flutter_lints: ^5.0.0
   flutter_test:

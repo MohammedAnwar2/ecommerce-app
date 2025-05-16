@@ -6,8 +6,7 @@ class CustomAnimation extends StatefulWidget {
   final Widget child;
   final int? time;
 
-  const CustomAnimation({Key? key, required this.child, this.time = 800})
-      : super(key: key);
+  const CustomAnimation({super.key, required this.child, this.time = 800});
 
   @override
   _CustomAnimationState createState() => _CustomAnimationState();

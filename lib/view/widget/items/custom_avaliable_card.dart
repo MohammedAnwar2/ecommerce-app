@@ -22,110 +22,125 @@ class CustomAvaliableCard extends StatelessWidget {
               onTap: () {
                 controller.goToProductDetails(itemModel);
               },
-              child: Card(
-                elevation: 5,
-                child: Container(
-                  decoration: BoxDecoration(
-                      color: AppColor.white,
-                      borderRadius: BorderRadius.circular(12)),
-                  child: Stack(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Hero(
-                              tag: "${itemModel.itemsId}",
-                              child: CachedNetworkImage(
-                                imageUrl:
-                                    "${AppLink.imageItem}/${itemModel.itemsImage!}",
-                                height: 100,
-                                fit: BoxFit.fill,
-                              ),
-                            ),
-                            Text(
-                              translateDatabase(
-                                  columnAr: itemModel.itemsNameAr!,
-                                  columnEn: itemModel.itemsName!),
-                              style: TextStyle(
-                                fontSize: fontSize(14),
-                                fontWeight: FontWeight.bold,
-                                color: AppColor.grey800,
-                              ),
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                            Row(children: [
-                              const Text("Rating 3.5 "),
-                              const Spacer(),
-                              ...List.generate(
-                                5,
-                                (index) => Container(
-                                  height: verticalSized(15),
-                                  alignment: Alignment.bottomCenter,
-                                  child: const Icon(
-                                    Icons.star,
-                                    size: 15,
+              child: AspectRatio(
+                aspectRatio: 5 / 7,
+                child: Card(
+                  elevation: 5,
+                  child: Container(
+                    decoration: BoxDecoration(
+                        color: AppColor.white,
+                        borderRadius: BorderRadius.circular(12)),
+                    child: Stack(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Flexible(
+                                child: Hero(
+                                  tag: "${itemModel.itemsId}",
+                                  child: CachedNetworkImage(
+                                    imageUrl:
+                                        "${AppLink.imageItem}/${itemModel.itemsImage!}",
                                   ),
                                 ),
                               ),
-                            ]),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                itemModel.itemsDiscount != 0.0
-                                    ? Column(
-                                        mainAxisSize: MainAxisSize.min,
-                                        children: [
-                                          Text(
-                                            "${itemModel.itemsPrice!}\$",
-                                            style: TextStyle(
-                                              fontSize: fontSize(11),
-                                              fontWeight: FontWeight.bold,
-                                              color: AppColor.black,
-                                              fontFamily: "",
-                                              decoration:
-                                                  TextDecoration.lineThrough,
-                                              decorationColor: AppColor
-                                                  .primaryColor, // Color of the line
-                                              decorationThickness: 3.0,
-                                            ),
-                                          ),
-                                          //horizontalSizedBox(10),
-                                          Text(
-                                            "${itemModel.itemspricediscount!}\$",
-                                            style: TextStyle(
-                                                fontSize: fontSize(14),
+                              Text(
+                                translateDatabase(
+                                    columnAr: itemModel.itemsNameAr!,
+                                    columnEn: itemModel.itemsName!),
+                                style: TextStyle(
+                                  fontSize: fontSize(14),
+                                  fontWeight: FontWeight.bold,
+                                  color: AppColor.grey800,
+                                ),
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                              Row(
+                                children: [
+                                  // Text takes only as much as it needs, but can wrap/shrink
+                                  Text(
+                                    '3.5',
+                                    maxLines: 1,
+                                    overflow: TextOverflow.ellipsis,
+                                    style:
+                                        Theme.of(context).textTheme.bodyLarge!.copyWith(fontFamily: ""),
+                                  ),
+                                  Spacer(),
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.start,
+                                    children: List.generate(5, (index) {
+                                      return Icon(
+                                        Icons.star,
+                                        size: MediaQuery.of(context)
+                                                .size
+                                                .width *
+                                            0.04,
+                                      );
+                                    }),
+                                  ),
+                                ],
+                              ),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  itemModel.itemsDiscount != 0.0
+                                      ? Column(
+                                          mainAxisSize: MainAxisSize.min,
+                                          children: [
+                                            Text(
+                                              "${itemModel.itemsPrice!}\$",
+                                              style: TextStyle(
+                                                fontSize: fontSize(11),
                                                 fontWeight: FontWeight.bold,
-                                                color: AppColor.primaryColor,
-                                                fontFamily: ""),
-                                          ),
-                                        ],
-                                      )
-                                    : Text(
-                                        "${itemModel.itemspricediscount!}\$",
-                                        style: TextStyle(
-                                            fontSize: fontSize(16),
-                                            fontWeight: FontWeight.bold,
-                                            color: AppColor.primaryColor,
-                                            fontFamily: ""),
-                                      ),
-                                AddFavorite(itemModel: itemModel)
-                              ],
-                            )
-                          ],
+                                                color: AppColor.black,
+                                                fontFamily: "",
+                                                decoration:
+                                                    TextDecoration.lineThrough,
+                                                decorationColor: AppColor
+                                                    .primaryColor, // Color of the line
+                                                decorationThickness: 3.0,
+                                              ),
+                                            ),
+                                            //horizontalSizedBox(10),
+                                            Text(
+                                              "${itemModel.itemspricediscount!}\$",
+                                              style: TextStyle(
+                                                  fontSize: fontSize(14),
+                                                  fontWeight: FontWeight.bold,
+                                                  color: AppColor.primaryColor,
+                                                  fontFamily: ""),
+                                            ),
+                                          ],
+                                        )
+                                      : Text(
+                                          "${itemModel.itemspricediscount!}\$",
+                                          style: TextStyle(
+                                              fontSize: fontSize(16),
+                                              fontWeight: FontWeight.bold,
+                                              color: AppColor.primaryColor,
+                                              fontFamily: ""),
+                                        ),
+                                  AddFavorite(itemModel: itemModel)
+                                ],
+                              )
+                            ],
+                          ),
                         ),
-                      ),
-                      itemModel.itemsDiscount != 0.0
-                          ? Positioned(
-                              top: 4,
-                              left: 4,
-                              child: Image.asset(
-                                AppImages.sale,
-                                height: 45,
-                              ))
-                          : Container()
-                    ],
+                        itemModel.itemsDiscount != 0.0
+                            ? Positioned(
+                                top: 4,
+                                left: 4,
+                                child: Image.asset(
+                                  AppImages.sale,
+                                  height: 45,
+                                ))
+                            : Container()
+                      ],
+                    ),
                   ),
                 ),
               ),
