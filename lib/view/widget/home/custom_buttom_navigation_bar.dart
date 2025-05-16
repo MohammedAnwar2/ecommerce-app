@@ -1,4 +1,5 @@
 import 'package:ecommerce/controller/home_screen_controller.dart';
+import 'package:ecommerce/core/shared/horizontal_and_vertical_size.dart';
 import 'package:ecommerce/view/widget/home/custom_bottom_appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -11,26 +12,34 @@ class CustomButtomNavigationBar extends GetView<HomeScreenControllerImp> {
   @override
   Widget build(BuildContext context) {
     return BottomAppBar(
-      height: 65,
+      height: 60,
       padding: EdgeInsets.zero,
       shape: const CircularNotchedRectangle(),
       notchMargin: 10,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      child: Column(
         children: [
-          ...List.generate(
-            controller.listPages.length + 1,
-            (index) {
-              int i = index > 2 ? index - 1 : index;
-              return index == 2
-                  ? const Spacer()
-                  : CustomBottomAppBar(
-                      index: i,
-                      text: controller.navigationBarNames[i][0],
-                      icon: controller.navigationBarNames[i][1],
-                    );
-            },
-          )
+          verticalSizedBox(10),
+          Flexible(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                
+                ...List.generate(
+                  controller.listPages.length + 1,
+                  (index) {
+                    int i = index > 2 ? index - 1 : index;
+                    return index == 2
+                        ? const Spacer()
+                        : CustomBottomAppBar(
+                            index: i,
+                            text: controller.navigationBarNames[i][0],
+                            icon: controller.navigationBarNames[i][1],
+                          );
+                  },
+                )
+              ],
+            ),
+          ),
         ],
       ),
     );

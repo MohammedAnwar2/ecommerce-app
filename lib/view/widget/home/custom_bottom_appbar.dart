@@ -1,5 +1,6 @@
 import 'package:ecommerce/controller/home_screen_controller.dart';
 import 'package:ecommerce/core/constant/app_color.dart';
+import 'package:ecommerce/core/shared/horizontal_and_vertical_size.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
@@ -31,15 +32,20 @@ class CustomBottomAppBar extends StatelessWidget {
               color: controller.currentPage == index
                   ? AppColor.primaryColor
                   : AppColor.grey600,
+                  size: raduis(18),
             ),
-            Text(
-              text,
-              style: TextStyle(
-                color: controller.currentPage == index
-                    ? AppColor.primaryColor
-                    : AppColor.grey600,
-              ),
-            ),
+            // Text(
+            //   text,
+            //   maxLines: 1,
+            //   overflow: TextOverflow.ellipsis,
+            //   style: TextStyle(
+
+            //     fontSize: fontSize(12),
+            //     color: controller.currentPage == index
+            //         ? AppColor.primaryColor
+            //         : AppColor.grey600,
+            //   ),
+            // ),
           ],
         ),
       ),

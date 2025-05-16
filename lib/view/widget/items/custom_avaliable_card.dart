@@ -64,20 +64,20 @@ class CustomAvaliableCard extends StatelessWidget {
                                     '3.5',
                                     maxLines: 1,
                                     overflow: TextOverflow.ellipsis,
-                                    style:
-                                        Theme.of(context).textTheme.bodyLarge!.copyWith(fontFamily: ""),
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .bodyLarge!
+                                        .copyWith(fontFamily: ""),
                                   ),
                                   Spacer(),
                                   Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.start,
+                                    mainAxisAlignment: MainAxisAlignment.start,
                                     children: List.generate(5, (index) {
                                       return Icon(
                                         Icons.star,
-                                        size: MediaQuery.of(context)
-                                                .size
-                                                .width *
-                                            0.04,
+                                        size:
+                                            MediaQuery.of(context).size.width *
+                                                0.04,
                                       );
                                     }),
                                   ),

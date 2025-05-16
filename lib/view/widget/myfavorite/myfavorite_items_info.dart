@@ -32,7 +32,7 @@ class ListMyFavorite extends StatelessWidget {
                           gridDelegate:
                               const SliverGridDelegateWithFixedCrossAxisCount(
                             crossAxisCount: 2,
-                            childAspectRatio: 0.75,
+                            childAspectRatio: 5 / 7,
                           ),
                           itemBuilder: (context, i) {
                             return CustomAnimation(
