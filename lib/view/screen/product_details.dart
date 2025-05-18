@@ -55,8 +55,8 @@ class ProductDetails extends StatelessWidget {
                       height: 1.8,
                       fontWeight: FontWeight.normal),
                 ),
-                const DetailsTextTitle(title: "Color"),
-                const ChanegColor()
+                // const DetailsTextTitle(title: "Color"),
+                // const ChanegColor()
               ],
             ),
           ),
