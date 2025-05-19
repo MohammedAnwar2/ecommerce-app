@@ -73,7 +73,7 @@ class MyCardControllerImp extends MyCardControllerMethods
         List countprice = response['countprice'];
         viewCartProductsList
             .addAll(alldata.map((e) => ViewCartProductsModel.fromJson(e)));
-        totalprice = convertToDouble(countprice[0]["totalprice"])??0;
+        totalprice = convertToDouble(countprice[0]["totalprice"]) ?? 0;
         totalcount = countprice[0]["totalcount"];
       } else {
         statusRequest = StatusRequest.nodata;
@@ -82,14 +82,14 @@ class MyCardControllerImp extends MyCardControllerMethods
     update();
   }
 
-  add(ViewCartProductsModel viewCartProductslist,BuildContext context) async {
+  add(ViewCartProductsModel viewCartProductslist, BuildContext context) async {
     if (viewCartProductslist.currentItemsCount! <
         viewCartProductslist.itemsCount!) {
       await addData(viewCartProductslist.itemsId.toString(),
           viewCartProductslist.itemsPrice.toString());
       refreshView();
     } else {
-      showToast(text: "Sorry we have limited quantity",context: context);
+      showToast(text: "Sorry we have limited quantity", context: context);
     }
   }
 

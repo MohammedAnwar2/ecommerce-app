@@ -32,7 +32,7 @@ class CustomBottomAppBar extends StatelessWidget {
               color: controller.currentPage == index
                   ? AppColor.primaryColor
                   : AppColor.grey600,
-                  size: raduis(18),
+              size: raduis(18),
             ),
             // Text(
             //   text,

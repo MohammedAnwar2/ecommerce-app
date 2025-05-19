@@ -6,6 +6,7 @@ import 'package:ecommerce/core/constant/app_keys.dart';
 import 'package:ecommerce/core/functions/hadlingdata.dart';
 import 'package:ecommerce/core/services/service.dart';
 import 'package:ecommerce/data/datasource/remote/home.dart';
+import 'package:ecommerce/data/model/ads.dart';
 import 'package:ecommerce/data/model/categories_model.dart';
 import 'package:ecommerce/data/model/items_model.dart';
 import 'package:ecommerce/data/model/strings_model.dart';
@@ -34,6 +35,7 @@ class HomePageControllerImp extends HomePageController {
   MyServices services = Get.find<MyServices>();
   List<CategoriesModel> categoriesModelList = [];
   List<ItemModel> itemModelList = [];
+  List<AdsModel> adsList = [];
   List<StringsModel> strings = [
     StringsModel(stringsBody: "", stringsTitle: "")
   ];
@@ -50,13 +52,14 @@ class HomePageControllerImp extends HomePageController {
       if (response['status'] == 'success') {
         strings.clear();
         List data1 = response['strings'];
-        log("$data1");
         strings.addAll(data1.map((e) => StringsModel.fromJson(e)));
         data1 = response['categories'];
         categoriesModelList
             .addAll(data1.map((e) => CategoriesModel.fromJson(e)));
         data1 = response['items'];
         itemModelList.addAll(data1.map((e) => ItemModel.fromJson(e)));
+        data1 = response['ads'];
+        adsList.addAll(data1.map((e) => AdsModel.fromJson(e))); 
       } else {
         statusRequest = StatusRequest.nodata;
         // Get.defaultDialog(

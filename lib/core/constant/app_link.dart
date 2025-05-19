@@ -11,6 +11,7 @@ class AppLink {
   //*-------------------------- Image ------------------------------
   static const String imageCategories = "$image/categories";
   static const String imageItem = "$image/item";
+  static const String imageAds = "$image/ads";
   //*-------------------------- Auth ------------------------------
   static const String signup = "$server/auth/signup.php";
   static const String login = "$server/auth/login.php";

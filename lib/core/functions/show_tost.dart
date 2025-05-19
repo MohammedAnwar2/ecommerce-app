@@ -23,7 +23,6 @@ void showToast({
   });
 }
 
-
 class _ToastWidget extends StatelessWidget {
   final String text;
   final double heightOffset;
@@ -67,8 +66,6 @@ class _ToastWidget extends StatelessWidget {
     );
   }
 }
-
-
 
 // import 'package:ecommerce/core/constant/app_color.dart';
 // import 'package:ecommerce/core/services/service.dart';

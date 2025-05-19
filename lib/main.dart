@@ -9,16 +9,16 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:device_preview/device_preview.dart';
 
-
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await initServices();
 
-  runApp(
-    DevicePreview(
-      builder: (context) => EcommerceUsersApp(), // Wrap your app
-    ),
-  );
+  runApp(EcommerceUsersApp());
+  // runApp(
+  //   DevicePreview(
+  //     builder: (context) => EcommerceUsersApp(), // Wrap your app
+  //   ),
+  // );
 }
 
 class EcommerceUsersApp extends StatelessWidget {
@@ -35,9 +35,9 @@ class EcommerceUsersApp extends StatelessWidget {
       splitScreenMode: true,
       builder: (_, child) {
         return GetMaterialApp(
-           useInheritedMediaQuery: true,
-      // locale: DevicePreview.locale(context),
-      builder: DevicePreview.appBuilder,
+          useInheritedMediaQuery: true,
+          // locale: DevicePreview.locale(context),
+          builder: DevicePreview.appBuilder,
           navigatorKey: services.navigatorKey,
           translations: LocalizationModel(),
           locale: controller.language,

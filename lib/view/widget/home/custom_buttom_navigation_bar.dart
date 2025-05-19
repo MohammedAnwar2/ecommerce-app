@@ -23,7 +23,6 @@ class CustomButtomNavigationBar extends GetView<HomeScreenControllerImp> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                
                 ...List.generate(
                   controller.listPages.length + 1,
                   (index) {

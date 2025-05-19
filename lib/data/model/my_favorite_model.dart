@@ -53,7 +53,7 @@ class MyFavoriteModel {
         itemsImage: json['items_image'],
         itemsCount: json['items_count'],
         itemsActive: json['items_active'],
-        itemsPrice: convertToDouble(json['items_price']) ,
+        itemsPrice: convertToDouble(json['items_price']),
         itemsDiscount: convertToInt(json['items_discount']),
         itemsDate: json['items_date'],
         itemsCat: json['items_cat'],

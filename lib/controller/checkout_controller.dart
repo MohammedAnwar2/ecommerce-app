@@ -91,7 +91,8 @@ class CheckoutControllerImp extends GetxController
       if (!await checkExistingItemsMethod(
           element.itemsId!, element.currentItemsCount!)) {
         return showToast(
-            text: "sorry we have limited item count of ${element.itemsName}",context: context);
+            text: "sorry we have limited item count of ${element.itemsName}",
+            context: context);
       }
     }
     for (var element in viewCartProductsList) {

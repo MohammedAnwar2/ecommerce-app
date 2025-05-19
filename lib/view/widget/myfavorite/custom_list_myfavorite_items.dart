@@ -31,7 +31,8 @@ class MyFavoriteInfo extends StatelessWidget {
             elevation: 5,
             child: Container(
               decoration: BoxDecoration(
-                  color: AppColor.white, borderRadius: BorderRadius.circular(12)),
+                  color: AppColor.white,
+                  borderRadius: BorderRadius.circular(12)),
               child: Stack(
                 children: [
                   Padding(
@@ -50,7 +51,6 @@ class MyFavoriteInfo extends StatelessWidget {
                             child: CachedNetworkImage(
                               imageUrl:
                                   "${AppLink.imageItem}/${myFavoriteInfo.itemsImage!}",
-                           
                             ),
                           ),
                         ),
@@ -93,7 +93,8 @@ class MyFavoriteInfo extends StatelessWidget {
                                           fontWeight: FontWeight.bold,
                                           color: AppColor.black,
                                           fontFamily: "",
-                                          decoration: TextDecoration.lineThrough,
+                                          decoration:
+                                              TextDecoration.lineThrough,
                                           decorationColor: AppColor
                                               .primaryColor, // Color of the line
                                           decorationThickness: 3.0,
@@ -122,9 +123,10 @@ class MyFavoriteInfo extends StatelessWidget {
                               onPressed: () {
                                 controller.deleteData(
                                     myFavoriteInfo.favoriteId.toString());
-                                controller.favoriteController.updateFavoriteState(
-                                    itemId: myFavoriteInfo.itemsId!,
-                                    favoriteVal: 0);
+                                controller.favoriteController
+                                    .updateFavoriteState(
+                                        itemId: myFavoriteInfo.itemsId!,
+                                        favoriteVal: 0);
                               },
                               icon: const Icon(
                                 Icons.delete_outline_outlined,

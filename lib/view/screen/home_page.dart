@@ -5,7 +5,7 @@ import 'package:ecommerce/core/shared/horizontal_and_vertical_size.dart';
 import 'package:ecommerce/view/components/search_items_list.dart';
 import 'package:ecommerce/view/widget/home/categories_list.dart';
 import 'package:ecommerce/view/components/custom_appbar.dart';
-import 'package:ecommerce/view/widget/home/custom_cashback_card.dart';
+import 'package:ecommerce/view/widget/home/custom_ads_pageview.dart';
 import 'package:ecommerce/view/widget/home/custom_text.dart';
 import 'package:ecommerce/view/widget/home/product_list.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +16,6 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final homePageController = Get.put(HomePageControllerImp());
-
     return GetBuilder<HomePageControllerImp>(
       builder: (controller) => SafeArea(
         child: Container(
@@ -60,12 +59,7 @@ class HomePage extends StatelessWidget {
                         physics: const NeverScrollableScrollPhysics(),
                         children: [
                           verticalSizedBox(16),
-
-                          CustomCardCashBackHome(
-                              title: homePageController
-                                  .strings.first.stringsTitle!,
-                              subTitle: homePageController
-                                  .strings.first.stringsBody!),
+                          CustomAdsPageView(homePageController: homePageController),
                           CustomAnimation(child: verticalSizedBox(5)),
                           CustomAnimation(
                             child: CustomText(
@@ -95,6 +89,6 @@ class HomePage extends StatelessWidget {
           ),
         ),
       ),
-    ); //------------
+    );
   }
 }

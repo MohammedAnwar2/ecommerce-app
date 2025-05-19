@@ -26,7 +26,7 @@ class ListItems extends GetView<ItemsControllerImp> {
                 physics: const NeverScrollableScrollPhysics(),
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
-                  childAspectRatio: 5/7,
+                  childAspectRatio: 5 / 7,
                 ),
                 itemBuilder: (context, i) {
                   favController.updateFavoriteState(

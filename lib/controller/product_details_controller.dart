@@ -60,7 +60,9 @@ class ProductDetailsControllerImp extends ProductDetailsController {
       update();
     } else {
       showToast(
-          text: "Sorry we have limited quantity", height: verticalSized(100), context: context);
+          text: "Sorry we have limited quantity",
+          height: verticalSized(100),
+          context: context);
     }
   }
 
