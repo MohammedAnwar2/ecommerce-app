@@ -1,5 +1,6 @@
 import 'package:ecommerce/core/class/crud.dart';
 import 'package:ecommerce/core/constant/app_link.dart';
+import 'package:jiffy/jiffy.dart';
 
 class CheckoutData {
   Crud crud;
@@ -23,6 +24,7 @@ class CheckoutData {
       "ordersprice": ordersprice,
       "discount": discount,
       "couponid": couponid,
+      "date": Jiffy.now().format(pattern: 'yyyy-MM-dd HH:mm:ss'),
     });
     return response.fold((l) => l, (r) => r);
   }
